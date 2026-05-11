@@ -1,4 +1,0 @@
--- Migration 006: placeholder intentionally skipped
--- This migration slot was reserved but not used. It exists solely to maintain
--- a contiguous numbering sequence for audit trail clarity.
--- Do not add schema changes here; create a new migration file instead.
