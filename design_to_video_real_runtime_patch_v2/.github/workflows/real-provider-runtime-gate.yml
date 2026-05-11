@@ -1,0 +1,26 @@
+name: Real Provider Runtime Gate
+
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+
+jobs:
+  real-runtime-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile Python sources
+        run: |
+          python -m compileall backend integrations || true
+      - name: Real runtime import gate
+        run: |
+          if [ -f integrations/scripts/verify_real_runtime_imports.py ]; then
+            PYTHONPATH="$PWD/backend:$PWD/integrations/backend" python integrations/scripts/verify_real_runtime_imports.py
+          fi
+      - name: Block placeholder production mode
+        run: |
+          ! grep -R "placeholder" backend/app/agents backend/app/services integrations/backend/app/services -n | grep -i "return" || exit 1
