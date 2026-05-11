@@ -24,6 +24,7 @@ class AgentName(str, Enum):
 class Lineage(BaseModel):
     step: str
     parent_step_id: Optional[str] = None
+    output_artifact_id: Optional[str] = None
     artifact_id: Optional[str] = None
 
 
@@ -31,6 +32,8 @@ class AgentEnvelope(BaseModel):
     agent_name: AgentName
     project_id: str
     trace_id: str = Field(default_factory=lambda: str(uuid4()))
+    input_schema: Dict[str, Any] = Field(default_factory=dict)
+    output_schema: Dict[str, Any] = Field(default_factory=dict)
     input: Dict[str, Any] = Field(default_factory=dict)
     output: Dict[str, Any] = Field(default_factory=dict)
     decision_reason: str = ""

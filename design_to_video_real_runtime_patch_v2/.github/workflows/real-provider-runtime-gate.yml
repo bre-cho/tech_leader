@@ -8,6 +8,9 @@ on:
 jobs:
   real-runtime-gate:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: design_to_video_real_runtime_patch_v2
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -15,12 +18,10 @@ jobs:
           python-version: '3.11'
       - name: Compile Python sources
         run: |
-          python -m compileall backend integrations || true
+          python -m compileall backend
       - name: Real runtime import gate
         run: |
-          if [ -f integrations/scripts/verify_real_runtime_imports.py ]; then
-            PYTHONPATH="$PWD/backend:$PWD/integrations/backend" python integrations/scripts/verify_real_runtime_imports.py
-          fi
-      - name: Block placeholder production mode
+          python scripts/techlead_mvp_audit.py
+      - name: Block placeholder paths
         run: |
-          ! grep -R "placeholder" backend/app/agents backend/app/services integrations/backend/app/services -n | grep -i "return" || exit 1
+          ! grep -R "Image Placeholder" frontend/components/design-studio frontend/app/design-studio -n

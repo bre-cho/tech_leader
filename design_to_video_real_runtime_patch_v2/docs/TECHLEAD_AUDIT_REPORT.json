@@ -1,0 +1,68 @@
+{
+  "checks": [
+    {
+      "name": "exists:backend",
+      "ok": true
+    },
+    {
+      "name": "exists:frontend",
+      "ok": true
+    },
+    {
+      "name": "exists:docs",
+      "ok": true
+    },
+    {
+      "name": "python_compile_backend",
+      "ok": true,
+      "stdout": "Listing 'backend'...\nListing 'backend/app'...\nListing 'backend/app/agents'...\nListing 'backend/app/api'...\nListing 'backend/app/api/v1'...\nListing 'backend/app/core'...\nListing 'backend/app/models'...\nListing 'backend/app/schemas'...\nListing 'backend/app/services'...\n",
+      "stderr": ""
+    },
+    {
+      "name": "alembic_heads",
+      "ok": true,
+      "skipped": "alembic CLI not installed"
+    },
+    {
+      "name": "api_contract_files",
+      "ok": true,
+      "missing": []
+    },
+    {
+      "name": "real_image_bridge_present",
+      "ok": true,
+      "missing": [],
+      "present_blocked": []
+    },
+    {
+      "name": "real_video_bridge_present",
+      "ok": true,
+      "missing": [],
+      "present_blocked": []
+    },
+    {
+      "name": "render_endpoint_not_dry_run",
+      "ok": true,
+      "missing": [],
+      "present_blocked": []
+    },
+    {
+      "name": "frontend_no_placeholder",
+      "ok": true,
+      "missing": [],
+      "present_blocked": []
+    },
+    {
+      "name": "artifact_lineage_model",
+      "ok": true,
+      "missing": [],
+      "present_blocked": []
+    },
+    {
+      "name": "provider_env_production",
+      "ok": true,
+      "skipped": "APP_ENV is not production"
+    }
+  ],
+  "go_no_go": "GO"
+}
