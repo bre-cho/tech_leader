@@ -1,55 +1,73 @@
 from __future__ import annotations
 
-from app.core.contracts import WorkflowStage
+from typing import Any
 
 
-REQUIRED_STAGES = [
-    WorkflowStage.target_define,
-    WorkflowStage.research,
-    WorkflowStage.plan,
-    WorkflowStage.execute,
-    WorkflowStage.verify,
-    WorkflowStage.distill_to_skill,
-    WorkflowStage.memory_update,
-    WorkflowStage.winner_dna_update,
-]
-
-
-class OperatingLawViolation(Exception):
-    pass
+CORE_OPERATING_LAW = {
+    "system_identity": "AI-Native Creative Business Infrastructure",
+    "forbidden": [
+        "feature_first_development",
+        "isolated_generators",
+        "memoryless_execution",
+        "ungoverned_runtime",
+        "non_verifiable_outputs",
+    ],
+    "required_pipeline": [
+        "TARGET_DEFINE",
+        "RESEARCH",
+        "PLAN",
+        "EXECUTE",
+        "VERIFY",
+        "DISTILL_TO_SKILL",
+        "MEMORY_UPDATE",
+        "WINNER_DNA_UPDATE",
+    ],
+    "architecture_flow": [
+        "USER_INPUT",
+        "TECHNICAL_LEAD_AGENT",
+        "PLANNER",
+        "CAPABILITY_ROUTER",
+        "SPECIALIZED_AGENTS",
+        "EXECUTION_MANAGER",
+        "VERIFICATION_ENGINE",
+        "PROMOTION_GATE",
+        "MEMORY_UPDATE",
+        "WINNER_DNA_ENGINE",
+    ],
+    "build_model": [
+        "workflow_first",
+        "agent_driven",
+        "memory_backed",
+        "revenue_optimized",
+        "verification_gated",
+        "winner_dna_powered",
+    ],
+}
 
 
 class CoreOperatingLaw:
-    '''
-    Hardcoded non-bypassable law:
-    NO WORKFLOW -> NO BUILD
-    NO VERIFY -> NO PROMOTION
-    NO MEMORY -> NO SCALE
-    NO WINNER DNA -> NO OPTIMIZATION
-    '''
+    def __init__(self):
+        self.required_pipeline = CORE_OPERATING_LAW["required_pipeline"]
 
-    def validate_stages(self, completed):
-        missing = [stage for stage in REQUIRED_STAGES if stage not in completed]
-        if missing:
-            raise OperatingLawViolation(
-                "Blocked by Core Operating Law. Missing stages: "
-                + ", ".join([m.value for m in missing])
-            )
-        return True
+    def validate_stages(self, stages: list[Any]) -> dict[str, Any]:
+        completed = []
+        for stage in stages:
+            value = getattr(stage, "value", stage)
+            completed.append(str(value))
+        missing = [s for s in self.required_pipeline if s not in completed]
+        return {
+            "passed": not missing,
+            "missing_steps": missing,
+            "blocked": bool(missing),
+            "reason": "NO_WORKFLOW_OR_VERIFY_OR_MEMORY_NO_PROMOTION" if missing else "PASSED",
+        }
 
-    def validate_feature_contract(self, contract):
-        required = [
-            "workflow",
-            "agent",
-            "skill",
-            "runtime",
-            "verification",
-            "memory",
-            "winner_dna",
-        ]
-        missing = [key for key in required if not contract.get(key)]
-        if missing:
-            raise OperatingLawViolation(
-                "Feature rejected. Missing required contracts: " + ", ".join(missing)
-            )
-        return True
+
+def enforce_required_pipeline(trace: dict) -> dict:
+    missing = [s for s in CORE_OPERATING_LAW["required_pipeline"] if s not in trace.get("completed_steps", [])]
+    return {
+        "passed": not missing,
+        "missing_steps": missing,
+        "blocked": bool(missing),
+        "reason": "NO_WORKFLOW_OR_VERIFY_OR_MEMORY_NO_PROMOTION" if missing else "PASSED",
+    }

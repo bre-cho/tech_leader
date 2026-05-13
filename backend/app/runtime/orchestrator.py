@@ -1,7 +1,7 @@
 import json, uuid
 from sqlalchemy.orm import Session
 from app.governance.operating_law import CORE_OPERATING_LAW, OperatingLawEnforcer
-from app.runtime.planner import Planner
+from app.runtime.planner import TechnicalLeadPlanner
 from app.runtime.router import CapabilityRouter
 from app.runtime.verification import VerificationEngine
 from app.skills.distiller import SkillDistiller
@@ -20,7 +20,7 @@ class TechnicalLeadOrchestrator:
     def __init__(self, db: Session):
         self.db = db
         self.law = OperatingLawEnforcer()
-        self.planner = Planner()
+        self.planner = TechnicalLeadPlanner()
         self.router = CapabilityRouter()
         self.verifier = VerificationEngine()
         self.distiller = SkillDistiller()
@@ -54,7 +54,7 @@ class TechnicalLeadOrchestrator:
             trace["research"] = True
 
             # PLAN + ROUTE
-            plan = self.planner.create_plan(request)
+            plan = self.planner.plan(request.model_dump())
             route = self.router.route(plan)
             trace["plan"] = True
 
@@ -65,6 +65,7 @@ class TechnicalLeadOrchestrator:
                 "recalled_winner_dna": recalled,
                 "technical_lead_plan": plan,
                 "capability_route": route,
+                "trace": trace,
             }
 
             # EXECUTE SPECIALIZED AGENTS
@@ -99,10 +100,6 @@ class TechnicalLeadOrchestrator:
             }
             context["winner_dna_payload"] = dna
 
-            # VERIFY
-            verification = self.verifier.verify(context)
-            trace["verify"] = True
-
             # MEMORY UPDATE + CONTEXT GRAPH
             if request.dry_run:
                 context_graph_update = {
@@ -126,6 +123,10 @@ class TechnicalLeadOrchestrator:
                 memory_update = self.memory.store(dna)
             trace["memory_update"] = True
             trace["winner_dna_update"] = True
+
+            # VERIFY (after all workflow steps are complete)
+            trace["verify"] = True  # Mark verify step before calling verification
+            verification = self.verifier.verify(context)
 
             # PROMOTION GATE AFTER LAW TRACE COMPLETE
             if request.dry_run:

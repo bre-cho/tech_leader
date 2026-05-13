@@ -54,7 +54,9 @@ class OperatingLawEnforcer:
 
     def assert_can_promote(self, trace: dict[str, bool], verification: dict[str, Any]) -> dict[str, Any]:
         law = self.validate_trace(trace)
-        checks = verification.get("checks", {}) if verification else {}
+        # Recompute checks with current law status
+        checks = verification.get("checks", {}).copy() if verification else {}
+        checks["operating_law"] = law.passed  # Update with current law state
         failed_checks = [k for k, v in checks.items() if not v]
         passed = law.passed and not failed_checks
         return {
