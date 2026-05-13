@@ -2,4 +2,4 @@
 set -euo pipefail
 cd "$(dirname "$0")/../backend"
 python -m compileall app
-pytest -q
+PYTHONPATH=. pytest -q
