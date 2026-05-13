@@ -6,6 +6,9 @@ from app.memory.second_brain_api import router as second_brain_router
 from app.lipdub.api import router as lipdub_router
 from app.runtime.creative_lipdub_api import router as creative_lipdub_router
 from app.video_postprocess.api import router as video_postprocess_router
+from app.indextts.api import router as indextts_router
+from app.voice.api import router as voice_router
+from app.tts_studio.api import router as tts_studio_router
 
 app = FastAPI(title="Agentic Creative Operating Environment", version="1.0.0")
 
@@ -27,3 +30,6 @@ app.include_router(second_brain_router, prefix="/api/v1")
 app.include_router(lipdub_router, prefix="/api/v1")
 app.include_router(creative_lipdub_router, prefix="/api/v1")
 app.include_router(video_postprocess_router, prefix="/api/v1")
+app.include_router(indextts_router, prefix="/api/v1")
+app.include_router(voice_router, prefix="/api/v1")
+app.include_router(tts_studio_router, prefix="/api/v1")
