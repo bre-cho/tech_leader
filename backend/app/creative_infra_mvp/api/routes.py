@@ -2,8 +2,10 @@ from fastapi import APIRouter
 from app.creative_infra_mvp.contracts import CreativeRunRequest, CreativeRunResponse
 from app.creative_infra_mvp.workflow import CreativeInfrastructureWorkflow
 from app.creative_infra_mvp.services.brand_memory_cloud import BrandMemoryCloud
+from app.creative_infra_mvp.api.infra_patches import router as infra_patch_router
 
 router = APIRouter()
+router.include_router(infra_patch_router)
 
 @router.get("/health")
 def health():
