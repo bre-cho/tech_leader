@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import SalesEngineV3Panel from "@/components/storyboard-v30/SalesEngineV3Panel";
 
 export default function StoryboardV30Studio() {
   const [result, setResult] = useState<any>(null);
@@ -8,7 +9,7 @@ export default function StoryboardV30Studio() {
 
   async function run() {
     setLoading(true);
-    const res = await fetch("/api/storyboard/v30/run", {
+    const res = await fetch("/api/storyboard/v30/sales-run", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({
@@ -31,7 +32,20 @@ export default function StoryboardV30Studio() {
           video: "veo",
           motionAlt: "runway"
         },
-        outputDir: "storage/v30-storyboard-agent/demo"
+        outputDir: "storage/v30-storyboard-agent/demo",
+        salesEngine: {
+          enabled: true,
+          productName: "son môi đỏ luxury Dior/YSL",
+          category: "lipstick",
+          brief: "Micro contrast on lips + lipstick only, eye highlight boost nhẹ, skin matte, lipstick touching lips",
+          duration: 15,
+          platform: "shorts",
+          aspectRatio: "9:16",
+          language: "vi",
+          preserveIdentity: true,
+          preserveProductShape: true,
+          goal: "sale"
+        }
       })
     });
     setResult(await res.json());
@@ -58,8 +72,15 @@ export default function StoryboardV30Studio() {
             <Panel title="Provider Batches" data={{
               stillItems: result.providerPayloads?.stillKeyframes?.items?.length,
               videoItems: result.providerPayloads?.videoShots?.items?.length,
-              altMotionItems: result.providerPayloads?.altMotion?.items?.length
+              altMotionItems: result.providerPayloads?.altMotion?.items?.length,
+              salesVideoItems: result.providerPayloads?.salesVideoShots?.items?.length,
+              salesKeyframeItems: result.providerPayloads?.salesKeyframes?.items?.length
             }} />
+            <SalesEngineV3Panel
+              salesEngine={result.salesEngineV3}
+              verification={result.verification}
+              providerPayloads={result.providerPayloads}
+            />
             <div className="rounded-3xl border border-neutral-800 bg-neutral-900 p-5">
               <h2 className="text-xl font-semibold">Shot List</h2>
               <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-3">

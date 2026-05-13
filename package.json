@@ -9,6 +9,7 @@
     "typecheck": "tsc --noEmit",
     "test:banana": "tsx tests/google-banana.test.ts",
     "test:v30": "tsx tests/v30-storyboard-agent.test.ts",
+    "test:v30-sales": "tsx tests/v30-sales-upgraded.test.ts",
     "test:v31": "tsx tests/v31-storyboard-retention-rhythm.test.ts"
   },
   "dependencies": {

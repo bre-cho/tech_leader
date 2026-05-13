@@ -1,0 +1,35 @@
+{
+  "title": "London Fashion Week × Luxury Lipstick Launch",
+  "format": "fashion_runway",
+  "mainCharacter": "1 cô gái / female fashion model",
+  "location": "London Fashion Week",
+  "aspectRatio": "9:16",
+  "totalShots": 160,
+  "targetDurationSec": 240,
+  "requestedPhases": ["setup", "backstage", "runway", "after_party"],
+  "identityDna": {
+    "faceLock": true,
+    "wardrobeContinuity": true,
+    "hairMakeupContinuity": true,
+    "characterNotes": "same female fashion model, luxury beauty commercial identity"
+  },
+  "providers": {
+    "still": "hidream",
+    "video": "veo",
+    "motionAlt": "runway"
+  },
+  "outputDir": "storage/v30-sales-upgraded/lipstick",
+  "salesEngine": {
+    "enabled": true,
+    "productName": "son môi đỏ luxury Dior/YSL",
+    "category": "lipstick",
+    "brief": "Micro contrast on lips + lipstick only, eye highlight boost nhẹ, skin matte, lipstick touching lips",
+    "duration": 15,
+    "platform": "shorts",
+    "aspectRatio": "9:16",
+    "language": "vi",
+    "preserveIdentity": true,
+    "preserveProductShape": true,
+    "goal": "sale"
+  }
+}
