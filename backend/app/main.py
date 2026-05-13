@@ -9,6 +9,8 @@ from app.video_postprocess.api import router as video_postprocess_router
 from app.indextts.api import router as indextts_router
 from app.voice.api import router as voice_router
 from app.tts_studio.api import router as tts_studio_router
+from app.api.v1.creative_business_os import router as creative_business_os_router
+from app.api.v1.enterprise_memory import router as enterprise_memory_router
 
 app = FastAPI(title="Agentic Creative Operating Environment", version="1.0.0")
 
@@ -33,3 +35,5 @@ app.include_router(video_postprocess_router, prefix="/api/v1")
 app.include_router(indextts_router, prefix="/api/v1")
 app.include_router(voice_router, prefix="/api/v1")
 app.include_router(tts_studio_router, prefix="/api/v1")
+app.include_router(creative_business_os_router, prefix="/api/v1")
+app.include_router(enterprise_memory_router, prefix="/api/v1")
