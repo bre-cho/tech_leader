@@ -8,7 +8,7 @@ const content = fs.readFileSync(mainFile, 'utf8');
 const requiredMarkers = [
   'write_route_auth_guard',
   'enforce_write_route_auth',
-  'WRITE_API_KEYS',
+  'assert_write_auth_configured',
 ];
 
 const missing = requiredMarkers.filter((marker) => !content.includes(marker));
