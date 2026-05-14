@@ -1,5 +1,6 @@
 "use client";
 import {useState} from "react";
+import { HairRealismPanel } from "./hair-realism/HairRealismPanel";
 
 const API = process.env.NEXT_PUBLIC_API_BASE || "http://localhost:8000";
 
@@ -68,6 +69,9 @@ export default function BeautyPerceptionStudio() {
           ))}
         </section>
       )}
+      <section style={{marginTop:32}}>
+        <HairRealismPanel />
+      </section>
     </main>
   );
 }
