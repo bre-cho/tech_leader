@@ -1,6 +1,7 @@
 "use client";
 import {useState} from "react";
 import { HairRealismPanel } from "./hair-realism/HairRealismPanel";
+import { FaceBalancePanel } from "./face-balance/FaceBalancePanel";
 
 const API = process.env.NEXT_PUBLIC_API_BASE || "http://localhost:8000";
 
@@ -71,6 +72,10 @@ export default function BeautyPerceptionStudio() {
       )}
       <section style={{marginTop:32}}>
         <HairRealismPanel />
+      </section>
+
+      <section style={{marginTop:32}}>
+        <FaceBalancePanel />
       </section>
     </main>
   );

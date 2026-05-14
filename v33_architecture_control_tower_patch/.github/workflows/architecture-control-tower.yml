@@ -1,0 +1,28 @@
+name: Architecture Control Tower
+on:
+  pull_request:
+    branches: [main, master]
+jobs:
+  architecture-guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Install Architecture Observer
+        run: pip install -e services/architecture-observer
+      - name: Snapshot base
+        run: |
+          git checkout ${{ github.event.pull_request.base.sha }}
+          architecture-observer snapshot --repo . --out /tmp/snapshot_before.json
+      - name: Compare head
+        run: |
+          git checkout ${{ github.event.pull_request.head.sha }}
+          architecture-observer compare --before /tmp/snapshot_before.json --repo . --out-dir runtime/architecture-governance
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: architecture-governance
+          path: runtime/architecture-governance

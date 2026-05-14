@@ -12,7 +12,8 @@
     "test:v30-sales": "tsx tests/v30-sales-upgraded.test.ts",
     "test:v31": "tsx tests/v31-storyboard-retention-rhythm.test.ts",
     "test:v26-1": "tsx tests/beauty-avatar.logic.test.ts",
-    "test:v27": "tsx tests/beauty-intelligence/hair-realism/hairScoring.test.ts"
+    "test:v27": "tsx tests/beauty-intelligence/hair-realism/hairScoring.test.ts",
+    "test:v29": "tsx tests/beauty-intelligence/face-balance/faceBalanceScoring.test.ts"
   },
   "dependencies": {
     "@google/genai": "^1.0.0",
