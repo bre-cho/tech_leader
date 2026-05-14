@@ -22,7 +22,8 @@ export type RunAdsFactoryV6ProResult = {
   [key: string]: unknown;
 };
 
-export async function runAdsFactoryV6Pro(_: Record<string, unknown>): Promise<RunAdsFactoryV6ProResult> {
+export async function runAdsFactoryV6Pro(params: Record<string, unknown>): Promise<RunAdsFactoryV6ProResult> {
+  void params;
   return {
     industry: "general",
     winner: null,

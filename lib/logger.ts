@@ -1,4 +1,10 @@
 export type LogLevel = "debug" | "info" | "warn" | "error";
+const sinks: Record<LogLevel, (...args: unknown[]) => void> = {
+  debug: console.debug,
+  info: console.info,
+  warn: console.warn,
+  error: console.error,
+};
 
 export function log(
   level: LogLevel,
@@ -6,12 +12,6 @@ export function log(
   message: string,
   meta: Record<string, unknown> = {}
 ): void {
-  const sinks: Record<LogLevel, (...args: unknown[]) => void> = {
-    debug: console.debug,
-    info: console.info,
-    warn: console.warn,
-    error: console.error,
-  };
   const sink = sinks[level];
   sink(`[${scope}] ${message}`, meta);
 }
