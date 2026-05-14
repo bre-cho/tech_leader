@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { runDesignStudio, getOperatingLaw, DesignRequest } from '../lib/api';
+import { runDesignStudio, getOperatingLaw, DesignRequest, DesignResponse } from '../lib/api';
 
 const initial: DesignRequest = {
   industry: 'spa mỹ phẩm',
@@ -15,7 +15,7 @@ const initial: DesignRequest = {
 export default function DesignStudio() {
   const [form, setForm] = useState<DesignRequest>(initial);
   const [law, setLaw] = useState<any>(null);
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<DesignResponse | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -45,6 +45,7 @@ export default function DesignStudio() {
 
     <form className="panel form" onSubmit={submit}>
       {field('industry','Ngành')}{field('product','Sản phẩm/Dịch vụ')}{field('audience','Khách hàng mục tiêu')}{field('channel','Kênh')}{field('goal','Mục tiêu')}{field('brand_name','Tên thương hiệu')}
+      <label><span>Dry run</span><input type="checkbox" checked={!!form.dry_run} onChange={e=>setForm({...form,dry_run:e.target.checked})}/></label>
       <button disabled={loading}>{loading ? 'Đang chạy agent runtime...' : 'Run Design-to-Video Workflow'}</button>
       {error && <p className="error">{error}</p>}
     </form>

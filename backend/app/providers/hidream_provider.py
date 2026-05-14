@@ -1,5 +1,6 @@
 import base64, hashlib, os, time
 from typing import Dict, Any
+from app.config import settings
 
 class HiDreamProvider:
     """Production-ready adapter boundary.
@@ -14,7 +15,7 @@ class HiDreamProvider:
     """
 
     def generate(self, compiled: Dict[str, Any]) -> Dict[str, Any]:
-        provider = compiled.get("provider", "mock")
+        provider = compiled.get("provider", settings.hidream_provider)
         if provider == "mock":
             return self._mock(compiled)
         if provider == "hf_inference":

@@ -1,4 +1,5 @@
 from typing import Dict, Any
+from app.config import settings
 
 class CommercialPromptCompiler:
     def compile(self, req: Dict[str, Any], reasoning: Dict[str, Any]) -> Dict[str, Any]:
@@ -25,7 +26,7 @@ class CommercialPromptCompiler:
         return {
             "prompt": prompt,
             "negative_prompt": negative,
-            "provider": req.get("constraints", {}).get("provider", "mock"),
+            "provider": req.get("constraints", {}).get("provider", settings.hidream_provider),
             "aspect_ratio": req.get("constraints", {}).get("aspect_ratio", "4:5"),
             "quality": "premium_8k_ready"
         }

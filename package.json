@@ -19,7 +19,11 @@
     "test:v29-graph": "tsx tests/v29-beauty-perception.test.ts",
     "test:v28-1": "tsx tests/v28-1-facial-aesthetic.test.ts",
     "test:beauty-commerce": "tsx tests/v28-2-v28-3.test.ts",
-    "test:v28": "tsx tests/v28-beauty-commerce.test.ts"
+    "test:v28": "tsx tests/v28-beauty-commerce.test.ts",
+    "check:mock-leakage": "node scripts/check-mock-leakage.mjs",
+    "test:auth-policy": "node scripts/test-auth-policy.mjs",
+    "test:governance": "node scripts/test-governance.mjs",
+    "check:release-gate": "npm run build && npm run test:governance && npm run check:mock-leakage && cd backend && alembic upgrade head && cd .. && npm run test:auth-policy"
   },
   "dependencies": {
     "@google/genai": "^1.0.0",
