@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from typing import Any
+from app.governance.operating_law import REQUIRED_LAW_STEPS as GOVERNANCE_REQUIRED_LAW_STEPS
 
 
 CORE_OPERATING_LAW = {
@@ -12,16 +13,7 @@ CORE_OPERATING_LAW = {
         "ungoverned_runtime",
         "non_verifiable_outputs",
     ],
-    "required_pipeline": [
-        "TARGET_DEFINE",
-        "RESEARCH",
-        "PLAN",
-        "EXECUTE",
-        "VERIFY",
-        "DISTILL_TO_SKILL",
-        "MEMORY_UPDATE",
-        "WINNER_DNA_UPDATE",
-    ],
+    "required_pipeline": [step.upper() for step in GOVERNANCE_REQUIRED_LAW_STEPS],
     "architecture_flow": [
         "USER_INPUT",
         "TECHNICAL_LEAD_AGENT",

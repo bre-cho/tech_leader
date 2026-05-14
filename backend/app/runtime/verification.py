@@ -10,11 +10,8 @@ class VerificationEngine:
         if reasoning is None:
             reasoning = {"commercial_reasoning_score": 85}
         if artifact is None:
-            artifact = {
-                "artifact_id": "mock_artifact",
-                "checksum": "mock_checksum",
-                "status": "succeeded"
-            }
+            artifact = context.get("artifact") if isinstance(context, dict) else None
+        artifact = artifact or {}
         
         # Handle both old (trace with completed_steps) and new (context with trace dict) signatures
         if "completed_steps" in context and "trace" not in context:
@@ -36,10 +33,13 @@ class VerificationEngine:
             trace = context.get("trace", {})
         
         law = self.law_enforcer.validate_trace(trace)
+        artifact_id = str(artifact.get("artifact_id") or "")
+        checksum = str(artifact.get("checksum") or "")
+        artifact_is_valid = bool(artifact_id and not artifact_id.startswith("mock_") and checksum and not checksum.startswith("mock_"))
         checks = {
             "operating_law": law.passed,
             "commercial_reasoning_score": reasoning.get("commercial_reasoning_score", 85) >= 80,
-            "artifact_contract": bool(artifact.get("artifact_id") and artifact.get("checksum")),
+            "artifact_contract": artifact_is_valid,
             "provider_status_valid": artifact.get("status") in ["succeeded", "ready_to_call"],
         }
         return {

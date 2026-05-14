@@ -10,14 +10,29 @@ export type DesignRequest = {
   tone?: string;
   budget_tier?: 'low' | 'mid' | 'premium';
   language?: string;
+  dry_run?: boolean;
 };
 
-export async function runDesignStudio(payload: DesignRequest) {
+export type DesignResponse = {
+  workflow_id: string;
+  dry_run: boolean;
+  promotion_mode: 'REAL' | 'DRY_RUN';
+  technical_lead_plan: Record<string, unknown>;
+  best_concept: { headline: string; prompt: string; score?: Record<string, unknown> };
+  upsell_analysis: { offer_message?: string } & Record<string, unknown>;
+  storyboard: Array<{ scene_id: string; title: string; visual_prompt: string }>;
+  offer_packages: Array<{ package: string; price_hint: string; deliverable: string }>;
+  verification: Record<string, unknown>;
+  promotion_gate: { status: string };
+  memory_update: Record<string, unknown>;
+};
+
+export async function runDesignStudio(payload: DesignRequest): Promise<DesignResponse> {
   const res = await fetch(`${API_BASE}/design-studio/run`, {
     method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(payload)
   });
   if (!res.ok) throw new Error(await res.text());
-  return res.json();
+  return res.json() as Promise<DesignResponse>;
 }
 
 export async function getOperatingLaw() {

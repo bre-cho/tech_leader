@@ -1,0 +1,61 @@
+from __future__ import annotations
+
+import hashlib
+import json
+import uuid
+from sqlalchemy.orm import Session
+from app.models.records import WorkflowRunRecord, ReplaySnapshotRecord
+
+
+def _stable_hash(payload: str) -> str:
+    return hashlib.sha256(payload.encode("utf-8")).hexdigest()
+
+
+class ReplayRuntime:
+    def __init__(self, db: Session):
+        self.db = db
+
+    def create_snapshot(self, workflow_id: str):
+        run = self.db.query(WorkflowRunRecord).filter(WorkflowRunRecord.workflow_id == workflow_id).order_by(WorkflowRunRecord.created_at.desc()).first()
+        if not run:
+            raise ValueError("workflow_not_found")
+        payload = json.dumps(
+            {
+                "workflow_id": run.workflow_id,
+                "input_json": run.input_json,
+                "output_json": run.output_json,
+                "verification_json": run.verification_json,
+                "promotion_status": run.promotion_status,
+            },
+            ensure_ascii=False,
+            sort_keys=True,
+        )
+        snapshot_id = f"snapshot_{uuid.uuid4().hex[:12]}"
+        output_hash = _stable_hash(run.output_json or "")
+        row = ReplaySnapshotRecord(
+            snapshot_id=snapshot_id,
+            workflow_id=run.workflow_id,
+            payload_json=payload,
+            output_hash=output_hash,
+        )
+        self.db.add(row)
+        self.db.commit()
+        return {"snapshot_id": snapshot_id, "workflow_id": workflow_id, "output_hash": output_hash}
+
+    def replay(self, snapshot_id: str):
+        row = self.db.query(ReplaySnapshotRecord).filter(ReplaySnapshotRecord.snapshot_id == snapshot_id).first()
+        if not row:
+            raise ValueError("snapshot_not_found")
+        payload = json.loads(row.payload_json)
+        replay_hash = _stable_hash(payload.get("output_json") or "")
+        determinism_passed = replay_hash == row.output_hash
+        return {
+            "snapshot_id": snapshot_id,
+            "workflow_id": row.workflow_id,
+            "determinism_passed": determinism_passed,
+            "checks": {
+                "output_hash_match": determinism_passed,
+                "has_input_snapshot": bool(payload.get("input_json")),
+                "has_output_snapshot": bool(payload.get("output_json")),
+            },
+        }

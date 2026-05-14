@@ -47,16 +47,24 @@ class AgentResult(BaseModel):
 class WorkforceRunRequest(BaseModel):
     brief: BusinessBrief
     save_memory: bool = True
+    dry_run: bool = False
 
 
 class WorkforceRunResponse(BaseModel):
     run_id: str
     status: str
+    dry_run: bool = False
+    law_trace: Dict[str, bool] = Field(default_factory=dict)
     context: WorkforceContext
     agent_results: List[AgentResult]
     final_prompt: str
     negative_prompt: str
     storyboard: List[Dict[str, Any]]
+    artifact: Dict[str, Any] = Field(default_factory=dict)
+    verification: Dict[str, Any] = Field(default_factory=dict)
     verification_score: float
     promotion_status: str
+    promotion_gate: Dict[str, Any] = Field(default_factory=dict)
+    memory_update: Dict[str, Any] = Field(default_factory=dict)
+    context_graph_update: Dict[str, Any] = Field(default_factory=dict)
     winner_dna: Dict[str, Any]

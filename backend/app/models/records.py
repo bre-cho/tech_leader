@@ -1,4 +1,4 @@
-from sqlalchemy import Integer, String, Text, Float, DateTime, func
+from sqlalchemy import Integer, String, Text, Float, DateTime, func, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column
 from app.db import Base
 
@@ -39,9 +39,29 @@ class ContextEntityRecord(Base):
 
 class ContextRelationRecord(Base):
     __tablename__ = "context_relations"
+    __table_args__ = (
+        UniqueConstraint("source_key", "relation_type", "target_key", name="uq_context_relations_triplet"),
+    )
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     source_key: Mapped[str] = mapped_column(String(240), index=True)
     relation_type: Mapped[str] = mapped_column(String(120), index=True)
     target_key: Mapped[str] = mapped_column(String(240), index=True)
     payload_json: Mapped[str | None] = mapped_column(Text, nullable=True)
+    created_at: Mapped[str] = mapped_column(DateTime, server_default=func.now())
+
+class AgentTrustRecord(Base):
+    __tablename__ = "agent_trust"
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    agent_name: Mapped[str] = mapped_column(String(120), unique=True, index=True)
+    trust_score: Mapped[float] = mapped_column(Float, default=0)
+    sample_count: Mapped[int] = mapped_column(Integer, default=0)
+    updated_at: Mapped[str] = mapped_column(DateTime, server_default=func.now(), onupdate=func.now())
+
+class ReplaySnapshotRecord(Base):
+    __tablename__ = "replay_snapshots"
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    snapshot_id: Mapped[str] = mapped_column(String(120), unique=True, index=True)
+    workflow_id: Mapped[str] = mapped_column(String(80), index=True)
+    payload_json: Mapped[str] = mapped_column(Text)
+    output_hash: Mapped[str] = mapped_column(String(128), index=True)
     created_at: Mapped[str] = mapped_column(DateTime, server_default=func.now())

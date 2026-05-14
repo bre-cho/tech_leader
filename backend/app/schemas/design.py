@@ -64,5 +64,7 @@ class DesignStudioResponse(BaseModel):
     skill_distillation: dict[str, Any]
     context_graph_update: dict[str, Any] | None = None
     memory_update: dict[str, Any]
+    artifact: dict[str, Any] | None = None
     verification: dict[str, Any]
     promotion_gate: dict[str, Any]
+    observability: dict[str, Any] | None = None

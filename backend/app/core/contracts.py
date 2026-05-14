@@ -52,7 +52,7 @@ class BusinessInput(BaseModel):
 class CreativeOSRequest(BaseModel):
     input: BusinessInput
     workflow_id: str = "commercial_campaign_v1"
-    provider: str = "mock"
+    provider: str = "hf_inference"
     generate_image: bool = False
     export_targets: List[str] = Field(default_factory=lambda: ["social", "landing_page"])
     save_memory: bool = True

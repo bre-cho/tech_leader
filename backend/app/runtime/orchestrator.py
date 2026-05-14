@@ -1,4 +1,5 @@
-import json, uuid
+import json, uuid, hashlib
+from time import perf_counter
 from sqlalchemy.orm import Session
 from app.governance.operating_law import CORE_OPERATING_LAW, OperatingLawEnforcer
 from app.runtime.planner import TechnicalLeadPlanner
@@ -35,6 +36,7 @@ class TechnicalLeadOrchestrator:
 
     def run_design_to_video_workflow(self, request):
         workflow_id = str(uuid.uuid4())
+        started_at = perf_counter()
         trace = self.law.build_default_trace()
         run = WorkflowRunRecord(
             workflow_id=workflow_id,
@@ -99,6 +101,8 @@ class TechnicalLeadOrchestrator:
                 "workflow_id": workflow_id,
             }
             context["winner_dna_payload"] = dna
+            artifact = self._build_verification_artifact(context, workflow_id)
+            context["artifact"] = artifact
 
             # MEMORY UPDATE + CONTEXT GRAPH
             if request.dry_run:
@@ -126,7 +130,11 @@ class TechnicalLeadOrchestrator:
 
             # VERIFY (after all workflow steps are complete)
             trace["verify"] = True  # Mark verify step before calling verification
-            verification = self.verifier.verify(context)
+            verification = self.verifier.verify(
+                context,
+                reasoning={"commercial_reasoning_score": float(best["score"]["conversion_score"])},
+                artifact=artifact,
+            )
 
             # PROMOTION GATE AFTER LAW TRACE COMPLETE
             if request.dry_run:
@@ -164,8 +172,14 @@ class TechnicalLeadOrchestrator:
                 "skill_distillation": context["skill_distillation"],
                 "context_graph_update": context_graph_update,
                 "memory_update": memory_update,
+                "artifact": artifact,
                 "verification": verification,
                 "promotion_gate": promotion_gate,
+                "observability": {
+                    "workflow_seconds": round(perf_counter() - started_at, 4),
+                    "verify_passed": verification.get("passed", False),
+                    "promotion_status": promotion_gate.get("status"),
+                },
             }
             if request.dry_run:
                 run.status = "dry_run"
@@ -181,6 +195,16 @@ class TechnicalLeadOrchestrator:
             run.output_json = json.dumps({"error": str(exc), "law_trace": trace}, ensure_ascii=False)
             self.db.commit()
             raise
+
+    def _build_verification_artifact(self, context, workflow_id):
+        best = context["best_concept"]
+        payload = f"{workflow_id}:{best.get('concept_id','')}:{best.get('prompt','')}"
+        checksum = hashlib.sha256(payload.encode("utf-8")).hexdigest()
+        return {
+            "artifact_id": f"artifact_{workflow_id[:12]}",
+            "checksum": checksum,
+            "status": "ready_to_call",
+        }
 
     def _write_context_graph(self, request, context, workflow_id):
         best = context["best_concept"]
