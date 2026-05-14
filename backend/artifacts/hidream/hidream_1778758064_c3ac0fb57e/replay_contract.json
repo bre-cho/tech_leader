@@ -1,0 +1,76 @@
+{
+  "request": {
+    "business_goal": "Create a premium beauty poster that can become a product showcase video",
+    "industry": "cosmetic beauty",
+    "product_name": "Luminous Serum",
+    "audience": "young professional women",
+    "use_case": "cosmetic_product",
+    "brand_dna": {
+      "palette": "champagne gold, ivory, soft black"
+    },
+    "visual_dna": {
+      "materials": "glass serum bottle, glowing skin, silk fabric"
+    },
+    "campaign_context": {
+      "offer": "launch bundle"
+    },
+    "copy_text": null,
+    "aspect_ratio": "4:5",
+    "render_tier": "premium",
+    "seed": null,
+    "provider": "mock",
+    "enable_typography_safe_mode": true,
+    "enable_storyboard_expansion": true,
+    "enable_8k_export_contract": true
+  },
+  "prompt_contract": {
+    "positive_prompt": "Premium commercial advertising image for Luminous Serum in cosmetic beauty. Business goal: Create a premium beauty poster that can become a product showcase video. Audience: young professional women. high-trust cosmetic advertising product hero foreground, model support frame, visible packaging, ad-safe layout Camera: 100mm macro product lens, slight low angle for confident commercial presence, hero subject centered with product clearly readable, shallow depth of field, crisp subject edges. Lighting: controlled studio reflections, clean white-gold rim light, warm neutral luxury, deep but clean commercial shadows, no muddy skin, controlled specular highlights on product and skin. Materials: glass serum bottle, glowing skin, silk fabric. preserve micro texture: pores, fabric weave, glass refraction, metal reflection. Ultra realistic, cinematic, premium editorial finish, high texture fidelity, sharp commercial details. leave clean negative space for final text rendered by frontend; only render brand text if explicitly provided and short Campaign context: offer: launch bundle",
+    "negative_prompt": "low quality, blurry, muddy texture, plastic skin, over-smoothed face, distorted anatomy, warped hands, extra fingers, deformed product, wrong logo, unreadable text, misspelled typography, overexposed highlights, flat lighting, AI artifact, uncanny face, bad crop, product hidden, brand text hallucination",
+    "camera_grammar": {
+      "lens": "100mm macro product lens",
+      "angle": "slight low angle for confident commercial presence",
+      "framing": "hero subject centered with product clearly readable",
+      "depth_of_field": "shallow depth of field, crisp subject edges",
+      "motion_readiness": "pose and subject placement can expand into video storyboard"
+    },
+    "lighting_logic": {
+      "style": "controlled studio reflections, clean white-gold rim light",
+      "palette": "champagne gold, ivory, soft black",
+      "shadow_policy": "deep but clean commercial shadows, no muddy skin",
+      "highlight_policy": "controlled specular highlights on product and skin",
+      "color_temperature": "warm neutral luxury"
+    },
+    "material_logic": {
+      "primary_materials": "glass serum bottle, glowing skin, silk fabric",
+      "texture_fidelity": "preserve micro texture: pores, fabric weave, glass refraction, metal reflection",
+      "commercial_realism": "no plastic skin, no warped hands, no unreadable packaging",
+      "render_priority": [
+        "face fidelity",
+        "product clarity",
+        "material realism",
+        "brand readability"
+      ]
+    },
+    "composition_logic": {
+      "layout": "product hero foreground, model support frame, visible packaging, ad-safe layout",
+      "hierarchy": "face/product first, benefit second, CTA-safe area third",
+      "negative_space": "clean region reserved for final typography overlay",
+      "crop_safety": "full product visible, no crop through hands/face/logo"
+    },
+    "typography_policy": {
+      "mode": "typography-safe",
+      "instruction": "leave clean negative space for final text rendered by frontend; only render brand text if explicitly provided and short",
+      "copy_text": "",
+      "logo_policy": "preserve product label if supplied as image/reference; otherwise avoid invented brand spelling"
+    },
+    "provider_params": {
+      "size": "1024x1280",
+      "num_inference_steps": 36,
+      "guidance_scale": 5.5,
+      "seed": null
+    }
+  },
+  "provider": "mock",
+  "model_id": "HiDream-ai/HiDream-O1-Image",
+  "checksum_sha256": "9f3dd8bd9a44bea44b26ad54754010c0185f2c1c19831fd55357f58aa26bcfd6"
+}

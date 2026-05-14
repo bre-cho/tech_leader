@@ -19,6 +19,7 @@ export const FaceObservationSchema = z.object({
   eyes: z.string().optional(),
   lips: z.string().optional(),
   skin: z.string().optional(),
+  makeup: z.string().optional(),
   lighting: z.string().optional(),
   pose: z.string().optional(),
   productPlacement: z.string().optional(),

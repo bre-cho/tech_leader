@@ -2,11 +2,13 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from app.db import get_db
 from app.schemas.design import DesignStudioRequest, DesignStudioResponse
+from app.schemas.hidream import HiDreamGenerateRequest, HiDreamGenerateResponse
 from app.runtime.orchestrator import TechnicalLeadOrchestrator
 from app.memory.winner_dna import WinnerDNAEngine
 from app.context_graph.store import ContextGraphStore
 from app.governance.operating_law import CORE_OPERATING_LAW, REQUIRED_CONTEXT_ENTITIES, REQUIRED_LAW_STEPS
 from app.agents.storyboard import StoryboardAgent
+from app.hidream.service import HiDreamCommercialVisualEngine
 
 router = APIRouter()
 
@@ -27,6 +29,10 @@ def run_full_storyboard(payload: DesignStudioRequest, db: Session = Depends(get_
     result = TechnicalLeadOrchestrator(db).run_design_to_video_workflow(payload)
     context = {"request": payload, "video_concept": result["video_concept_preview"]}
     return StoryboardAgent().execute_full(context)
+
+@router.post("/hidream/commercial-visual/generate", response_model=HiDreamGenerateResponse)
+def generate_hidream_commercial_visual(payload: HiDreamGenerateRequest, db: Session = Depends(get_db)):
+    return HiDreamCommercialVisualEngine(db).generate(payload)
 
 @router.get("/memory/winner-dna")
 def list_winner_dna(db: Session = Depends(get_db)):

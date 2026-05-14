@@ -101,7 +101,7 @@ export function HairRealismPanel() {
             <div className="mt-2 text-xs text-red-600">
               <strong>Issues:</strong>
               <ul className="list-disc ml-4">
-                {score.issues.map((issue, i) => (
+                {score.issues.map((issue: string, i: number) => (
                   <li key={i}>{issue}</li>
                 ))}
               </ul>

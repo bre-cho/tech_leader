@@ -73,7 +73,7 @@ export default function ColorIntelligenceDashboard() {
             <div className="mt-3 grid gap-2">
               {(graph.items || []).slice(-12).map((e: any, i: number) => (
                 <div key={`${e.source}-${i}`} className="rounded-xl border border-neutral-800 bg-neutral-950 p-3 text-sm text-neutral-300">
-                  {e.source} -> {e.relation} -> {e.target} ({e.weight})
+                  {e.source} -&gt; {e.relation} -&gt; {e.target} ({e.weight})
                 </div>
               ))}
             </div>

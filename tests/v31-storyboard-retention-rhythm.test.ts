@@ -12,9 +12,11 @@ const result = runStoryboardV31({
 
 if (result.status !== "ready") throw new Error(`Expected ready, got ${result.status}`);
 if (result.rhythmGraph.length !== result.shots.length) throw new Error("Rhythm graph must match shot count");
-if (!result.providerPayloads.videoShots.items.every((x: any) => x.endpoint)) throw new Error("Missing provider endpoint");
-if (result.verification.score < 75) throw new Error("Verification score too low");
-if (!result.providerPayloads.renderQueue || result.providerPayloads.renderQueue.length !== result.shots.length) throw new Error("Render queue missing");
+const pp = result.providerPayloads as any;
+const vf = result.verification as any;
+if (!pp.videoShots.items.every((x: any) => x.endpoint)) throw new Error("Missing provider endpoint");
+if (vf.score < 75) throw new Error("Verification score too low");
+if (!pp.renderQueue || pp.renderQueue.length !== result.shots.length) throw new Error("Render queue missing");
 
 console.log("V31 Storyboard Retention Rhythm test passed:", {
   status: result.status,

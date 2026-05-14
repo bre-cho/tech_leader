@@ -4,6 +4,9 @@ const result = analyzeFacialAesthetic({
   prompt: "K-beauty TikTok commerce poster, KOL holding serum product, lavender pastel layout with readable benefits",
   persona: {
     platform: "tiktok",
+    agePerception: "22-30",
+    archetype: "soft Korean-Vietnamese beauty commerce",
+    conversionGoal: "trust + softness + beauty aspiration",
     luxuryLevel: 86,
     softnessLevel: 92,
     realismLevel: 90,
