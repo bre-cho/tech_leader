@@ -102,10 +102,10 @@ AGENT_PERMISSION_REGISTRY: dict[str, dict[str, Any]] = {
         "allowed_artifact_types": ["qa_report"],
         "max_risk_level": "low",
     },
-    # Fallback for unknown agents
+    # Fallback for unknown agents — deny everything by default
     "__default__": {
         "allowed_tools": [],
-        "allowed_memory_writes": ["short_term"],
+        "allowed_memory_writes": [],
         "allowed_artifact_types": [],
         "max_risk_level": "low",
     },

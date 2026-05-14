@@ -46,7 +46,7 @@ class LocalSecondBrainStore:
             out.append(MemorySearchResult(record=rec, score=round(float(score),4)))
         out.sort(key=lambda x:x.score, reverse=True); return out[:payload.limit]
 
-    def search_by_layer(self, layer: str, namespace: str = "default") -> list:
+    def search_by_layer(self, layer: str, namespace: str = "default") -> list["MemoryRecord"]:
         return [r for r in self.all() if r.layer == layer and r.namespace == namespace]
     def recall_context(self, payload: RecallContextRequest):
         query=' '.join([x for x in [payload.brand_name,payload.avatar_id,payload.campaign_id,payload.product_name,payload.objective] if x])

@@ -32,7 +32,8 @@ class MemoryManager:
         if existing:
             if conflict_strategy == "reject":
                 raise ValueError(
-                    f"Memory conflict: record '{record.id}' already exists in layer '{existing.layer}'"
+                    f"Memory conflict: record '{record.id}' already exists in layer "
+                    f"'{existing.layer}' — attempted write to layer '{record.layer}'"
                 )
             # overwrite — bump version
             record.version = existing.version + 1
