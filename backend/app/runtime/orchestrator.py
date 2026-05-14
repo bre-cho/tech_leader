@@ -2,9 +2,11 @@ import json, uuid, hashlib
 from time import perf_counter
 from sqlalchemy.orm import Session
 from app.governance.operating_law import CORE_OPERATING_LAW, OperatingLawEnforcer
+from app.governance.decision_log import DecisionLogger
 from app.runtime.planner import TechnicalLeadPlanner
 from app.runtime.router import CapabilityRouter
 from app.runtime.verification import VerificationEngine
+from app.runtime.state_propagation import StatePropagationTracker
 from app.skills.distiller import SkillDistiller
 from app.agents.business_diagnosis import BusinessDiagnosisAgent
 from app.agents.image_design import ImageDesignAgent
@@ -16,11 +18,13 @@ from app.agents.offer import OfferAgent
 from app.context_graph.store import ContextGraphStore
 from app.memory.winner_dna import WinnerDNAEngine
 from app.models.records import WorkflowRunRecord
+from app.runtime.replay import RUNTIME_VERSION
 
 class TechnicalLeadOrchestrator:
     def __init__(self, db: Session):
         self.db = db
-        self.law = OperatingLawEnforcer()
+        self.decision_logger = DecisionLogger(db)
+        self.law = OperatingLawEnforcer(decision_logger=self.decision_logger)
         self.planner = TechnicalLeadPlanner()
         self.router = CapabilityRouter()
         self.verifier = VerificationEngine()
@@ -38,6 +42,7 @@ class TechnicalLeadOrchestrator:
         workflow_id = str(uuid.uuid4())
         started_at = perf_counter()
         trace = self.law.build_default_trace()
+        propagation = StatePropagationTracker(self.db, workflow_id)
         run = WorkflowRunRecord(
             workflow_id=workflow_id,
             workflow_name="design-to-video",
@@ -72,16 +77,30 @@ class TechnicalLeadOrchestrator:
 
             # EXECUTE SPECIALIZED AGENTS
             context["business_diagnosis"] = self._run_agent(BusinessDiagnosisAgent(), context)
+            propagation.record("BusinessDiagnosisAgent", "ImageDesignAgent", "business_diagnosis", context["business_diagnosis"])
+
             context["image_concepts"] = self._run_agent(ImageDesignAgent(), context)
+            propagation.record("ImageDesignAgent", "ImageQAAgent", "image_concepts", None)
+
             context["image_concepts"] = self._run_agent(ImageQAAgent(), context)
+            propagation.record("ImageQAAgent", "UpsellOpportunityAgent", "image_concepts_qa", None)
+
             context["best_concept"] = max(
                 context["image_concepts"],
                 key=lambda c: c["score"]["conversion_score"] + c["score"]["upsell_video_potential_score"] + c["score"]["trust_score"],
             )
             context["upsell_analysis"] = self._run_agent(UpsellOpportunityAgent(), context)
+            propagation.record("UpsellOpportunityAgent", "VideoConceptAgent", "upsell_analysis", None)
+
             context["video_concept"] = self._run_agent(VideoConceptAgent(), context)
+            propagation.record("VideoConceptAgent", "StoryboardAgent", "video_concept", None)
+
             context["storyboard"] = self._run_agent(StoryboardAgent(), context)
+            propagation.record("StoryboardAgent", "OfferAgent", "storyboard", None)
+
             context["offer_packages"] = self._run_agent(OfferAgent(), context)
+            propagation.record("OfferAgent", "SkillDistiller", "offer_packages", None)
+
             trace["execute"] = True
 
             # DISTILL SKILL
@@ -138,7 +157,7 @@ class TechnicalLeadOrchestrator:
 
             # PROMOTION GATE AFTER LAW TRACE COMPLETE
             if request.dry_run:
-                law_decision = self.law.validate_trace(trace)
+                law_decision = self.law.validate_trace(trace, workflow_id=workflow_id)
                 checks = verification.get("checks", {}) if verification else {}
                 failed_checks = [k for k, v in checks.items() if not v]
                 promotion_gate = {
@@ -151,7 +170,7 @@ class TechnicalLeadOrchestrator:
                     "rule": "DRY_RUN -> NO PROMOTION (preview only)",
                 }
             else:
-                promotion_gate = self.law.assert_can_promote(trace, verification)
+                promotion_gate = self.law.assert_can_promote(trace, verification, workflow_id=workflow_id)
 
             output = {
                 "workflow_id": workflow_id,
@@ -198,12 +217,20 @@ class TechnicalLeadOrchestrator:
 
     def _build_verification_artifact(self, context, workflow_id):
         best = context["best_concept"]
+        input_payload = context["request"].model_dump_json()
+        input_hash = hashlib.sha256(input_payload.encode("utf-8")).hexdigest()
         payload = f"{workflow_id}:{best.get('concept_id','')}:{best.get('prompt','')}"
         checksum = hashlib.sha256(payload.encode("utf-8")).hexdigest()
         return {
             "artifact_id": f"artifact_{workflow_id[:12]}",
+            "source_task_id": workflow_id,
+            "agent_id": "TechnicalLeadOrchestrator",
+            "input_hash": input_hash,
+            "runtime_version": RUNTIME_VERSION,
+            "parent_artifact_id": None,
             "checksum": checksum,
             "status": "ready_to_call",
+            "replayable": True,
         }
 
     def _write_context_graph(self, request, context, workflow_id):

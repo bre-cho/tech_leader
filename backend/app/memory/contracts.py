@@ -9,6 +9,9 @@ class MemoryCreateRequest(BaseModel):
     content: str
     tags: List[str] = Field(default_factory=list)
     metadata: Dict[str, Any] = Field(default_factory=dict)
+    layer: str = "short_term"
+    version: int = 1
+    source_agent_id: str = "unknown"
 
 class MemoryRecord(BaseModel):
     id: str
@@ -19,6 +22,9 @@ class MemoryRecord(BaseModel):
     tags: List[str]
     metadata: Dict[str, Any]
     embedding: Optional[List[float]] = None
+    layer: str = "short_term"
+    version: int = 1
+    source_agent_id: str = "unknown"
     created_at: str
     updated_at: str
 

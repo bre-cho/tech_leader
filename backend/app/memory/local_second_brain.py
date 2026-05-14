@@ -23,7 +23,14 @@ class LocalSecondBrainStore:
         self.path=Path(path); self.path.parent.mkdir(parents=True, exist_ok=True)
     def create(self, payload: MemoryCreateRequest) -> MemoryRecord:
         stamp=now_iso(); raw=f"{payload.namespace}:{payload.kind}:{payload.title}:{payload.content}"
-        rec=MemoryRecord(id=stable_id(raw), kind=payload.kind, namespace=payload.namespace, title=payload.title, content=payload.content, tags=payload.tags, metadata=payload.metadata, embedding=embed_text(payload.title+'\n'+payload.content+'\n'+' '.join(payload.tags)), created_at=stamp, updated_at=stamp)
+        rec=MemoryRecord(
+            id=stable_id(raw), kind=payload.kind, namespace=payload.namespace,
+            title=payload.title, content=payload.content, tags=payload.tags,
+            metadata=payload.metadata,
+            embedding=embed_text(payload.title+'\n'+payload.content+'\n'+' '.join(payload.tags)),
+            layer=payload.layer, version=payload.version, source_agent_id=payload.source_agent_id,
+            created_at=stamp, updated_at=stamp,
+        )
         records={r.id:r for r in self.all()}; records[rec.id]=rec; self._write(records.values()); return rec
     def all(self):
         if not self.path.exists(): return []
@@ -38,6 +45,9 @@ class LocalSecondBrainStore:
             if payload.query.lower() in rec.content.lower() or payload.query.lower() in rec.title.lower(): score+=0.25
             out.append(MemorySearchResult(record=rec, score=round(float(score),4)))
         out.sort(key=lambda x:x.score, reverse=True); return out[:payload.limit]
+
+    def search_by_layer(self, layer: str, namespace: str = "default") -> list:
+        return [r for r in self.all() if r.layer == layer and r.namespace == namespace]
     def recall_context(self, payload: RecallContextRequest):
         query=' '.join([x for x in [payload.brand_name,payload.avatar_id,payload.campaign_id,payload.product_name,payload.objective] if x])
         results=self.search(MemorySearchRequest(query=query, namespace=payload.namespace, limit=payload.limit))
