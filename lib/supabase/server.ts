@@ -50,7 +50,7 @@ export function getSupabaseServiceClient(): SupabaseClient {
 }
 
 export async function getUserFromBearer(req: Request): Promise<{ user: { id: string } | null; error: string | null }> {
-  const authHeader = req.headers.get("authorization") || req.headers.get("Authorization");
+  const authHeader = req.headers.get("authorization");
   if (!authHeader?.toLowerCase().startsWith("bearer ")) {
     return { user: null, error: "Unauthorized" };
   }
@@ -58,5 +58,5 @@ export async function getUserFromBearer(req: Request): Promise<{ user: { id: str
   if (!token) {
     return { user: null, error: "Unauthorized" };
   }
-  return { user: { id: "stub-user" }, error: null };
+  return { user: { id: `stub-${token.slice(0, 12)}` }, error: null };
 }
