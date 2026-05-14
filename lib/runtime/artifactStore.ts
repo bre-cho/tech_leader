@@ -35,3 +35,8 @@ export function writeJsonArtifact(outputDir: string, artifactType: string, paylo
     metadata
   };
 }
+
+export function appendJsonl(filePath: string, data: Record<string, unknown>) {
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  fs.appendFileSync(filePath, JSON.stringify(data) + "\n", "utf8");
+}

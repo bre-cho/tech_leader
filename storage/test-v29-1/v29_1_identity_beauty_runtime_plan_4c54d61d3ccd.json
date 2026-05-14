@@ -1,0 +1,340 @@
+{
+  "status": "ready",
+  "request": {
+    "brandName": "Demo",
+    "campaignName": "test",
+    "visualIntent": "luxury_lipstick_ad",
+    "platform": "poster",
+    "provider": "auto",
+    "references": [
+      {
+        "id": "face",
+        "kind": "face",
+        "uri": "/face.png",
+        "mimeType": "image/png",
+        "lockStrength": 0.96
+      },
+      {
+        "id": "makeup",
+        "kind": "makeup",
+        "uri": "/makeup.png",
+        "mimeType": "image/png",
+        "lockStrength": 0.92
+      }
+    ],
+    "product": {},
+    "faceLock": {
+      "enabled": true,
+      "strictness": 0.96,
+      "preserveMoleMap": true,
+      "preserveSkinTexture": true,
+      "preserveNaturalAsymmetry": true
+    },
+    "output": {
+      "aspectRatio": "4:5",
+      "quality": "8K",
+      "outputDir": "storage/test-v29-1"
+    },
+    "constraints": [],
+    "saveWinnerDna": false
+  },
+  "identityDna": {
+    "name": "BeautyIdentityDnaExtractor",
+    "score": 95,
+    "data": {
+      "face_structure": [
+        "soft oval Asian facial structure",
+        "large almond-shaped eyes with strong catchlight retention",
+        "natural aegyo-sal under-eye softness",
+        "small refined nose bridge",
+        "soft feminine jawline",
+        "small V-shape chin structure",
+        "natural asymmetry preserved"
+      ],
+      "skin": [
+        "high realism skin texture",
+        "visible natural pores",
+        "soft warm pink undertone",
+        "subtle cheek blush diffusion",
+        "no AI plastic smoothing"
+      ],
+      "makeup": [
+        "dewy glass skin finish",
+        "gradient soft pink/coral lips",
+        "natural glossy lip hydration",
+        "minimal eyeliner",
+        "long separated lashes",
+        "soft peach-pink blush",
+        "natural eyebrow texture"
+      ],
+      "hair": [
+        "dark soft hair with natural shine",
+        "face framing strands",
+        "consistent hair parting from reference where applicable",
+        "realistic hair strand detail"
+      ],
+      "reference_coverage": {
+        "face": 1,
+        "makeup": 1,
+        "hair": 0,
+        "total": 2
+      }
+    },
+    "warnings": []
+  },
+  "faceLockContract": {
+    "name": "FaceLockContract",
+    "score": 96,
+    "data": {
+      "priority": "ULTRA IMPORTANT — FACE LOCK PRIORITY",
+      "enabled": true,
+      "strictness": 0.96,
+      "must_preserve": [
+        "exact eye shape",
+        "exact nose structure",
+        "exact lip shape",
+        "exact cheek proportions",
+        "exact jawline",
+        "exact facial spacing",
+        "exact eyebrow structure",
+        "exact skin tone",
+        "exact facial identity",
+        "exact beauty proportions",
+        "exact facial realism",
+        "natural asymmetry",
+        "mole/skin-detail map"
+      ],
+      "forbidden": [
+        "face morphing",
+        "identity drift",
+        "changing ethnicity",
+        "changing facial geometry",
+        "exaggerated anime beauty",
+        "over-editing",
+        "AI plastic skin",
+        "doll face",
+        "unrealistic eye enlargement"
+      ],
+      "qa_thresholds": {
+        "face_lock_score_min": 92,
+        "skin_realism_min": 88,
+        "eye_consistency_min": 90,
+        "mouth_nose_consistency_min": 90,
+        "hand_anatomy_min": 85
+      }
+    },
+    "warnings": []
+  },
+  "visualRecipe": {
+    "name": "VisualRecipeLibrary",
+    "score": 94,
+    "data": {
+      "intent": "luxury_lipstick_ad",
+      "recipe": {
+        "title": "Luxury Lipstick Beauty Ad",
+        "wardrobe": "bare-shoulder luxury beauty styling, minimal jewelry",
+        "pose": "tight close-up portrait with lipstick positioned near lips",
+        "expression": "direct beauty gaze, lips slightly parted, premium cosmetic appeal",
+        "environment": "high-end beauty campaign background with soft bokeh",
+        "lighting": "luxury beauty commercial lighting, golden highlights, perfect skin reflections",
+        "camera": "85mm macro beauty lens, ultra shallow depth of field",
+        "providerHint": "banana"
+      },
+      "safety": [
+        "tasteful commercial beauty/fashion framing",
+        "adult model assumption",
+        "avoid explicit sexual framing",
+        "realistic anatomy and fabric physics"
+      ]
+    },
+    "warnings": []
+  },
+  "providerRoute": {
+    "name": "ProviderRouter",
+    "score": 94,
+    "data": {
+      "selected": "banana",
+      "fallbackOrder": [
+        "banana",
+        "flux",
+        "sdxl_comfy",
+        "hidream"
+      ],
+      "endpoints": {
+        "banana": "/api/providers/google-managed/nano-banana/generate",
+        "hidream": "/api/v1/hidream/commercial-visual/generate",
+        "flux": "/api/providers/flux/generate",
+        "sdxl_comfy": "/api/providers/comfyui/run"
+      },
+      "reason": "best for beauty consistency, KOL realism, commercial composition and multi-reference editing"
+    },
+    "warnings": []
+  },
+  "promptPack": {
+    "name": "IdentityLockedPromptCompiler",
+    "score": 96,
+    "data": {
+      "prompt": "Luxury Lipstick Beauty Ad\n\nULTRA IMPORTANT — FACE LOCK PRIORITY:\nThe woman's face must remain IDENTICAL to the attached reference images.\nPreserve exact eye shape, nose structure, lip shape, cheek proportions, jawline, facial spacing, eyebrow structure, skin tone, facial identity, beauty proportions and facial realism.\nNO face morphing. NO identity drift. NO changing ethnicity. NO changing facial geometry. NO over-editing. NO AI plastic skin.\n\nBrand: Demo\nCampaign: test\nPlatform: poster\nProduct: not specified \n\nIdentity DNA:\n{\n  \"face_structure\": [\n    \"soft oval Asian facial structure\",\n    \"large almond-shaped eyes with strong catchlight retention\",\n    \"natural aegyo-sal under-eye softness\",\n    \"small refined nose bridge\",\n    \"soft feminine jawline\",\n    \"small V-shape chin structure\",\n    \"natural asymmetry preserved\"\n  ],\n  \"skin\": [\n    \"high realism skin texture\",\n    \"visible natural pores\",\n    \"soft warm pink undertone\",\n    \"subtle cheek blush diffusion\",\n    \"no AI plastic smoothing\"\n  ],\n  \"makeup\": [\n    \"dewy glass skin finish\",\n    \"gradient soft pink/coral lips\",\n    \"natural glossy lip hydration\",\n    \"minimal eyeliner\",\n    \"long separated lashes\",\n    \"soft peach-pink blush\",\n    \"natural eyebrow texture\"\n  ],\n  \"hair\": [\n    \"dark soft hair with natural shine\",\n    \"face framing strands\",\n    \"consistent hair parting from reference where applicable\",\n    \"realistic hair strand detail\"\n  ],\n  \"reference_coverage\": {\n    \"face\": 1,\n    \"makeup\": 1,\n    \"hair\": 0,\n    \"total\": 2\n  }\n}\n\nFace Lock Contract:\n{\n  \"priority\": \"ULTRA IMPORTANT — FACE LOCK PRIORITY\",\n  \"enabled\": true,\n  \"strictness\": 0.96,\n  \"must_preserve\": [\n    \"exact eye shape\",\n    \"exact nose structure\",\n    \"exact lip shape\",\n    \"exact cheek proportions\",\n    \"exact jawline\",\n    \"exact facial spacing\",\n    \"exact eyebrow structure\",\n    \"exact skin tone\",\n    \"exact facial identity\",\n    \"exact beauty proportions\",\n    \"exact facial realism\",\n    \"natural asymmetry\",\n    \"mole/skin-detail map\"\n  ],\n  \"forbidden\": [\n    \"face morphing\",\n    \"identity drift\",\n    \"changing ethnicity\",\n    \"changing facial geometry\",\n    \"exaggerated anime beauty\",\n    \"over-editing\",\n    \"AI plastic skin\",\n    \"doll face\",\n    \"unrealistic eye enlargement\"\n  ],\n  \"qa_thresholds\": {\n    \"face_lock_score_min\": 92,\n    \"skin_realism_min\": 88,\n    \"eye_consistency_min\": 90,\n    \"mouth_nose_consistency_min\": 90,\n    \"hand_anatomy_min\": 85\n  }\n}\n\nScene:\nhigh-end beauty campaign background with soft bokeh\n\nWardrobe:\nbare-shoulder luxury beauty styling, minimal jewelry\n\nPose:\ntight close-up portrait with lipstick positioned near lips\n\nExpression:\ndirect beauty gaze, lips slightly parted, premium cosmetic appeal\n\nLighting:\nluxury beauty commercial lighting, golden highlights, perfect skin reflections\n\nCamera:\n85mm macro beauty lens, ultra shallow depth of field\n\nQuality:\nPhotorealistic, commercial photography, 8K, high quality, sharp lighting and shadows, natural skin texture, visible pores, realistic hair strands, natural anatomy, professional campaign quality.\n\nCustom instruction:\nnone\n\nUser constraints:\nnone\n\nNo visible text, watermark, logo or signature unless product label is explicitly required.",
+      "negativePrompt": "bad anatomy, identity drift, face morphing, asymmetrical eyes, extra fingers, deformed hands, plastic skin, CGI skin, anime face, cartoon style, low resolution, AI artifacts, oversaturated skin, fake reflections, unrealistic body proportions, blurry eyes, deformed mouth, double pupils, over sharpen, mutated limbs, duplicate body parts, fake hair, over smoothing, doll face, uncanny valley, incorrect shadows, poor lighting, warped perspective, text, watermark, logo, signature",
+      "providerPayload": {
+        "provider": "banana",
+        "endpoint": "/api/providers/google-managed/nano-banana/generate",
+        "prompt": "Luxury Lipstick Beauty Ad\n\nULTRA IMPORTANT — FACE LOCK PRIORITY:\nThe woman's face must remain IDENTICAL to the attached reference images.\nPreserve exact eye shape, nose structure, lip shape, cheek proportions, jawline, facial spacing, eyebrow structure, skin tone, facial identity, beauty proportions and facial realism.\nNO face morphing. NO identity drift. NO changing ethnicity. NO changing facial geometry. NO over-editing. NO AI plastic skin.\n\nBrand: Demo\nCampaign: test\nPlatform: poster\nProduct: not specified \n\nIdentity DNA:\n{\n  \"face_structure\": [\n    \"soft oval Asian facial structure\",\n    \"large almond-shaped eyes with strong catchlight retention\",\n    \"natural aegyo-sal under-eye softness\",\n    \"small refined nose bridge\",\n    \"soft feminine jawline\",\n    \"small V-shape chin structure\",\n    \"natural asymmetry preserved\"\n  ],\n  \"skin\": [\n    \"high realism skin texture\",\n    \"visible natural pores\",\n    \"soft warm pink undertone\",\n    \"subtle cheek blush diffusion\",\n    \"no AI plastic smoothing\"\n  ],\n  \"makeup\": [\n    \"dewy glass skin finish\",\n    \"gradient soft pink/coral lips\",\n    \"natural glossy lip hydration\",\n    \"minimal eyeliner\",\n    \"long separated lashes\",\n    \"soft peach-pink blush\",\n    \"natural eyebrow texture\"\n  ],\n  \"hair\": [\n    \"dark soft hair with natural shine\",\n    \"face framing strands\",\n    \"consistent hair parting from reference where applicable\",\n    \"realistic hair strand detail\"\n  ],\n  \"reference_coverage\": {\n    \"face\": 1,\n    \"makeup\": 1,\n    \"hair\": 0,\n    \"total\": 2\n  }\n}\n\nFace Lock Contract:\n{\n  \"priority\": \"ULTRA IMPORTANT — FACE LOCK PRIORITY\",\n  \"enabled\": true,\n  \"strictness\": 0.96,\n  \"must_preserve\": [\n    \"exact eye shape\",\n    \"exact nose structure\",\n    \"exact lip shape\",\n    \"exact cheek proportions\",\n    \"exact jawline\",\n    \"exact facial spacing\",\n    \"exact eyebrow structure\",\n    \"exact skin tone\",\n    \"exact facial identity\",\n    \"exact beauty proportions\",\n    \"exact facial realism\",\n    \"natural asymmetry\",\n    \"mole/skin-detail map\"\n  ],\n  \"forbidden\": [\n    \"face morphing\",\n    \"identity drift\",\n    \"changing ethnicity\",\n    \"changing facial geometry\",\n    \"exaggerated anime beauty\",\n    \"over-editing\",\n    \"AI plastic skin\",\n    \"doll face\",\n    \"unrealistic eye enlargement\"\n  ],\n  \"qa_thresholds\": {\n    \"face_lock_score_min\": 92,\n    \"skin_realism_min\": 88,\n    \"eye_consistency_min\": 90,\n    \"mouth_nose_consistency_min\": 90,\n    \"hand_anatomy_min\": 85\n  }\n}\n\nScene:\nhigh-end beauty campaign background with soft bokeh\n\nWardrobe:\nbare-shoulder luxury beauty styling, minimal jewelry\n\nPose:\ntight close-up portrait with lipstick positioned near lips\n\nExpression:\ndirect beauty gaze, lips slightly parted, premium cosmetic appeal\n\nLighting:\nluxury beauty commercial lighting, golden highlights, perfect skin reflections\n\nCamera:\n85mm macro beauty lens, ultra shallow depth of field\n\nQuality:\nPhotorealistic, commercial photography, 8K, high quality, sharp lighting and shadows, natural skin texture, visible pores, realistic hair strands, natural anatomy, professional campaign quality.\n\nCustom instruction:\nnone\n\nUser constraints:\nnone\n\nNo visible text, watermark, logo or signature unless product label is explicitly required.",
+        "negativePrompt": "bad anatomy, identity drift, face morphing, asymmetrical eyes, extra fingers, deformed hands, plastic skin, CGI skin, anime face, cartoon style, low resolution, AI artifacts, oversaturated skin, fake reflections, unrealistic body proportions, blurry eyes, deformed mouth, double pupils, over sharpen, mutated limbs, duplicate body parts, fake hair, over smoothing, doll face, uncanny valley, incorrect shadows, poor lighting, warped perspective, text, watermark, logo, signature",
+        "references": [
+          {
+            "id": "face",
+            "kind": "face",
+            "uri": "/face.png",
+            "mimeType": "image/png",
+            "lockStrength": 0.96
+          },
+          {
+            "id": "makeup",
+            "kind": "makeup",
+            "uri": "/makeup.png",
+            "mimeType": "image/png",
+            "lockStrength": 0.92
+          }
+        ],
+        "config": {
+          "aspectRatio": "4:5",
+          "quality": "8K",
+          "faceLockStrictness": 0.96,
+          "outputDir": "storage/test-v29-1"
+        }
+      },
+      "settings": {
+        "flux_sdxl": {
+          "cfg": "5-7",
+          "steps": "30-40",
+          "sampler": "DPM++ 2M Karras",
+          "hiresFix": true,
+          "faceDetailer": true,
+          "adetailer": [
+            "eyes",
+            "lips",
+            "hands"
+          ]
+        },
+        "nano_banana": {
+          "identityLock": "HIGH",
+          "beautyRealism": "HIGH",
+          "skinRealism": "HIGH",
+          "commercialPhotographyMode": true,
+          "faceConsistencyPriority": true
+        },
+        "hidream": {
+          "editorialBeautyMode": true,
+          "luxuryCinematicLighting": true,
+          "skinTexturePreservation": true
+        }
+      }
+    },
+    "warnings": []
+  },
+  "qaReport": {
+    "name": "IdentityBeautyQualityGate",
+    "score": 100,
+    "data": {
+      "passed": true,
+      "checks": {
+        "has_face_reference_or_text_dna": true,
+        "face_lock_enabled": true,
+        "face_lock_strict_enough": true,
+        "prompt_contains_identity_lock": true,
+        "prompt_preserves_skin_texture": true,
+        "negative_blocks_identity_drift": true,
+        "negative_blocks_plastic_skin": true,
+        "negative_blocks_bad_hands": true,
+        "has_provider_payload": true,
+        "commercial_safety_rules": true
+      },
+      "production_rules": [
+        "ALWAYS preserve eye spacing",
+        "NEVER alter nose bridge structure",
+        "keep lips natural",
+        "preserve cheek proportions",
+        "avoid over-smoothing",
+        "preserve subtle facial asymmetry",
+        "keep skin pores visible",
+        "use realistic hand anatomy",
+        "maintain realistic fabric physics",
+        "prioritize realism over stylization"
+      ]
+    },
+    "warnings": []
+  },
+  "providerPayloads": {
+    "stillImage": {
+      "provider": "banana",
+      "endpoint": "/api/providers/google-managed/nano-banana/generate",
+      "prompt": "Luxury Lipstick Beauty Ad\n\nULTRA IMPORTANT — FACE LOCK PRIORITY:\nThe woman's face must remain IDENTICAL to the attached reference images.\nPreserve exact eye shape, nose structure, lip shape, cheek proportions, jawline, facial spacing, eyebrow structure, skin tone, facial identity, beauty proportions and facial realism.\nNO face morphing. NO identity drift. NO changing ethnicity. NO changing facial geometry. NO over-editing. NO AI plastic skin.\n\nBrand: Demo\nCampaign: test\nPlatform: poster\nProduct: not specified \n\nIdentity DNA:\n{\n  \"face_structure\": [\n    \"soft oval Asian facial structure\",\n    \"large almond-shaped eyes with strong catchlight retention\",\n    \"natural aegyo-sal under-eye softness\",\n    \"small refined nose bridge\",\n    \"soft feminine jawline\",\n    \"small V-shape chin structure\",\n    \"natural asymmetry preserved\"\n  ],\n  \"skin\": [\n    \"high realism skin texture\",\n    \"visible natural pores\",\n    \"soft warm pink undertone\",\n    \"subtle cheek blush diffusion\",\n    \"no AI plastic smoothing\"\n  ],\n  \"makeup\": [\n    \"dewy glass skin finish\",\n    \"gradient soft pink/coral lips\",\n    \"natural glossy lip hydration\",\n    \"minimal eyeliner\",\n    \"long separated lashes\",\n    \"soft peach-pink blush\",\n    \"natural eyebrow texture\"\n  ],\n  \"hair\": [\n    \"dark soft hair with natural shine\",\n    \"face framing strands\",\n    \"consistent hair parting from reference where applicable\",\n    \"realistic hair strand detail\"\n  ],\n  \"reference_coverage\": {\n    \"face\": 1,\n    \"makeup\": 1,\n    \"hair\": 0,\n    \"total\": 2\n  }\n}\n\nFace Lock Contract:\n{\n  \"priority\": \"ULTRA IMPORTANT — FACE LOCK PRIORITY\",\n  \"enabled\": true,\n  \"strictness\": 0.96,\n  \"must_preserve\": [\n    \"exact eye shape\",\n    \"exact nose structure\",\n    \"exact lip shape\",\n    \"exact cheek proportions\",\n    \"exact jawline\",\n    \"exact facial spacing\",\n    \"exact eyebrow structure\",\n    \"exact skin tone\",\n    \"exact facial identity\",\n    \"exact beauty proportions\",\n    \"exact facial realism\",\n    \"natural asymmetry\",\n    \"mole/skin-detail map\"\n  ],\n  \"forbidden\": [\n    \"face morphing\",\n    \"identity drift\",\n    \"changing ethnicity\",\n    \"changing facial geometry\",\n    \"exaggerated anime beauty\",\n    \"over-editing\",\n    \"AI plastic skin\",\n    \"doll face\",\n    \"unrealistic eye enlargement\"\n  ],\n  \"qa_thresholds\": {\n    \"face_lock_score_min\": 92,\n    \"skin_realism_min\": 88,\n    \"eye_consistency_min\": 90,\n    \"mouth_nose_consistency_min\": 90,\n    \"hand_anatomy_min\": 85\n  }\n}\n\nScene:\nhigh-end beauty campaign background with soft bokeh\n\nWardrobe:\nbare-shoulder luxury beauty styling, minimal jewelry\n\nPose:\ntight close-up portrait with lipstick positioned near lips\n\nExpression:\ndirect beauty gaze, lips slightly parted, premium cosmetic appeal\n\nLighting:\nluxury beauty commercial lighting, golden highlights, perfect skin reflections\n\nCamera:\n85mm macro beauty lens, ultra shallow depth of field\n\nQuality:\nPhotorealistic, commercial photography, 8K, high quality, sharp lighting and shadows, natural skin texture, visible pores, realistic hair strands, natural anatomy, professional campaign quality.\n\nCustom instruction:\nnone\n\nUser constraints:\nnone\n\nNo visible text, watermark, logo or signature unless product label is explicitly required.",
+      "negativePrompt": "bad anatomy, identity drift, face morphing, asymmetrical eyes, extra fingers, deformed hands, plastic skin, CGI skin, anime face, cartoon style, low resolution, AI artifacts, oversaturated skin, fake reflections, unrealistic body proportions, blurry eyes, deformed mouth, double pupils, over sharpen, mutated limbs, duplicate body parts, fake hair, over smoothing, doll face, uncanny valley, incorrect shadows, poor lighting, warped perspective, text, watermark, logo, signature",
+      "references": [
+        {
+          "id": "face",
+          "kind": "face",
+          "uri": "/face.png",
+          "mimeType": "image/png",
+          "lockStrength": 0.96
+        },
+        {
+          "id": "makeup",
+          "kind": "makeup",
+          "uri": "/makeup.png",
+          "mimeType": "image/png",
+          "lockStrength": 0.92
+        }
+      ],
+      "config": {
+        "aspectRatio": "4:5",
+        "quality": "8K",
+        "faceLockStrictness": 0.96,
+        "outputDir": "storage/test-v29-1"
+      }
+    },
+    "videoKeyframe": {
+      "provider": "banana",
+      "endpoint": "/api/providers/google-managed/veo/generate",
+      "prompt": "Luxury Lipstick Beauty Ad\n\nULTRA IMPORTANT — FACE LOCK PRIORITY:\nThe woman's face must remain IDENTICAL to the attached reference images.\nPreserve exact eye shape, nose structure, lip shape, cheek proportions, jawline, facial spacing, eyebrow structure, skin tone, facial identity, beauty proportions and facial realism.\nNO face morphing. NO identity drift. NO changing ethnicity. NO changing facial geometry. NO over-editing. NO AI plastic skin.\n\nBrand: Demo\nCampaign: test\nPlatform: poster\nProduct: not specified \n\nIdentity DNA:\n{\n  \"face_structure\": [\n    \"soft oval Asian facial structure\",\n    \"large almond-shaped eyes with strong catchlight retention\",\n    \"natural aegyo-sal under-eye softness\",\n    \"small refined nose bridge\",\n    \"soft feminine jawline\",\n    \"small V-shape chin structure\",\n    \"natural asymmetry preserved\"\n  ],\n  \"skin\": [\n    \"high realism skin texture\",\n    \"visible natural pores\",\n    \"soft warm pink undertone\",\n    \"subtle cheek blush diffusion\",\n    \"no AI plastic smoothing\"\n  ],\n  \"makeup\": [\n    \"dewy glass skin finish\",\n    \"gradient soft pink/coral lips\",\n    \"natural glossy lip hydration\",\n    \"minimal eyeliner\",\n    \"long separated lashes\",\n    \"soft peach-pink blush\",\n    \"natural eyebrow texture\"\n  ],\n  \"hair\": [\n    \"dark soft hair with natural shine\",\n    \"face framing strands\",\n    \"consistent hair parting from reference where applicable\",\n    \"realistic hair strand detail\"\n  ],\n  \"reference_coverage\": {\n    \"face\": 1,\n    \"makeup\": 1,\n    \"hair\": 0,\n    \"total\": 2\n  }\n}\n\nFace Lock Contract:\n{\n  \"priority\": \"ULTRA IMPORTANT — FACE LOCK PRIORITY\",\n  \"enabled\": true,\n  \"strictness\": 0.96,\n  \"must_preserve\": [\n    \"exact eye shape\",\n    \"exact nose structure\",\n    \"exact lip shape\",\n    \"exact cheek proportions\",\n    \"exact jawline\",\n    \"exact facial spacing\",\n    \"exact eyebrow structure\",\n    \"exact skin tone\",\n    \"exact facial identity\",\n    \"exact beauty proportions\",\n    \"exact facial realism\",\n    \"natural asymmetry\",\n    \"mole/skin-detail map\"\n  ],\n  \"forbidden\": [\n    \"face morphing\",\n    \"identity drift\",\n    \"changing ethnicity\",\n    \"changing facial geometry\",\n    \"exaggerated anime beauty\",\n    \"over-editing\",\n    \"AI plastic skin\",\n    \"doll face\",\n    \"unrealistic eye enlargement\"\n  ],\n  \"qa_thresholds\": {\n    \"face_lock_score_min\": 92,\n    \"skin_realism_min\": 88,\n    \"eye_consistency_min\": 90,\n    \"mouth_nose_consistency_min\": 90,\n    \"hand_anatomy_min\": 85\n  }\n}\n\nScene:\nhigh-end beauty campaign background with soft bokeh\n\nWardrobe:\nbare-shoulder luxury beauty styling, minimal jewelry\n\nPose:\ntight close-up portrait with lipstick positioned near lips\n\nExpression:\ndirect beauty gaze, lips slightly parted, premium cosmetic appeal\n\nLighting:\nluxury beauty commercial lighting, golden highlights, perfect skin reflections\n\nCamera:\n85mm macro beauty lens, ultra shallow depth of field\n\nQuality:\nPhotorealistic, commercial photography, 8K, high quality, sharp lighting and shadows, natural skin texture, visible pores, realistic hair strands, natural anatomy, professional campaign quality.\n\nCustom instruction:\nnone\n\nUser constraints:\nnone\n\nNo visible text, watermark, logo or signature unless product label is explicitly required.",
+      "negativePrompt": "bad anatomy, identity drift, face morphing, asymmetrical eyes, extra fingers, deformed hands, plastic skin, CGI skin, anime face, cartoon style, low resolution, AI artifacts, oversaturated skin, fake reflections, unrealistic body proportions, blurry eyes, deformed mouth, double pupils, over sharpen, mutated limbs, duplicate body parts, fake hair, over smoothing, doll face, uncanny valley, incorrect shadows, poor lighting, warped perspective, text, watermark, logo, signature",
+      "references": [
+        {
+          "id": "face",
+          "kind": "face",
+          "uri": "/face.png",
+          "mimeType": "image/png",
+          "lockStrength": 0.96
+        },
+        {
+          "id": "makeup",
+          "kind": "makeup",
+          "uri": "/makeup.png",
+          "mimeType": "image/png",
+          "lockStrength": 0.92
+        }
+      ],
+      "config": {
+        "aspectRatio": "4:5",
+        "quality": "8K",
+        "faceLockStrictness": 0.96,
+        "outputDir": "storage/test-v29-1"
+      },
+      "motion": {
+        "eyeContact": "direct soft gaze",
+        "microSmile": "natural tiny smile drift",
+        "breathing": "subtle",
+        "hairMotion": "very soft",
+        "bodyMotion": "commercial-safe natural motion"
+      }
+    },
+    "postProcess": {
+      "faceDetailer": true,
+      "skinTextureGuard": true,
+      "watermarkRemovalDisabled": false,
+      "artifactValidation": true
+    }
+  },
+  "artifacts": []
+}
