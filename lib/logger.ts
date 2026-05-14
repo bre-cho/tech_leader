@@ -6,6 +6,12 @@ export function log(
   message: string,
   meta: Record<string, unknown> = {}
 ): void {
-  const sink = level === "debug" ? console.debug : level === "info" ? console.info : level === "warn" ? console.warn : console.error;
+  const sinks: Record<LogLevel, (...args: unknown[]) => void> = {
+    debug: console.debug,
+    info: console.info,
+    warn: console.warn,
+    error: console.error,
+  };
+  const sink = sinks[level];
   sink(`[${scope}] ${message}`, meta);
 }
