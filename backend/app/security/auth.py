@@ -9,7 +9,7 @@ EXEMPT_WRITE_PATHS = {"/api/v1/health", "/api/v1/governance/operating-law"}
 
 
 def cors_origins() -> list[str]:
-    return [origin.strip() for origin in settings.cors_allow_origins.split(",") if origin.strip()]
+    return [trimmed_origin for origin in settings.cors_allow_origins.split(",") if (trimmed_origin := origin.strip())]
 
 
 def _configured_write_keys() -> set[str]:

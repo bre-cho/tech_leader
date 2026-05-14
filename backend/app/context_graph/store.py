@@ -1,4 +1,5 @@
 import json
+from sqlalchemy import or_
 from sqlalchemy.orm import Session
 from app.models.records import ContextEntityRecord, ContextRelationRecord
 
@@ -64,7 +65,7 @@ class ContextGraphStore:
         if not keys:
             return {"entity_type": entity_type, "entities": [], "relations": []}
         rels = self.db.query(ContextRelationRecord).filter(
-            ContextRelationRecord.source_key.in_(keys) | ContextRelationRecord.target_key.in_(keys)
+            or_(ContextRelationRecord.source_key.in_(keys), ContextRelationRecord.target_key.in_(keys))
         ).all()
         return {
             "entity_type": entity_type,

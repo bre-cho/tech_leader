@@ -19,7 +19,7 @@ export type DesignResponse = {
   promotion_mode: 'REAL' | 'DRY_RUN';
   technical_lead_plan: Record<string, unknown>;
   best_concept: { headline: string; prompt: string; score?: Record<string, unknown> };
-  upsell_analysis: Record<string, unknown>;
+  upsell_analysis: { offer_message?: string } & Record<string, unknown>;
   storyboard: Array<{ scene_id: string; title: string; visual_prompt: string }>;
   offer_packages: Array<{ package: string; price_hint: string; deliverable: string }>;
   verification: Record<string, unknown>;

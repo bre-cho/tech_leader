@@ -35,11 +35,11 @@ class VerificationEngine:
         law = self.law_enforcer.validate_trace(trace)
         artifact_id = str(artifact.get("artifact_id") or "")
         checksum = str(artifact.get("checksum") or "")
-        artifact_not_mock = bool(artifact_id and not artifact_id.startswith("mock_") and checksum and not checksum.startswith("mock_"))
+        artifact_is_valid = bool(artifact_id and not artifact_id.startswith("mock_") and checksum and not checksum.startswith("mock_"))
         checks = {
             "operating_law": law.passed,
             "commercial_reasoning_score": reasoning.get("commercial_reasoning_score", 85) >= 80,
-            "artifact_contract": artifact_not_mock,
+            "artifact_contract": artifact_is_valid,
             "provider_status_valid": artifact.get("status") in ["succeeded", "ready_to_call"],
         }
         return {

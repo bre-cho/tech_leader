@@ -51,7 +51,7 @@ async def write_route_auth_guard(request: Request, call_next):
         enforce_write_route_auth(request)
     except Exception as exc:
         if isinstance(exc, RuntimeError):
-            return JSONResponse(status_code=500, content={"detail": str(exc)})
+            return JSONResponse(status_code=500, content={"detail": "Write authentication configuration is invalid"})
         if isinstance(exc, HTTPException):
             return JSONResponse(status_code=exc.status_code, content={"detail": exc.detail})
         return JSONResponse(status_code=401, content={"detail": "Missing or invalid write-route credentials"})
