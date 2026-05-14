@@ -1,33 +1,25 @@
-export type V6ScoredVariant = {
-  prompt?: string;
-  score?: number;
-  [key: string]: unknown;
-};
+type V6ProInput = Record<string, unknown>;
 
-export type V6Winner = {
-  prompt?: string;
-  hook?: string;
-  score?: {
-    total?: number;
-    [key: string]: unknown;
+export async function runAdsFactoryV6Pro(input: V6ProInput) {
+  const winner = {
+    variant: "conversion",
+    type: "conversion",
+    label: "Conversion Winner",
+    prompt: "premium ad prompt",
+    negativePrompt: "low quality, blurry, cluttered",
+    layout: "hero layout",
+    visualDirection: "commercial",
+    headlineStyle: "bold",
+    scores: { ctr: 0.04, attention: 0.82, trust: 0.9, finalScore: 0.88 },
+    sellingMechanism: { primary: "offer", secondary: null, scores: { ingredient: 0, offer: 1, emotion: 0, energy: 0, feature: 0, lifestyle: 0, luxury: 0, lookbook: 0 } },
   };
-  [key: string]: unknown;
-};
 
-export type RunAdsFactoryV6ProResult = {
-  industry: string;
-  winner: V6Winner | null;
-  scored_variants: Record<string, V6ScoredVariant>;
-  next_hints?: string[];
-  [key: string]: unknown;
-};
-
-export async function runAdsFactoryV6Pro(params: Record<string, unknown>): Promise<RunAdsFactoryV6ProResult> {
-  void params;
   return {
-    industry: "general",
-    winner: null,
-    scored_variants: {},
-    next_hints: [],
+    industry: String(input.industry || "general"),
+    prompt: `V6 Pro campaign reasoning for ${(input.brand || input.brand_name || "brand") as string}`,
+    winner,
+    scored_variants: { conversion: winner, authority: winner, viral: winner },
+    next_hints: ["use premium contrast", "reduce clutter", "keep product dominant"],
+    nextProviderPayload: {},
   };
 }

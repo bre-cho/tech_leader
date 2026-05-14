@@ -13,9 +13,15 @@
     "ignoreDeprecations": "6.0",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@/lib/ai-design-workforce/*": ["./backend/app/vendor/veo_ai_design_workforce/ai-design-workforce/*"],
+      "@/lib/creative-os/*": ["./backend/app/vendor/veo_ai_design_workforce/creative-os/*"],
+      "@/lib/v4-poster/*": ["./backend/app/vendor/veo_v4_poster/v4-poster/*"],
+      "@/lib/poster-intelligence": ["./backend/app/vendor/veo_poster_intelligence/poster-intelligence/index.ts"],
+      "@/lib/poster-intelligence/*": ["./backend/app/vendor/veo_poster_intelligence/poster-intelligence/*"],
+      "@/lib/poster-production/*": ["./backend/app/vendor/veo_poster_intelligence/poster-production/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", "next-env.d.ts"],
-  "exclude": ["node_modules", "backend", "frontend"]
+  "include": ["**/*.ts", "**/*.tsx", "**/*.d.ts", "next-env.d.ts"],
+  "exclude": ["node_modules"]
 }

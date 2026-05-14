@@ -46,6 +46,7 @@ export type VariantScores = {
 
 export type VisualVariant = {
   variant: VariantName;
+  type?: VariantName;
   label: string;
   sellingMechanism: MechanismResult;
   layout: string;

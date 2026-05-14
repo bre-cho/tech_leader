@@ -1,17 +1,15 @@
-export type LogLevel = "debug" | "info" | "warn" | "error";
-const sinks: Record<LogLevel, (...args: unknown[]) => void> = {
-  debug: console.debug,
-  info: console.info,
-  warn: console.warn,
-  error: console.error,
-};
+type LogLevel = "info" | "warn" | "error";
 
-export function log(
-  level: LogLevel,
-  scope: string,
-  message: string,
-  meta: Record<string, unknown> = {}
-): void {
-  const sink = sinks[level];
-  sink(`[${scope}] ${message}`, meta);
+function baseLog(level: LogLevel, ...args: unknown[]) {
+  const target = level === "info" ? console.info : level === "warn" ? console.warn : console.error;
+  target(...args);
 }
+
+export function log(level: LogLevel, ...args: unknown[]) {
+  baseLog(level, ...args);
+}
+
+log.info = (...args: unknown[]) => baseLog("info", ...args);
+log.warn = (...args: unknown[]) => baseLog("warn", ...args);
+log.error = (...args: unknown[]) => baseLog("error", ...args);
+
