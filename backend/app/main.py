@@ -16,6 +16,7 @@ from app.creative_os_mvp.api.v1.creative_os import router as creative_os_mvp_rou
 from app.creative_infra_mvp.api.routes import router as creative_infra_mvp_router
 from app.compound_os_mvp.api import router as compound_os_mvp_router
 from app.compound_os_mvp.db import init_db as init_compound_os_db
+from app.api.v1.architecture_control_tower import router as architecture_router
 
 app = FastAPI(title="Agentic Creative Operating Environment", version="1.1.0")
 
@@ -51,3 +52,4 @@ app.include_router(enterprise_memory_router, prefix="/api/v1")
 app.include_router(creative_os_mvp_router, prefix="/api/v1/creative-os")
 app.include_router(creative_infra_mvp_router, prefix="/api/v1")
 app.include_router(compound_os_mvp_router, prefix="/api/v1/compound-os")
+app.include_router(architecture_router, prefix="/api/v1")
