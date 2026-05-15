@@ -11,6 +11,12 @@ from app.tts_studio.contracts import (
 from app.tts_studio.scenema_audio_provider import ScenemaAudioProviderBoundary
 
 
+def test_scenema_audio_provider_defaults_to_dry_run(monkeypatch):
+    monkeypatch.delenv("SCENEMA_AUDIO_DRY_RUN", raising=False)
+    provider = ScenemaAudioProviderBoundary()
+    assert provider.dry_run is True
+
+
 def test_scenema_audio_provider_dry_run_writes_payload(tmp_path: Path):
     req = GenerateLineRequest(
         project_id="proj_demo",

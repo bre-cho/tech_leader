@@ -28,7 +28,7 @@ class ScenemaAudioProviderBoundary:
 
     def __init__(self, api_url: Optional[str] = None, dry_run: Optional[bool] = None, timeout_s: Optional[int] = None):
         self.api_url = (api_url or os.getenv("SCENEMA_AUDIO_URL", "http://localhost:8000")).rstrip("/")
-        self.dry_run = self._as_bool(os.getenv("SCENEMA_AUDIO_DRY_RUN", "false")) if dry_run is None else dry_run
+        self.dry_run = self._as_bool(os.getenv("SCENEMA_AUDIO_DRY_RUN", "true")) if dry_run is None else dry_run
         self.timeout_s = int(timeout_s or os.getenv("SCENEMA_AUDIO_TIMEOUT_S", "900"))
 
     @staticmethod

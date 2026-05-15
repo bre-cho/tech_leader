@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
 import { createGoogleAiForCapability } from "./googleAiClientFactory";
+import { resolveStorageOutputDir } from "@/lib/runtime/safeOutputDir";
 
 function writeImage(outputDir: string, base64: string, mimeType = "image/png") {
   fs.mkdirSync(outputDir, { recursive: true });
@@ -22,6 +23,7 @@ export async function generateNanoBananaWithManagedAccount(params: {
   outputDir?: string;
 }) {
   const { ai, account } = createGoogleAiForCapability("nano_banana", params.sceneIndex ?? 0);
+  const outputDir = resolveStorageOutputDir(params.outputDir, "storage/google-banana-managed");
   const response: any = await ai.models.generateContent({
     model: params.model ?? "gemini-3.1-flash-image-preview",
     contents: params.prompt,
@@ -41,7 +43,7 @@ export async function generateNanoBananaWithManagedAccount(params: {
   for (const part of parts) {
     if (part.text) textParts.push(part.text);
     if (part.inlineData?.data) {
-      artifacts.push(writeImage(params.outputDir ?? "storage/google-banana-managed", part.inlineData.data, part.inlineData.mimeType));
+      artifacts.push(writeImage(outputDir, part.inlineData.data, part.inlineData.mimeType));
     }
   }
 

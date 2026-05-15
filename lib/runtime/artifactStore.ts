@@ -1,6 +1,7 @@
 import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
+import { resolveStorageOutputDir } from "@/lib/runtime/safeOutputDir";
 
 export type ArtifactContract = {
   artifact_id: string;
@@ -18,10 +19,11 @@ export function sha256(value: Buffer | string) {
 }
 
 export function writeJsonArtifact(outputDir: string, artifactType: string, payload: unknown, metadata: Record<string, unknown> = {}): ArtifactContract {
-  fs.mkdirSync(outputDir, { recursive: true });
+  const safeOutputDir = resolveStorageOutputDir(outputDir, "storage/artifacts");
+  fs.mkdirSync(safeOutputDir, { recursive: true });
   const body = Buffer.from(JSON.stringify(payload, null, 2), "utf8");
   const checksum = sha256(body);
-  const filePath = path.join(outputDir, `${artifactType}_${checksum.slice(0, 12)}.json`);
+  const filePath = path.join(safeOutputDir, `${artifactType}_${checksum.slice(0, 12)}.json`);
   fs.writeFileSync(filePath, body);
   const stat = fs.statSync(filePath);
   return {

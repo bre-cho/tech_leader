@@ -1,8 +1,9 @@
 import { z } from "zod";
+import { STORYBOARD_PROVIDERS } from "@/lib/contracts/providerContract";
 
 export const StoryboardFormatSchema = z.enum(["fashion_runway", "beauty_campaign", "product_launch", "event_film", "custom"]);
 export const PhaseSchema = z.enum(["setup", "backstage", "runway", "after_party"]);
-export const ProviderSchema = z.enum(["veo", "runway", "kling", "ltx", "banana", "hidream", "comfyui"]);
+export const ProviderSchema = z.enum(STORYBOARD_PROVIDERS);
 
 export const StoryboardRequestSchema = z.object({
   title: z.string().min(1).default("London Fashion Week Storyboard"),

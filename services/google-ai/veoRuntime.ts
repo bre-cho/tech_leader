@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { createGoogleAiForCapability } from "./googleAiClientFactory";
+import { resolveStorageOutputDir } from "@/lib/runtime/safeOutputDir";
 
 export async function generateVeo31WithManagedAccount(params: {
   prompt: string;
@@ -23,7 +24,7 @@ export async function generateVeo31WithManagedAccount(params: {
     }
   });
 
-  const outputDir = params.outputDir ?? "storage/veo-managed";
+  const outputDir = resolveStorageOutputDir(params.outputDir, "storage/veo-managed");
   fs.mkdirSync(outputDir, { recursive: true });
   const manifestPath = path.join(outputDir, `veo_operation_${Date.now()}.json`);
   fs.writeFileSync(manifestPath, JSON.stringify(operation, null, 2), "utf8");
