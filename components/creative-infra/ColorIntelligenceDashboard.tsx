@@ -2,15 +2,17 @@
 
 import { useState } from "react";
 
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE || "http://localhost:8000";
+const API_BASE = "";
 
 export default function ColorIntelligenceDashboard() {
   const [result, setResult] = useState<any>(null);
   const [graph, setGraph] = useState<any>(null);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   async function run(useCase = "showroom", industry = "spa") {
     setLoading(true);
+    setError(null);
     try {
       const payload = {
         brand_name: industry === "spa" ? "Serene Spa" : "Demo Brand",
@@ -25,11 +27,22 @@ export default function ColorIntelligenceDashboard() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
+      if (!runRes.ok) {
+        const failText = await runRes.text();
+        throw new Error(failText || `Run request failed with ${runRes.status}`);
+      }
       const runJson = await runRes.json();
       setResult(runJson);
 
       const graphRes = await fetch(`${API_BASE}/api/v1/color-intelligence/graph`);
+      if (!graphRes.ok) {
+        const failText = await graphRes.text();
+        throw new Error(failText || `Graph request failed with ${graphRes.status}`);
+      }
       setGraph(await graphRes.json());
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "Color Intelligence request failed.";
+      setError(message);
     } finally {
       setLoading(false);
     }
@@ -47,6 +60,12 @@ export default function ColorIntelligenceDashboard() {
             <button onClick={() => run("restore_photo", "restore photo")} disabled={loading} className="rounded-xl border border-neutral-600 px-4 py-2">Restore Photo</button>
           </div>
         </div>
+
+        {error ? (
+          <div className="rounded-2xl border border-red-600/40 bg-red-950/40 p-4 text-sm text-red-200">
+            {error}
+          </div>
+        ) : null}
 
         {result && (
           <div className="rounded-3xl border border-neutral-800 bg-neutral-900 p-6">
