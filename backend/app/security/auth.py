@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import os
+
 from fastapi import HTTPException, Request, status
 from app.config import settings
 
@@ -10,6 +12,14 @@ EXEMPT_WRITE_PATHS = {"/api/v1/health", "/api/v1/governance/operating-law"}
 
 def cors_origins() -> list[str]:
     return [trimmed_origin for origin in settings.cors_allow_origins.split(",") if (trimmed_origin := origin.strip())]
+
+
+def cors_origin_regex() -> str | None:
+    configured = os.getenv("CORS_ALLOW_ORIGIN_REGEX", "").strip()
+    if configured:
+        return configured
+    # Codespaces frontend runs on app.github.dev hostnames and needs explicit CORS allow.
+    return r"^https://[a-zA-Z0-9-]+-[0-9]+\.app\.github\.dev$"
 
 
 def _configured_write_keys() -> set[str]:
