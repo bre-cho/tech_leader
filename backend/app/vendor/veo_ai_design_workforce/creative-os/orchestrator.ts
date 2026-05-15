@@ -173,7 +173,7 @@ export async function runCreativeOS(input: CreativeOSRequest): Promise<CreativeO
         product: brief.productName,
         industry: brief.industry || (v6 as any).industry,
         perception_tokens: perception.desired,
-        winning_variant: winner?.variant || winner?.type || "conversion",
+        winning_variant: winner?.variant || (winner as any)?.type || "conversion",
         semantic_reason: graph.summary,
         typography_law: "headline = attention dominance; CTA = conversion gravity",
         composition_law: "product isolation + eye-flow control + reduced clutter"
