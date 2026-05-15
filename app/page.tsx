@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 const cards = [
+  ["Project Pipeline OS", "/projects/pipeline-os", "Điều phối luồng IMAGE -> STORYBOARD -> VIDEO với battle, handoff và release gate."],
   ["Beauty Commerce", "/beauty-commerce", "Chạy luồng bán hàng hình ảnh: nhân vật, sản phẩm, provider và kiểm định."],
   ["Beauty Avatar", "/beauty-avatar", "Tạo avatar KOL nhất quán cho chiến dịch thương mại và video."],
   ["Storyboard V31", "/storyboard-v31", "Dựng phân cảnh theo nhịp giữ chân người xem và cấu trúc video."],

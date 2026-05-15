@@ -1,33 +1,81 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
+
+const defaultPayload = {
+  title: "Fashion Shorts Rhythm Engine",
+  concept: "London Fashion Week cinematic runway short",
+  platform: "youtube_shorts",
+  aspectRatio: "9:16",
+  musicBpm: 118,
+  targetDurationSec: 35,
+  mainCharacter: "same female fashion model",
+  location: "London Fashion Week",
+  fashionDna: "luxury editorial runway, cinematic spotlight, confident model identity",
+  provider: { image: "hidream", video: "veo", motionFallback: "runway" },
+  outputDir: "storage/v31-storyboard-rhythm/demo",
+};
 
 export default function StoryboardV31RhythmStudio() {
+  const searchParams = useSearchParams();
+  const source = searchParams.get("source");
+  const autoRun = searchParams.get("autorun") === "1";
+
+  const [payload, setPayload] = useState<any>(defaultPayload);
+  const [handoffMeta, setHandoffMeta] = useState<any>(null);
+  const [videoFlowMeta, setVideoFlowMeta] = useState<any>(null);
   const [result, setResult] = useState<any>(null);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  async function run() {
+  async function run(overridePayload?: any) {
     setLoading(true);
+    setError(null);
+    const body = overridePayload ?? payload;
     const res = await fetch("/api/storyboard/v31/run", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({
-        title: "Fashion Shorts Rhythm Engine",
-        concept: "London Fashion Week cinematic runway short",
-        platform: "youtube_shorts",
-        aspectRatio: "9:16",
-        musicBpm: 118,
-        targetDurationSec: 35,
-        mainCharacter: "same female fashion model",
-        location: "London Fashion Week",
-        fashionDna: "luxury editorial runway, cinematic spotlight, confident model identity",
-        provider: { image: "hidream", video: "veo", motionFallback: "runway" },
-        outputDir: "storage/v31-storyboard-rhythm/demo"
-      })
+      body: JSON.stringify(body)
     });
-    setResult(await res.json());
+    const data = await res.json();
+    if (!res.ok) {
+      setError(data?.error || "V31 runtime failed");
+      setLoading(false);
+      return;
+    }
+    setResult(data);
     setLoading(false);
   }
+
+  useEffect(() => {
+    if (source !== "pipeline-os") {
+      return;
+    }
+
+    const raw = sessionStorage.getItem("pipeline-os:v31-handoff");
+    if (!raw) {
+      return;
+    }
+
+    try {
+      const parsed = JSON.parse(raw);
+      if (parsed?.request) {
+        setPayload(parsed.request);
+      }
+      if (parsed?.providerPayloadResult) {
+        setHandoffMeta(parsed.providerPayloadResult);
+      }
+      if (parsed?.videoFlowCompile) {
+        setVideoFlowMeta(parsed.videoFlowCompile);
+      }
+      if (autoRun && parsed?.request) {
+        void run(parsed.request);
+      }
+    } catch {
+      setError("Cannot parse pipeline handoff payload.");
+    }
+  }, [autoRun, source]);
 
   return (
     <main className="min-h-screen bg-neutral-950 p-8 text-white">
@@ -40,7 +88,14 @@ export default function StoryboardV31RhythmStudio() {
           <button onClick={run} disabled={loading} className="mt-5 rounded-2xl bg-white px-5 py-3 font-semibold text-black">
             {loading ? "Đang tối ưu storyboard..." : "Run V31 Runtime"}
           </button>
+          {source === "pipeline-os" ? (
+            <p className="mt-3 text-sm text-neutral-400">Payload sourced from Pipeline OS handoff.</p>
+          ) : null}
+          {error ? <p className="mt-3 text-sm text-red-300">{error}</p> : null}
         </div>
+
+        {handoffMeta ? <Panel title="Pipeline Handoff" data={handoffMeta} /> : null}
+        {videoFlowMeta ? <Panel title="VideoFlow Compile (Ready To Render)" data={videoFlowMeta} /> : null}
 
         {result && (
           <>

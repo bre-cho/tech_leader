@@ -74,3 +74,279 @@ pre { white-space: pre-wrap; word-break: break-word; }
   .brain-card-grid { grid-template-columns: 1fr; }
   main:not(.brain-page-stack) { padding: 16px; }
 }
+
+.pipeline-shell {
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr) 360px;
+  gap: 0;
+  min-height: 100%;
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  background: rgba(255,255,255,.03);
+  overflow: hidden;
+}
+
+.workflow-sidebar {
+  border-right: 1px solid rgba(255,255,255,0.08);
+  padding: 24px;
+  background: #0a0a0a;
+}
+
+.sidebar-title {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.project-workspace {
+  padding: 32px;
+}
+
+.runtime-panel {
+  border-left: 1px solid rgba(255,255,255,0.08);
+  padding: 24px;
+  background: #090909;
+}
+
+.pipeline-card {
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.03),
+    rgba(255,255,255,0.01)
+  );
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 28px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.workflow-item {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 18px;
+  margin-bottom: 12px;
+  background: rgba(255,255,255,0.03);
+}
+
+.workflow-index {
+  color: #f5c96a;
+  font-weight: 700;
+}
+
+.workflow-name {
+  font-weight: 700;
+}
+
+.workflow-status {
+  opacity: 0.6;
+  margin-top: 4px;
+}
+
+.workspace-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  gap: 16px;
+}
+
+.eyebrow,
+.section-eyebrow {
+  color: #f5c96a;
+  letter-spacing: 2px;
+  font-size: 12px;
+  font-weight: 800;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.primary-button {
+  background: #f5c96a;
+  color: black;
+  border: none;
+  border-radius: 16px;
+  padding: 14px 24px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.secondary-button {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  padding: 14px 24px;
+  cursor: pointer;
+}
+
+.battle-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.battle-card,
+.scene-card {
+  background: rgba(255,255,255,0.03);
+  border-radius: 22px;
+  padding: 18px;
+}
+
+.battle-preview {
+  height: 220px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.score-row,
+.validation-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.storyboard-grid,
+.workspace-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.scene-meta {
+  margin-top: 14px;
+  display: grid;
+  gap: 8px;
+  opacity: 0.75;
+}
+
+.runtime-log {
+  background: rgba(255,255,255,0.04);
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 12px;
+}
+
+.validation-ok {
+  color: #6fff95;
+}
+
+.memory-node-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.memory-node {
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: rgba(245,201,106,0.12);
+  color: #f5c96a;
+}
+
+.winner-panel,
+.handoff-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.winner-preview {
+  min-width: 200px;
+  min-height: 140px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.winner-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.brief-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.brief-field {
+  display: grid;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.brief-field input,
+.brief-field select {
+  width: 100%;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.04);
+  color: #fff;
+  padding: 10px 12px;
+}
+
+.brief-error {
+  margin-top: 12px;
+  border: 1px solid rgba(255,120,120,0.45);
+  border-radius: 12px;
+  background: rgba(255,120,120,0.08);
+  color: #ffb8b8;
+  padding: 10px 12px;
+}
+
+@media (max-width: 1280px) {
+  .pipeline-shell {
+    grid-template-columns: 280px minmax(0, 1fr);
+  }
+
+  .runtime-panel {
+    grid-column: 1 / -1;
+    border-left: none;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .battle-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .pipeline-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .workflow-sidebar {
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .workspace-header,
+  .winner-panel,
+  .handoff-panel {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .brief-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .battle-grid,
+  .storyboard-grid,
+  .workspace-grid {
+    grid-template-columns: 1fr;
+  }
+}
