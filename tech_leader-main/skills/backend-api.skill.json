@@ -1,0 +1,7 @@
+{
+  "name": "backend-api.skill",
+  "trigger_keywords": ["api", "route", "endpoint", "backend", "service"],
+  "description": "Create/update backend API with schema, service, route, validation, tests, docs, and smoke test.",
+  "required_checks": ["py_compile", "pytest", "api_contract", "smoke"],
+  "file_patterns": ["**/*route*", "**/*service*", "tests/**", "docs/**"]
+}

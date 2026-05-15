@@ -1,0 +1,60 @@
+
+> agentic-creative-operating-environment@1.0.0 typecheck
+> tsc --noEmit
+
+backend/app/vendor/veo_ai_design_workforce/creative-os/orchestrator.ts(176,53): error TS2339: Property 'type' does not exist on type 'VisualVariant'.
+tech_leader-main/backend/app/vendor/veo_ai_design_workforce/creative-os/orchestrator.ts(176,53): error TS2339: Property 'type' does not exist on type 'VisualVariant'.
+tech_leader-main/backend/app/vendor/veo_v4_poster/image_generate_route.ts(1,20): error TS2307: Cannot find module 'openai' or its corresponding type declarations.
+tech_leader-main/backend/app/vendor/veo_v4_poster/image_generate_route.ts(44,45): error TS7006: Parameter 'img' implicitly has an 'any' type.
+tech_leader-main/frontend/src/main.tsx(2,28): error TS7016: Could not find a declaration file for module 'react-dom/client'. '/workspaces/tech_leader/node_modules/react-dom/client.js' implicitly has an 'any' type.
+  If the 'react-dom' package actually exposes this module, consider sending a pull request to amend 'https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/react-dom'
+tech_leader_videoflow_upgrade/backend/app/vendor/veo_ai_design_workforce/creative-os/orchestrator.ts(176,53): error TS2339: Property 'type' does not exist on type 'VisualVariant'.
+tech_leader_videoflow_upgrade/backend/app/vendor/veo_v4_poster/image_generate_route.ts(1,20): error TS2307: Cannot find module 'openai' or its corresponding type declarations.
+tech_leader_videoflow_upgrade/backend/app/vendor/veo_v4_poster/image_generate_route.ts(44,45): error TS7006: Parameter 'img' implicitly has an 'any' type.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-browser/BrowserRenderer.ts(40,67): error TS2307: Cannot find module '@videoflow/core/types' or its corresponding type declarations.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-browser/BrowserRenderer.ts(41,34): error TS2307: Cannot find module '@videoflow/core/utils' or its corresponding type declarations.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-browser/BrowserRenderer.ts(51,8): error TS2307: Cannot find module 'mediabunny' or its corresponding type declarations.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-browser/BrowserRenderer.ts(128,8): error TS2307: Cannot find module '@videoflow/core' or its corresponding type declarations.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-browser/BrowserRenderer.worker.ts(11,8): error TS2307: Cannot find module 'mediabunny' or its corresponding type declarations.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-browser/LayerRasterizer.ts(37,32): error TS2307: Cannot find module '@videoflow/core/types' or its corresponding type declarations.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-browser/audio/mixer.ts(24,29): error TS2307: Cannot find module '@videoflow/core' or its corresponding type declarations.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-browser/audio/mixer.ts(236,42): error TS7006: Parameter 'a' implicitly has an 'any' type.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-browser/layers/RuntimeAudioLayer.ts(9,46): error TS2307: Cannot find module '@videoflow/core' or its corresponding type declarations.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-browser/layers/RuntimeBaseLayer.ts(24,69): error TS2307: Cannot find module '@videoflow/core/types' or its corresponding type declarations.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-browser/layers/RuntimeBaseLayer.ts(97,51): error TS7006: Parameter 'e' implicitly has an 'any' type.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-browser/layers/RuntimeBaseLayer.ts(348,12): error TS7006: Parameter 'e' implicitly has an 'any' type.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-browser/layers/RuntimeBaseLayer.ts(349,9): error TS7006: Parameter 'e' implicitly has an 'any' type.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-browser/layers/RuntimeCaptionsLayer.ts(8,41): error TS2307: Cannot find module '@videoflow/core/types' or its corresponding type declarations.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-browser/layers/RuntimeGroupLayer.ts(43,32): error TS2307: Cannot find module '@videoflow/core/types' or its corresponding type declarations.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-browser/layers/RuntimeImageLayer.ts(8,29): error TS2307: Cannot find module '@videoflow/core' or its corresponding type declarations.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-browser/layers/RuntimeMediaLayer.ts(9,41): error TS2307: Cannot find module '@videoflow/core/types' or its corresponding type declarations.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-browser/layers/RuntimeMediaLayer.ts(10,46): error TS2307: Cannot find module '@videoflow/core' or its corresponding type declarations.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-browser/layers/RuntimeTextLayer.ts(7,41): error TS2307: Cannot find module '@videoflow/core/types' or its corresponding type declarations.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-browser/layers/RuntimeTextualLayer.ts(14,41): error TS2307: Cannot find module '@videoflow/core/types' or its corresponding type declarations.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-browser/layers/RuntimeVideoLayer.ts(25,29): error TS2307: Cannot find module '@videoflow/core' or its corresponding type declarations.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-browser/layers/RuntimeVideoLayer.ts(64,4): error TS2322: Type 'any[]' is not assignable to type '[number, number]'.
+  Target requires 2 element(s) but source may have fewer.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-browser/layers/RuntimeVisualLayer.ts(13,41): error TS2307: Cannot find module '@videoflow/core/types' or its corresponding type declarations.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-browser/layers/index.ts(8,32): error TS2307: Cannot find module '@videoflow/core/types' or its corresponding type declarations.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-browser/transitions.ts(33,29): error TS2307: Cannot find module '@videoflow/core/types' or its corresponding type declarations.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-dom/DomRenderer.ts(25,93): error TS2307: Cannot find module '@videoflow/core/types' or its corresponding type declarations.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-dom/DomRenderer.ts(26,34): error TS2307: Cannot find module '@videoflow/core/utils' or its corresponding type declarations.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-dom/DomRenderer.ts(43,8): error TS2307: Cannot find module '@videoflow/renderer-browser' or its corresponding type declarations.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-dom/DomRenderer.ts(46,8): error TS2307: Cannot find module '@videoflow/core' or its corresponding type declarations.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-dom/DomRenderer.ts(240,43): error TS7006: Parameter 'layerJSON' implicitly has an 'any' type.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-dom/DomRenderer.ts(250,25): error TS7006: Parameter 'layer' implicitly has an 'any' type.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-dom/DomRenderer.ts(314,43): error TS7006: Parameter 'l' implicitly has an 'any' type.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-dom/DomRenderer.ts(583,53): error TS7006: Parameter 'l' implicitly has an 'any' type.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-dom/DomRenderer.ts(769,20): error TS7006: Parameter 'l' implicitly has an 'any' type.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-dom/DomRenderer.ts(1302,6): error TS7006: Parameter 'layer' implicitly has an 'any' type.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-dom/renderer.css.ts(7,54): error TS2307: Cannot find module '@videoflow/renderer-browser' or its corresponding type declarations.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-server/ServerRenderer.ts(28,72): error TS2307: Cannot find module 'playwright' or its corresponding type declarations.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-server/ServerRenderer.ts(35,47): error TS2307: Cannot find module '@videoflow/core' or its corresponding type declarations.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-server/ServerRenderer.ts(36,35): error TS2307: Cannot find module '@videoflow/core' or its corresponding type declarations.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-server/ServerRenderer.ts(285,27): error TS7006: Parameter 'msg' implicitly has an 'any' type.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-server/ServerRenderer.ts(297,29): error TS7006: Parameter 'error' implicitly has an 'any' type.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-server/ServerRenderer.ts(338,40): error TS7006: Parameter 'route' implicitly has an 'any' type.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-server/ServerRenderer.ts(412,6): error TS2322: Type 'unknown' is not assignable to type 'string'.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-server/renderer-page-script.ts(26,33): error TS2307: Cannot find module '@videoflow/renderer-browser' or its corresponding type declarations.
+tech_leader_videoflow_upgrade/packages/videoflow/src/renderer-server/renderer-page-script.ts(27,34): error TS2307: Cannot find module '@videoflow/core/utils' or its corresponding type declarations.
+tests/runtime-guards-regression.test.ts(5,10): error TS2305: Module '"../services/providerRouter"' has no exported member 'normalizeProviderName'.

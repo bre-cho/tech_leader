@@ -1,0 +1,4 @@
+period,channel,revenue,cash_in,cash_out,ad_spend,cac,ltv,customers,gross_margin,retention_rate,planned_budget,actual_budget
+2026-01,meta_ads,10000,10000,9500,3000,50,140,120,0.55,0.42,2800,3000
+2026-02,meta_ads,9500,9500,12000,3800,65,145,110,0.52,0.39,3000,3800
+2026-02,google_ads,7000,7000,5000,1200,32,160,90,0.58,0.46,1200,1200

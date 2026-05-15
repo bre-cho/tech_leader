@@ -1,0 +1,1416 @@
+{
+  "repo_root": "/mnt/data/work_eng/src",
+  "nodes": [
+    {
+      "id": "AGENTS.md",
+      "path": "AGENTS.md",
+      "kind": "doc",
+      "language": "markdown",
+      "size_bytes": 755,
+      "imports": [],
+      "exports": [],
+      "tags": []
+    },
+    {
+      "id": "CHANGELOG_BUSINESS_OS_UPGRADE.md",
+      "path": "CHANGELOG_BUSINESS_OS_UPGRADE.md",
+      "kind": "doc",
+      "language": "markdown",
+      "size_bytes": 538,
+      "imports": [],
+      "exports": [],
+      "tags": []
+    },
+    {
+      "id": "CHANGELOG.md",
+      "path": "CHANGELOG.md",
+      "kind": "doc",
+      "language": "markdown",
+      "size_bytes": 279,
+      "imports": [],
+      "exports": [],
+      "tags": []
+    },
+    {
+      "id": "scripts/agent16_audit.py",
+      "path": "scripts/agent16_audit.py",
+      "kind": "script",
+      "language": "python",
+      "size_bytes": 1546,
+      "imports": [
+        "__future__",
+        "ai_trading_brain",
+        "argparse",
+        "pathlib",
+        "sys"
+      ],
+      "exports": [
+        "main"
+      ],
+      "tags": []
+    },
+    {
+      "id": "scripts/context_graph_builder.py",
+      "path": "scripts/context_graph_builder.py",
+      "kind": "script",
+      "language": "python",
+      "size_bytes": 692,
+      "imports": [
+        "__future__",
+        "ai_trading_brain",
+        "argparse",
+        "pathlib",
+        "sys"
+      ],
+      "exports": [
+        "main"
+      ],
+      "tags": []
+    },
+    {
+      "id": "scripts/agent16_release_gate.py",
+      "path": "scripts/agent16_release_gate.py",
+      "kind": "script",
+      "language": "python",
+      "size_bytes": 503,
+      "imports": [
+        "__future__",
+        "argparse",
+        "json",
+        "pathlib"
+      ],
+      "exports": [
+        "main"
+      ],
+      "tags": []
+    },
+    {
+      "id": "scripts/agent16_business_operating_mind.py",
+      "path": "scripts/agent16_business_operating_mind.py",
+      "kind": "script",
+      "language": "python",
+      "size_bytes": 1453,
+      "imports": [
+        "__future__",
+        "ai_trading_brain",
+        "argparse",
+        "pathlib",
+        "sys"
+      ],
+      "exports": [
+        "main"
+      ],
+      "tags": []
+    },
+    {
+      "id": "scripts/agent16_finance_os.py",
+      "path": "scripts/agent16_finance_os.py",
+      "kind": "script",
+      "language": "python",
+      "size_bytes": 1152,
+      "imports": [
+        "__future__",
+        "ai_trading_brain",
+        "argparse",
+        "pathlib",
+        "sys"
+      ],
+      "exports": [
+        "main"
+      ],
+      "tags": []
+    },
+    {
+      "id": "scripts/engineering_os.py",
+      "path": "scripts/engineering_os.py",
+      "kind": "script",
+      "language": "python",
+      "size_bytes": 2398,
+      "imports": [
+        "__future__",
+        "ai_trading_brain",
+        "argparse",
+        "json",
+        "pathlib",
+        "sys"
+      ],
+      "exports": [
+        "main"
+      ],
+      "tags": []
+    },
+    {
+      "id": "tests/test_agent16_techlead.py",
+      "path": "tests/test_agent16_techlead.py",
+      "kind": "test",
+      "language": "python",
+      "size_bytes": 2482,
+      "imports": [
+        "__future__",
+        "ai_trading_brain",
+        "pathlib"
+      ],
+      "exports": [
+        "test_agent16_builds_report_without_runtime",
+        "test_agent16_embeds_business_operating_output",
+        "test_business_operating_mind_generates_runtime_report",
+        "test_context_graph_detects_python_entities"
+      ],
+      "tags": [
+        "verification"
+      ]
+    },
+    {
+      "id": "tests/test_finance_os.py",
+      "path": "tests/test_finance_os.py",
+      "kind": "test",
+      "language": "python",
+      "size_bytes": 2288,
+      "imports": [
+        "ai_trading_brain"
+      ],
+      "exports": [
+        "sample_rows",
+        "test_finance_runtime_detects_bottlenecks_and_budget_actions",
+        "test_finance_signal_engine_computes_core_metrics",
+        "test_scenario_simulator_outputs_default_scenarios"
+      ],
+      "tags": [
+        "verification"
+      ]
+    },
+    {
+      "id": "tests/test_engineering_os.py",
+      "path": "tests/test_engineering_os.py",
+      "kind": "test",
+      "language": "python",
+      "size_bytes": 2104,
+      "imports": [
+        "__future__",
+        "ai_trading_brain",
+        "json",
+        "pathlib"
+      ],
+      "exports": [
+        "test_context_graph_detects_python_modules",
+        "test_governance_blocks_destructive_task",
+        "test_phase_plan_contains_governed_loop",
+        "test_runtime_writes_operational_artifacts"
+      ],
+      "tags": [
+        "verification"
+      ]
+    },
+    {
+      "id": "docs/brief.md",
+      "path": "docs/brief.md",
+      "kind": "doc",
+      "language": "markdown",
+      "size_bytes": 67,
+      "imports": [],
+      "exports": [],
+      "tags": []
+    },
+    {
+      "id": "docs/BRD.md",
+      "path": "docs/BRD.md",
+      "kind": "doc",
+      "language": "markdown",
+      "size_bytes": 101,
+      "imports": [],
+      "exports": [],
+      "tags": []
+    },
+    {
+      "id": "docs/master-plan.md",
+      "path": "docs/master-plan.md",
+      "kind": "doc",
+      "language": "markdown",
+      "size_bytes": 135,
+      "imports": [],
+      "exports": [],
+      "tags": []
+    },
+    {
+      "id": "skills/backend-api.skill.json",
+      "path": "skills/backend-api.skill.json",
+      "kind": "skill",
+      "language": "json",
+      "size_bytes": 370,
+      "imports": [],
+      "exports": [],
+      "tags": [
+        "api"
+      ]
+    },
+    {
+      "id": "skills/create-page.skill.json",
+      "path": "skills/create-page.skill.json",
+      "kind": "skill",
+      "language": "json",
+      "size_bytes": 377,
+      "imports": [],
+      "exports": [],
+      "tags": []
+    },
+    {
+      "id": "skills/production-review.skill.json",
+      "path": "skills/production-review.skill.json",
+      "kind": "skill",
+      "language": "json",
+      "size_bytes": 452,
+      "imports": [],
+      "exports": [],
+      "tags": []
+    },
+    {
+      "id": "ai_trading_brain/techlead/__init__.py",
+      "path": "ai_trading_brain/techlead/__init__.py",
+      "kind": "module",
+      "language": "python",
+      "size_bytes": 392,
+      "imports": [
+        "agent16",
+        "business_operating",
+        "models"
+      ],
+      "exports": [],
+      "tags": []
+    },
+    {
+      "id": "ai_trading_brain/techlead/models.py",
+      "path": "ai_trading_brain/techlead/models.py",
+      "kind": "module",
+      "language": "python",
+      "size_bytes": 4737,
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "enum",
+        "json",
+        "pathlib",
+        "typing"
+      ],
+      "exports": [
+        "AgentContract",
+        "AuditReport",
+        "Finding",
+        "ReleaseGate",
+        "is_blocking",
+        "render",
+        "to_dict",
+        "to_markdown",
+        "write_json",
+        "write_markdown"
+      ],
+      "tags": []
+    },
+    {
+      "id": "ai_trading_brain/techlead/file_inventory.py",
+      "path": "ai_trading_brain/techlead/file_inventory.py",
+      "kind": "module",
+      "language": "python",
+      "size_bytes": 1615,
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "os",
+        "pathlib"
+      ],
+      "exports": [
+        "FileInventory",
+        "FileRecord",
+        "code_files",
+        "exists_any",
+        "iter_files",
+        "read_text"
+      ],
+      "tags": []
+    },
+    {
+      "id": "ai_trading_brain/techlead/graph_builder.py",
+      "path": "ai_trading_brain/techlead/graph_builder.py",
+      "kind": "module",
+      "language": "python",
+      "size_bytes": 5189,
+      "imports": [
+        "__future__",
+        "ast",
+        "collections",
+        "file_inventory",
+        "hashlib",
+        "json",
+        "pathlib",
+        "typing"
+      ],
+      "exports": [
+        "ContextGraphBuilder",
+        "build",
+        "write"
+      ],
+      "tags": []
+    },
+    {
+      "id": "ai_trading_brain/techlead/static_scan.py",
+      "path": "ai_trading_brain/techlead/static_scan.py",
+      "kind": "module",
+      "language": "python",
+      "size_bytes": 5794,
+      "imports": [
+        "__future__",
+        "ast",
+        "file_inventory",
+        "json",
+        "models",
+        "pathlib",
+        "re"
+      ],
+      "exports": [
+        "StaticSystemScanner",
+        "scan"
+      ],
+      "tags": []
+    },
+    {
+      "id": "ai_trading_brain/techlead/runtime_validation.py",
+      "path": "ai_trading_brain/techlead/runtime_validation.py",
+      "kind": "module",
+      "language": "python",
+      "size_bytes": 2379,
+      "imports": [
+        "__future__",
+        "json",
+        "models",
+        "pathlib",
+        "shutil",
+        "subprocess",
+        "typing"
+      ],
+      "exports": [
+        "RuntimeValidator",
+        "validate"
+      ],
+      "tags": []
+    },
+    {
+      "id": "ai_trading_brain/techlead/auto_fix.py",
+      "path": "ai_trading_brain/techlead/auto_fix.py",
+      "kind": "module",
+      "language": "python",
+      "size_bytes": 3724,
+      "imports": [
+        "__future__",
+        "file_inventory",
+        "models",
+        "pathlib"
+      ],
+      "exports": [
+        "SafeAutoFixer",
+        "apply"
+      ],
+      "tags": []
+    },
+    {
+      "id": "ai_trading_brain/techlead/patch_planner.py",
+      "path": "ai_trading_brain/techlead/patch_planner.py",
+      "kind": "module",
+      "language": "python",
+      "size_bytes": 1320,
+      "imports": [
+        "__future__",
+        "models",
+        "pathlib"
+      ],
+      "exports": [
+        "PatchPlanner",
+        "plan"
+      ],
+      "tags": []
+    },
+    {
+      "id": "ai_trading_brain/techlead/agent16.py",
+      "path": "ai_trading_brain/techlead/agent16.py",
+      "kind": "module",
+      "language": "python",
+      "size_bytes": 11413,
+      "imports": [
+        "__future__",
+        "auto_fix",
+        "business_operating",
+        "dataclasses",
+        "file_inventory",
+        "graph_builder",
+        "models",
+        "patch_planner",
+        "pathlib",
+        "runtime_validation",
+        "static_scan",
+        "typing"
+      ],
+      "exports": [
+        "Agent16Config",
+        "TechnicalLeadAgent",
+        "direct_commands",
+        "run"
+      ],
+      "tags": []
+    },
+    {
+      "id": "ai_trading_brain/techlead/business_operating.py",
+      "path": "ai_trading_brain/techlead/business_operating.py",
+      "kind": "module",
+      "language": "python",
+      "size_bytes": 28080,
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "datetime",
+        "hashlib",
+        "json",
+        "math",
+        "models",
+        "os",
+        "pathlib",
+        "typing"
+      ],
+      "exports": [
+        "BusinessOperatingMind",
+        "BusinessOperatingReport",
+        "BusinessSignal",
+        "BusinessState",
+        "CausalEdge",
+        "ExecutionStep",
+        "FeedbackInsight",
+        "MemoryEvent",
+        "Opportunity",
+        "ResourceAllocation",
+        "WorkforceWorkItem",
+        "run",
+        "to_dict",
+        "to_markdown",
+        "write"
+      ],
+      "tags": []
+    },
+    {
+      "id": "ai_trading_brain/finance/__init__.py",
+      "path": "ai_trading_brain/finance/__init__.py",
+      "kind": "module",
+      "language": "python",
+      "size_bytes": 672,
+      "imports": [
+        "budget_allocator",
+        "capital_efficiency",
+        "cashflow_diagnosis",
+        "finance_runtime",
+        "finance_signal_engine",
+        "financial_memory",
+        "scenario_simulator"
+      ],
+      "exports": [],
+      "tags": []
+    },
+    {
+      "id": "ai_trading_brain/finance/finance_signal_engine.py",
+      "path": "ai_trading_brain/finance/finance_signal_engine.py",
+      "kind": "module",
+      "language": "python",
+      "size_bytes": 10098,
+      "imports": [
+        "__future__",
+        "csv",
+        "dataclasses",
+        "datetime",
+        "json",
+        "pathlib",
+        "typing"
+      ],
+      "exports": [
+        "FinancePeriod",
+        "FinanceSignalEngine",
+        "FinanceSnapshot",
+        "burn_rate",
+        "from_csv",
+        "from_json",
+        "from_rows",
+        "ltv_cac_ratio",
+        "net_cashflow",
+        "roi",
+        "to_dict"
+      ],
+      "tags": []
+    },
+    {
+      "id": "ai_trading_brain/finance/cashflow_diagnosis.py",
+      "path": "ai_trading_brain/finance/cashflow_diagnosis.py",
+      "kind": "module",
+      "language": "python",
+      "size_bytes": 4537,
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "finance_signal_engine",
+        "typing"
+      ],
+      "exports": [
+        "CashflowDiagnosis",
+        "CashflowDiagnosisEngine",
+        "diagnose",
+        "to_dict"
+      ],
+      "tags": []
+    },
+    {
+      "id": "ai_trading_brain/finance/capital_efficiency.py",
+      "path": "ai_trading_brain/finance/capital_efficiency.py",
+      "kind": "module",
+      "language": "python",
+      "size_bytes": 2407,
+      "imports": [
+        "__future__",
+        "cashflow_diagnosis",
+        "dataclasses",
+        "finance_signal_engine",
+        "typing"
+      ],
+      "exports": [
+        "CapitalEfficiencyEngine",
+        "CapitalEfficiencyScore",
+        "score",
+        "to_dict"
+      ],
+      "tags": [
+        "api"
+      ]
+    },
+    {
+      "id": "ai_trading_brain/finance/budget_allocator.py",
+      "path": "ai_trading_brain/finance/budget_allocator.py",
+      "kind": "module",
+      "language": "python",
+      "size_bytes": 4448,
+      "imports": [
+        "__future__",
+        "capital_efficiency",
+        "dataclasses",
+        "finance_signal_engine",
+        "typing"
+      ],
+      "exports": [
+        "BudgetAllocationOptimizer",
+        "BudgetRecommendation",
+        "ChannelPerformance",
+        "allocate",
+        "to_dict"
+      ],
+      "tags": []
+    },
+    {
+      "id": "ai_trading_brain/finance/scenario_simulator.py",
+      "path": "ai_trading_brain/finance/scenario_simulator.py",
+      "kind": "module",
+      "language": "python",
+      "size_bytes": 3860,
+      "imports": [
+        "__future__",
+        "capital_efficiency",
+        "cashflow_diagnosis",
+        "dataclasses",
+        "finance_signal_engine",
+        "typing"
+      ],
+      "exports": [
+        "FinancialScenarioSimulator",
+        "ScenarioResult",
+        "simulate",
+        "to_dict"
+      ],
+      "tags": []
+    },
+    {
+      "id": "ai_trading_brain/finance/financial_memory.py",
+      "path": "ai_trading_brain/finance/financial_memory.py",
+      "kind": "module",
+      "language": "python",
+      "size_bytes": 3586,
+      "imports": [
+        "__future__",
+        "budget_allocator",
+        "capital_efficiency",
+        "cashflow_diagnosis",
+        "dataclasses",
+        "datetime",
+        "finance_signal_engine",
+        "json",
+        "pathlib",
+        "typing"
+      ],
+      "exports": [
+        "FinancialMemoryEvent",
+        "FinancialMemoryStore",
+        "append",
+        "build_events",
+        "recall",
+        "to_dict"
+      ],
+      "tags": []
+    },
+    {
+      "id": "ai_trading_brain/finance/finance_runtime.py",
+      "path": "ai_trading_brain/finance/finance_runtime.py",
+      "kind": "module",
+      "language": "python",
+      "size_bytes": 10038,
+      "imports": [
+        "__future__",
+        "budget_allocator",
+        "capital_efficiency",
+        "cashflow_diagnosis",
+        "dataclasses",
+        "finance_signal_engine",
+        "financial_memory",
+        "json",
+        "pathlib",
+        "scenario_simulator",
+        "typing"
+      ],
+      "exports": [
+        "FinanceOperatingReport",
+        "FinanceOperatingRuntime",
+        "run_file",
+        "run_rows",
+        "to_dict",
+        "to_markdown",
+        "write"
+      ],
+      "tags": []
+    },
+    {
+      "id": "ai_trading_brain/engineering_os/__init__.py",
+      "path": "ai_trading_brain/engineering_os/__init__.py",
+      "kind": "module",
+      "language": "python",
+      "size_bytes": 1122,
+      "imports": [
+        "context_graph",
+        "governance",
+        "memory",
+        "models",
+        "planner",
+        "runtime",
+        "skills",
+        "verification"
+      ],
+      "exports": [],
+      "tags": []
+    },
+    {
+      "id": "ai_trading_brain/engineering_os/models.py",
+      "path": "ai_trading_brain/engineering_os/models.py",
+      "kind": "module",
+      "language": "python",
+      "size_bytes": 4727,
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "json",
+        "pathlib",
+        "typing"
+      ],
+      "exports": [
+        "ContextGraph",
+        "EngineeringEdge",
+        "EngineeringNode",
+        "GovernanceDecision",
+        "PhasePlan",
+        "PlanStep",
+        "SkillDefinition",
+        "VerificationCheck",
+        "VerificationReport",
+        "to_dict",
+        "to_markdown",
+        "write_json"
+      ],
+      "tags": []
+    },
+    {
+      "id": "ai_trading_brain/engineering_os/context_graph.py",
+      "path": "ai_trading_brain/engineering_os/context_graph.py",
+      "kind": "module",
+      "language": "python",
+      "size_bytes": 4863,
+      "imports": [
+        "__future__",
+        "ast",
+        "models",
+        "pathlib",
+        "re"
+      ],
+      "exports": [
+        "build_context_graph"
+      ],
+      "tags": []
+    },
+    {
+      "id": "ai_trading_brain/engineering_os/skills.py",
+      "path": "ai_trading_brain/engineering_os/skills.py",
+      "kind": "module",
+      "language": "python",
+      "size_bytes": 2622,
+      "imports": [
+        "__future__",
+        "json",
+        "models",
+        "pathlib"
+      ],
+      "exports": [
+        "load_skills",
+        "recommend_skills"
+      ],
+      "tags": []
+    },
+    {
+      "id": "ai_trading_brain/engineering_os/planner.py",
+      "path": "ai_trading_brain/engineering_os/planner.py",
+      "kind": "module",
+      "language": "python",
+      "size_bytes": 4638,
+      "imports": [
+        "__future__",
+        "context_graph",
+        "models",
+        "pathlib",
+        "skills"
+      ],
+      "exports": [
+        "create_phase_plan"
+      ],
+      "tags": []
+    },
+    {
+      "id": "ai_trading_brain/engineering_os/governance.py",
+      "path": "ai_trading_brain/engineering_os/governance.py",
+      "kind": "module",
+      "language": "python",
+      "size_bytes": 1573,
+      "imports": [
+        "__future__",
+        "models"
+      ],
+      "exports": [
+        "evaluate_phase_plan"
+      ],
+      "tags": []
+    },
+    {
+      "id": "ai_trading_brain/engineering_os/verification.py",
+      "path": "ai_trading_brain/engineering_os/verification.py",
+      "kind": "module",
+      "language": "python",
+      "size_bytes": 1887,
+      "imports": [
+        "__future__",
+        "models",
+        "os",
+        "pathlib",
+        "subprocess",
+        "sys"
+      ],
+      "exports": [
+        "run_verification"
+      ],
+      "tags": []
+    },
+    {
+      "id": "ai_trading_brain/engineering_os/memory.py",
+      "path": "ai_trading_brain/engineering_os/memory.py",
+      "kind": "module",
+      "language": "python",
+      "size_bytes": 1007,
+      "imports": [
+        "__future__",
+        "datetime",
+        "json",
+        "pathlib",
+        "typing"
+      ],
+      "exports": [
+        "append_memory_event",
+        "load_memory_events"
+      ],
+      "tags": []
+    },
+    {
+      "id": "ai_trading_brain/engineering_os/runtime.py",
+      "path": "ai_trading_brain/engineering_os/runtime.py",
+      "kind": "module",
+      "language": "python",
+      "size_bytes": 3215,
+      "imports": [
+        "__future__",
+        "context_graph",
+        "governance",
+        "json",
+        "memory",
+        "pathlib",
+        "planner",
+        "verification"
+      ],
+      "exports": [
+        "ensure_engineering_docs",
+        "run_engineering_os"
+      ],
+      "tags": []
+    },
+    {
+      "id": "docs/ai_tech_lead_os/AGENT16_PRODUCTION_RUNBOOK.md",
+      "path": "docs/ai_tech_lead_os/AGENT16_PRODUCTION_RUNBOOK.md",
+      "kind": "doc",
+      "language": "markdown",
+      "size_bytes": 1104,
+      "imports": [],
+      "exports": [],
+      "tags": []
+    },
+    {
+      "id": "docs/agent16_business_os/APPLY_AGENT16_BUSINESS_OS.md",
+      "path": "docs/agent16_business_os/APPLY_AGENT16_BUSINESS_OS.md",
+      "kind": "doc",
+      "language": "markdown",
+      "size_bytes": 2946,
+      "imports": [],
+      "exports": [],
+      "tags": []
+    },
+    {
+      "id": "docs/agent16_business_os/SMOKE_TEST.md",
+      "path": "docs/agent16_business_os/SMOKE_TEST.md",
+      "kind": "doc",
+      "language": "markdown",
+      "size_bytes": 420,
+      "imports": [],
+      "exports": [],
+      "tags": [
+        "verification"
+      ]
+    },
+    {
+      "id": "docs/finance_os/APPLY_FINANCE_OS.md",
+      "path": "docs/finance_os/APPLY_FINANCE_OS.md",
+      "kind": "doc",
+      "language": "markdown",
+      "size_bytes": 1736,
+      "imports": [],
+      "exports": [],
+      "tags": []
+    },
+    {
+      "id": "docs/finance_os/FINANCE_OS_RUNTIME_CONTRACT.md",
+      "path": "docs/finance_os/FINANCE_OS_RUNTIME_CONTRACT.md",
+      "kind": "doc",
+      "language": "markdown",
+      "size_bytes": 1061,
+      "imports": [],
+      "exports": [],
+      "tags": []
+    },
+    {
+      "id": "docs/engineering_os/APPLY_ENGINEERING_OS.md",
+      "path": "docs/engineering_os/APPLY_ENGINEERING_OS.md",
+      "kind": "doc",
+      "language": "markdown",
+      "size_bytes": 1172,
+      "imports": [],
+      "exports": [],
+      "tags": []
+    },
+    {
+      "id": "docs/engineering_os/RUNTIME_CONTRACT.md",
+      "path": "docs/engineering_os/RUNTIME_CONTRACT.md",
+      "kind": "doc",
+      "language": "markdown",
+      "size_bytes": 739,
+      "imports": [],
+      "exports": [],
+      "tags": []
+    },
+    {
+      "id": ".github/workflows/agent16-audit.yml",
+      "path": ".github/workflows/agent16-audit.yml",
+      "kind": "workflow",
+      "language": "yaml",
+      "size_bytes": 1100,
+      "imports": [],
+      "exports": [],
+      "tags": []
+    }
+  ],
+  "edges": [
+    {
+      "source": "tests/test_agent16_techlead.py",
+      "target": "ai_trading_brain/techlead/agent16.py",
+      "relation": "verifies",
+      "weight": 0.7
+    },
+    {
+      "source": "tests/test_agent16_techlead.py",
+      "target": "ai_trading_brain/techlead/business_operating.py",
+      "relation": "verifies",
+      "weight": 0.7
+    },
+    {
+      "source": "tests/test_agent16_techlead.py",
+      "target": "ai_trading_brain/engineering_os/context_graph.py",
+      "relation": "verifies",
+      "weight": 0.7
+    },
+    {
+      "source": "tests/test_agent16_techlead.py",
+      "target": "ai_trading_brain/engineering_os/runtime.py",
+      "relation": "verifies",
+      "weight": 0.7
+    },
+    {
+      "source": "tests/test_finance_os.py",
+      "target": "ai_trading_brain/finance/finance_signal_engine.py",
+      "relation": "verifies",
+      "weight": 0.7
+    },
+    {
+      "source": "tests/test_finance_os.py",
+      "target": "ai_trading_brain/finance/scenario_simulator.py",
+      "relation": "verifies",
+      "weight": 0.7
+    },
+    {
+      "source": "tests/test_finance_os.py",
+      "target": "ai_trading_brain/finance/finance_runtime.py",
+      "relation": "verifies",
+      "weight": 0.7
+    },
+    {
+      "source": "tests/test_finance_os.py",
+      "target": "ai_trading_brain/engineering_os/runtime.py",
+      "relation": "verifies",
+      "weight": 0.7
+    },
+    {
+      "source": "tests/test_engineering_os.py",
+      "target": "ai_trading_brain/engineering_os/context_graph.py",
+      "relation": "verifies",
+      "weight": 0.7
+    },
+    {
+      "source": "tests/test_engineering_os.py",
+      "target": "ai_trading_brain/engineering_os/governance.py",
+      "relation": "verifies",
+      "weight": 0.7
+    },
+    {
+      "source": "tests/test_engineering_os.py",
+      "target": "ai_trading_brain/engineering_os/runtime.py",
+      "relation": "verifies",
+      "weight": 0.7
+    },
+    {
+      "source": "ai_trading_brain/techlead/__init__.py",
+      "target": "ai_trading_brain/techlead/agent16.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/techlead/__init__.py",
+      "target": "ai_trading_brain/techlead/business_operating.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/techlead/__init__.py",
+      "target": "ai_trading_brain/engineering_os/models.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/techlead/graph_builder.py",
+      "target": "ai_trading_brain/techlead/file_inventory.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/techlead/static_scan.py",
+      "target": "ai_trading_brain/techlead/file_inventory.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/techlead/static_scan.py",
+      "target": "ai_trading_brain/engineering_os/models.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/techlead/runtime_validation.py",
+      "target": "ai_trading_brain/engineering_os/models.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/techlead/auto_fix.py",
+      "target": "ai_trading_brain/techlead/file_inventory.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/techlead/auto_fix.py",
+      "target": "ai_trading_brain/engineering_os/models.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/techlead/patch_planner.py",
+      "target": "ai_trading_brain/engineering_os/models.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/techlead/agent16.py",
+      "target": "ai_trading_brain/techlead/auto_fix.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/techlead/agent16.py",
+      "target": "ai_trading_brain/techlead/business_operating.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/techlead/agent16.py",
+      "target": "ai_trading_brain/techlead/file_inventory.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/techlead/agent16.py",
+      "target": "ai_trading_brain/techlead/graph_builder.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/techlead/agent16.py",
+      "target": "ai_trading_brain/engineering_os/models.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/techlead/agent16.py",
+      "target": "ai_trading_brain/techlead/patch_planner.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/techlead/agent16.py",
+      "target": "ai_trading_brain/techlead/runtime_validation.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/techlead/agent16.py",
+      "target": "ai_trading_brain/techlead/static_scan.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/techlead/business_operating.py",
+      "target": "ai_trading_brain/engineering_os/models.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/finance/__init__.py",
+      "target": "ai_trading_brain/finance/budget_allocator.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/finance/__init__.py",
+      "target": "ai_trading_brain/finance/capital_efficiency.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/finance/__init__.py",
+      "target": "ai_trading_brain/finance/cashflow_diagnosis.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/finance/__init__.py",
+      "target": "ai_trading_brain/finance/finance_runtime.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/finance/__init__.py",
+      "target": "ai_trading_brain/finance/finance_signal_engine.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/finance/__init__.py",
+      "target": "ai_trading_brain/finance/financial_memory.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/finance/__init__.py",
+      "target": "ai_trading_brain/finance/scenario_simulator.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/finance/cashflow_diagnosis.py",
+      "target": "ai_trading_brain/finance/finance_signal_engine.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/finance/capital_efficiency.py",
+      "target": "ai_trading_brain/finance/cashflow_diagnosis.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/finance/capital_efficiency.py",
+      "target": "ai_trading_brain/finance/finance_signal_engine.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/finance/budget_allocator.py",
+      "target": "ai_trading_brain/finance/capital_efficiency.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/finance/budget_allocator.py",
+      "target": "ai_trading_brain/finance/finance_signal_engine.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/finance/scenario_simulator.py",
+      "target": "ai_trading_brain/finance/capital_efficiency.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/finance/scenario_simulator.py",
+      "target": "ai_trading_brain/finance/cashflow_diagnosis.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/finance/scenario_simulator.py",
+      "target": "ai_trading_brain/finance/finance_signal_engine.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/finance/financial_memory.py",
+      "target": "ai_trading_brain/finance/budget_allocator.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/finance/financial_memory.py",
+      "target": "ai_trading_brain/finance/capital_efficiency.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/finance/financial_memory.py",
+      "target": "ai_trading_brain/finance/cashflow_diagnosis.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/finance/financial_memory.py",
+      "target": "ai_trading_brain/finance/finance_signal_engine.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/finance/finance_runtime.py",
+      "target": "ai_trading_brain/finance/budget_allocator.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/finance/finance_runtime.py",
+      "target": "ai_trading_brain/finance/capital_efficiency.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/finance/finance_runtime.py",
+      "target": "ai_trading_brain/finance/cashflow_diagnosis.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/finance/finance_runtime.py",
+      "target": "ai_trading_brain/finance/finance_signal_engine.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/finance/finance_runtime.py",
+      "target": "ai_trading_brain/finance/financial_memory.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/finance/finance_runtime.py",
+      "target": "ai_trading_brain/finance/scenario_simulator.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/engineering_os/__init__.py",
+      "target": "ai_trading_brain/engineering_os/context_graph.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/engineering_os/__init__.py",
+      "target": "ai_trading_brain/engineering_os/governance.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/engineering_os/__init__.py",
+      "target": "ai_trading_brain/engineering_os/memory.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/engineering_os/__init__.py",
+      "target": "ai_trading_brain/engineering_os/models.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/engineering_os/__init__.py",
+      "target": "ai_trading_brain/engineering_os/planner.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/engineering_os/__init__.py",
+      "target": "ai_trading_brain/engineering_os/runtime.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/engineering_os/__init__.py",
+      "target": "ai_trading_brain/engineering_os/skills.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/engineering_os/__init__.py",
+      "target": "ai_trading_brain/engineering_os/verification.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/engineering_os/context_graph.py",
+      "target": "ai_trading_brain/engineering_os/models.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/engineering_os/skills.py",
+      "target": "ai_trading_brain/engineering_os/models.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/engineering_os/planner.py",
+      "target": "ai_trading_brain/engineering_os/context_graph.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/engineering_os/planner.py",
+      "target": "ai_trading_brain/engineering_os/models.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/engineering_os/planner.py",
+      "target": "ai_trading_brain/engineering_os/skills.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/engineering_os/governance.py",
+      "target": "ai_trading_brain/engineering_os/models.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/engineering_os/verification.py",
+      "target": "ai_trading_brain/engineering_os/models.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/engineering_os/runtime.py",
+      "target": "ai_trading_brain/engineering_os/context_graph.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/engineering_os/runtime.py",
+      "target": "ai_trading_brain/engineering_os/governance.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/engineering_os/runtime.py",
+      "target": "ai_trading_brain/engineering_os/memory.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/engineering_os/runtime.py",
+      "target": "ai_trading_brain/engineering_os/planner.py",
+      "relation": "imports",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_trading_brain/engineering_os/runtime.py",
+      "target": "ai_trading_brain/engineering_os/verification.py",
+      "relation": "imports",
+      "weight": 1.0
+    }
+  ],
+  "stats": {
+    "total_nodes": 53,
+    "total_edges": 75,
+    "by_kind": {
+      "doc": 13,
+      "module": 27,
+      "script": 6,
+      "skill": 3,
+      "test": 3,
+      "workflow": 1
+    },
+    "high_risk_files": [
+      "skills/backend-api.skill.json",
+      "ai_trading_brain/finance/capital_efficiency.py"
+    ]
+  }
+}

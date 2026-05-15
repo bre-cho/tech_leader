@@ -1,0 +1,35 @@
+{
+  "name": "@videoflow/renderer-dom",
+  "version": "1.2.1",
+  "description": "DOM-based live video renderer for VideoFlow — renders video frames directly to a DOM element using Shadow DOM",
+  "license": "Apache-2.0",
+  "homepage": "https://videoflow.dev/renderers",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ybouane/VideoFlow.git",
+    "directory": "src/renderer-dom"
+  },
+  "bugs": {
+    "url": "https://github.com/ybouane/VideoFlow/issues"
+  },
+  "type": "module",
+  "files": ["dist", "README.md"],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@videoflow/core": "^1.2.1",
+    "@videoflow/renderer-browser": "^1.2.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0"
+  }
+}

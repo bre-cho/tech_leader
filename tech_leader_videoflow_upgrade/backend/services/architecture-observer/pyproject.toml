@@ -1,0 +1,12 @@
+[project]
+name = "architecture-observer"
+version = "1.0.0"
+requires-python = ">=3.11"
+dependencies = ["pydantic>=2.7.0", "typer>=0.12.0", "rich>=13.7.0"]
+
+[project.scripts]
+architecture-observer = "architecture_observer.cli:app"
+
+[tool.pytest.ini_options]
+pythonpath = ["services/architecture-observer"]
+testpaths = ["tests"]

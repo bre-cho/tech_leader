@@ -1,0 +1,2005 @@
+{
+  "status": "ready",
+  "request": {
+    "title": "VideoFlow Adapter Test",
+    "concept": "Luxury K-beauty fashion short with cinematic retention rhythm",
+    "platform": "youtube_shorts",
+    "aspectRatio": "9:16",
+    "musicBpm": 118,
+    "targetDurationSec": 35,
+    "mainCharacter": "same female fashion model",
+    "location": "London Fashion Week",
+    "fashionDna": "luxury editorial runway, black outfit, cinematic spotlight",
+    "inputShots": [],
+    "autoGenerateIfEmpty": true,
+    "provider": {
+      "image": "hidream",
+      "video": "veo",
+      "motionFallback": "runway"
+    },
+    "outputDir": "storage/test-videoflow-adapter",
+    "saveTemplate": true
+  },
+  "shots": [
+    {
+      "id": 1,
+      "phase": "atmosphere",
+      "title": "Pattern interrupt — LFW lights snap on",
+      "description": "Instant spotlight ignition over runway and crowd.",
+      "camera": "wide establishing",
+      "lens": "24mm",
+      "movement": "fast push-in",
+      "subjectFocus": "runway lights",
+      "emotionBeat": "curiosity",
+      "durationSec": 2.92,
+      "continuityTags": [
+        "concept:Luxury K-beauty fashion short with cinematic retention rhythm",
+        "character:same female fashion model",
+        "location:London Fashion Week",
+        "fashion:luxury editorial runway, black outfit, cinematic spotlight"
+      ],
+      "prompt": "",
+      "negativePrompt": ""
+    },
+    {
+      "id": 2,
+      "phase": "atmosphere",
+      "title": "Beauty hook close-up eyes",
+      "description": "Main model looks into camera for immediate attention lock.",
+      "camera": "close-up face eye",
+      "lens": "85mm",
+      "movement": "slow push",
+      "subjectFocus": "eyes",
+      "emotionBeat": "beauty hook",
+      "durationSec": 2.92,
+      "continuityTags": [
+        "concept:Luxury K-beauty fashion short with cinematic retention rhythm",
+        "character:same female fashion model",
+        "location:London Fashion Week",
+        "fashion:luxury editorial runway, black outfit, cinematic spotlight"
+      ],
+      "prompt": "",
+      "negativePrompt": ""
+    },
+    {
+      "id": 3,
+      "phase": "preparation",
+      "title": "Backstage deep breath",
+      "description": "Model breathes before stepping out.",
+      "camera": "portrait close-up",
+      "lens": "85mm",
+      "movement": "subtle handheld",
+      "subjectFocus": "face",
+      "emotionBeat": "anticipation",
+      "durationSec": 2.92,
+      "continuityTags": [
+        "concept:Luxury K-beauty fashion short with cinematic retention rhythm",
+        "character:same female fashion model",
+        "location:London Fashion Week",
+        "fashion:luxury editorial runway, black outfit, cinematic spotlight"
+      ],
+      "prompt": "",
+      "negativePrompt": ""
+    },
+    {
+      "id": 4,
+      "phase": "preparation",
+      "title": "Accessory macro flash",
+      "description": "Jewelry, fabric and bag detail.",
+      "camera": "macro close-up",
+      "lens": "100mm macro",
+      "movement": "micro pan",
+      "subjectFocus": "accessory",
+      "emotionBeat": "luxury detail",
+      "durationSec": 2.92,
+      "continuityTags": [
+        "concept:Luxury K-beauty fashion short with cinematic retention rhythm",
+        "character:same female fashion model",
+        "location:London Fashion Week",
+        "fashion:luxury editorial runway, black outfit, cinematic spotlight"
+      ],
+      "prompt": "",
+      "negativePrompt": ""
+    },
+    {
+      "id": 5,
+      "phase": "ascension",
+      "title": "First runway step",
+      "description": "Model steps from darkness into the light.",
+      "camera": "full body runway",
+      "lens": "70-200mm",
+      "movement": "tracking backward",
+      "subjectFocus": "model walk",
+      "emotionBeat": "ascension",
+      "durationSec": 2.92,
+      "continuityTags": [
+        "concept:Luxury K-beauty fashion short with cinematic retention rhythm",
+        "character:same female fashion model",
+        "location:London Fashion Week",
+        "fashion:luxury editorial runway, black outfit, cinematic spotlight"
+      ],
+      "prompt": "",
+      "negativePrompt": ""
+    },
+    {
+      "id": 6,
+      "phase": "ascension",
+      "title": "Crowd phone reaction",
+      "description": "Audience raises phones and turns heads.",
+      "camera": "audience reaction close",
+      "lens": "50mm",
+      "movement": "pan",
+      "subjectFocus": "crowd",
+      "emotionBeat": "social proof",
+      "durationSec": 2.92,
+      "continuityTags": [
+        "concept:Luxury K-beauty fashion short with cinematic retention rhythm",
+        "character:same female fashion model",
+        "location:London Fashion Week",
+        "fashion:luxury editorial runway, black outfit, cinematic spotlight"
+      ],
+      "prompt": "",
+      "negativePrompt": ""
+    },
+    {
+      "id": 7,
+      "phase": "climax",
+      "title": "Telephoto catwalk power",
+      "description": "Compressed runway view with model walking forward.",
+      "camera": "telephoto runway frontal",
+      "lens": "200mm",
+      "movement": "smooth backward track",
+      "subjectFocus": "model",
+      "emotionBeat": "escalation",
+      "durationSec": 2.92,
+      "continuityTags": [
+        "concept:Luxury K-beauty fashion short with cinematic retention rhythm",
+        "character:same female fashion model",
+        "location:London Fashion Week",
+        "fashion:luxury editorial runway, black outfit, cinematic spotlight"
+      ],
+      "prompt": "",
+      "negativePrompt": ""
+    },
+    {
+      "id": 8,
+      "phase": "climax",
+      "title": "Hair and dress slow motion",
+      "description": "Fabric and hair move under spotlight.",
+      "camera": "medium fashion detail",
+      "lens": "85mm",
+      "movement": "slow motion",
+      "subjectFocus": "hair fabric",
+      "emotionBeat": "beauty tension",
+      "durationSec": 2.92,
+      "continuityTags": [
+        "concept:Luxury K-beauty fashion short with cinematic retention rhythm",
+        "character:same female fashion model",
+        "location:London Fashion Week",
+        "fashion:luxury editorial runway, black outfit, cinematic spotlight"
+      ],
+      "prompt": "",
+      "negativePrompt": ""
+    },
+    {
+      "id": 9,
+      "phase": "climax",
+      "title": "Hero pose at runway end",
+      "description": "Model stops and holds iconic pose.",
+      "camera": "full body hero",
+      "lens": "70mm",
+      "movement": "static hero hold",
+      "subjectFocus": "pose",
+      "emotionBeat": "payoff",
+      "durationSec": 2.92,
+      "continuityTags": [
+        "concept:Luxury K-beauty fashion short with cinematic retention rhythm",
+        "character:same female fashion model",
+        "location:London Fashion Week",
+        "fashion:luxury editorial runway, black outfit, cinematic spotlight"
+      ],
+      "prompt": "",
+      "negativePrompt": ""
+    },
+    {
+      "id": 10,
+      "phase": "climax",
+      "title": "Photographer flash burst",
+      "description": "Cameras fire repeatedly.",
+      "camera": "press reaction",
+      "lens": "35mm",
+      "movement": "flash cut",
+      "subjectFocus": "photographers",
+      "emotionBeat": "event matters",
+      "durationSec": 2.92,
+      "continuityTags": [
+        "concept:Luxury K-beauty fashion short with cinematic retention rhythm",
+        "character:same female fashion model",
+        "location:London Fashion Week",
+        "fashion:luxury editorial runway, black outfit, cinematic spotlight"
+      ],
+      "prompt": "",
+      "negativePrompt": ""
+    },
+    {
+      "id": 11,
+      "phase": "release",
+      "title": "Micro smile close-up",
+      "description": "Model gives tiny smile after pose.",
+      "camera": "beauty close-up face",
+      "lens": "85mm",
+      "movement": "slow push",
+      "subjectFocus": "smile",
+      "emotionBeat": "emotional release",
+      "durationSec": 2.92,
+      "continuityTags": [
+        "concept:Luxury K-beauty fashion short with cinematic retention rhythm",
+        "character:same female fashion model",
+        "location:London Fashion Week",
+        "fashion:luxury editorial runway, black outfit, cinematic spotlight"
+      ],
+      "prompt": "",
+      "negativePrompt": ""
+    },
+    {
+      "id": 12,
+      "phase": "release",
+      "title": "Applause wide finale",
+      "description": "Runway, crowd, lights and applause close the arc.",
+      "camera": "wide finale",
+      "lens": "24mm",
+      "movement": "dolly out",
+      "subjectFocus": "runway crowd",
+      "emotionBeat": "final payoff",
+      "durationSec": 2.92,
+      "continuityTags": [
+        "concept:Luxury K-beauty fashion short with cinematic retention rhythm",
+        "character:same female fashion model",
+        "location:London Fashion Week",
+        "fashion:luxury editorial runway, black outfit, cinematic spotlight"
+      ],
+      "prompt": "",
+      "negativePrompt": ""
+    }
+  ],
+  "rhythmGraph": [
+    {
+      "shotId": 1,
+      "phase": "atmosphere",
+      "energy": 9,
+      "intimacy": 3,
+      "motion": 8,
+      "tension": 7,
+      "payoff": 8,
+      "facePriority": 2,
+      "socialProof": 10,
+      "hookType": "social_proof"
+    },
+    {
+      "shotId": 2,
+      "phase": "atmosphere",
+      "energy": 6,
+      "intimacy": 9,
+      "motion": 8,
+      "tension": 4,
+      "payoff": 3,
+      "facePriority": 10,
+      "socialProof": 2,
+      "hookType": "face_retention"
+    },
+    {
+      "shotId": 3,
+      "phase": "preparation",
+      "energy": 6,
+      "intimacy": 9,
+      "motion": 8,
+      "tension": 8,
+      "payoff": 3,
+      "facePriority": 10,
+      "socialProof": 2,
+      "hookType": "face_retention"
+    },
+    {
+      "shotId": 4,
+      "phase": "preparation",
+      "energy": 9,
+      "intimacy": 9,
+      "motion": 8,
+      "tension": 4,
+      "payoff": 8,
+      "facePriority": 10,
+      "socialProof": 10,
+      "hookType": "face_retention"
+    },
+    {
+      "shotId": 5,
+      "phase": "ascension",
+      "energy": 9,
+      "intimacy": 3,
+      "motion": 8,
+      "tension": 4,
+      "payoff": 3,
+      "facePriority": 2,
+      "socialProof": 2,
+      "hookType": "motion"
+    },
+    {
+      "shotId": 6,
+      "phase": "ascension",
+      "energy": 6,
+      "intimacy": 9,
+      "motion": 8,
+      "tension": 4,
+      "payoff": 8,
+      "facePriority": 10,
+      "socialProof": 10,
+      "hookType": "face_retention"
+    },
+    {
+      "shotId": 7,
+      "phase": "climax",
+      "energy": 9,
+      "intimacy": 3,
+      "motion": 8,
+      "tension": 4,
+      "payoff": 3,
+      "facePriority": 2,
+      "socialProof": 10,
+      "hookType": "social_proof"
+    },
+    {
+      "shotId": 8,
+      "phase": "climax",
+      "energy": 9,
+      "intimacy": 6,
+      "motion": 8,
+      "tension": 7,
+      "payoff": 3,
+      "facePriority": 10,
+      "socialProof": 2,
+      "hookType": "face_retention"
+    },
+    {
+      "shotId": 9,
+      "phase": "climax",
+      "energy": 9,
+      "intimacy": 3,
+      "motion": 3,
+      "tension": 7,
+      "payoff": 10,
+      "facePriority": 2,
+      "socialProof": 2,
+      "hookType": "payoff"
+    },
+    {
+      "shotId": 10,
+      "phase": "climax",
+      "energy": 9,
+      "intimacy": 4,
+      "motion": 9,
+      "tension": 4,
+      "payoff": 8,
+      "facePriority": 2,
+      "socialProof": 10,
+      "hookType": "social_proof"
+    },
+    {
+      "shotId": 11,
+      "phase": "release",
+      "energy": 6,
+      "intimacy": 9,
+      "motion": 8,
+      "tension": 3,
+      "payoff": 10,
+      "facePriority": 10,
+      "socialProof": 2,
+      "hookType": "face_retention"
+    },
+    {
+      "shotId": 12,
+      "phase": "release",
+      "energy": 9,
+      "intimacy": 9,
+      "motion": 8,
+      "tension": 3,
+      "payoff": 10,
+      "facePriority": 10,
+      "socialProof": 10,
+      "hookType": "face_retention"
+    }
+  ],
+  "energyValidation": {
+    "name": "EnergyCurveValidator",
+    "passed": true,
+    "score": 100,
+    "avgEnergy": 8,
+    "spikes": [],
+    "highRuns": [],
+    "rule": "Shorts mạnh đi theo LOW → MID → HIGH → RELEASE, không HIGH liên tục gây viewer fatigue."
+  },
+  "microHooks": {
+    "name": "MicroHookPlanner",
+    "score": 100,
+    "injections": [],
+    "rules": [
+      "face close-up",
+      "eye contact",
+      "accessory macro",
+      "flash camera",
+      "crowd reaction",
+      "light change",
+      "motion beat"
+    ],
+    "passed": true
+  },
+  "cameraLanguage": {
+    "name": "CameraLanguageEngine",
+    "sequence": [
+      {
+        "shotId": 1,
+        "class": "wide"
+      },
+      {
+        "shotId": 2,
+        "class": "close"
+      },
+      {
+        "shotId": 3,
+        "class": "close"
+      },
+      {
+        "shotId": 4,
+        "class": "macro"
+      },
+      {
+        "shotId": 5,
+        "class": "telephoto"
+      },
+      {
+        "shotId": 6,
+        "class": "close"
+      },
+      {
+        "shotId": 7,
+        "class": "telephoto"
+      },
+      {
+        "shotId": 8,
+        "class": "macro"
+      },
+      {
+        "shotId": 9,
+        "class": "telephoto"
+      },
+      {
+        "shotId": 10,
+        "class": "medium"
+      },
+      {
+        "shotId": 11,
+        "class": "close"
+      },
+      {
+        "shotId": 12,
+        "class": "wide"
+      }
+    ],
+    "badRuns": [],
+    "score": 100,
+    "passed": true,
+    "rule": "Prefer wide → medium → close → macro → release wide. Never macro→macro→macro→macro."
+  },
+  "runwayEscalation": {
+    "name": "RunwayEscalationEngine",
+    "loop": [
+      "wide_walk",
+      "medium_walk",
+      "beauty_closeup",
+      "accessory_macro",
+      "audience_reaction",
+      "flash_camera",
+      "hero_pose"
+    ],
+    "sequence": [
+      {
+        "shotId": 1,
+        "expected": "wide_walk",
+        "actual": "wide_walk",
+        "ok": true
+      },
+      {
+        "shotId": 4,
+        "expected": "medium_walk",
+        "actual": "beauty_closeup",
+        "ok": true
+      },
+      {
+        "shotId": 5,
+        "expected": "beauty_closeup",
+        "actual": "other",
+        "ok": false
+      },
+      {
+        "shotId": 6,
+        "expected": "accessory_macro",
+        "actual": "beauty_closeup",
+        "ok": true
+      },
+      {
+        "shotId": 7,
+        "expected": "audience_reaction",
+        "actual": "other",
+        "ok": false
+      },
+      {
+        "shotId": 8,
+        "expected": "flash_camera",
+        "actual": "accessory_macro",
+        "ok": true
+      },
+      {
+        "shotId": 9,
+        "expected": "hero_pose",
+        "actual": "hero_pose",
+        "ok": true
+      },
+      {
+        "shotId": 10,
+        "expected": "wide_walk",
+        "actual": "audience_reaction",
+        "ok": true
+      },
+      {
+        "shotId": 11,
+        "expected": "medium_walk",
+        "actual": "beauty_closeup",
+        "ok": true
+      },
+      {
+        "shotId": 12,
+        "expected": "beauty_closeup",
+        "actual": "wide_walk",
+        "ok": true
+      }
+    ],
+    "score": 80,
+    "passed": true,
+    "rule": "walk → turn/medium → close-up → detail → crowd → flash → hero pose → applause"
+  },
+  "socialProof": {
+    "name": "SocialProofInjector",
+    "socialShots": [
+      1,
+      4,
+      6,
+      7,
+      10,
+      12
+    ],
+    "injections": [],
+    "needed": 1,
+    "score": 100,
+    "passed": true
+  },
+  "shortsTimeline": {
+    "beats": [
+      {
+        "startSec": 0,
+        "endSec": 1,
+        "role": "pattern interrupt",
+        "requiredHook": "flash/light/motion",
+        "targetEnergy": 9
+      },
+      {
+        "startSec": 1,
+        "endSec": 3,
+        "role": "beauty hook",
+        "requiredHook": "face close-up / eye contact",
+        "targetEnergy": 7
+      },
+      {
+        "startSec": 3,
+        "endSec": 6,
+        "role": "motion escalation",
+        "requiredHook": "tracking / first step / hair motion",
+        "targetEnergy": 8
+      },
+      {
+        "startSec": 6,
+        "endSec": 12,
+        "role": "runway climax",
+        "requiredHook": "walk / turn / crowd / flash",
+        "targetEnergy": 9
+      },
+      {
+        "startSec": 12,
+        "endSec": 18,
+        "role": "face emotional lock",
+        "requiredHook": "micro-expression / close-up",
+        "targetEnergy": 7
+      },
+      {
+        "startSec": 18,
+        "endSec": 25,
+        "role": "spectacle",
+        "requiredHook": "hero pose / wide / audience",
+        "targetEnergy": 9
+      },
+      {
+        "startSec": 25,
+        "endSec": 35,
+        "role": "release + luxury ending",
+        "requiredHook": "applause / smile / wide outro",
+        "targetEnergy": 5
+      }
+    ],
+    "rules": [
+      "0-1s must create pattern interrupt.",
+      "1-3s must show beauty/face hook.",
+      "Every 2-3 seconds must reset attention via face, motion, light, crowd, or detail.",
+      "6-12s must escalate motion and runway rhythm.",
+      "Last beat must release emotional tension."
+    ]
+  },
+  "retentionValidation": {
+    "name": "RetentionValidator",
+    "passed": true,
+    "score": 100,
+    "beatChecks": [
+      {
+        "startSec": 0,
+        "endSec": 1,
+        "role": "pattern interrupt",
+        "requiredHook": "flash/light/motion",
+        "targetEnergy": 9,
+        "shots": [
+          1
+        ],
+        "avgEnergy": 9,
+        "hasFace": false,
+        "hasMotion": true,
+        "hasSocial": true,
+        "hasPayoff": false,
+        "ok": true
+      },
+      {
+        "startSec": 1,
+        "endSec": 3,
+        "role": "beauty hook",
+        "requiredHook": "face close-up / eye contact",
+        "targetEnergy": 7,
+        "shots": [
+          1,
+          2
+        ],
+        "avgEnergy": 7.5,
+        "hasFace": true,
+        "hasMotion": true,
+        "hasSocial": true,
+        "hasPayoff": false,
+        "ok": true
+      },
+      {
+        "startSec": 3,
+        "endSec": 6,
+        "role": "motion escalation",
+        "requiredHook": "tracking / first step / hair motion",
+        "targetEnergy": 8,
+        "shots": [
+          2,
+          3
+        ],
+        "avgEnergy": 6,
+        "hasFace": true,
+        "hasMotion": true,
+        "hasSocial": false,
+        "hasPayoff": false,
+        "ok": true
+      },
+      {
+        "startSec": 6,
+        "endSec": 12,
+        "role": "runway climax",
+        "requiredHook": "walk / turn / crowd / flash",
+        "targetEnergy": 9,
+        "shots": [
+          3,
+          4,
+          5
+        ],
+        "avgEnergy": 8,
+        "hasFace": true,
+        "hasMotion": true,
+        "hasSocial": true,
+        "hasPayoff": false,
+        "ok": true
+      },
+      {
+        "startSec": 12,
+        "endSec": 18,
+        "role": "face emotional lock",
+        "requiredHook": "micro-expression / close-up",
+        "targetEnergy": 7,
+        "shots": [
+          5,
+          6,
+          7
+        ],
+        "avgEnergy": 8,
+        "hasFace": true,
+        "hasMotion": true,
+        "hasSocial": true,
+        "hasPayoff": false,
+        "ok": true
+      },
+      {
+        "startSec": 18,
+        "endSec": 25,
+        "role": "spectacle",
+        "requiredHook": "hero pose / wide / audience",
+        "targetEnergy": 9,
+        "shots": [
+          7,
+          8,
+          9
+        ],
+        "avgEnergy": 9,
+        "hasFace": true,
+        "hasMotion": true,
+        "hasSocial": true,
+        "hasPayoff": true,
+        "ok": true
+      },
+      {
+        "startSec": 25,
+        "endSec": 35,
+        "role": "release + luxury ending",
+        "requiredHook": "applause / smile / wide outro",
+        "targetEnergy": 5,
+        "shots": [
+          9,
+          10,
+          11,
+          12
+        ],
+        "avgEnergy": 8.25,
+        "hasFace": true,
+        "hasMotion": true,
+        "hasSocial": true,
+        "hasPayoff": true,
+        "ok": true
+      }
+    ],
+    "totalDurationSec": 35.04,
+    "targetDurationSec": 35
+  },
+  "providerPayloads": {
+    "imageKeyframes": {
+      "provider": "hidream",
+      "endpoint": "/api/v1/hidream/commercial-visual/generate",
+      "items": [
+        {
+          "shotId": 1,
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 1: Pattern interrupt — LFW lights snap on\nPhase: atmosphere\nDescription: Instant spotlight ignition over runway and crowd.\nCamera: wide establishing\nLens: 24mm\nMovement: fast push-in\nEmotion beat: curiosity\nSubject focus: runway lights\n\nRhythm node:\nenergy=9, intimacy=3, motion=8, tension=7, payoff=8, facePriority=2, socialProof=10\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "aspectRatio": "9:16"
+        },
+        {
+          "shotId": 2,
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 2: Beauty hook close-up eyes\nPhase: atmosphere\nDescription: Main model looks into camera for immediate attention lock.\nCamera: close-up face eye\nLens: 85mm\nMovement: slow push\nEmotion beat: beauty hook\nSubject focus: eyes\n\nRhythm node:\nenergy=6, intimacy=9, motion=8, tension=4, payoff=3, facePriority=10, socialProof=2\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "aspectRatio": "9:16"
+        },
+        {
+          "shotId": 3,
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 3: Backstage deep breath\nPhase: preparation\nDescription: Model breathes before stepping out.\nCamera: portrait close-up\nLens: 85mm\nMovement: subtle handheld\nEmotion beat: anticipation\nSubject focus: face\n\nRhythm node:\nenergy=6, intimacy=9, motion=8, tension=8, payoff=3, facePriority=10, socialProof=2\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "aspectRatio": "9:16"
+        },
+        {
+          "shotId": 4,
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 4: Accessory macro flash\nPhase: preparation\nDescription: Jewelry, fabric and bag detail.\nCamera: macro close-up\nLens: 100mm macro\nMovement: micro pan\nEmotion beat: luxury detail\nSubject focus: accessory\n\nRhythm node:\nenergy=9, intimacy=9, motion=8, tension=4, payoff=8, facePriority=10, socialProof=10\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "aspectRatio": "9:16"
+        },
+        {
+          "shotId": 5,
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 5: First runway step\nPhase: ascension\nDescription: Model steps from darkness into the light.\nCamera: full body runway\nLens: 70-200mm\nMovement: tracking backward\nEmotion beat: ascension\nSubject focus: model walk\n\nRhythm node:\nenergy=9, intimacy=3, motion=8, tension=4, payoff=3, facePriority=2, socialProof=2\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "aspectRatio": "9:16"
+        },
+        {
+          "shotId": 6,
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 6: Crowd phone reaction\nPhase: ascension\nDescription: Audience raises phones and turns heads.\nCamera: audience reaction close\nLens: 50mm\nMovement: pan\nEmotion beat: social proof\nSubject focus: crowd\n\nRhythm node:\nenergy=6, intimacy=9, motion=8, tension=4, payoff=8, facePriority=10, socialProof=10\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "aspectRatio": "9:16"
+        },
+        {
+          "shotId": 7,
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 7: Telephoto catwalk power\nPhase: climax\nDescription: Compressed runway view with model walking forward.\nCamera: telephoto runway frontal\nLens: 200mm\nMovement: smooth backward track\nEmotion beat: escalation\nSubject focus: model\n\nRhythm node:\nenergy=9, intimacy=3, motion=8, tension=4, payoff=3, facePriority=2, socialProof=10\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "aspectRatio": "9:16"
+        },
+        {
+          "shotId": 8,
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 8: Hair and dress slow motion\nPhase: climax\nDescription: Fabric and hair move under spotlight.\nCamera: medium fashion detail\nLens: 85mm\nMovement: slow motion\nEmotion beat: beauty tension\nSubject focus: hair fabric\n\nRhythm node:\nenergy=9, intimacy=6, motion=8, tension=7, payoff=3, facePriority=10, socialProof=2\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "aspectRatio": "9:16"
+        },
+        {
+          "shotId": 9,
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 9: Hero pose at runway end\nPhase: climax\nDescription: Model stops and holds iconic pose.\nCamera: full body hero\nLens: 70mm\nMovement: static hero hold\nEmotion beat: payoff\nSubject focus: pose\n\nRhythm node:\nenergy=9, intimacy=3, motion=3, tension=7, payoff=10, facePriority=2, socialProof=2\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "aspectRatio": "9:16"
+        },
+        {
+          "shotId": 10,
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 10: Photographer flash burst\nPhase: climax\nDescription: Cameras fire repeatedly.\nCamera: press reaction\nLens: 35mm\nMovement: flash cut\nEmotion beat: event matters\nSubject focus: photographers\n\nRhythm node:\nenergy=9, intimacy=4, motion=9, tension=4, payoff=8, facePriority=2, socialProof=10\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "aspectRatio": "9:16"
+        },
+        {
+          "shotId": 11,
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 11: Micro smile close-up\nPhase: release\nDescription: Model gives tiny smile after pose.\nCamera: beauty close-up face\nLens: 85mm\nMovement: slow push\nEmotion beat: emotional release\nSubject focus: smile\n\nRhythm node:\nenergy=6, intimacy=9, motion=8, tension=3, payoff=10, facePriority=10, socialProof=2\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "aspectRatio": "9:16"
+        },
+        {
+          "shotId": 12,
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 12: Applause wide finale\nPhase: release\nDescription: Runway, crowd, lights and applause close the arc.\nCamera: wide finale\nLens: 24mm\nMovement: dolly out\nEmotion beat: final payoff\nSubject focus: runway crowd\n\nRhythm node:\nenergy=9, intimacy=9, motion=8, tension=3, payoff=10, facePriority=10, socialProof=10\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "aspectRatio": "9:16"
+        }
+      ]
+    },
+    "videoShots": {
+      "provider": "veo",
+      "items": [
+        {
+          "shotId": 1,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 1: Pattern interrupt — LFW lights snap on\nPhase: atmosphere\nDescription: Instant spotlight ignition over runway and crowd.\nCamera: wide establishing\nLens: 24mm\nMovement: fast push-in\nEmotion beat: curiosity\nSubject focus: runway lights\n\nRhythm node:\nenergy=9, intimacy=3, motion=8, tension=7, payoff=8, facePriority=2, socialProof=10\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 2.92,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "wide establishing",
+            "lens": "24mm",
+            "movement": "fast push-in"
+          },
+          "rhythm": {
+            "shotId": 1,
+            "phase": "atmosphere",
+            "energy": 9,
+            "intimacy": 3,
+            "motion": 8,
+            "tension": 7,
+            "payoff": 8,
+            "facePriority": 2,
+            "socialProof": 10,
+            "hookType": "social_proof"
+          }
+        },
+        {
+          "shotId": 2,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 2: Beauty hook close-up eyes\nPhase: atmosphere\nDescription: Main model looks into camera for immediate attention lock.\nCamera: close-up face eye\nLens: 85mm\nMovement: slow push\nEmotion beat: beauty hook\nSubject focus: eyes\n\nRhythm node:\nenergy=6, intimacy=9, motion=8, tension=4, payoff=3, facePriority=10, socialProof=2\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 2.92,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "close-up face eye",
+            "lens": "85mm",
+            "movement": "slow push"
+          },
+          "rhythm": {
+            "shotId": 2,
+            "phase": "atmosphere",
+            "energy": 6,
+            "intimacy": 9,
+            "motion": 8,
+            "tension": 4,
+            "payoff": 3,
+            "facePriority": 10,
+            "socialProof": 2,
+            "hookType": "face_retention"
+          }
+        },
+        {
+          "shotId": 3,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 3: Backstage deep breath\nPhase: preparation\nDescription: Model breathes before stepping out.\nCamera: portrait close-up\nLens: 85mm\nMovement: subtle handheld\nEmotion beat: anticipation\nSubject focus: face\n\nRhythm node:\nenergy=6, intimacy=9, motion=8, tension=8, payoff=3, facePriority=10, socialProof=2\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 2.92,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "portrait close-up",
+            "lens": "85mm",
+            "movement": "subtle handheld"
+          },
+          "rhythm": {
+            "shotId": 3,
+            "phase": "preparation",
+            "energy": 6,
+            "intimacy": 9,
+            "motion": 8,
+            "tension": 8,
+            "payoff": 3,
+            "facePriority": 10,
+            "socialProof": 2,
+            "hookType": "face_retention"
+          }
+        },
+        {
+          "shotId": 4,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 4: Accessory macro flash\nPhase: preparation\nDescription: Jewelry, fabric and bag detail.\nCamera: macro close-up\nLens: 100mm macro\nMovement: micro pan\nEmotion beat: luxury detail\nSubject focus: accessory\n\nRhythm node:\nenergy=9, intimacy=9, motion=8, tension=4, payoff=8, facePriority=10, socialProof=10\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 2.92,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "macro close-up",
+            "lens": "100mm macro",
+            "movement": "micro pan"
+          },
+          "rhythm": {
+            "shotId": 4,
+            "phase": "preparation",
+            "energy": 9,
+            "intimacy": 9,
+            "motion": 8,
+            "tension": 4,
+            "payoff": 8,
+            "facePriority": 10,
+            "socialProof": 10,
+            "hookType": "face_retention"
+          }
+        },
+        {
+          "shotId": 5,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 5: First runway step\nPhase: ascension\nDescription: Model steps from darkness into the light.\nCamera: full body runway\nLens: 70-200mm\nMovement: tracking backward\nEmotion beat: ascension\nSubject focus: model walk\n\nRhythm node:\nenergy=9, intimacy=3, motion=8, tension=4, payoff=3, facePriority=2, socialProof=2\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 2.92,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "full body runway",
+            "lens": "70-200mm",
+            "movement": "tracking backward"
+          },
+          "rhythm": {
+            "shotId": 5,
+            "phase": "ascension",
+            "energy": 9,
+            "intimacy": 3,
+            "motion": 8,
+            "tension": 4,
+            "payoff": 3,
+            "facePriority": 2,
+            "socialProof": 2,
+            "hookType": "motion"
+          }
+        },
+        {
+          "shotId": 6,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 6: Crowd phone reaction\nPhase: ascension\nDescription: Audience raises phones and turns heads.\nCamera: audience reaction close\nLens: 50mm\nMovement: pan\nEmotion beat: social proof\nSubject focus: crowd\n\nRhythm node:\nenergy=6, intimacy=9, motion=8, tension=4, payoff=8, facePriority=10, socialProof=10\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 2.92,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "audience reaction close",
+            "lens": "50mm",
+            "movement": "pan"
+          },
+          "rhythm": {
+            "shotId": 6,
+            "phase": "ascension",
+            "energy": 6,
+            "intimacy": 9,
+            "motion": 8,
+            "tension": 4,
+            "payoff": 8,
+            "facePriority": 10,
+            "socialProof": 10,
+            "hookType": "face_retention"
+          }
+        },
+        {
+          "shotId": 7,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 7: Telephoto catwalk power\nPhase: climax\nDescription: Compressed runway view with model walking forward.\nCamera: telephoto runway frontal\nLens: 200mm\nMovement: smooth backward track\nEmotion beat: escalation\nSubject focus: model\n\nRhythm node:\nenergy=9, intimacy=3, motion=8, tension=4, payoff=3, facePriority=2, socialProof=10\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 2.92,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "telephoto runway frontal",
+            "lens": "200mm",
+            "movement": "smooth backward track"
+          },
+          "rhythm": {
+            "shotId": 7,
+            "phase": "climax",
+            "energy": 9,
+            "intimacy": 3,
+            "motion": 8,
+            "tension": 4,
+            "payoff": 3,
+            "facePriority": 2,
+            "socialProof": 10,
+            "hookType": "social_proof"
+          }
+        },
+        {
+          "shotId": 8,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 8: Hair and dress slow motion\nPhase: climax\nDescription: Fabric and hair move under spotlight.\nCamera: medium fashion detail\nLens: 85mm\nMovement: slow motion\nEmotion beat: beauty tension\nSubject focus: hair fabric\n\nRhythm node:\nenergy=9, intimacy=6, motion=8, tension=7, payoff=3, facePriority=10, socialProof=2\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 2.92,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "medium fashion detail",
+            "lens": "85mm",
+            "movement": "slow motion"
+          },
+          "rhythm": {
+            "shotId": 8,
+            "phase": "climax",
+            "energy": 9,
+            "intimacy": 6,
+            "motion": 8,
+            "tension": 7,
+            "payoff": 3,
+            "facePriority": 10,
+            "socialProof": 2,
+            "hookType": "face_retention"
+          }
+        },
+        {
+          "shotId": 9,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 9: Hero pose at runway end\nPhase: climax\nDescription: Model stops and holds iconic pose.\nCamera: full body hero\nLens: 70mm\nMovement: static hero hold\nEmotion beat: payoff\nSubject focus: pose\n\nRhythm node:\nenergy=9, intimacy=3, motion=3, tension=7, payoff=10, facePriority=2, socialProof=2\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 2.92,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "full body hero",
+            "lens": "70mm",
+            "movement": "static hero hold"
+          },
+          "rhythm": {
+            "shotId": 9,
+            "phase": "climax",
+            "energy": 9,
+            "intimacy": 3,
+            "motion": 3,
+            "tension": 7,
+            "payoff": 10,
+            "facePriority": 2,
+            "socialProof": 2,
+            "hookType": "payoff"
+          }
+        },
+        {
+          "shotId": 10,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 10: Photographer flash burst\nPhase: climax\nDescription: Cameras fire repeatedly.\nCamera: press reaction\nLens: 35mm\nMovement: flash cut\nEmotion beat: event matters\nSubject focus: photographers\n\nRhythm node:\nenergy=9, intimacy=4, motion=9, tension=4, payoff=8, facePriority=2, socialProof=10\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 2.92,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "press reaction",
+            "lens": "35mm",
+            "movement": "flash cut"
+          },
+          "rhythm": {
+            "shotId": 10,
+            "phase": "climax",
+            "energy": 9,
+            "intimacy": 4,
+            "motion": 9,
+            "tension": 4,
+            "payoff": 8,
+            "facePriority": 2,
+            "socialProof": 10,
+            "hookType": "social_proof"
+          }
+        },
+        {
+          "shotId": 11,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 11: Micro smile close-up\nPhase: release\nDescription: Model gives tiny smile after pose.\nCamera: beauty close-up face\nLens: 85mm\nMovement: slow push\nEmotion beat: emotional release\nSubject focus: smile\n\nRhythm node:\nenergy=6, intimacy=9, motion=8, tension=3, payoff=10, facePriority=10, socialProof=2\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 2.92,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "beauty close-up face",
+            "lens": "85mm",
+            "movement": "slow push"
+          },
+          "rhythm": {
+            "shotId": 11,
+            "phase": "release",
+            "energy": 6,
+            "intimacy": 9,
+            "motion": 8,
+            "tension": 3,
+            "payoff": 10,
+            "facePriority": 10,
+            "socialProof": 2,
+            "hookType": "face_retention"
+          }
+        },
+        {
+          "shotId": 12,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 12: Applause wide finale\nPhase: release\nDescription: Runway, crowd, lights and applause close the arc.\nCamera: wide finale\nLens: 24mm\nMovement: dolly out\nEmotion beat: final payoff\nSubject focus: runway crowd\n\nRhythm node:\nenergy=9, intimacy=9, motion=8, tension=3, payoff=10, facePriority=10, socialProof=10\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 2.92,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "wide finale",
+            "lens": "24mm",
+            "movement": "dolly out"
+          },
+          "rhythm": {
+            "shotId": 12,
+            "phase": "release",
+            "energy": 9,
+            "intimacy": 9,
+            "motion": 8,
+            "tension": 3,
+            "payoff": 10,
+            "facePriority": 10,
+            "socialProof": 10,
+            "hookType": "face_retention"
+          }
+        }
+      ]
+    },
+    "motionFallback": {
+      "provider": "runway",
+      "endpoint": "/api/providers/runway/generate",
+      "items": [
+        {
+          "shotId": 1,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 1: Pattern interrupt — LFW lights snap on\nPhase: atmosphere\nDescription: Instant spotlight ignition over runway and crowd.\nCamera: wide establishing\nLens: 24mm\nMovement: fast push-in\nEmotion beat: curiosity\nSubject focus: runway lights\n\nRhythm node:\nenergy=9, intimacy=3, motion=8, tension=7, payoff=8, facePriority=2, socialProof=10\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 2.92,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "wide establishing",
+            "lens": "24mm",
+            "movement": "fast push-in"
+          },
+          "rhythm": {
+            "shotId": 1,
+            "phase": "atmosphere",
+            "energy": 9,
+            "intimacy": 3,
+            "motion": 8,
+            "tension": 7,
+            "payoff": 8,
+            "facePriority": 2,
+            "socialProof": 10,
+            "hookType": "social_proof"
+          }
+        },
+        {
+          "shotId": 2,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 2: Beauty hook close-up eyes\nPhase: atmosphere\nDescription: Main model looks into camera for immediate attention lock.\nCamera: close-up face eye\nLens: 85mm\nMovement: slow push\nEmotion beat: beauty hook\nSubject focus: eyes\n\nRhythm node:\nenergy=6, intimacy=9, motion=8, tension=4, payoff=3, facePriority=10, socialProof=2\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 2.92,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "close-up face eye",
+            "lens": "85mm",
+            "movement": "slow push"
+          },
+          "rhythm": {
+            "shotId": 2,
+            "phase": "atmosphere",
+            "energy": 6,
+            "intimacy": 9,
+            "motion": 8,
+            "tension": 4,
+            "payoff": 3,
+            "facePriority": 10,
+            "socialProof": 2,
+            "hookType": "face_retention"
+          }
+        },
+        {
+          "shotId": 3,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 3: Backstage deep breath\nPhase: preparation\nDescription: Model breathes before stepping out.\nCamera: portrait close-up\nLens: 85mm\nMovement: subtle handheld\nEmotion beat: anticipation\nSubject focus: face\n\nRhythm node:\nenergy=6, intimacy=9, motion=8, tension=8, payoff=3, facePriority=10, socialProof=2\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 2.92,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "portrait close-up",
+            "lens": "85mm",
+            "movement": "subtle handheld"
+          },
+          "rhythm": {
+            "shotId": 3,
+            "phase": "preparation",
+            "energy": 6,
+            "intimacy": 9,
+            "motion": 8,
+            "tension": 8,
+            "payoff": 3,
+            "facePriority": 10,
+            "socialProof": 2,
+            "hookType": "face_retention"
+          }
+        },
+        {
+          "shotId": 4,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 4: Accessory macro flash\nPhase: preparation\nDescription: Jewelry, fabric and bag detail.\nCamera: macro close-up\nLens: 100mm macro\nMovement: micro pan\nEmotion beat: luxury detail\nSubject focus: accessory\n\nRhythm node:\nenergy=9, intimacy=9, motion=8, tension=4, payoff=8, facePriority=10, socialProof=10\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 2.92,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "macro close-up",
+            "lens": "100mm macro",
+            "movement": "micro pan"
+          },
+          "rhythm": {
+            "shotId": 4,
+            "phase": "preparation",
+            "energy": 9,
+            "intimacy": 9,
+            "motion": 8,
+            "tension": 4,
+            "payoff": 8,
+            "facePriority": 10,
+            "socialProof": 10,
+            "hookType": "face_retention"
+          }
+        },
+        {
+          "shotId": 5,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 5: First runway step\nPhase: ascension\nDescription: Model steps from darkness into the light.\nCamera: full body runway\nLens: 70-200mm\nMovement: tracking backward\nEmotion beat: ascension\nSubject focus: model walk\n\nRhythm node:\nenergy=9, intimacy=3, motion=8, tension=4, payoff=3, facePriority=2, socialProof=2\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 2.92,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "full body runway",
+            "lens": "70-200mm",
+            "movement": "tracking backward"
+          },
+          "rhythm": {
+            "shotId": 5,
+            "phase": "ascension",
+            "energy": 9,
+            "intimacy": 3,
+            "motion": 8,
+            "tension": 4,
+            "payoff": 3,
+            "facePriority": 2,
+            "socialProof": 2,
+            "hookType": "motion"
+          }
+        },
+        {
+          "shotId": 6,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 6: Crowd phone reaction\nPhase: ascension\nDescription: Audience raises phones and turns heads.\nCamera: audience reaction close\nLens: 50mm\nMovement: pan\nEmotion beat: social proof\nSubject focus: crowd\n\nRhythm node:\nenergy=6, intimacy=9, motion=8, tension=4, payoff=8, facePriority=10, socialProof=10\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 2.92,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "audience reaction close",
+            "lens": "50mm",
+            "movement": "pan"
+          },
+          "rhythm": {
+            "shotId": 6,
+            "phase": "ascension",
+            "energy": 6,
+            "intimacy": 9,
+            "motion": 8,
+            "tension": 4,
+            "payoff": 8,
+            "facePriority": 10,
+            "socialProof": 10,
+            "hookType": "face_retention"
+          }
+        },
+        {
+          "shotId": 7,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 7: Telephoto catwalk power\nPhase: climax\nDescription: Compressed runway view with model walking forward.\nCamera: telephoto runway frontal\nLens: 200mm\nMovement: smooth backward track\nEmotion beat: escalation\nSubject focus: model\n\nRhythm node:\nenergy=9, intimacy=3, motion=8, tension=4, payoff=3, facePriority=2, socialProof=10\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 2.92,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "telephoto runway frontal",
+            "lens": "200mm",
+            "movement": "smooth backward track"
+          },
+          "rhythm": {
+            "shotId": 7,
+            "phase": "climax",
+            "energy": 9,
+            "intimacy": 3,
+            "motion": 8,
+            "tension": 4,
+            "payoff": 3,
+            "facePriority": 2,
+            "socialProof": 10,
+            "hookType": "social_proof"
+          }
+        },
+        {
+          "shotId": 8,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 8: Hair and dress slow motion\nPhase: climax\nDescription: Fabric and hair move under spotlight.\nCamera: medium fashion detail\nLens: 85mm\nMovement: slow motion\nEmotion beat: beauty tension\nSubject focus: hair fabric\n\nRhythm node:\nenergy=9, intimacy=6, motion=8, tension=7, payoff=3, facePriority=10, socialProof=2\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 2.92,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "medium fashion detail",
+            "lens": "85mm",
+            "movement": "slow motion"
+          },
+          "rhythm": {
+            "shotId": 8,
+            "phase": "climax",
+            "energy": 9,
+            "intimacy": 6,
+            "motion": 8,
+            "tension": 7,
+            "payoff": 3,
+            "facePriority": 10,
+            "socialProof": 2,
+            "hookType": "face_retention"
+          }
+        },
+        {
+          "shotId": 9,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 9: Hero pose at runway end\nPhase: climax\nDescription: Model stops and holds iconic pose.\nCamera: full body hero\nLens: 70mm\nMovement: static hero hold\nEmotion beat: payoff\nSubject focus: pose\n\nRhythm node:\nenergy=9, intimacy=3, motion=3, tension=7, payoff=10, facePriority=2, socialProof=2\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 2.92,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "full body hero",
+            "lens": "70mm",
+            "movement": "static hero hold"
+          },
+          "rhythm": {
+            "shotId": 9,
+            "phase": "climax",
+            "energy": 9,
+            "intimacy": 3,
+            "motion": 3,
+            "tension": 7,
+            "payoff": 10,
+            "facePriority": 2,
+            "socialProof": 2,
+            "hookType": "payoff"
+          }
+        },
+        {
+          "shotId": 10,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 10: Photographer flash burst\nPhase: climax\nDescription: Cameras fire repeatedly.\nCamera: press reaction\nLens: 35mm\nMovement: flash cut\nEmotion beat: event matters\nSubject focus: photographers\n\nRhythm node:\nenergy=9, intimacy=4, motion=9, tension=4, payoff=8, facePriority=2, socialProof=10\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 2.92,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "press reaction",
+            "lens": "35mm",
+            "movement": "flash cut"
+          },
+          "rhythm": {
+            "shotId": 10,
+            "phase": "climax",
+            "energy": 9,
+            "intimacy": 4,
+            "motion": 9,
+            "tension": 4,
+            "payoff": 8,
+            "facePriority": 2,
+            "socialProof": 10,
+            "hookType": "social_proof"
+          }
+        },
+        {
+          "shotId": 11,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 11: Micro smile close-up\nPhase: release\nDescription: Model gives tiny smile after pose.\nCamera: beauty close-up face\nLens: 85mm\nMovement: slow push\nEmotion beat: emotional release\nSubject focus: smile\n\nRhythm node:\nenergy=6, intimacy=9, motion=8, tension=3, payoff=10, facePriority=10, socialProof=2\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 2.92,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "beauty close-up face",
+            "lens": "85mm",
+            "movement": "slow push"
+          },
+          "rhythm": {
+            "shotId": 11,
+            "phase": "release",
+            "energy": 6,
+            "intimacy": 9,
+            "motion": 8,
+            "tension": 3,
+            "payoff": 10,
+            "facePriority": 10,
+            "socialProof": 2,
+            "hookType": "face_retention"
+          }
+        },
+        {
+          "shotId": 12,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 12: Applause wide finale\nPhase: release\nDescription: Runway, crowd, lights and applause close the arc.\nCamera: wide finale\nLens: 24mm\nMovement: dolly out\nEmotion beat: final payoff\nSubject focus: runway crowd\n\nRhythm node:\nenergy=9, intimacy=9, motion=8, tension=3, payoff=10, facePriority=10, socialProof=10\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 2.92,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "wide finale",
+            "lens": "24mm",
+            "movement": "dolly out"
+          },
+          "rhythm": {
+            "shotId": 12,
+            "phase": "release",
+            "energy": 9,
+            "intimacy": 9,
+            "motion": 8,
+            "tension": 3,
+            "payoff": 10,
+            "facePriority": 10,
+            "socialProof": 10,
+            "hookType": "face_retention"
+          }
+        }
+      ]
+    },
+    "renderQueue": [
+      {
+        "jobType": "video_shot_render",
+        "shotId": 1,
+        "provider": "veo",
+        "endpoint": "/api/providers/google-managed/veo/generate",
+        "payload": {
+          "shotId": 1,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 1: Pattern interrupt — LFW lights snap on\nPhase: atmosphere\nDescription: Instant spotlight ignition over runway and crowd.\nCamera: wide establishing\nLens: 24mm\nMovement: fast push-in\nEmotion beat: curiosity\nSubject focus: runway lights\n\nRhythm node:\nenergy=9, intimacy=3, motion=8, tension=7, payoff=8, facePriority=2, socialProof=10\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 2.92,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "wide establishing",
+            "lens": "24mm",
+            "movement": "fast push-in"
+          },
+          "rhythm": {
+            "shotId": 1,
+            "phase": "atmosphere",
+            "energy": 9,
+            "intimacy": 3,
+            "motion": 8,
+            "tension": 7,
+            "payoff": 8,
+            "facePriority": 2,
+            "socialProof": 10,
+            "hookType": "social_proof"
+          }
+        },
+        "retryPolicy": {
+          "maxAttempts": 3,
+          "backoffMs": [
+            1000,
+            3000,
+            8000
+          ]
+        }
+      },
+      {
+        "jobType": "video_shot_render",
+        "shotId": 2,
+        "provider": "veo",
+        "endpoint": "/api/providers/google-managed/veo/generate",
+        "payload": {
+          "shotId": 2,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 2: Beauty hook close-up eyes\nPhase: atmosphere\nDescription: Main model looks into camera for immediate attention lock.\nCamera: close-up face eye\nLens: 85mm\nMovement: slow push\nEmotion beat: beauty hook\nSubject focus: eyes\n\nRhythm node:\nenergy=6, intimacy=9, motion=8, tension=4, payoff=3, facePriority=10, socialProof=2\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 2.92,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "close-up face eye",
+            "lens": "85mm",
+            "movement": "slow push"
+          },
+          "rhythm": {
+            "shotId": 2,
+            "phase": "atmosphere",
+            "energy": 6,
+            "intimacy": 9,
+            "motion": 8,
+            "tension": 4,
+            "payoff": 3,
+            "facePriority": 10,
+            "socialProof": 2,
+            "hookType": "face_retention"
+          }
+        },
+        "retryPolicy": {
+          "maxAttempts": 3,
+          "backoffMs": [
+            1000,
+            3000,
+            8000
+          ]
+        }
+      },
+      {
+        "jobType": "video_shot_render",
+        "shotId": 3,
+        "provider": "veo",
+        "endpoint": "/api/providers/google-managed/veo/generate",
+        "payload": {
+          "shotId": 3,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 3: Backstage deep breath\nPhase: preparation\nDescription: Model breathes before stepping out.\nCamera: portrait close-up\nLens: 85mm\nMovement: subtle handheld\nEmotion beat: anticipation\nSubject focus: face\n\nRhythm node:\nenergy=6, intimacy=9, motion=8, tension=8, payoff=3, facePriority=10, socialProof=2\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 2.92,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "portrait close-up",
+            "lens": "85mm",
+            "movement": "subtle handheld"
+          },
+          "rhythm": {
+            "shotId": 3,
+            "phase": "preparation",
+            "energy": 6,
+            "intimacy": 9,
+            "motion": 8,
+            "tension": 8,
+            "payoff": 3,
+            "facePriority": 10,
+            "socialProof": 2,
+            "hookType": "face_retention"
+          }
+        },
+        "retryPolicy": {
+          "maxAttempts": 3,
+          "backoffMs": [
+            1000,
+            3000,
+            8000
+          ]
+        }
+      },
+      {
+        "jobType": "video_shot_render",
+        "shotId": 4,
+        "provider": "veo",
+        "endpoint": "/api/providers/google-managed/veo/generate",
+        "payload": {
+          "shotId": 4,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 4: Accessory macro flash\nPhase: preparation\nDescription: Jewelry, fabric and bag detail.\nCamera: macro close-up\nLens: 100mm macro\nMovement: micro pan\nEmotion beat: luxury detail\nSubject focus: accessory\n\nRhythm node:\nenergy=9, intimacy=9, motion=8, tension=4, payoff=8, facePriority=10, socialProof=10\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 2.92,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "macro close-up",
+            "lens": "100mm macro",
+            "movement": "micro pan"
+          },
+          "rhythm": {
+            "shotId": 4,
+            "phase": "preparation",
+            "energy": 9,
+            "intimacy": 9,
+            "motion": 8,
+            "tension": 4,
+            "payoff": 8,
+            "facePriority": 10,
+            "socialProof": 10,
+            "hookType": "face_retention"
+          }
+        },
+        "retryPolicy": {
+          "maxAttempts": 3,
+          "backoffMs": [
+            1000,
+            3000,
+            8000
+          ]
+        }
+      },
+      {
+        "jobType": "video_shot_render",
+        "shotId": 5,
+        "provider": "veo",
+        "endpoint": "/api/providers/google-managed/veo/generate",
+        "payload": {
+          "shotId": 5,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 5: First runway step\nPhase: ascension\nDescription: Model steps from darkness into the light.\nCamera: full body runway\nLens: 70-200mm\nMovement: tracking backward\nEmotion beat: ascension\nSubject focus: model walk\n\nRhythm node:\nenergy=9, intimacy=3, motion=8, tension=4, payoff=3, facePriority=2, socialProof=2\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 2.92,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "full body runway",
+            "lens": "70-200mm",
+            "movement": "tracking backward"
+          },
+          "rhythm": {
+            "shotId": 5,
+            "phase": "ascension",
+            "energy": 9,
+            "intimacy": 3,
+            "motion": 8,
+            "tension": 4,
+            "payoff": 3,
+            "facePriority": 2,
+            "socialProof": 2,
+            "hookType": "motion"
+          }
+        },
+        "retryPolicy": {
+          "maxAttempts": 3,
+          "backoffMs": [
+            1000,
+            3000,
+            8000
+          ]
+        }
+      },
+      {
+        "jobType": "video_shot_render",
+        "shotId": 6,
+        "provider": "veo",
+        "endpoint": "/api/providers/google-managed/veo/generate",
+        "payload": {
+          "shotId": 6,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 6: Crowd phone reaction\nPhase: ascension\nDescription: Audience raises phones and turns heads.\nCamera: audience reaction close\nLens: 50mm\nMovement: pan\nEmotion beat: social proof\nSubject focus: crowd\n\nRhythm node:\nenergy=6, intimacy=9, motion=8, tension=4, payoff=8, facePriority=10, socialProof=10\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 2.92,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "audience reaction close",
+            "lens": "50mm",
+            "movement": "pan"
+          },
+          "rhythm": {
+            "shotId": 6,
+            "phase": "ascension",
+            "energy": 6,
+            "intimacy": 9,
+            "motion": 8,
+            "tension": 4,
+            "payoff": 8,
+            "facePriority": 10,
+            "socialProof": 10,
+            "hookType": "face_retention"
+          }
+        },
+        "retryPolicy": {
+          "maxAttempts": 3,
+          "backoffMs": [
+            1000,
+            3000,
+            8000
+          ]
+        }
+      },
+      {
+        "jobType": "video_shot_render",
+        "shotId": 7,
+        "provider": "veo",
+        "endpoint": "/api/providers/google-managed/veo/generate",
+        "payload": {
+          "shotId": 7,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 7: Telephoto catwalk power\nPhase: climax\nDescription: Compressed runway view with model walking forward.\nCamera: telephoto runway frontal\nLens: 200mm\nMovement: smooth backward track\nEmotion beat: escalation\nSubject focus: model\n\nRhythm node:\nenergy=9, intimacy=3, motion=8, tension=4, payoff=3, facePriority=2, socialProof=10\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 2.92,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "telephoto runway frontal",
+            "lens": "200mm",
+            "movement": "smooth backward track"
+          },
+          "rhythm": {
+            "shotId": 7,
+            "phase": "climax",
+            "energy": 9,
+            "intimacy": 3,
+            "motion": 8,
+            "tension": 4,
+            "payoff": 3,
+            "facePriority": 2,
+            "socialProof": 10,
+            "hookType": "social_proof"
+          }
+        },
+        "retryPolicy": {
+          "maxAttempts": 3,
+          "backoffMs": [
+            1000,
+            3000,
+            8000
+          ]
+        }
+      },
+      {
+        "jobType": "video_shot_render",
+        "shotId": 8,
+        "provider": "veo",
+        "endpoint": "/api/providers/google-managed/veo/generate",
+        "payload": {
+          "shotId": 8,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 8: Hair and dress slow motion\nPhase: climax\nDescription: Fabric and hair move under spotlight.\nCamera: medium fashion detail\nLens: 85mm\nMovement: slow motion\nEmotion beat: beauty tension\nSubject focus: hair fabric\n\nRhythm node:\nenergy=9, intimacy=6, motion=8, tension=7, payoff=3, facePriority=10, socialProof=2\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 2.92,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "medium fashion detail",
+            "lens": "85mm",
+            "movement": "slow motion"
+          },
+          "rhythm": {
+            "shotId": 8,
+            "phase": "climax",
+            "energy": 9,
+            "intimacy": 6,
+            "motion": 8,
+            "tension": 7,
+            "payoff": 3,
+            "facePriority": 10,
+            "socialProof": 2,
+            "hookType": "face_retention"
+          }
+        },
+        "retryPolicy": {
+          "maxAttempts": 3,
+          "backoffMs": [
+            1000,
+            3000,
+            8000
+          ]
+        }
+      },
+      {
+        "jobType": "video_shot_render",
+        "shotId": 9,
+        "provider": "veo",
+        "endpoint": "/api/providers/google-managed/veo/generate",
+        "payload": {
+          "shotId": 9,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 9: Hero pose at runway end\nPhase: climax\nDescription: Model stops and holds iconic pose.\nCamera: full body hero\nLens: 70mm\nMovement: static hero hold\nEmotion beat: payoff\nSubject focus: pose\n\nRhythm node:\nenergy=9, intimacy=3, motion=3, tension=7, payoff=10, facePriority=2, socialProof=2\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 2.92,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "full body hero",
+            "lens": "70mm",
+            "movement": "static hero hold"
+          },
+          "rhythm": {
+            "shotId": 9,
+            "phase": "climax",
+            "energy": 9,
+            "intimacy": 3,
+            "motion": 3,
+            "tension": 7,
+            "payoff": 10,
+            "facePriority": 2,
+            "socialProof": 2,
+            "hookType": "payoff"
+          }
+        },
+        "retryPolicy": {
+          "maxAttempts": 3,
+          "backoffMs": [
+            1000,
+            3000,
+            8000
+          ]
+        }
+      },
+      {
+        "jobType": "video_shot_render",
+        "shotId": 10,
+        "provider": "veo",
+        "endpoint": "/api/providers/google-managed/veo/generate",
+        "payload": {
+          "shotId": 10,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 10: Photographer flash burst\nPhase: climax\nDescription: Cameras fire repeatedly.\nCamera: press reaction\nLens: 35mm\nMovement: flash cut\nEmotion beat: event matters\nSubject focus: photographers\n\nRhythm node:\nenergy=9, intimacy=4, motion=9, tension=4, payoff=8, facePriority=2, socialProof=10\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 2.92,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "press reaction",
+            "lens": "35mm",
+            "movement": "flash cut"
+          },
+          "rhythm": {
+            "shotId": 10,
+            "phase": "climax",
+            "energy": 9,
+            "intimacy": 4,
+            "motion": 9,
+            "tension": 4,
+            "payoff": 8,
+            "facePriority": 2,
+            "socialProof": 10,
+            "hookType": "social_proof"
+          }
+        },
+        "retryPolicy": {
+          "maxAttempts": 3,
+          "backoffMs": [
+            1000,
+            3000,
+            8000
+          ]
+        }
+      },
+      {
+        "jobType": "video_shot_render",
+        "shotId": 11,
+        "provider": "veo",
+        "endpoint": "/api/providers/google-managed/veo/generate",
+        "payload": {
+          "shotId": 11,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 11: Micro smile close-up\nPhase: release\nDescription: Model gives tiny smile after pose.\nCamera: beauty close-up face\nLens: 85mm\nMovement: slow push\nEmotion beat: emotional release\nSubject focus: smile\n\nRhythm node:\nenergy=6, intimacy=9, motion=8, tension=3, payoff=10, facePriority=10, socialProof=2\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 2.92,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "beauty close-up face",
+            "lens": "85mm",
+            "movement": "slow push"
+          },
+          "rhythm": {
+            "shotId": 11,
+            "phase": "release",
+            "energy": 6,
+            "intimacy": 9,
+            "motion": 8,
+            "tension": 3,
+            "payoff": 10,
+            "facePriority": 10,
+            "socialProof": 2,
+            "hookType": "face_retention"
+          }
+        },
+        "retryPolicy": {
+          "maxAttempts": 3,
+          "backoffMs": [
+            1000,
+            3000,
+            8000
+          ]
+        }
+      },
+      {
+        "jobType": "video_shot_render",
+        "shotId": 12,
+        "provider": "veo",
+        "endpoint": "/api/providers/google-managed/veo/generate",
+        "payload": {
+          "shotId": 12,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "VideoFlow Adapter Test\nConcept: Luxury K-beauty fashion short with cinematic retention rhythm\nPlatform: youtube_shorts\nLocation: London Fashion Week\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, black outfit, cinematic spotlight\n\nShot 12: Applause wide finale\nPhase: release\nDescription: Runway, crowd, lights and applause close the arc.\nCamera: wide finale\nLens: 24mm\nMovement: dolly out\nEmotion beat: final payoff\nSubject focus: runway crowd\n\nRhythm node:\nenergy=9, intimacy=9, motion=8, tension=3, payoff=10, facePriority=10, socialProof=10\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 2.92,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "wide finale",
+            "lens": "24mm",
+            "movement": "dolly out"
+          },
+          "rhythm": {
+            "shotId": 12,
+            "phase": "release",
+            "energy": 9,
+            "intimacy": 9,
+            "motion": 8,
+            "tension": 3,
+            "payoff": 10,
+            "facePriority": 10,
+            "socialProof": 10,
+            "hookType": "face_retention"
+          }
+        },
+        "retryPolicy": {
+          "maxAttempts": 3,
+          "backoffMs": [
+            1000,
+            3000,
+            8000
+          ]
+        }
+      }
+    ]
+  },
+  "verification": {
+    "name": "StoryboardV31VerificationGate",
+    "passed": true,
+    "score": 100,
+    "checks": {
+      "energyCurve": true,
+      "microHooks": true,
+      "runwayEscalation": true,
+      "faceRetention": true,
+      "cameraLanguage": true,
+      "socialProof": true,
+      "retention": true,
+      "providerPayloads": true,
+      "renderQueue": true
+    },
+    "architecture": [
+      "Concept",
+      "Fashion DNA",
+      "Music BPM",
+      "Platform",
+      "Phase Planner",
+      "Rhythm Graph Engine",
+      "Micro Hook Planner",
+      "Camera Language Engine",
+      "Runway Escalation Engine",
+      "Social Proof Injector",
+      "Retention Validator",
+      "Provider Payload Compiler",
+      "Render Queue"
+    ]
+  },
+  "artifacts": []
+}

@@ -1,0 +1,20 @@
+node_modules/
+__pycache__/
+*.pyc
+
+# Next.js build output
+.next/
+*.tsbuildinfo
+
+# Runtime artifacts and local storage
+backend/artifacts/
+backend/storage/
+storage/
+
+# Local databases and logs
+*.db
+*.log
+
+# Local extracted snapshots
+tech_leader-main/
+*.zip

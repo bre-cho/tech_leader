@@ -1,0 +1,38 @@
+{
+  "name": "@videoflow/renderer-server",
+  "version": "1.2.1",
+  "description": "Server-side video renderering for VideoFlow — renders JSON videos into MP4/WebM videos directly in the browser — Open Source Remotion alternative",
+  "keywords": ["videoflow", "programmatic video", "generate videos", "video generation", "mp4", "webm", "remotion", "video rendering", "server rendering", "video editor", "video API"],
+  "license": "Apache-2.0",
+  "homepage": "https://videoflow.dev/renderers",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ybouane/VideoFlow.git",
+    "directory": "src/renderer-server"
+  },
+  "bugs": {
+    "url": "https://github.com/ybouane/VideoFlow/issues"
+  },
+  "type": "module",
+  "files": ["dist", "README.md", "renderer-page.html"],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@videoflow/core": "^1.2.1",
+    "playwright": "^1.49.0",
+    "esbuild": "^0.24.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "@types/node": "^22.0.0"
+  }
+}

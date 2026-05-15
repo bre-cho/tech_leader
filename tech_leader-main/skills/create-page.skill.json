@@ -1,0 +1,7 @@
+{
+  "name": "create-page.skill",
+  "trigger_keywords": ["page", "ui", "frontend", "screen", "dashboard"],
+  "description": "Create a product page with route, layout, navigation wiring, state handling, analytics hook, tests, and docs.",
+  "required_checks": ["typecheck", "lint", "browser_smoke"],
+  "file_patterns": ["src/app/**", "src/components/**", "tests/**", "docs/**"]
+}

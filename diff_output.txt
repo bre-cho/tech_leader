@@ -1,0 +1,238 @@
+Only in .: .agent16-business-os
+Only in .: .ai-workforce
+Only in .: .codenomad_core
+Files ./.github/instructions/frontend-pages-mapping.instructions.md and tech_leader_videoflow_upgrade/.github/instructions/frontend-pages-mapping.instructions.md differ
+Files ./.github/instructions/frontend-vite-workspace.instructions.md and tech_leader_videoflow_upgrade/.github/instructions/frontend-vite-workspace.instructions.md differ
+Files ./.github/instructions/root-nextjs-ui.instructions.md and tech_leader_videoflow_upgrade/.github/instructions/root-nextjs-ui.instructions.md differ
+Files ./.github/instructions/runtime-orchestrator-gate.instructions.md and tech_leader_videoflow_upgrade/.github/instructions/runtime-orchestrator-gate.instructions.md differ
+Files ./.github/skills/backend-verify/SKILL.md and tech_leader_videoflow_upgrade/.github/skills/backend-verify/SKILL.md differ
+Files ./.github/skills/backend-verify/assets/verify-checklist.md and tech_leader_videoflow_upgrade/.github/skills/backend-verify/assets/verify-checklist.md differ
+Files ./.github/skills/smoke-tests/SKILL.md and tech_leader_videoflow_upgrade/.github/skills/smoke-tests/SKILL.md differ
+Files ./.github/skills/smoke-tests/assets/smoke-checklist.md and tech_leader_videoflow_upgrade/.github/skills/smoke-tests/assets/smoke-checklist.md differ
+Only in ./.github: workflows
+Files ./.gitignore and tech_leader_videoflow_upgrade/.gitignore differ
+Only in .: .pytest_cache
+Only in .: AGENTS.md
+Only in .: CHANGELOG.md
+Only in .: CHANGELOG_BUSINESS_OS_UPGRADE.md
+Only in .: ai_trading_brain
+Files ./app/api/beauty-avatar/create/route.ts and tech_leader_videoflow_upgrade/app/api/beauty-avatar/create/route.ts differ
+Only in ./app/api: commercial-intelligence
+Only in tech_leader_videoflow_upgrade/app/api: videoflow
+Files ./app/beauty-commerce/page.tsx and tech_leader_videoflow_upgrade/app/beauty-commerce/page.tsx differ
+Files ./app/commercial-creative/page.tsx and tech_leader_videoflow_upgrade/app/commercial-creative/page.tsx differ
+Only in ./app: globals.css
+Only in ./app: layout.tsx
+Only in ./app: page.tsx
+Only in tech_leader_videoflow_upgrade/backend: agentic_creative.db
+Only in ./backend: alembic
+Only in ./backend: alembic.ini
+Files ./backend/app/api/routes.py and tech_leader_videoflow_upgrade/backend/app/api/routes.py differ
+Files ./backend/app/api/v1/architecture_control_tower.py and tech_leader_videoflow_upgrade/backend/app/api/v1/architecture_control_tower.py differ
+Only in ./backend/app/api/v1: audit.py
+Files ./backend/app/api/workforce_routes.py and tech_leader_videoflow_upgrade/backend/app/api/workforce_routes.py differ
+Only in ./backend/app: audit
+Only in ./backend/app: cognition
+Only in ./backend/app/commercial_intelligence: __init__.py
+Only in ./backend/app/compound_os_mvp: __init__.py
+Only in ./backend/app/compound_os_mvp/core: __init__.py
+Files ./backend/app/compound_os_mvp/db.py and tech_leader_videoflow_upgrade/backend/app/compound_os_mvp/db.py differ
+Files ./backend/app/compound_os_mvp/main.py and tech_leader_videoflow_upgrade/backend/app/compound_os_mvp/main.py differ
+Only in ./backend/app/compound_os_mvp/services: __init__.py
+Files ./backend/app/compound_os_mvp/services/creative_graph.py and tech_leader_videoflow_upgrade/backend/app/compound_os_mvp/services/creative_graph.py differ
+Files ./backend/app/config.py and tech_leader_videoflow_upgrade/backend/app/config.py differ
+Files ./backend/app/context_graph/store.py and tech_leader_videoflow_upgrade/backend/app/context_graph/store.py differ
+Files ./backend/app/core/contracts.py and tech_leader_videoflow_upgrade/backend/app/core/contracts.py differ
+Files ./backend/app/core/operating_law.py and tech_leader_videoflow_upgrade/backend/app/core/operating_law.py differ
+Only in ./backend/app/creative_infra_mvp: __init__.py
+Only in ./backend/app/creative_infra_mvp/agents: __init__.py
+Only in ./backend/app/creative_infra_mvp/api: __init__.py
+Files ./backend/app/creative_infra_mvp/api/beauty_patches.py and tech_leader_videoflow_upgrade/backend/app/creative_infra_mvp/api/beauty_patches.py differ
+Only in ./backend/app/creative_infra_mvp/services: __init__.py
+Files ./backend/app/creative_os_mvp/core/config.py and tech_leader_videoflow_upgrade/backend/app/creative_os_mvp/core/config.py differ
+Files ./backend/app/db.py and tech_leader_videoflow_upgrade/backend/app/db.py differ
+Only in ./backend/app/engines: __init__.py
+Files ./backend/app/engines/prompt_compiler.py and tech_leader_videoflow_upgrade/backend/app/engines/prompt_compiler.py differ
+Only in ./backend/app/governance: agent_permissions.py
+Only in ./backend/app/governance: decision_log.py
+Files ./backend/app/governance/operating_law.py and tech_leader_videoflow_upgrade/backend/app/governance/operating_law.py differ
+Only in ./backend/app/governance: trust_policy.py
+Files ./backend/app/main.py and tech_leader_videoflow_upgrade/backend/app/main.py differ
+Files ./backend/app/memory/contracts.py and tech_leader_videoflow_upgrade/backend/app/memory/contracts.py differ
+Files ./backend/app/memory/local_second_brain.py and tech_leader_videoflow_upgrade/backend/app/memory/local_second_brain.py differ
+Only in ./backend/app/memory: memory_manager.py
+Only in ./backend/app/memory: topology.py
+Files ./backend/app/memory/winner_dna.py and tech_leader_videoflow_upgrade/backend/app/memory/winner_dna.py differ
+Files ./backend/app/models/records.py and tech_leader_videoflow_upgrade/backend/app/models/records.py differ
+Files ./backend/app/providers/hidream_provider.py and tech_leader_videoflow_upgrade/backend/app/providers/hidream_provider.py differ
+Files ./backend/app/runtime/orchestrator.py and tech_leader_videoflow_upgrade/backend/app/runtime/orchestrator.py differ
+Only in ./backend/app/runtime: replay.py
+Only in ./backend/app/runtime: retry_guard.py
+Only in ./backend/app/runtime: state_propagation.py
+Only in ./backend/app/runtime: trust_graph.py
+Files ./backend/app/runtime/verification.py and tech_leader_videoflow_upgrade/backend/app/runtime/verification.py differ
+Only in ./backend/app/schemas: artifact.py
+Files ./backend/app/schemas/design.py and tech_leader_videoflow_upgrade/backend/app/schemas/design.py differ
+Only in ./backend/app: security
+Files ./backend/app/tts_studio/contracts.py and tech_leader_videoflow_upgrade/backend/app/tts_studio/contracts.py differ
+Files ./backend/app/tts_studio/indextts_provider.py and tech_leader_videoflow_upgrade/backend/app/tts_studio/indextts_provider.py differ
+Only in ./backend/app/tts_studio: providers
+Only in ./backend/app/tts_studio: scenema_audio_provider.py
+Files ./backend/app/vendor/kol_drama_runtime/drama/schemas/dialogue_subtext.py and tech_leader_videoflow_upgrade/backend/app/vendor/kol_drama_runtime/drama/schemas/dialogue_subtext.py differ
+Files ./backend/app/vendor/kol_drama_runtime/drama/schemas/drama_memory.py and tech_leader_videoflow_upgrade/backend/app/vendor/kol_drama_runtime/drama/schemas/drama_memory.py differ
+Files ./backend/app/vendor/kol_drama_runtime/drama/schemas/drama_state.py and tech_leader_videoflow_upgrade/backend/app/vendor/kol_drama_runtime/drama/schemas/drama_state.py differ
+Files ./backend/app/vendor/kol_drama_runtime/drama/schemas/power_shift.py and tech_leader_videoflow_upgrade/backend/app/vendor/kol_drama_runtime/drama/schemas/power_shift.py differ
+Only in ./backend/app/vendor/kol_drama_runtime/drama/timeline/engines: __init__.py
+Only in ./backend/app/vendor/kol_render_runtime/render/assembly/executors: __init__.py
+Only in ./backend/app/vendor/kol_render_runtime/render/assembly/vision: __init__.py
+Only in ./backend/app/vendor/kol_storyboard_engine: __init__.py
+Files ./backend/app/vendor/kol_storyboard_engine/provider_adapters/factory.py and tech_leader_videoflow_upgrade/backend/app/vendor/kol_storyboard_engine/provider_adapters/factory.py differ
+Files ./backend/app/vendor/kol_storyboard_engine/provider_adapters/prompt_normalizer.py and tech_leader_videoflow_upgrade/backend/app/vendor/kol_storyboard_engine/provider_adapters/prompt_normalizer.py differ
+Files ./backend/app/vendor/kol_storyboard_engine/provider_adapters/types.py and tech_leader_videoflow_upgrade/backend/app/vendor/kol_storyboard_engine/provider_adapters/types.py differ
+Files ./backend/app/vendor/kol_storyboard_engine/provider_adapters/veo_adapter.py and tech_leader_videoflow_upgrade/backend/app/vendor/kol_storyboard_engine/provider_adapters/veo_adapter.py differ
+Files ./backend/app/vendor/veo_poster_backend_packages/apps_api/core/config.py and tech_leader_videoflow_upgrade/backend/app/vendor/veo_poster_backend_packages/apps_api/core/config.py differ
+Files ./backend/app/vendor/veo_poster_backend_packages/apps_api/creative_intelligence.py and tech_leader_videoflow_upgrade/backend/app/vendor/veo_poster_backend_packages/apps_api/creative_intelligence.py differ
+Files ./backend/app/vendor/veo_poster_backend_packages/apps_api/models/creative_intelligence.py and tech_leader_videoflow_upgrade/backend/app/vendor/veo_poster_backend_packages/apps_api/models/creative_intelligence.py differ
+Files ./backend/app/vendor/veo_poster_backend_packages/apps_api/schemas/core.py and tech_leader_videoflow_upgrade/backend/app/vendor/veo_poster_backend_packages/apps_api/schemas/core.py differ
+Files ./backend/app/vendor/veo_poster_backend_packages/apps_api/schemas/creative_intelligence.py and tech_leader_videoflow_upgrade/backend/app/vendor/veo_poster_backend_packages/apps_api/schemas/creative_intelligence.py differ
+Files ./backend/app/vendor/veo_poster_backend_packages/packages/campaign_intelligence/__init__.py and tech_leader_videoflow_upgrade/backend/app/vendor/veo_poster_backend_packages/packages/campaign_intelligence/__init__.py differ
+Files ./backend/app/vendor/veo_poster_backend_packages/packages/campaign_intelligence/engines.py and tech_leader_videoflow_upgrade/backend/app/vendor/veo_poster_backend_packages/packages/campaign_intelligence/engines.py differ
+Files ./backend/app/vendor/veo_poster_intelligence/poster-production/orchestrator.ts and tech_leader_videoflow_upgrade/backend/app/vendor/veo_poster_intelligence/poster-production/orchestrator.ts differ
+Files ./backend/app/vendor/veo_v4_poster/v4-poster/types.ts and tech_leader_videoflow_upgrade/backend/app/vendor/veo_v4_poster/v4-poster/types.ts differ
+Only in ./backend/app/workforce: __init__.py
+Only in ./backend/app/workforce/agents: __init__.py
+Files ./backend/app/workforce/contracts.py and tech_leader_videoflow_upgrade/backend/app/workforce/contracts.py differ
+Files ./backend/app/workforce/orchestrator.py and tech_leader_videoflow_upgrade/backend/app/workforce/orchestrator.py differ
+Only in ./backend: artifacts
+Files ./backend/tests/test_patch_v26_beauty.py and tech_leader_videoflow_upgrade/backend/tests/test_patch_v26_beauty.py differ
+Only in ./backend/tests: test_scenema_audio_provider.py
+Only in ./components: BrainShell.tsx
+Files ./components/beauty-avatar/VirtualAvatarStudio.tsx and tech_leader_videoflow_upgrade/components/beauty-avatar/VirtualAvatarStudio.tsx differ
+Files ./components/beauty-commerce-v28/BeautyCommerceV28Studio.tsx and tech_leader_videoflow_upgrade/components/beauty-commerce-v28/BeautyCommerceV28Studio.tsx differ
+Files ./components/beauty-intelligence/BeautyPerceptionStudio.tsx and tech_leader_videoflow_upgrade/components/beauty-intelligence/BeautyPerceptionStudio.tsx differ
+Files ./components/creative-infra/ColorIntelligenceDashboard.tsx and tech_leader_videoflow_upgrade/components/creative-infra/ColorIntelligenceDashboard.tsx differ
+Files ./components/hidream-commercial/HiDreamCommercialStudio.tsx and tech_leader_videoflow_upgrade/components/hidream-commercial/HiDreamCommercialStudio.tsx differ
+Files ./components/storyboard-v30/StoryboardV30Studio.tsx and tech_leader_videoflow_upgrade/components/storyboard-v30/StoryboardV30Studio.tsx differ
+Files ./components/storyboard-v31/StoryboardV31RhythmStudio.tsx and tech_leader_videoflow_upgrade/components/storyboard-v31/StoryboardV31RhythmStudio.tsx differ
+Only in .: context_graph
+Only in .: diff_output.txt
+Only in ./docs: BRD.md
+Only in ./docs: SCENEMA_AUDIO_VOICE_CLONING_UPGRADE.md
+Only in tech_leader_videoflow_upgrade/docs: VIDEOFLOW_TECH_LEADER_UPGRADE.md
+Only in ./docs: agent16_advanced_modules
+Only in ./docs: agent16_business_os
+Only in ./docs: agent16_system_audit
+Only in ./docs: ai_tech_lead_os
+Only in ./docs: audit_reports
+Only in ./docs: brief.md
+Only in ./docs: changelogs
+Only in ./docs: codenomad_core
+Only in ./docs: engineering_os
+Only in ./docs: finance_os
+Only in ./docs: knowledge_os
+Only in ./docs: master-plan.md
+Only in ./docs: runtime
+Only in .: env.d.ts
+Only in ./examples: finance_sample.csv
+Only in ./frontend/dist/assets: index-B0ppeDWd.js
+Only in tech_leader_videoflow_upgrade/frontend/dist/assets: index-CAlGkT4d.js
+Files ./frontend/dist/index.html and tech_leader_videoflow_upgrade/frontend/dist/index.html differ
+Files ./frontend/package.json and tech_leader_videoflow_upgrade/frontend/package.json differ
+Files ./frontend/src/lib/api.ts and tech_leader_videoflow_upgrade/frontend/src/lib/api.ts differ
+Files ./frontend/src/pages/DesignStudio.tsx and tech_leader_videoflow_upgrade/frontend/src/pages/DesignStudio.tsx differ
+Only in ./lib: ai-design-workforce
+Files ./lib/beauty-avatar/beautyAvatarGenerator.ts and tech_leader_videoflow_upgrade/lib/beauty-avatar/beautyAvatarGenerator.ts differ
+Only in ./lib: brand-memory.ts
+Only in ./lib: code-intelligence
+Only in ./lib: config
+Only in ./lib: contracts
+Only in ./lib: creative-os
+Only in ./lib: design
+Only in ./lib: logger.ts
+Only in ./lib: observability.ts
+Only in ./lib: poster-intelligence
+Only in ./lib: poster-production
+Files ./lib/runtime/artifactStore.ts and tech_leader_videoflow_upgrade/lib/runtime/artifactStore.ts differ
+Only in ./lib/runtime: safeOutputDir.ts
+Only in ./lib: scale-intelligence
+Files ./lib/storyboard-v30/types.ts and tech_leader_videoflow_upgrade/lib/storyboard-v30/types.ts differ
+Only in ./lib: supabase
+Only in ./lib: v4-poster
+Only in ./lib: v6-pro
+Only in tech_leader_videoflow_upgrade/lib: videoflow
+Files ./package-lock.json and tech_leader_videoflow_upgrade/package-lock.json differ
+Files ./package.json and tech_leader_videoflow_upgrade/package.json differ
+Only in tech_leader_videoflow_upgrade/: packages
+Only in .: pytest.ini
+Only in .: reports
+Only in ./scripts: _repo_bootstrap.py
+Only in ./scripts: agent16_architecture_observer.py
+Only in ./scripts: agent16_audit.py
+Only in ./scripts: agent16_autonomous_runtime.py
+Only in ./scripts: agent16_business_operating_mind.py
+Only in ./scripts: agent16_codenomad.py
+Only in ./scripts: agent16_creative_runtime.py
+Only in ./scripts: agent16_finance_os.py
+Only in ./scripts: agent16_graph_integrity_check.py
+Only in ./scripts: agent16_growth_runtime.py
+Only in ./scripts: agent16_knowledge_os.py
+Only in ./scripts: agent16_memory_consistency_audit.py
+Only in ./scripts: agent16_release_gate.py
+Only in ./scripts: agent16_release_gate_full.py
+Only in ./scripts: agent16_system_audit.py
+Only in ./scripts: agent16_trustgraph_audit.py
+Only in ./scripts: agent16_workforce_contract_check.py
+Only in ./scripts: audit_inventory.py
+Only in ./scripts: audit_static_scan.py
+Only in ./scripts: check-mock-leakage.mjs
+Only in ./scripts: check-release-gate.mjs
+Only in ./scripts: context_graph_builder.py
+Only in ./scripts: engineering_os.py
+Only in ./scripts: run_full_audit.py
+Only in ./scripts: test-auth-policy.mjs
+Only in ./scripts: test-governance.mjs
+Files ./services/google-ai/nanoBananaRuntime.ts and tech_leader_videoflow_upgrade/services/google-ai/nanoBananaRuntime.ts differ
+Files ./services/google-ai/veoRuntime.ts and tech_leader_videoflow_upgrade/services/google-ai/veoRuntime.ts differ
+Files ./services/providerRouter.ts and tech_leader_videoflow_upgrade/services/providerRouter.ts differ
+Only in .: skills
+Files ./storage/beauty-commerce-v28/beauty_commerce_v28_plan_14fe81db3cb8.json and tech_leader_videoflow_upgrade/storage/beauty-commerce-v28/beauty_commerce_v28_plan_14fe81db3cb8.json differ
+Files ./storage/test-v29-1/v29_1_identity_beauty_runtime_plan_4c54d61d3ccd.json and tech_leader_videoflow_upgrade/storage/test-v29-1/v29_1_identity_beauty_runtime_plan_4c54d61d3ccd.json differ
+Only in ./storage: test-v30-sales-upgraded
+Only in ./storage: test-v30-storyboard
+Only in tech_leader_videoflow_upgrade/storage: test-videoflow-adapter
+Files ./storage/v29-beauty-perception/v29_beauty_perception_plan_13f7a9bdf4be.json and tech_leader_videoflow_upgrade/storage/v29-beauty-perception/v29_beauty_perception_plan_13f7a9bdf4be.json differ
+Files ./storage/v29-beauty-perception/v29_beauty_perception_plan_1f52d35f3c20.json and tech_leader_videoflow_upgrade/storage/v29-beauty-perception/v29_beauty_perception_plan_1f52d35f3c20.json differ
+Files ./storage/v29-beauty-perception/v29_beauty_perception_plan_2ebd9406ffdc.json and tech_leader_videoflow_upgrade/storage/v29-beauty-perception/v29_beauty_perception_plan_2ebd9406ffdc.json differ
+Files ./storage/v29-beauty-perception/v29_beauty_perception_plan_560271cb117e.json and tech_leader_videoflow_upgrade/storage/v29-beauty-perception/v29_beauty_perception_plan_560271cb117e.json differ
+Files ./storage/v29-beauty-perception/v29_beauty_perception_plan_9984320bd056.json and tech_leader_videoflow_upgrade/storage/v29-beauty-perception/v29_beauty_perception_plan_9984320bd056.json differ
+Files ./storage/v29-beauty-perception/v29_beauty_perception_plan_9d5f4acbf59c.json and tech_leader_videoflow_upgrade/storage/v29-beauty-perception/v29_beauty_perception_plan_9d5f4acbf59c.json differ
+Files ./storage/v29-beauty-perception/v29_beauty_perception_plan_a2d488918b9d.json and tech_leader_videoflow_upgrade/storage/v29-beauty-perception/v29_beauty_perception_plan_a2d488918b9d.json differ
+Files ./storage/v29-beauty-perception/v29_beauty_perception_plan_b09cf506d945.json and tech_leader_videoflow_upgrade/storage/v29-beauty-perception/v29_beauty_perception_plan_b09cf506d945.json differ
+Files ./storage/v29-beauty-perception/v29_beauty_perception_plan_e9c9aef9e25b.json and tech_leader_videoflow_upgrade/storage/v29-beauty-perception/v29_beauty_perception_plan_e9c9aef9e25b.json differ
+Only in .: tech_leader-main
+Only in .: tech_leader_videoflow_upgrade
+Only in .: tech_leader_videoflow_upgrade.zip
+Only in ./tests: runtime-guards-regression.test.ts
+Only in ./tests: test_agent16_techlead.py
+Only in ./tests: test_agent_memory_topology.py
+Only in ./tests: test_architecture_observer.py
+Only in ./tests: test_artifact_lineage_graph.py
+Only in ./tests: test_autonomous_runtime.py
+Only in ./tests: test_codenomad_core.py
+Only in ./tests: test_context_graph_integrity.py
+Only in ./tests: test_creative_intelligence.py
+Only in ./tests: test_cross_agent_state.py
+Only in ./tests: test_economic_cognition_flow.py
+Only in ./tests: test_economic_os.py
+Only in ./tests: test_engineering_os.py
+Only in ./tests: test_finance_os.py
+Only in ./tests: test_knowledge_os.py
+Only in ./tests: test_release_gate_full.py
+Only in ./tests: test_replay_determinism.py
+Only in ./tests: test_system_audit_inventory.py
+Only in ./tests: test_trustgraph_orchestration.py
+Only in ./tests: test_workforce_contracts.py
+Only in tech_leader_videoflow_upgrade/tests: videoflow-adapter.test.ts
+Only in .: third_party
+Files ./tsconfig.json and tech_leader_videoflow_upgrade/tsconfig.json differ
+Only in .: tsconfig.tsbuildinfo
