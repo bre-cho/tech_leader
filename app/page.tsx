@@ -6,6 +6,7 @@ const cards = [
   ["Storyboard V31", "/storyboard-v31", "Dựng phân cảnh theo nhịp giữ chân người xem và cấu trúc video."],
   ["HiDream Commercial", "/hidream-commercial", "Tạo ảnh quảng cáo thương mại cao cấp từ mô tả sản phẩm."],
   ["Color Intelligence", "/color-intelligence", "Phân tích màu sắc, cảm xúc thị giác và nhận diện thương hiệu."],
+  ["Video Render Studio", "/video-render", "Render ảnh tĩnh hoặc text prompt thành video với Veo 3.1."],
   ["AI Engine Settings", "/settings/ai-engine", "Quản lý provider, model, khóa API và chính sách định tuyến."],
 ];
 
@@ -16,7 +17,7 @@ export default function HomePage() {
         <p className="brain-eyebrow">Architecture Control Tower</p>
         <h2>Trung tâm điều phối Agent16</h2>
         <p>
-          Bản này đã áp dụng bố cục giao diện từ `brain-main`: nền tối, sidebar điều phối, card kính mờ,
+          Bản này đã áp dụng bố cục giao diện từ brain-main: nền tối, sidebar điều phối, card kính mờ,
           trạng thái vận hành và luồng kiểm định trước phát hành.
         </p>
       </section>

@@ -1,0 +1,1114 @@
+Listing 'app'...
+Listing 'app/agents'...
+Listing 'app/api'...
+Listing 'app/api/v1'...
+Listing 'app/audit'...
+Listing 'app/cognition'...
+Listing 'app/commercial_intelligence'...
+Listing 'app/compound_os_mvp'...
+Listing 'app/compound_os_mvp/core'...
+Listing 'app/compound_os_mvp/services'...
+Listing 'app/context_graph'...
+Listing 'app/core'...
+Listing 'app/creative_infra_mvp'...
+Listing 'app/creative_infra_mvp/agents'...
+Listing 'app/creative_infra_mvp/api'...
+Listing 'app/creative_infra_mvp/services'...
+Listing 'app/creative_os_mvp'...
+Listing 'app/creative_os_mvp/api'...
+Listing 'app/creative_os_mvp/api/v1'...
+Listing 'app/creative_os_mvp/commercial'...
+Listing 'app/creative_os_mvp/context_graph'...
+Listing 'app/creative_os_mvp/core'...
+Listing 'app/creative_os_mvp/hidream'...
+Listing 'app/creative_os_mvp/memory'...
+Listing 'app/creative_os_mvp/models'...
+Listing 'app/creative_os_mvp/providers'...
+Listing 'app/creative_os_mvp/runtime'...
+Listing 'app/creative_os_mvp/storage'...
+Listing 'app/creative_os_mvp/storyboard'...
+Listing 'app/engines'...
+Listing 'app/governance'...
+Listing 'app/hidream'...
+Listing 'app/indextts'...
+Listing 'app/intelligence'...
+Listing 'app/lipdub'...
+Listing 'app/memory'...
+Listing 'app/models'...
+Listing 'app/providers'...
+Listing 'app/runtime'...
+Listing 'app/schemas'...
+Listing 'app/security'...
+Listing 'app/shared'...
+Listing 'app/skills'...
+Listing 'app/storage'...
+Listing 'app/tts_studio'...
+Listing 'app/vendor'...
+Listing 'app/vendor/kol_drama_runtime'...
+Listing 'app/vendor/kol_drama_runtime/drama'...
+Listing 'app/vendor/kol_drama_runtime/drama/api'...
+Listing 'app/vendor/kol_drama_runtime/drama/engines'...
+Listing 'app/vendor/kol_drama_runtime/drama/integrations'...
+Listing 'app/vendor/kol_drama_runtime/drama/models'...
+Listing 'app/vendor/kol_drama_runtime/drama/ops'...
+Listing 'app/vendor/kol_drama_runtime/drama/render'...
+Listing 'app/vendor/kol_drama_runtime/drama/render/adapters'...
+Listing 'app/vendor/kol_drama_runtime/drama/render/services'...
+Listing 'app/vendor/kol_drama_runtime/drama/rules'...
+Listing 'app/vendor/kol_drama_runtime/drama/schemas'...
+Listing 'app/vendor/kol_drama_runtime/drama/script'...
+Listing 'app/vendor/kol_drama_runtime/drama/script/engines'...
+Listing 'app/vendor/kol_drama_runtime/drama/script/prompts'...
+Listing 'app/vendor/kol_drama_runtime/drama/script/schemas'...
+Listing 'app/vendor/kol_drama_runtime/drama/script/services'...
+Listing 'app/vendor/kol_drama_runtime/drama/services'...
+Listing 'app/vendor/kol_drama_runtime/drama/timeline'...
+Listing 'app/vendor/kol_drama_runtime/drama/timeline/engines'...
+Listing 'app/vendor/kol_drama_runtime/drama/timeline/schemas'...
+Listing 'app/vendor/kol_drama_runtime/drama/timeline/services'...
+Listing 'app/vendor/kol_drama_runtime/drama/tts'...
+Listing 'app/vendor/kol_drama_runtime/drama/tts/services'...
+Listing 'app/vendor/kol_drama_runtime/drama/workers'...
+Listing 'app/vendor/kol_drama_runtime/drama/workers_ext'...
+Listing 'app/vendor/kol_render_runtime'...
+Listing 'app/vendor/kol_render_runtime/render'...
+Listing 'app/vendor/kol_render_runtime/render/assembly'...
+Listing 'app/vendor/kol_render_runtime/render/assembly/executors'...
+Listing 'app/vendor/kol_render_runtime/render/assembly/schemas'...
+Listing 'app/vendor/kol_render_runtime/render/assembly/services'...
+Listing 'app/vendor/kol_render_runtime/render/assembly/subtitles'...
+Listing 'app/vendor/kol_render_runtime/render/assembly/vision'...
+Listing 'app/vendor/kol_render_runtime/render/decision'...
+Listing 'app/vendor/kol_render_runtime/render/dependency'...
+Listing 'app/vendor/kol_render_runtime/render/execution'...
+Listing 'app/vendor/kol_render_runtime/render/manifest'...
+Listing 'app/vendor/kol_render_runtime/render/quality'...
+Listing 'app/vendor/kol_render_runtime/render/reassembly'...
+Listing 'app/vendor/kol_render_runtime/render/reassembly/optimizer'...
+Listing 'app/vendor/kol_render_runtime/render/reassembly/policy'...
+Listing 'app/vendor/kol_render_runtime/render/rebuild'...
+Listing 'app/vendor/kol_render_runtime/render/rerender'...
+Listing 'app/vendor/kol_storyboard_engine'...
+Listing 'app/vendor/kol_storyboard_engine/cinematic_language_engine'...
+Listing 'app/vendor/kol_storyboard_engine/provider_adapters'...
+Listing 'app/vendor/kol_storyboard_engine/storyboard_engine'...
+Listing 'app/vendor/veo_ai_design_workforce'...
+Listing 'app/vendor/veo_ai_design_workforce/ai-design-workforce'...
+Listing 'app/vendor/veo_ai_design_workforce/creative-os'...
+Listing 'app/vendor/veo_poster_backend_packages'...
+Listing 'app/vendor/veo_poster_backend_packages/apps_api'...
+Listing 'app/vendor/veo_poster_backend_packages/apps_api/assets'...
+Listing 'app/vendor/veo_poster_backend_packages/apps_api/auth'...
+Listing 'app/vendor/veo_poster_backend_packages/apps_api/billing'...
+Listing 'app/vendor/veo_poster_backend_packages/apps_api/brands'...
+Listing 'app/vendor/veo_poster_backend_packages/apps_api/core'...
+Listing 'app/vendor/veo_poster_backend_packages/apps_api/db'...
+Listing 'app/vendor/veo_poster_backend_packages/apps_api/exports'...
+Listing 'app/vendor/veo_poster_backend_packages/apps_api/jobs'...
+Listing 'app/vendor/veo_poster_backend_packages/apps_api/models'...
+Listing 'app/vendor/veo_poster_backend_packages/apps_api/posters'...
+Listing 'app/vendor/veo_poster_backend_packages/apps_api/projects'...
+Listing 'app/vendor/veo_poster_backend_packages/apps_api/prompts'...
+Listing 'app/vendor/veo_poster_backend_packages/apps_api/providers'...
+Listing 'app/vendor/veo_poster_backend_packages/apps_api/providers/adobe'...
+Listing 'app/vendor/veo_poster_backend_packages/apps_api/providers/canva'...
+Listing 'app/vendor/veo_poster_backend_packages/apps_api/providers/mock'...
+Listing 'app/vendor/veo_poster_backend_packages/apps_api/schemas'...
+Listing 'app/vendor/veo_poster_backend_packages/apps_api/scoring'...
+Listing 'app/vendor/veo_poster_backend_packages/apps_api/telemetry'...
+Listing 'app/vendor/veo_poster_backend_packages/packages'...
+Listing 'app/vendor/veo_poster_backend_packages/packages/ai_design_workforce'...
+Listing 'app/vendor/veo_poster_backend_packages/packages/campaign_intelligence'...
+Listing 'app/vendor/veo_poster_backend_packages/packages/contracts'...
+Listing 'app/vendor/veo_poster_backend_packages/packages/export_engine'...
+Listing 'app/vendor/veo_poster_backend_packages/packages/fashion_poster_factory'...
+Listing 'app/vendor/veo_poster_backend_packages/packages/prompt_engine'...
+Listing 'app/vendor/veo_poster_backend_packages/packages/provider_adapters'...
+Listing 'app/vendor/veo_poster_backend_packages/packages/scoring_engine'...
+Listing 'app/vendor/veo_poster_intelligence'...
+Listing 'app/vendor/veo_poster_intelligence/poster-intelligence'...
+Listing 'app/vendor/veo_poster_intelligence/poster-production'...
+Listing 'app/vendor/veo_v4_poster'...
+Listing 'app/vendor/veo_v4_poster/prompt'...
+Listing 'app/vendor/veo_v4_poster/prompt-v6'...
+Listing 'app/vendor/veo_v4_poster/v4-poster'...
+Listing 'app/video_postprocess'...
+Listing 'app/voice'...
+Listing 'app/workflows'...
+Listing 'app/workforce'...
+Listing 'app/workforce/agents'...
+....FF..........F                                                        [100%]
+=================================== FAILURES ===================================
+_______________________ test_design_studio_full_runtime ________________________
+  + Exception Group Traceback (most recent call last):
+  |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/_utils.py", line 76, in collapse_excgroups
+  |     yield
+  |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 186, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |   File "/home/codespace/.local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 783, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/_pytest/runner.py", line 341, in from_call
+    |     result: TResult | None = func()
+    |                              ^^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/_pytest/runner.py", line 242, in <lambda>
+    |     lambda: runtest_hook(item=item, **kwds), when=when, reraise=reraise
+    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/pluggy/_hooks.py", line 512, in __call__
+    |     return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    |     return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/pluggy/_callers.py", line 167, in _multicall
+    |     raise exception
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    |     teardown.throw(exception)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/_pytest/threadexception.py", line 92, in pytest_runtest_call
+    |     yield from thread_exception_runtest_hook()
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/_pytest/threadexception.py", line 68, in thread_exception_runtest_hook
+    |     yield
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    |     teardown.throw(exception)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/_pytest/unraisableexception.py", line 95, in pytest_runtest_call
+    |     yield from unraisable_exception_runtest_hook()
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/_pytest/unraisableexception.py", line 70, in unraisable_exception_runtest_hook
+    |     yield
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    |     teardown.throw(exception)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/_pytest/logging.py", line 846, in pytest_runtest_call
+    |     yield from self._runtest_for(item, "call")
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/_pytest/logging.py", line 829, in _runtest_for
+    |     yield
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    |     teardown.throw(exception)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/_pytest/capture.py", line 880, in pytest_runtest_call
+    |     return (yield)
+    |             ^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    |     teardown.throw(exception)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/_pytest/skipping.py", line 257, in pytest_runtest_call
+    |     return (yield)
+    |             ^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/pluggy/_callers.py", line 121, in _multicall
+    |     res = hook_impl.function(*args)
+    |           ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/_pytest/runner.py", line 174, in pytest_runtest_call
+    |     item.runtest()
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/_pytest/python.py", line 1627, in runtest
+    |     self.ihook.pytest_pyfunc_call(pyfuncitem=self)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/pluggy/_hooks.py", line 512, in __call__
+    |     return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    |     return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/pluggy/_callers.py", line 167, in _multicall
+    |     raise exception
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/pluggy/_callers.py", line 121, in _multicall
+    |     res = hook_impl.function(*args)
+    |           ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/_pytest/python.py", line 159, in pytest_pyfunc_call
+    |     result = testfunction(**testargs)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/workspaces/tech_leader/backend/tests/test_design_studio.py", line 28, in test_design_studio_full_runtime
+    |     res = client.post('/api/v1/design-studio/run', json=payload)
+    |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/testclient.py", line 593, in post
+    |     return super().post(
+    |            ^^^^^^^^^^^^^
+    |   File "/home/codespace/.local/lib/python3.12/site-packages/httpx/_client.py", line 1144, in post
+    |     return self.request(
+    |            ^^^^^^^^^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/testclient.py", line 484, in request
+    |     return super().request(
+    |            ^^^^^^^^^^^^^^^^
+    |   File "/home/codespace/.local/lib/python3.12/site-packages/httpx/_client.py", line 825, in request
+    |     return self.send(request, auth=auth, follow_redirects=follow_redirects)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/codespace/.local/lib/python3.12/site-packages/httpx/_client.py", line 914, in send
+    |     response = self._send_handling_auth(
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/codespace/.local/lib/python3.12/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    |     response = self._send_handling_redirects(
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/codespace/.local/lib/python3.12/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    |     response = self._send_single_request(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/codespace/.local/lib/python3.12/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    |     response = transport.handle_request(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/testclient.py", line 377, in handle_request
+    |     raise exc
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/testclient.py", line 374, in handle_request
+    |     portal.call(self.app, scope, receive, send)
+    |   File "/home/codespace/.local/lib/python3.12/site-packages/anyio/from_thread.py", line 334, in call
+    |     return cast(T_Retval, self.start_task_soon(func, *args).result())
+    |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+    |     return self.__get_result()
+    |            ^^^^^^^^^^^^^^^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    |     raise self._exception
+    |   File "/home/codespace/.local/lib/python3.12/site-packages/anyio/from_thread.py", line 259, in _call_func
+    |     retval = await retval_or_awaitable
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    |     await super().__call__(scope, receive, send)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/applications.py", line 113, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/errors.py", line 187, in __call__
+    |     raise exc
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    |     with collapse_excgroups():
+    |   File "/usr/local/python/3.12.1/lib/python3.12/contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/_utils.py", line 82, in collapse_excgroups
+    |     raise exc
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/workspaces/tech_leader/backend/app/main.py", line 68, in write_route_auth_guard
+    |     return await call_next(request)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    |     raise app_exc
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 715, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 735, in app
+    |     await route.handle(scope, receive, send)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    |     await self.app(scope, receive, send)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    |     response = await f(request)
+    |                ^^^^^^^^^^^^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/fastapi/routing.py", line 301, in app
+    |     raw_response = await run_endpoint_function(
+    |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/fastapi/routing.py", line 214, in run_endpoint_function
+    |     return await run_in_threadpool(dependant.call, **values)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/concurrency.py", line 39, in run_in_threadpool
+    |     return await anyio.to_thread.run_sync(func, *args)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/codespace/.local/lib/python3.12/site-packages/anyio/to_thread.py", line 63, in run_sync
+    |     return await get_async_backend().run_sync_in_worker_thread(
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/codespace/.local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2502, in run_sync_in_worker_thread
+    |     return await future
+    |            ^^^^^^^^^^^^
+    |   File "/home/codespace/.local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 986, in run
+    |     result = context.run(func, *args)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/workspaces/tech_leader/backend/app/api/routes.py", line 27, in run_design_studio
+    |     return TechnicalLeadOrchestrator(db).run_design_to_video_workflow(payload)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/workspaces/tech_leader/backend/app/runtime/orchestrator.py", line 215, in run_design_to_video_workflow
+    |     self.db.commit()
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2028, in commit
+    |     trans.commit(_to_root=True)
+    |   File "<string>", line 2, in commit
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 103, in _go
+    |     self._raise_for_prerequisite_state(fn.__name__, current_state)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 973, in _raise_for_prerequisite_state
+    |     raise sa_exc.PendingRollbackError(
+    | sqlalchemy.exc.PendingRollbackError: This Session's transaction has been rolled back due to a previous exception during flush. To begin a new transaction with this Session, first issue Session.rollback(). Original exception was: (sqlite3.OperationalError) no such table: state_propagation_log
+    | [SQL: INSERT INTO state_propagation_log (workflow_id, source_agent, target_agent, state_key, value_json) VALUES (?, ?, ?, ?, ?) RETURNING id, created_at]
+    | [parameters: ('ba543173-7190-4a89-8b79-1a5b3a09cc06', 'BusinessDiagnosisAgent', 'ImageDesignAgent', 'business_diagnosis', '{"industry": "spa mỹ phẩm", "product": "serum phục hồi da", "audience": "phụ nữ 25-35", "channel": "TikTok", "goal": "bán hàng", "pain_point": "khách ... (246 characters truncated) ... visual_direction": "premium, trustworthy, conversion-focused; hero product/person focus; readable CTA; premium lighting", "upsell_potential": "high"}')]
+    | (Background on this error at: https://sqlalche.me/e/20/e3q8) (Background on this error at: https://sqlalche.me/e/20/7s2a)
+    +------------------------------------
+
+During handling of the above exception, another exception occurred:
+
+    def test_design_studio_full_runtime():
+        payload = {
+            'industry': 'spa mỹ phẩm',
+            'product': 'serum phục hồi da',
+            'audience': 'phụ nữ 25-35',
+            'channel': 'TikTok',
+            'goal': 'bán hàng',
+            'brand_name': 'Lumi Skin',
+        }
+>       res = client.post('/api/v1/design-studio/run', json=payload)
+
+tests/test_design_studio.py:28: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/testclient.py:593: in post
+    return super().post(
+/home/codespace/.local/lib/python3.12/site-packages/httpx/_client.py:1144: in post
+    return self.request(
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/testclient.py:484: in request
+    return super().request(
+/home/codespace/.local/lib/python3.12/site-packages/httpx/_client.py:825: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+/home/codespace/.local/lib/python3.12/site-packages/httpx/_client.py:914: in send
+    response = self._send_handling_auth(
+/home/codespace/.local/lib/python3.12/site-packages/httpx/_client.py:942: in _send_handling_auth
+    response = self._send_handling_redirects(
+/home/codespace/.local/lib/python3.12/site-packages/httpx/_client.py:979: in _send_handling_redirects
+    response = self._send_single_request(request)
+/home/codespace/.local/lib/python3.12/site-packages/httpx/_client.py:1014: in _send_single_request
+    response = transport.handle_request(request)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/testclient.py:377: in handle_request
+    raise exc
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/testclient.py:374: in handle_request
+    portal.call(self.app, scope, receive, send)
+/home/codespace/.local/lib/python3.12/site-packages/anyio/from_thread.py:334: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+/usr/local/python/3.12.1/lib/python3.12/concurrent/futures/_base.py:456: in result
+    return self.__get_result()
+/usr/local/python/3.12.1/lib/python3.12/concurrent/futures/_base.py:401: in __get_result
+    raise self._exception
+/home/codespace/.local/lib/python3.12/site-packages/anyio/from_thread.py:259: in _call_func
+    retval = await retval_or_awaitable
+/usr/local/python/3.12.1/lib/python3.12/site-packages/fastapi/applications.py:1054: in __call__
+    await super().__call__(scope, receive, send)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/applications.py:113: in __call__
+    await self.middleware_stack(scope, receive, send)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/errors.py:187: in __call__
+    raise exc
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/errors.py:165: in __call__
+    await self.app(scope, receive, _send)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py:185: in __call__
+    with collapse_excgroups():
+/usr/local/python/3.12.1/lib/python3.12/contextlib.py:158: in __exit__
+    self.gen.throw(value)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/_utils.py:82: in collapse_excgroups
+    raise exc
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py:187: in __call__
+    response = await self.dispatch_func(request, call_next)
+app/main.py:68: in write_route_auth_guard
+    return await call_next(request)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py:163: in call_next
+    raise app_exc
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py:149: in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/cors.py:85: in __call__
+    await self.app(scope, receive, send)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/exceptions.py:62: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/_exception_handler.py:53: in wrapped_app
+    raise exc
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/routing.py:715: in __call__
+    await self.middleware_stack(scope, receive, send)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/routing.py:735: in app
+    await route.handle(scope, receive, send)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/routing.py:288: in handle
+    await self.app(scope, receive, send)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/routing.py:76: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/_exception_handler.py:53: in wrapped_app
+    raise exc
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/routing.py:73: in app
+    response = await f(request)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/fastapi/routing.py:301: in app
+    raw_response = await run_endpoint_function(
+/usr/local/python/3.12.1/lib/python3.12/site-packages/fastapi/routing.py:214: in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/concurrency.py:39: in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+/home/codespace/.local/lib/python3.12/site-packages/anyio/to_thread.py:63: in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+/home/codespace/.local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py:2502: in run_sync_in_worker_thread
+    return await future
+/home/codespace/.local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py:986: in run
+    result = context.run(func, *args)
+app/api/routes.py:27: in run_design_studio
+    return TechnicalLeadOrchestrator(db).run_design_to_video_workflow(payload)
+app/runtime/orchestrator.py:215: in run_design_to_video_workflow
+    self.db.commit()
+/usr/local/python/3.12.1/lib/python3.12/site-packages/sqlalchemy/orm/session.py:2028: in commit
+    trans.commit(_to_root=True)
+<string>:2: in commit
+    ???
+/usr/local/python/3.12.1/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py:103: in _go
+    self._raise_for_prerequisite_state(fn.__name__, current_state)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <sqlalchemy.orm.session.SessionTransaction object at 0x7bffff90b850>
+operation_name = 'commit', state = <SessionTransactionState.DEACTIVE: 4>
+
+    def _raise_for_prerequisite_state(
+        self, operation_name: str, state: _StateChangeState
+    ) -> NoReturn:
+        if state is SessionTransactionState.DEACTIVE:
+            if self._rollback_exception:
+>               raise sa_exc.PendingRollbackError(
+                    "This Session's transaction has been rolled back "
+                    "due to a previous exception during flush."
+                    " To begin a new transaction with this Session, "
+                    "first issue Session.rollback()."
+                    f" Original exception was: {self._rollback_exception}",
+                    code="7s2a",
+                )
+E               sqlalchemy.exc.PendingRollbackError: This Session's transaction has been rolled back due to a previous exception during flush. To begin a new transaction with this Session, first issue Session.rollback(). Original exception was: (sqlite3.OperationalError) no such table: state_propagation_log
+E               [SQL: INSERT INTO state_propagation_log (workflow_id, source_agent, target_agent, state_key, value_json) VALUES (?, ?, ?, ?, ?) RETURNING id, created_at]
+E               [parameters: ('ba543173-7190-4a89-8b79-1a5b3a09cc06', 'BusinessDiagnosisAgent', 'ImageDesignAgent', 'business_diagnosis', '{"industry": "spa mỹ phẩm", "product": "serum phục hồi da", "audience": "phụ nữ 25-35", "channel": "TikTok", "goal": "bán hàng", "pain_point": "khách ... (246 characters truncated) ... visual_direction": "premium, trustworthy, conversion-focused; hero product/person focus; readable CTA; premium lighting", "upsell_potential": "high"}')]
+E               (Background on this error at: https://sqlalche.me/e/20/e3q8) (Background on this error at: https://sqlalche.me/e/20/7s2a)
+
+/usr/local/python/3.12.1/lib/python3.12/site-packages/sqlalchemy/orm/session.py:973: PendingRollbackError
+_________________ test_design_studio_dry_run_skips_persistence _________________
+  + Exception Group Traceback (most recent call last):
+  |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/_utils.py", line 76, in collapse_excgroups
+  |     yield
+  |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 186, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |   File "/home/codespace/.local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 783, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/_pytest/runner.py", line 341, in from_call
+    |     result: TResult | None = func()
+    |                              ^^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/_pytest/runner.py", line 242, in <lambda>
+    |     lambda: runtest_hook(item=item, **kwds), when=when, reraise=reraise
+    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/pluggy/_hooks.py", line 512, in __call__
+    |     return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    |     return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/pluggy/_callers.py", line 167, in _multicall
+    |     raise exception
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    |     teardown.throw(exception)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/_pytest/threadexception.py", line 92, in pytest_runtest_call
+    |     yield from thread_exception_runtest_hook()
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/_pytest/threadexception.py", line 68, in thread_exception_runtest_hook
+    |     yield
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    |     teardown.throw(exception)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/_pytest/unraisableexception.py", line 95, in pytest_runtest_call
+    |     yield from unraisable_exception_runtest_hook()
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/_pytest/unraisableexception.py", line 70, in unraisable_exception_runtest_hook
+    |     yield
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    |     teardown.throw(exception)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/_pytest/logging.py", line 846, in pytest_runtest_call
+    |     yield from self._runtest_for(item, "call")
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/_pytest/logging.py", line 829, in _runtest_for
+    |     yield
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    |     teardown.throw(exception)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/_pytest/capture.py", line 880, in pytest_runtest_call
+    |     return (yield)
+    |             ^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    |     teardown.throw(exception)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/_pytest/skipping.py", line 257, in pytest_runtest_call
+    |     return (yield)
+    |             ^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/pluggy/_callers.py", line 121, in _multicall
+    |     res = hook_impl.function(*args)
+    |           ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/_pytest/runner.py", line 174, in pytest_runtest_call
+    |     item.runtest()
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/_pytest/python.py", line 1627, in runtest
+    |     self.ihook.pytest_pyfunc_call(pyfuncitem=self)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/pluggy/_hooks.py", line 512, in __call__
+    |     return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    |     return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/pluggy/_callers.py", line 167, in _multicall
+    |     raise exception
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/pluggy/_callers.py", line 121, in _multicall
+    |     res = hook_impl.function(*args)
+    |           ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/_pytest/python.py", line 159, in pytest_pyfunc_call
+    |     result = testfunction(**testargs)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/workspaces/tech_leader/backend/tests/test_design_studio.py", line 54, in test_design_studio_dry_run_skips_persistence
+    |     res = client.post('/api/v1/design-studio/run', json=payload)
+    |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/testclient.py", line 593, in post
+    |     return super().post(
+    |            ^^^^^^^^^^^^^
+    |   File "/home/codespace/.local/lib/python3.12/site-packages/httpx/_client.py", line 1144, in post
+    |     return self.request(
+    |            ^^^^^^^^^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/testclient.py", line 484, in request
+    |     return super().request(
+    |            ^^^^^^^^^^^^^^^^
+    |   File "/home/codespace/.local/lib/python3.12/site-packages/httpx/_client.py", line 825, in request
+    |     return self.send(request, auth=auth, follow_redirects=follow_redirects)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/codespace/.local/lib/python3.12/site-packages/httpx/_client.py", line 914, in send
+    |     response = self._send_handling_auth(
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/codespace/.local/lib/python3.12/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    |     response = self._send_handling_redirects(
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/codespace/.local/lib/python3.12/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    |     response = self._send_single_request(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/codespace/.local/lib/python3.12/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    |     response = transport.handle_request(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/testclient.py", line 377, in handle_request
+    |     raise exc
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/testclient.py", line 374, in handle_request
+    |     portal.call(self.app, scope, receive, send)
+    |   File "/home/codespace/.local/lib/python3.12/site-packages/anyio/from_thread.py", line 334, in call
+    |     return cast(T_Retval, self.start_task_soon(func, *args).result())
+    |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+    |     return self.__get_result()
+    |            ^^^^^^^^^^^^^^^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    |     raise self._exception
+    |   File "/home/codespace/.local/lib/python3.12/site-packages/anyio/from_thread.py", line 259, in _call_func
+    |     retval = await retval_or_awaitable
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    |     await super().__call__(scope, receive, send)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/applications.py", line 113, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/errors.py", line 187, in __call__
+    |     raise exc
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    |     with collapse_excgroups():
+    |   File "/usr/local/python/3.12.1/lib/python3.12/contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/_utils.py", line 82, in collapse_excgroups
+    |     raise exc
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/workspaces/tech_leader/backend/app/main.py", line 68, in write_route_auth_guard
+    |     return await call_next(request)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    |     raise app_exc
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 715, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 735, in app
+    |     await route.handle(scope, receive, send)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    |     await self.app(scope, receive, send)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    |     response = await f(request)
+    |                ^^^^^^^^^^^^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/fastapi/routing.py", line 301, in app
+    |     raw_response = await run_endpoint_function(
+    |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/fastapi/routing.py", line 214, in run_endpoint_function
+    |     return await run_in_threadpool(dependant.call, **values)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/concurrency.py", line 39, in run_in_threadpool
+    |     return await anyio.to_thread.run_sync(func, *args)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/codespace/.local/lib/python3.12/site-packages/anyio/to_thread.py", line 63, in run_sync
+    |     return await get_async_backend().run_sync_in_worker_thread(
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/codespace/.local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2502, in run_sync_in_worker_thread
+    |     return await future
+    |            ^^^^^^^^^^^^
+    |   File "/home/codespace/.local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 986, in run
+    |     result = context.run(func, *args)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/workspaces/tech_leader/backend/app/api/routes.py", line 27, in run_design_studio
+    |     return TechnicalLeadOrchestrator(db).run_design_to_video_workflow(payload)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/workspaces/tech_leader/backend/app/runtime/orchestrator.py", line 215, in run_design_to_video_workflow
+    |     self.db.commit()
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2028, in commit
+    |     trans.commit(_to_root=True)
+    |   File "<string>", line 2, in commit
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 103, in _go
+    |     self._raise_for_prerequisite_state(fn.__name__, current_state)
+    |   File "/usr/local/python/3.12.1/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 973, in _raise_for_prerequisite_state
+    |     raise sa_exc.PendingRollbackError(
+    | sqlalchemy.exc.PendingRollbackError: This Session's transaction has been rolled back due to a previous exception during flush. To begin a new transaction with this Session, first issue Session.rollback(). Original exception was: (sqlite3.OperationalError) no such table: state_propagation_log
+    | [SQL: INSERT INTO state_propagation_log (workflow_id, source_agent, target_agent, state_key, value_json) VALUES (?, ?, ?, ?, ?) RETURNING id, created_at]
+    | [parameters: ('c3ca8fec-c7ca-47be-8062-b967e48816a0', 'BusinessDiagnosisAgent', 'ImageDesignAgent', 'business_diagnosis', '{"industry": "spa mỹ phẩm", "product": "serum phục hồi da", "audience": "phụ nữ 25-35", "channel": "TikTok", "goal": "bán hàng", "pain_point": "khách ... (246 characters truncated) ... visual_direction": "premium, trustworthy, conversion-focused; hero product/person focus; readable CTA; premium lighting", "upsell_potential": "high"}')]
+    | (Background on this error at: https://sqlalche.me/e/20/e3q8) (Background on this error at: https://sqlalche.me/e/20/7s2a)
+    +------------------------------------
+
+During handling of the above exception, another exception occurred:
+
+    def test_design_studio_dry_run_skips_persistence():
+        memory_before = client.get('/api/v1/memory/winner-dna')
+        assert memory_before.status_code == 200
+        entities_before = client.get('/api/v1/context-graph/entities')
+        assert entities_before.status_code == 200
+    
+        payload = {
+            'industry': 'spa mỹ phẩm',
+            'product': 'serum phục hồi da',
+            'audience': 'phụ nữ 25-35',
+            'channel': 'TikTok',
+            'goal': 'bán hàng',
+            'brand_name': 'Lumi Skin',
+            'dry_run': True,
+        }
+>       res = client.post('/api/v1/design-studio/run', json=payload)
+
+tests/test_design_studio.py:54: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/testclient.py:593: in post
+    return super().post(
+/home/codespace/.local/lib/python3.12/site-packages/httpx/_client.py:1144: in post
+    return self.request(
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/testclient.py:484: in request
+    return super().request(
+/home/codespace/.local/lib/python3.12/site-packages/httpx/_client.py:825: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+/home/codespace/.local/lib/python3.12/site-packages/httpx/_client.py:914: in send
+    response = self._send_handling_auth(
+/home/codespace/.local/lib/python3.12/site-packages/httpx/_client.py:942: in _send_handling_auth
+    response = self._send_handling_redirects(
+/home/codespace/.local/lib/python3.12/site-packages/httpx/_client.py:979: in _send_handling_redirects
+    response = self._send_single_request(request)
+/home/codespace/.local/lib/python3.12/site-packages/httpx/_client.py:1014: in _send_single_request
+    response = transport.handle_request(request)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/testclient.py:377: in handle_request
+    raise exc
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/testclient.py:374: in handle_request
+    portal.call(self.app, scope, receive, send)
+/home/codespace/.local/lib/python3.12/site-packages/anyio/from_thread.py:334: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+/usr/local/python/3.12.1/lib/python3.12/concurrent/futures/_base.py:456: in result
+    return self.__get_result()
+/usr/local/python/3.12.1/lib/python3.12/concurrent/futures/_base.py:401: in __get_result
+    raise self._exception
+/home/codespace/.local/lib/python3.12/site-packages/anyio/from_thread.py:259: in _call_func
+    retval = await retval_or_awaitable
+/usr/local/python/3.12.1/lib/python3.12/site-packages/fastapi/applications.py:1054: in __call__
+    await super().__call__(scope, receive, send)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/applications.py:113: in __call__
+    await self.middleware_stack(scope, receive, send)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/errors.py:187: in __call__
+    raise exc
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/errors.py:165: in __call__
+    await self.app(scope, receive, _send)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py:185: in __call__
+    with collapse_excgroups():
+/usr/local/python/3.12.1/lib/python3.12/contextlib.py:158: in __exit__
+    self.gen.throw(value)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/_utils.py:82: in collapse_excgroups
+    raise exc
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py:187: in __call__
+    response = await self.dispatch_func(request, call_next)
+app/main.py:68: in write_route_auth_guard
+    return await call_next(request)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py:163: in call_next
+    raise app_exc
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py:149: in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/cors.py:85: in __call__
+    await self.app(scope, receive, send)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/exceptions.py:62: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/_exception_handler.py:53: in wrapped_app
+    raise exc
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/routing.py:715: in __call__
+    await self.middleware_stack(scope, receive, send)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/routing.py:735: in app
+    await route.handle(scope, receive, send)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/routing.py:288: in handle
+    await self.app(scope, receive, send)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/routing.py:76: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/_exception_handler.py:53: in wrapped_app
+    raise exc
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/routing.py:73: in app
+    response = await f(request)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/fastapi/routing.py:301: in app
+    raw_response = await run_endpoint_function(
+/usr/local/python/3.12.1/lib/python3.12/site-packages/fastapi/routing.py:214: in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/concurrency.py:39: in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+/home/codespace/.local/lib/python3.12/site-packages/anyio/to_thread.py:63: in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+/home/codespace/.local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py:2502: in run_sync_in_worker_thread
+    return await future
+/home/codespace/.local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py:986: in run
+    result = context.run(func, *args)
+app/api/routes.py:27: in run_design_studio
+    return TechnicalLeadOrchestrator(db).run_design_to_video_workflow(payload)
+app/runtime/orchestrator.py:215: in run_design_to_video_workflow
+    self.db.commit()
+/usr/local/python/3.12.1/lib/python3.12/site-packages/sqlalchemy/orm/session.py:2028: in commit
+    trans.commit(_to_root=True)
+<string>:2: in commit
+    ???
+/usr/local/python/3.12.1/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py:103: in _go
+    self._raise_for_prerequisite_state(fn.__name__, current_state)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <sqlalchemy.orm.session.SessionTransaction object at 0x7bfff7037350>
+operation_name = 'commit', state = <SessionTransactionState.DEACTIVE: 4>
+
+    def _raise_for_prerequisite_state(
+        self, operation_name: str, state: _StateChangeState
+    ) -> NoReturn:
+        if state is SessionTransactionState.DEACTIVE:
+            if self._rollback_exception:
+>               raise sa_exc.PendingRollbackError(
+                    "This Session's transaction has been rolled back "
+                    "due to a previous exception during flush."
+                    " To begin a new transaction with this Session, "
+                    "first issue Session.rollback()."
+                    f" Original exception was: {self._rollback_exception}",
+                    code="7s2a",
+                )
+E               sqlalchemy.exc.PendingRollbackError: This Session's transaction has been rolled back due to a previous exception during flush. To begin a new transaction with this Session, first issue Session.rollback(). Original exception was: (sqlite3.OperationalError) no such table: state_propagation_log
+E               [SQL: INSERT INTO state_propagation_log (workflow_id, source_agent, target_agent, state_key, value_json) VALUES (?, ?, ?, ?, ?) RETURNING id, created_at]
+E               [parameters: ('c3ca8fec-c7ca-47be-8062-b967e48816a0', 'BusinessDiagnosisAgent', 'ImageDesignAgent', 'business_diagnosis', '{"industry": "spa mỹ phẩm", "product": "serum phục hồi da", "audience": "phụ nữ 25-35", "channel": "TikTok", "goal": "bán hàng", "pain_point": "khách ... (246 characters truncated) ... visual_direction": "premium, trustworthy, conversion-focused; hero product/person focus; readable CTA; premium lighting", "upsell_potential": "high"}')]
+E               (Background on this error at: https://sqlalche.me/e/20/e3q8) (Background on this error at: https://sqlalche.me/e/20/7s2a)
+
+/usr/local/python/3.12.1/lib/python3.12/site-packages/sqlalchemy/orm/session.py:973: PendingRollbackError
+_______________________ test_image_design_workforce_runs _______________________
+
+self = <sqlalchemy.engine.base.Connection object at 0x7bfff7122630>
+dialect = <sqlalchemy.dialects.sqlite.pysqlite.SQLiteDialect_pysqlite object at 0x7c00088607d0>
+context = <sqlalchemy.dialects.sqlite.base.SQLiteExecutionContext object at 0x7bfff78ffad0>
+statement = <sqlalchemy.dialects.sqlite.base.SQLiteCompiler object at 0x7bfff78dfb30>
+parameters = [('IndustryIntelligenceAgent', 1, 0)]
+
+    def _exec_single_context(
+        self,
+        dialect: Dialect,
+        context: ExecutionContext,
+        statement: Union[str, Compiled],
+        parameters: Optional[_AnyMultiExecuteParams],
+    ) -> CursorResult[Any]:
+        """continue the _execute_context() method for a single DBAPI
+        cursor.execute() or cursor.executemany() call.
+    
+        """
+        if dialect.bind_typing is BindTyping.SETINPUTSIZES:
+            generic_setinputsizes = context._prepare_set_input_sizes()
+    
+            if generic_setinputsizes:
+                try:
+                    dialect.do_set_input_sizes(
+                        context.cursor, generic_setinputsizes, context
+                    )
+                except BaseException as e:
+                    self._handle_dbapi_exception(
+                        e, str(statement), parameters, None, context
+                    )
+    
+        cursor, str_statement, parameters = (
+            context.cursor,
+            context.statement,
+            context.parameters,
+        )
+    
+        effective_parameters: Optional[_AnyExecuteParams]
+    
+        if not context.executemany:
+            effective_parameters = parameters[0]
+        else:
+            effective_parameters = parameters
+    
+        if self._has_events or self.engine._has_events:
+            for fn in self.dispatch.before_cursor_execute:
+                str_statement, effective_parameters = fn(
+                    self,
+                    cursor,
+                    str_statement,
+                    effective_parameters,
+                    context,
+                    context.executemany,
+                )
+    
+        if self._echo:
+            self._log_info(str_statement)
+    
+            stats = context._get_cache_stats()
+    
+            if not self.engine.hide_parameters:
+                self._log_info(
+                    "[%s] %r",
+                    stats,
+                    sql_util._repr_params(
+                        effective_parameters,
+                        batches=10,
+                        ismulti=context.executemany,
+                    ),
+                )
+            else:
+                self._log_info(
+                    "[%s] [SQL parameters hidden due to hide_parameters=True]",
+                    stats,
+                )
+    
+        evt_handled: bool = False
+        try:
+            if context.execute_style is ExecuteStyle.EXECUTEMANY:
+                effective_parameters = cast(
+                    "_CoreMultiExecuteParams", effective_parameters
+                )
+                if self.dialect._has_events:
+                    for fn in self.dialect.dispatch.do_executemany:
+                        if fn(
+                            cursor,
+                            str_statement,
+                            effective_parameters,
+                            context,
+                        ):
+                            evt_handled = True
+                            break
+                if not evt_handled:
+                    self.dialect.do_executemany(
+                        cursor,
+                        str_statement,
+                        effective_parameters,
+                        context,
+                    )
+            elif not effective_parameters and context.no_parameters:
+                if self.dialect._has_events:
+                    for fn in self.dialect.dispatch.do_execute_no_params:
+                        if fn(cursor, str_statement, context):
+                            evt_handled = True
+                            break
+                if not evt_handled:
+                    self.dialect.do_execute_no_params(
+                        cursor, str_statement, context
+                    )
+            else:
+                effective_parameters = cast(
+                    "_CoreSingleExecuteParams", effective_parameters
+                )
+                if self.dialect._has_events:
+                    for fn in self.dialect.dispatch.do_execute:
+                        if fn(
+                            cursor,
+                            str_statement,
+                            effective_parameters,
+                            context,
+                        ):
+                            evt_handled = True
+                            break
+                if not evt_handled:
+>                   self.dialect.do_execute(
+                        cursor, str_statement, effective_parameters, context
+                    )
+
+/usr/local/python/3.12.1/lib/python3.12/site-packages/sqlalchemy/engine/base.py:1967: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <sqlalchemy.dialects.sqlite.pysqlite.SQLiteDialect_pysqlite object at 0x7c00088607d0>
+cursor = <sqlite3.Cursor object at 0x7bfff7956040>
+statement = 'SELECT agent_trust.id AS agent_trust_id, agent_trust.agent_name AS agent_trust_agent_name, agent_trust.trust_score AS...nt_trust.updated_at AS agent_trust_updated_at \nFROM agent_trust \nWHERE agent_trust.agent_name = ?\n LIMIT ? OFFSET ?'
+parameters = ('IndustryIntelligenceAgent', 1, 0)
+context = <sqlalchemy.dialects.sqlite.base.SQLiteExecutionContext object at 0x7bfff78ffad0>
+
+    def do_execute(self, cursor, statement, parameters, context=None):
+>       cursor.execute(statement, parameters)
+E       sqlite3.OperationalError: no such table: agent_trust
+
+/usr/local/python/3.12.1/lib/python3.12/site-packages/sqlalchemy/engine/default.py:941: OperationalError
+
+The above exception was the direct cause of the following exception:
+
+    def test_image_design_workforce_runs():
+        payload = {
+            "save_memory": True,
+            "brief": {
+                "brand_name": "Demo Beauty",
+                "industry": "beauty",
+                "product_name": "Glow Serum",
+                "product_type": "serum bottle",
+                "target_audience": "Vietnamese women 22-35",
+                "campaign_goal": "conversion",
+                "channel": "tiktok",
+                "offer": "Try mini serum today",
+                "brand_tone": "premium, trustworthy, luxury"
+            }
+        }
+>       res = client.post("/api/v1/workforce/image-design/run", json=payload)
+
+tests/test_workforce.py:21: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/testclient.py:593: in post
+    return super().post(
+/home/codespace/.local/lib/python3.12/site-packages/httpx/_client.py:1144: in post
+    return self.request(
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/testclient.py:484: in request
+    return super().request(
+/home/codespace/.local/lib/python3.12/site-packages/httpx/_client.py:825: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+/home/codespace/.local/lib/python3.12/site-packages/httpx/_client.py:914: in send
+    response = self._send_handling_auth(
+/home/codespace/.local/lib/python3.12/site-packages/httpx/_client.py:942: in _send_handling_auth
+    response = self._send_handling_redirects(
+/home/codespace/.local/lib/python3.12/site-packages/httpx/_client.py:979: in _send_handling_redirects
+    response = self._send_single_request(request)
+/home/codespace/.local/lib/python3.12/site-packages/httpx/_client.py:1014: in _send_single_request
+    response = transport.handle_request(request)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/testclient.py:377: in handle_request
+    raise exc
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/testclient.py:374: in handle_request
+    portal.call(self.app, scope, receive, send)
+/home/codespace/.local/lib/python3.12/site-packages/anyio/from_thread.py:334: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+/usr/local/python/3.12.1/lib/python3.12/concurrent/futures/_base.py:456: in result
+    return self.__get_result()
+/usr/local/python/3.12.1/lib/python3.12/concurrent/futures/_base.py:401: in __get_result
+    raise self._exception
+/home/codespace/.local/lib/python3.12/site-packages/anyio/from_thread.py:259: in _call_func
+    retval = await retval_or_awaitable
+/usr/local/python/3.12.1/lib/python3.12/site-packages/fastapi/applications.py:1054: in __call__
+    await super().__call__(scope, receive, send)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/applications.py:113: in __call__
+    await self.middleware_stack(scope, receive, send)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/errors.py:187: in __call__
+    raise exc
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/errors.py:165: in __call__
+    await self.app(scope, receive, _send)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py:185: in __call__
+    with collapse_excgroups():
+/usr/local/python/3.12.1/lib/python3.12/contextlib.py:158: in __exit__
+    self.gen.throw(value)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/_utils.py:82: in collapse_excgroups
+    raise exc
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py:187: in __call__
+    response = await self.dispatch_func(request, call_next)
+app/main.py:68: in write_route_auth_guard
+    return await call_next(request)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py:163: in call_next
+    raise app_exc
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py:149: in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/cors.py:85: in __call__
+    await self.app(scope, receive, send)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/middleware/exceptions.py:62: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/_exception_handler.py:53: in wrapped_app
+    raise exc
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/routing.py:715: in __call__
+    await self.middleware_stack(scope, receive, send)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/routing.py:735: in app
+    await route.handle(scope, receive, send)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/routing.py:288: in handle
+    await self.app(scope, receive, send)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/routing.py:76: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/_exception_handler.py:53: in wrapped_app
+    raise exc
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/routing.py:73: in app
+    response = await f(request)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/fastapi/routing.py:301: in app
+    raw_response = await run_endpoint_function(
+/usr/local/python/3.12.1/lib/python3.12/site-packages/fastapi/routing.py:214: in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+/usr/local/python/3.12.1/lib/python3.12/site-packages/starlette/concurrency.py:39: in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+/home/codespace/.local/lib/python3.12/site-packages/anyio/to_thread.py:63: in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+/home/codespace/.local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py:2502: in run_sync_in_worker_thread
+    return await future
+/home/codespace/.local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py:986: in run
+    result = context.run(func, *args)
+app/api/workforce_routes.py:11: in run_image_design_workforce
+    return MultiAgentWorkforceOrchestrator(db).run(payload)
+app/workforce/orchestrator.py:65: in run
+    self.trust_graph.update_agent_trust(result.agent_name, float(result.confidence))
+app/runtime/trust_graph.py:16: in update_agent_trust
+    row = self.db.query(AgentTrustRecord).filter(AgentTrustRecord.agent_name == agent_name).first()
+/usr/local/python/3.12.1/lib/python3.12/site-packages/sqlalchemy/orm/query.py:2728: in first
+    return self.limit(1)._iter().first()  # type: ignore
+/usr/local/python/3.12.1/lib/python3.12/site-packages/sqlalchemy/orm/query.py:2827: in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+/usr/local/python/3.12.1/lib/python3.12/site-packages/sqlalchemy/orm/session.py:2362: in execute
+    return self._execute_internal(
+/usr/local/python/3.12.1/lib/python3.12/site-packages/sqlalchemy/orm/session.py:2247: in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+/usr/local/python/3.12.1/lib/python3.12/site-packages/sqlalchemy/orm/context.py:305: in orm_execute_statement
+    result = conn.execute(
+/usr/local/python/3.12.1/lib/python3.12/site-packages/sqlalchemy/engine/base.py:1418: in execute
+    return meth(
+/usr/local/python/3.12.1/lib/python3.12/site-packages/sqlalchemy/sql/elements.py:515: in _execute_on_connection
+    return connection._execute_clauseelement(
+/usr/local/python/3.12.1/lib/python3.12/site-packages/sqlalchemy/engine/base.py:1640: in _execute_clauseelement
+    ret = self._execute_context(
+/usr/local/python/3.12.1/lib/python3.12/site-packages/sqlalchemy/engine/base.py:1846: in _execute_context
+    return self._exec_single_context(
+/usr/local/python/3.12.1/lib/python3.12/site-packages/sqlalchemy/engine/base.py:1986: in _exec_single_context
+    self._handle_dbapi_exception(
+/usr/local/python/3.12.1/lib/python3.12/site-packages/sqlalchemy/engine/base.py:2355: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+/usr/local/python/3.12.1/lib/python3.12/site-packages/sqlalchemy/engine/base.py:1967: in _exec_single_context
+    self.dialect.do_execute(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <sqlalchemy.dialects.sqlite.pysqlite.SQLiteDialect_pysqlite object at 0x7c00088607d0>
+cursor = <sqlite3.Cursor object at 0x7bfff7956040>
+statement = 'SELECT agent_trust.id AS agent_trust_id, agent_trust.agent_name AS agent_trust_agent_name, agent_trust.trust_score AS...nt_trust.updated_at AS agent_trust_updated_at \nFROM agent_trust \nWHERE agent_trust.agent_name = ?\n LIMIT ? OFFSET ?'
+parameters = ('IndustryIntelligenceAgent', 1, 0)
+context = <sqlalchemy.dialects.sqlite.base.SQLiteExecutionContext object at 0x7bfff78ffad0>
+
+    def do_execute(self, cursor, statement, parameters, context=None):
+>       cursor.execute(statement, parameters)
+E       sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: agent_trust
+E       [SQL: SELECT agent_trust.id AS agent_trust_id, agent_trust.agent_name AS agent_trust_agent_name, agent_trust.trust_score AS agent_trust_trust_score, agent_trust.sample_count AS agent_trust_sample_count, agent_trust.updated_at AS agent_trust_updated_at 
+E       FROM agent_trust 
+E       WHERE agent_trust.agent_name = ?
+E        LIMIT ? OFFSET ?]
+E       [parameters: ('IndustryIntelligenceAgent', 1, 0)]
+E       (Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+/usr/local/python/3.12.1/lib/python3.12/site-packages/sqlalchemy/engine/default.py:941: OperationalError
+=========================== short test summary info ============================
+FAILED tests/test_design_studio.py::test_design_studio_full_runtime - sqlalch...
+FAILED tests/test_design_studio.py::test_design_studio_dry_run_skips_persistence
+FAILED tests/test_workforce.py::test_image_design_workforce_runs - sqlalchemy...
+3 failed, 14 passed in 4.16s

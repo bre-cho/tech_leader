@@ -1,10 +1,31 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 export default function StoryboardV31RhythmStudio() {
   const [result, setResult] = useState<any>(null);
   const [loading, setLoading] = useState(false);
+  const [imageBase64, setImageBase64] = useState<string | null>(null);
+  const [imageName, setImageName] = useState<string | null>(null);
+  const [uploadError, setUploadError] = useState<string | null>(null);
+  const imageInputRef = useRef<HTMLInputElement>(null);
+
+  function handleImageUpload(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    if (!["image/jpeg", "image/png", "image/webp"].includes(file.type)) {
+      setUploadError("Chỉ chấp nhận JPEG, PNG hoặc WebP");
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = () => {
+      setImageBase64(reader.result as string);
+      setImageName(file.name);
+      setUploadError(null);
+    };
+    reader.onerror = () => setUploadError("Lỗi đọc file ảnh");
+    reader.readAsDataURL(file);
+  }
 
   async function run() {
     setLoading(true);
@@ -22,7 +43,8 @@ export default function StoryboardV31RhythmStudio() {
         location: "London Fashion Week",
         fashionDna: "luxury editorial runway, cinematic spotlight, confident model identity",
         provider: { image: "hidream", video: "veo", motionFallback: "runway" },
-        outputDir: "storage/v31-storyboard-rhythm/demo"
+        outputDir: "storage/v31-storyboard-rhythm/demo",
+        ...(imageBase64 ? { imageRef: imageBase64 } : {})
       })
     });
     setResult(await res.json());
@@ -38,7 +60,53 @@ export default function StoryboardV31RhythmStudio() {
           <p className="brain-route-desc">
             Rhythm graph, micro hooks, camera language, runway escalation, social proof, retention validation, and render queue.
           </p>
-          <button onClick={run} disabled={loading} className="mt-5 brain-primary-btn">
+
+          {/* Image upload */}
+          <div style={{ marginTop: "1.25rem", display: "grid", gap: "0.5rem" }}>
+            <label style={{ fontSize: "0.82rem", color: "#aaa", fontWeight: 600 }}>
+              Ảnh tham chiếu nhân vật / sản phẩm <span style={{ color: "#555" }}>(tùy chọn)</span>
+            </label>
+            <div
+              onClick={() => imageInputRef.current?.click()}
+              style={{
+                border: "2px dashed #333",
+                borderRadius: "0.75rem",
+                padding: "1rem 1.25rem",
+                cursor: "pointer",
+                background: imageBase64 ? "#0d2018" : "#0a0a0f",
+                display: "flex",
+                alignItems: "center",
+                gap: "0.75rem",
+                transition: "all .15s",
+                maxWidth: "420px",
+              }}
+            >
+              <input
+                ref={imageInputRef}
+                type="file"
+                accept="image/jpeg,image/png,image/webp"
+                onChange={handleImageUpload}
+                style={{ display: "none" }}
+              />
+              {imageBase64 ? (
+                <>
+                  <img src={imageBase64} alt="preview" style={{ width: 48, height: 48, borderRadius: "0.5rem", objectFit: "cover" }} />
+                  <div>
+                    <p style={{ margin: 0, color: "#4ade80", fontSize: "0.85rem", fontWeight: 600 }}>✅ {imageName}</p>
+                    <p style={{ margin: 0, color: "#555", fontSize: "0.75rem" }}>Bấm để thay ảnh khác</p>
+                  </div>
+                </>
+              ) : (
+                <div style={{ color: "#666", fontSize: "0.85rem", lineHeight: 1.5 }}>
+                  📸 Kéo/thả hoặc bấm để chọn ảnh tham chiếu<br />
+                  <span style={{ fontSize: "0.75rem" }}>JPEG, PNG, WebP</span>
+                </div>
+              )}
+            </div>
+            {uploadError && <p style={{ margin: 0, color: "#f87171", fontSize: "0.8rem" }}>⚠ {uploadError}</p>}
+          </div>
+
+          <button onClick={run} disabled={loading} className="brain-primary-btn" style={{ marginTop: "1rem" }}>
             {loading ? "Đang tối ưu storyboard..." : "Run V31 Runtime"}
           </button>
         </div>

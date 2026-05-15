@@ -30,11 +30,24 @@ export default function CommercialCreativePage(){
       setLoading(false);
     }
   }
-  return <main className="min-h-screen bg-neutral-950 text-white p-8">
-    <div className="max-w-6xl mx-auto space-y-6">
-      <div><p className="text-sm text-amber-300">V27.1 → V27.7</p><h1 className="text-4xl font-bold">AI Commercial Creative Infrastructure</h1><p className="text-neutral-400 mt-2">Commercial visual reasoning, attention routing, typography, product hero, psychology, billboard/print readiness.</p></div>
-      <button onClick={run} className="px-5 py-3 rounded-2xl bg-amber-400 text-black font-semibold">{loading?'Đang phân tích...':'Run Commercial Reasoning'}</button>
-      {error && <p className="text-sm text-red-300">{error}. Backend có thể chưa khởi động ở cổng 8000.</p>}
+  return <main className="brain-route-main">
+    <div className="brain-route-wrap">
+      <section className="brain-route-head">
+        <p className="brain-route-kicker">V27.1 to V27.7</p>
+        <h1 className="brain-route-title">AI Commercial Creative Infrastructure</h1>
+        <p className="brain-route-desc">
+          Commercial visual reasoning, attention routing, typography planning, product hero strategy,
+          psychology mapping, and billboard or print readiness in one flow.
+        </p>
+      </section>
+
+      <div className="brain-action-row">
+        <button onClick={run} className="brain-primary-btn" disabled={loading}>
+          {loading ? 'Đang phân tích...' : 'Run Commercial Reasoning'}
+        </button>
+      </div>
+
+      {error && <p className="brain-warning-text">{error}. Backend có thể chưa khởi động ở cổng 8000.</p>}
       {result && <CommercialReasoningPanel result={result}/>}
     </div>
   </main>
