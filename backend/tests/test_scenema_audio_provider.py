@@ -18,7 +18,7 @@ def test_scenema_audio_provider_dry_run_writes_payload(tmp_path: Path):
         line=ScriptLine(
             line_id="line_1",
             speaker_id="speaker_1",
-            text="Xin chao, day la mot cau thoai thu nghiem.",
+            text="Xin chào, đây là một câu thoại thử nghiệm.",
             emotion=EmotionVector(calm=0.3, joy=0.1),
             manual_emotion=True,
         ),

@@ -7,15 +7,13 @@ export async function generateVeo31WithManagedAccount(params: {
   model?: string;
   sceneIndex?: number;
   outputDir?: string;
-  /** Optional: GCS URI or public https URL of the input image for image_to_video mode */
-  imageUri?: string;
-  imageMimeType?: string;
   config?: Record<string, unknown>;
 }) {
   const { ai, account } = createGoogleAiForCapability("veo_3_1", params.sceneIndex ?? 0);
   const model = params.model ?? "veo-3.1-generate-preview";
 
-  const requestBody: Record<string, unknown> = {
+  // The Gemini SDK uses long-running operations for Veo.
+  const operation: any = await (ai.models as any).generateVideos({
     model,
     prompt: params.prompt,
     config: params.config ?? {
@@ -23,18 +21,7 @@ export async function generateVeo31WithManagedAccount(params: {
       resolution: "1080p",
       durationSeconds: 8
     }
-  };
-
-  // image_to_video mode: attach reference image when provided
-  if (params.imageUri) {
-    requestBody.image = {
-      uri: params.imageUri,
-      mimeType: params.imageMimeType ?? "image/jpeg"
-    };
-  }
-
-  // The Gemini SDK uses long-running operations for Veo.
-  const operation: any = await (ai.models as any).generateVideos(requestBody);
+  });
 
   const outputDir = params.outputDir ?? "storage/veo-managed";
   fs.mkdirSync(outputDir, { recursive: true });

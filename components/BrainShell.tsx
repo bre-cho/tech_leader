@@ -21,7 +21,6 @@ const navItems: NavItem[] = [
   { label: "Storyboard V30", href: "/storyboard-v30", desc: "Máy dựng phân cảnh chuyển đổi", badge: "Flow" },
   { label: "HiDream Commercial", href: "/hidream-commercial", desc: "Tạo ảnh thương mại cao cấp", badge: "Img" },
   { label: "Color Intelligence", href: "/color-intelligence", desc: "Bản đồ màu sắc, nhận diện và cảm xúc", badge: "UI" },
-  { label: "Video Render Studio", href: "/video-render", desc: "Render ảnh → video với Veo 3.1 managed", badge: "Veo" },
   { label: "Cài đặt AI Engine", href: "/settings/ai-engine", desc: "Quản lý provider, khóa API và định tuyến", badge: "Ops" },
 ];
 
