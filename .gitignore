@@ -1,2 +1,15 @@
 node_modules/
-node_modules/
+
+# Next.js and Python local build/cache artifacts
+.next/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Local environment and databases
+frontend/.env.local
+backend/*.db
+
+# Local unpacked patch artifacts
+NEXT_PROJECT_PIPELINE_OS_PATCH/
+NEXT_PROJECT_PIPELINE_OS_PATCH.zip
