@@ -8,6 +8,22 @@ export default function OpenRouterSettingsPanel() {
   const [selectedModel, setSelectedModel] = useState("openai/gpt-4o-mini");
   const [siteUrl, setSiteUrl] = useState("");
   const [appTitle, setAppTitle] = useState("AI Creative OS");
+  const [status, setStatus] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [testResult, setTestResult] = useState<any>(null);
+  const [saving, setSaving] = useState(false);
+  const [testing, setTesting] = useState(false);
+
+  function normalizeSiteUrl(value: string): string {
+    const trimmed = value.trim();
+    if (!trimmed) {
+      return "";
+    }
+    if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) {
+      return trimmed;
+    }
+    return `https://${trimmed}`;
+  }
 
   async function load() {
     const res = await fetch("/api/settings/openrouter");
@@ -21,24 +37,57 @@ export default function OpenRouterSettingsPanel() {
   useEffect(() => { load(); }, []);
 
   async function save() {
-    await fetch("/api/settings/openrouter", {
-      method: "PATCH",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({
-        apiKey: apiKey || undefined,
-        selectedModel,
-        siteUrl,
-        appTitle,
-        enabled: true
-      })
-    });
-    setApiKey("");
-    await load();
+    setSaving(true);
+    setError(null);
+    setStatus(null);
+    try {
+      const response = await fetch("/api/settings/openrouter", {
+        method: "PATCH",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+          apiKey: apiKey || undefined,
+          selectedModel,
+          siteUrl: normalizeSiteUrl(siteUrl),
+          appTitle,
+          enabled: true
+        })
+      });
+
+      const payload = await response.json();
+      if (!response.ok) {
+        throw new Error(payload?.error || "Save failed.");
+      }
+
+      setApiKey("");
+      setStatus("Saved AI Engine settings successfully.");
+      await load();
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "Save failed.";
+      setError(message);
+    } finally {
+      setSaving(false);
+    }
   }
 
   async function test() {
-    const res = await fetch("/api/settings/openrouter/test", { method: "POST" });
-    alert(JSON.stringify(await res.json(), null, 2));
+    setTesting(true);
+    setError(null);
+    setStatus(null);
+    setTestResult(null);
+    try {
+      const res = await fetch("/api/settings/openrouter/test", { method: "POST" });
+      const payload = await res.json();
+      setTestResult(payload);
+      if (!res.ok) {
+        throw new Error(payload?.error || "OpenRouter test failed.");
+      }
+      setStatus("OpenRouter test succeeded.");
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "OpenRouter test failed.";
+      setError(message);
+    } finally {
+      setTesting(false);
+    }
   }
 
   return (
@@ -52,10 +101,19 @@ export default function OpenRouterSettingsPanel() {
         <input className="rounded-xl bg-neutral-800 p-3" placeholder="X-Title app title" value={appTitle} onChange={e => setAppTitle(e.target.value)} />
       </div>
       <div className="mt-5 flex gap-3">
-        <button className="rounded-xl bg-white px-4 py-3 font-semibold text-black" onClick={save}>Save AI Engine</button>
-        <button className="rounded-xl bg-neutral-800 px-4 py-3" onClick={test}>Test OpenRouter</button>
+        <button className="rounded-xl bg-white px-4 py-3 font-semibold text-black" onClick={save} disabled={saving}>
+          {saving ? "Saving..." : "Save AI Engine"}
+        </button>
+        <button className="rounded-xl bg-neutral-800 px-4 py-3" onClick={test} disabled={testing}>
+          {testing ? "Testing..." : "Test OpenRouter"}
+        </button>
       </div>
+      {status ? <div className="mt-4 rounded-xl border border-emerald-600/40 bg-emerald-950/40 p-3 text-sm text-emerald-300">{status}</div> : null}
+      {error ? <div className="mt-4 rounded-xl border border-red-600/40 bg-red-950/40 p-3 text-sm text-red-300">{error}</div> : null}
       <pre className="mt-5 whitespace-pre-wrap rounded-2xl bg-neutral-950 p-4 text-sm text-neutral-300">{JSON.stringify(settings, null, 2)}</pre>
+      {testResult ? (
+        <pre className="mt-4 whitespace-pre-wrap rounded-2xl bg-neutral-950 p-4 text-sm text-neutral-300">{JSON.stringify(testResult, null, 2)}</pre>
+      ) : null}
     </section>
   );
 }
