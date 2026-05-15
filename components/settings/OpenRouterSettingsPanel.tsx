@@ -14,6 +14,11 @@ export default function OpenRouterSettingsPanel() {
   const [saving, setSaving] = useState(false);
   const [testing, setTesting] = useState(false);
 
+  const primaryButtonClass =
+    "rounded-xl bg-white px-4 py-3 font-semibold text-black transition hover:bg-neutral-200 disabled:cursor-not-allowed disabled:bg-neutral-500 disabled:text-neutral-900";
+  const secondaryButtonClass =
+    "rounded-xl border border-neutral-700 bg-neutral-800 px-4 py-3 text-neutral-100 transition hover:border-neutral-500 hover:bg-neutral-700 disabled:cursor-not-allowed disabled:opacity-60";
+
   function normalizeSiteUrl(value: string): string {
     const trimmed = value.trim();
     if (!trimmed) {
@@ -101,10 +106,10 @@ export default function OpenRouterSettingsPanel() {
         <input className="rounded-xl bg-neutral-800 p-3" placeholder="X-Title app title" value={appTitle} onChange={e => setAppTitle(e.target.value)} />
       </div>
       <div className="mt-5 flex gap-3">
-        <button className="rounded-xl bg-white px-4 py-3 font-semibold text-black" onClick={save} disabled={saving}>
+        <button className={primaryButtonClass} onClick={save} disabled={saving}>
           {saving ? "Saving..." : "Save AI Engine"}
         </button>
-        <button className="rounded-xl bg-neutral-800 px-4 py-3" onClick={test} disabled={testing}>
+        <button className={secondaryButtonClass} onClick={test} disabled={testing}>
           {testing ? "Testing..." : "Test OpenRouter"}
         </button>
       </div>
