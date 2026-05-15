@@ -16,6 +16,7 @@ class TTSProvider(str, Enum):
     mock = "mock"
     indextts2 = "indextts2"
     external = "external"
+    scenema_audio = "scenema_audio"
 
 
 class EmotionVector(BaseModel):

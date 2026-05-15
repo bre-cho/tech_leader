@@ -4,6 +4,7 @@ import hashlib
 from pathlib import Path
 
 from app.tts_studio.contracts import GenerateLineRequest, GeneratedTake, TTSProvider
+from app.tts_studio.scenema_audio_provider import ScenemaAudioProviderBoundary
 
 
 class IndexTTSProviderBoundary:
@@ -19,6 +20,9 @@ class IndexTTSProviderBoundary:
         take_id = "take_" + hashlib.sha256(
             f"{req.project_id}:{req.line.line_id}:{req.line.text}:{req.line.emotion.model_dump()}".encode()
         ).hexdigest()[:12]
+
+        if req.provider == TTSProvider.scenema_audio:
+            return ScenemaAudioProviderBoundary().generate_line(req, output_dir)
 
         if req.provider == TTSProvider.mock:
             out = Path(output_dir) / f"{take_id}.txt"
