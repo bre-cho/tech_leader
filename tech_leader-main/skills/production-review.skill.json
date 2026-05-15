@@ -1,7 +1,0 @@
-{
-  "name": "production-review.skill",
-  "trigger_keywords": ["security", "performance", "review", "deploy", "production", "release"],
-  "description": "Run full production review: security, performance, observability, rollback, SEO/OG when relevant, deployment checklist.",
-  "required_checks": ["py_compile", "pytest", "security_scan", "smoke", "rollback_plan"],
-  "file_patterns": ["docs/governance/**", "docs/runtime/**", ".github/workflows/**"]
-}
