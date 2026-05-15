@@ -31,12 +31,23 @@ from app.security.auth import (
     write_auth_enforced,
 )
 
-@asynccontextmanager
-async def lifespan(_: FastAPI):
+
+_db_initialized = False
+
+
+def ensure_db_initialized() -> None:
+    global _db_initialized
+    if _db_initialized:
+        return
     assert_write_auth_configured()
     init_db()
     # Keep compound OS tables available without affecting the main runtime DB setup.
     init_compound_os_db()
+    _db_initialized = True
+
+@asynccontextmanager
+async def lifespan(_: FastAPI):
+    ensure_db_initialized()
     yield
 
 
@@ -45,6 +56,10 @@ app = FastAPI(
     version="1.1.0",
     lifespan=lifespan,
 )
+
+# Some tests instantiate TestClient without lifespan context manager.
+# Initialize DB once at import time as a safe fallback.
+ensure_db_initialized()
 
 app.add_middleware(
     CORSMiddleware,

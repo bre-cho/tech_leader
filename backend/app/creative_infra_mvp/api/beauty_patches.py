@@ -24,7 +24,7 @@ except ImportError:
     Image = None
     np = None
 
-router = APIRouter(prefix="/api/v1/beauty", tags=["beauty-perception-mvp"])
+router = APIRouter(prefix="/beauty", tags=["beauty-perception-mvp"])
 
 # Storage paths
 _BEAUTY_RUNS_PATH = Path("storage/beauty_runs.jsonl")

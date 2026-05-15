@@ -64,15 +64,15 @@ def test_v26_routes_defined():
 
     routes = [route.path for route in router.routes]
 
-    # All endpoints should be defined (with full prefix path)
-    assert "/api/v1/beauty/analyze" in routes, "Missing /analyze endpoint"
-    assert "/api/v1/beauty/transfer" in routes, "Missing /transfer endpoint"
-    assert "/api/v1/beauty/contour" in routes, "Missing /contour endpoint"
-    assert "/api/v1/beauty/skin-tone" in routes, "Missing /skin-tone endpoint"
-    assert "/api/v1/beauty/perception" in routes, "Missing /perception endpoint"
-    assert "/api/v1/beauty/graph" in routes, "Missing /graph endpoint"
-    assert "/api/v1/beauty/memory/{brand_name}" in routes, "Missing /memory endpoint"
-    assert "/api/v1/beauty/metrics" in routes, "Missing /metrics endpoint"
+    # Router-local paths should be defined under /beauty and will be mounted at /api/v1 in app.main.
+    assert "/beauty/analyze" in routes, "Missing /analyze endpoint"
+    assert "/beauty/transfer" in routes, "Missing /transfer endpoint"
+    assert "/beauty/contour" in routes, "Missing /contour endpoint"
+    assert "/beauty/skin-tone" in routes, "Missing /skin-tone endpoint"
+    assert "/beauty/perception" in routes, "Missing /perception endpoint"
+    assert "/beauty/graph" in routes, "Missing /graph endpoint"
+    assert "/beauty/memory/{brand_name}" in routes, "Missing /memory endpoint"
+    assert "/beauty/metrics" in routes, "Missing /metrics endpoint"
 
     print(f"✓ All {len([r for r in routes if r.startswith('/')])} beauty endpoints registered")
 
