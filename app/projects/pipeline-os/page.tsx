@@ -31,9 +31,12 @@ export default function ProjectPipelinePage() {
   const handleRun = async () => {
     setIsRunning(true);
     setError(null);
+    setHandoffError(null);
+    setHandoffStatus(null);
     try {
       const response = await runDesignStudio(brief);
       setResult(response);
+      setHandoffStatus("pipeline-ready");
     } catch (err: unknown) {
       const message = err instanceof Error ? err.message : "Khong the goi Design Studio API.";
       setError(message);

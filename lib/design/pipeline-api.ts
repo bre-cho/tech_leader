@@ -11,6 +11,7 @@ export type DesignStudioRequest = {
   budget_tier: BudgetTier;
   language: string;
   dry_run: boolean;
+  source_image_data_url?: string;
 };
 
 export type ScoreCard = {
@@ -82,12 +83,11 @@ export const defaultDesignBrief: DesignStudioRequest = {
   budget_tier: "mid",
   language: "vi",
   dry_run: false,
+  source_image_data_url: "",
 };
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000";
-
 export async function runDesignStudio(payload: DesignStudioRequest): Promise<DesignStudioResponse> {
-  const response = await fetch(`${API_BASE_URL}/api/v1/design-studio/run`, {
+  const response = await fetch(`/api/v1/design-studio/run`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),

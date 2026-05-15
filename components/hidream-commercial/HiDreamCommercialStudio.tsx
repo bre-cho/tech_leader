@@ -49,6 +49,9 @@ export default function HiDreamCommercialStudio() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  const primaryButtonClass =
+    "mt-5 rounded-2xl border border-amber-300/60 bg-amber-400 px-5 py-3 font-semibold text-black transition hover:bg-amber-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/80 disabled:cursor-not-allowed disabled:border-neutral-600 disabled:bg-neutral-600 disabled:text-neutral-900";
+
   function parseJson(label: string, value: string) {
     try {
       return JSON.parse(value || "{}");
@@ -109,7 +112,7 @@ export default function HiDreamCommercialStudio() {
               <Field label="audience" value={payload.audience || ""} onChange={(v) => update("audience", v)} />
               <Field label="copy_text" value={payload.copy_text || ""} onChange={(v) => update("copy_text", v)} />
             </div>
-            <button onClick={submit} disabled={loading} className="mt-5 rounded-2xl bg-amber-400 px-5 py-3 font-semibold text-black">
+            <button onClick={submit} disabled={loading} className={primaryButtonClass}>
               {loading ? "Đang render qua V27..." : "Generate Premium Visual"}
             </button>
             {error ? <p className="mt-3 text-red-300">{error}</p> : null}

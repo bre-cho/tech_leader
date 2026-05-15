@@ -32,7 +32,11 @@ export default function StoryboardV31RhythmStudio() {
   async function run(overridePayload?: any) {
     setLoading(true);
     setError(null);
-    const body = overridePayload ?? payload;
+    const isDomEventLike =
+      overridePayload &&
+      typeof overridePayload === "object" &&
+      ("nativeEvent" in overridePayload || "currentTarget" in overridePayload);
+    const body = isDomEventLike ? payload : (overridePayload ?? payload);
     const res = await fetch("/api/storyboard/v31/run", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
@@ -85,7 +89,7 @@ export default function StoryboardV31RhythmStudio() {
           <p className="mt-2 text-neutral-300">
             Rhythm Graph → Micro Hooks → Camera Language → Runway Escalation → Social Proof → Retention Validator → Render Queue.
           </p>
-          <button onClick={run} disabled={loading} className="mt-5 rounded-2xl bg-white px-5 py-3 font-semibold text-black">
+          <button onClick={() => { void run(); }} disabled={loading} className="mt-5 rounded-2xl bg-white px-5 py-3 font-semibold text-black">
             {loading ? "Đang tối ưu storyboard..." : "Run V31 Runtime"}
           </button>
           {source === "pipeline-os" ? (

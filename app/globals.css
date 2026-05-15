@@ -307,6 +307,22 @@ pre { white-space: pre-wrap; word-break: break-word; }
   padding: 10px 12px;
 }
 
+.source-image-preview {
+  margin-top: 14px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.source-image-preview-img {
+  width: 132px;
+  height: 132px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.16);
+}
+
 @media (max-width: 1280px) {
   .pipeline-shell {
     grid-template-columns: 280px minmax(0, 1fr);

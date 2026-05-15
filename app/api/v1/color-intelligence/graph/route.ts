@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { getColorGraphLocal } from "@/lib/color-intelligence/localRuntime";
 
 const BACKEND_BASE = process.env.BACKEND_API_BASE || process.env.NEXT_PUBLIC_API_BASE || "http://127.0.0.1:8000";
 
@@ -24,13 +25,7 @@ export async function GET() {
     const body = parseBody(text);
 
     return NextResponse.json(body, { status: response.status });
-  } catch (error) {
-    return NextResponse.json(
-      {
-        error: "Cannot reach backend color-intelligence graph endpoint.",
-        detail: error instanceof Error ? error.message : "Unknown error",
-      },
-      { status: 502 },
-    );
+  } catch {
+    return NextResponse.json(getColorGraphLocal(), { status: 200 });
   }
 }

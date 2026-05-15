@@ -1,3 +1,4 @@
+import type { ChangeEvent } from "react";
 import { VideoHandoffPanel } from "@/components/handoff/VideoHandoffPanel";
 import { ImageBattleBoard } from "@/components/image-battle/ImageBattleBoard";
 import { WinnerSelectionPanel } from "@/components/image-battle/WinnerSelectionPanel";
@@ -34,6 +35,20 @@ export function ProjectWorkspace({
   onUpdateBrief,
   result,
 }: ProjectWorkspaceProps) {
+  const handleSourceImageUpload = (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) {
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      const value = typeof reader.result === "string" ? reader.result : "";
+      onUpdateBrief("source_image_data_url", value);
+    };
+    reader.readAsDataURL(file);
+  };
+
   return (
     <section className="project-workspace">
       <div className="workspace-header">
@@ -100,7 +115,23 @@ export function ProjectWorkspace({
               <option value="true">true</option>
             </select>
           </label>
+          <label className="brief-field">
+            Source image
+            <input type="file" accept="image/*" onChange={handleSourceImageUpload} />
+          </label>
         </div>
+        {brief.source_image_data_url ? (
+          <div className="source-image-preview">
+            <img src={brief.source_image_data_url} alt="Pipeline source" className="source-image-preview-img" />
+            <button
+              className="secondary-button"
+              type="button"
+              onClick={() => onUpdateBrief("source_image_data_url", "")}
+            >
+              Remove source image
+            </button>
+          </div>
+        ) : null}
         {error ? <div className="brief-error">{error}</div> : null}
       </div>
 
