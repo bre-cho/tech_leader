@@ -1,5 +1,5 @@
 from pathlib import Path
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
     provider: str = "mock"
@@ -10,8 +10,7 @@ class Settings(BaseSettings):
     hf_endpoint_url: str | None = None
     cors_origins: list[str] = ["http://localhost:3000", "http://127.0.0.1:3000"]
 
-    class Config:
-        env_prefix = "CREATIVE_OS_"
+    model_config = SettingsConfigDict(env_prefix="CREATIVE_OS_")
 
 settings = Settings()
 settings.storage_dir.mkdir(parents=True, exist_ok=True)

@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine, Column, Integer, String, Float, Text, DateTime, ForeignKey
 from sqlalchemy.orm import declarative_base, sessionmaker, relationship
-from datetime import datetime
+from datetime import UTC, datetime
 import os
 
 DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./creative_business_os.db")
@@ -12,6 +12,10 @@ engine = create_engine(
 SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
 Base = declarative_base()
 
+
+def utc_now_naive() -> datetime:
+    return datetime.now(UTC).replace(tzinfo=None)
+
 class Brand(Base):
     __tablename__ = "brands"
     id = Column(Integer, primary_key=True)
@@ -19,7 +23,7 @@ class Brand(Base):
     industry = Column(String)
     identity_json = Column(Text, default="{}")
     memory_json = Column(Text, default="{}")
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utc_now_naive)
 
 class Campaign(Base):
     __tablename__ = "campaigns"
@@ -33,7 +37,7 @@ class Campaign(Base):
     channel = Column(String)
     status = Column(String, default="draft")
     winning_variant_id = Column(Integer, nullable=True)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utc_now_naive)
     brand = relationship("Brand")
 
 class CreativeVariant(Base):
@@ -49,7 +53,7 @@ class CreativeVariant(Base):
     prompt = Column(Text)
     storyboard_json = Column(Text, default="[]")
     score = Column(Float, default=0)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utc_now_naive)
     campaign = relationship("Campaign")
 
 class MetricEvent(Base):
@@ -62,7 +66,7 @@ class MetricEvent(Base):
     conversions = Column(Integer, default=0)
     revenue = Column(Float, default=0)
     watch_time_rate = Column(Float, default=0)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utc_now_naive)
 
 class GraphEdge(Base):
     __tablename__ = "graph_edges"
@@ -73,7 +77,7 @@ class GraphEdge(Base):
     weight = Column(Float, default=0.5)
     evidence = Column(Text, default="")
     observations = Column(Integer, default=1)
-    updated_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=utc_now_naive)
 
 class WinnerDNA(Base):
     __tablename__ = "winner_dna"
@@ -83,7 +87,7 @@ class WinnerDNA(Base):
     variant_id = Column(Integer, ForeignKey("creative_variants.id"))
     dna_json = Column(Text)
     score = Column(Float, default=0)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utc_now_naive)
 
 class WorkflowRun(Base):
     __tablename__ = "workflow_runs"
@@ -93,7 +97,7 @@ class WorkflowRun(Base):
     stages_json = Column(Text)
     status = Column(String)
     report_json = Column(Text)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utc_now_naive)
 
 def init_db():
     Base.metadata.create_all(bind=engine)

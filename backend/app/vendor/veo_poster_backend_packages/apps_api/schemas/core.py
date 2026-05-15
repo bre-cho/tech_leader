@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 class BrandCreate(BaseModel):
     name: str
@@ -10,8 +10,7 @@ class BrandCreate(BaseModel):
 class BrandOut(BrandCreate):
     id: str
     owner_user_id: str
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 class ProjectCreate(BaseModel):
     brand_id: str
@@ -24,8 +23,7 @@ class ProjectOut(ProjectCreate):
     id: str
     owner_user_id: str
     status: str
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 class VariantOut(BaseModel):
     id: str
@@ -41,8 +39,7 @@ class VariantOut(BaseModel):
     conversion_score: float
     final_score: float
     status: str
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 class JobOut(BaseModel):
     id: str
@@ -53,8 +50,7 @@ class JobOut(BaseModel):
     input_json: dict
     output_json: dict
     error_message: str | None = None
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class BillingUsageOut(BaseModel):
@@ -65,9 +61,7 @@ class BillingUsageOut(BaseModel):
     event_type: str
     units: int
     metadata_json: dict
-
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class DevTokenCreateRequest(BaseModel):

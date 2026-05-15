@@ -3,7 +3,7 @@ from __future__ import annotations
 from datetime import datetime
 from uuid import UUID
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class SceneDramaStateBase(BaseModel):
@@ -34,9 +34,7 @@ class SceneDramaStateRead(SceneDramaStateBase):
     id: UUID
     created_at: datetime
     updated_at: datetime
-
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class ArcProgressBase(BaseModel):
@@ -60,9 +58,7 @@ class ArcProgressRead(ArcProgressBase):
     id: UUID
     created_at: datetime
     updated_at: datetime
-
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 # Backward-compatible alias used by API drafts.

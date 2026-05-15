@@ -1,6 +1,10 @@
 from sqlalchemy.orm import Session
 from app.compound_os_mvp.db import GraphEdge
-from datetime import datetime
+from datetime import UTC, datetime
+
+
+def utc_now_naive() -> datetime:
+    return datetime.now(UTC).replace(tzinfo=None)
 
 SEED_EDGES = [
     ("layout:minimal", "increases", "trust", 0.72, "minimal layout reduces cognitive load"),
@@ -34,6 +38,6 @@ class CreativeIntelligenceGraph:
             edge.weight = max(0, min(1, (edge.weight * edge.observations + (edge.weight + delta)) / (edge.observations + 1)))
             edge.observations += 1
             edge.evidence = evidence
-            edge.updated_at = datetime.utcnow()
+            edge.updated_at = utc_now_naive()
         db.commit()
         return edge

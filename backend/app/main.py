@@ -1,3 +1,5 @@
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI, Request, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
@@ -23,28 +25,35 @@ from app.api.v1.audit import router as audit_router
 from app.db import init_db
 from app.security.auth import (
     cors_origins,
+    cors_origin_regex,
     assert_write_auth_configured,
     enforce_write_route_auth,
     write_auth_enforced,
 )
 
-app = FastAPI(title="Agentic Creative Operating Environment", version="1.1.0")
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=cors_origins(),
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-@app.on_event("startup")
-def startup_init_databases():
+@asynccontextmanager
+async def lifespan(_: FastAPI):
     assert_write_auth_configured()
     init_db()
     # Keep compound OS tables available without affecting the main runtime DB setup.
     init_compound_os_db()
+    yield
 
+
+app = FastAPI(
+    title="Agentic Creative Operating Environment",
+    version="1.1.0",
+    lifespan=lifespan,
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=cors_origins(),
+    allow_origin_regex=cors_origin_regex(),
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.middleware("http")
 async def write_route_auth_guard(request: Request, call_next):

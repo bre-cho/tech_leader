@@ -1,5 +1,5 @@
 from pydantic import model_validator
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 _WEAK_JWT_SECRET = "change-me"
 _WEAK_DEV_SECRET = "dev-internal-secret"
@@ -123,9 +123,10 @@ class Settings(BaseSettings):
             raise ValueError("Production guard violations:\n" + "\n".join(f"  - {e}" for e in errors))
         return self
 
-    class Config:
-        env_file = ".env"
-        case_sensitive = False
-        extra = "ignore"
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        case_sensitive=False,
+        extra="ignore",
+    )
 
 settings = Settings()
