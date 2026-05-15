@@ -25,6 +25,10 @@ class WinnerDNAEngine:
         ).first()
         if existing:
             return {"stored": False, "reason": "duplicate_winner_dna", "dna": json.loads(existing.payload_json)}
+        storyboard_pattern = dna.get("storyboard_pattern", "")
+        if not isinstance(storyboard_pattern, str):
+            storyboard_pattern = json.dumps(storyboard_pattern, ensure_ascii=False)
+
         row = WinnerDNARecord(
             industry=dna["industry"],
             visual_type=dna["visual_type"],
@@ -32,7 +36,7 @@ class WinnerDNAEngine:
             offer=dna["offer"],
             conversion_score=score,
             upsell_rate=float(dna.get("upsell_rate", 0)),
-            storyboard_pattern=dna["storyboard_pattern"],
+            storyboard_pattern=storyboard_pattern,
             payload_json=json.dumps(dna, ensure_ascii=False),
         )
         self.db.add(row); self.db.commit(); self.db.refresh(row)
