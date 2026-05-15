@@ -1,4 +1,4 @@
-from sqlalchemy import Integer, String, Text, Float, DateTime, func, UniqueConstraint
+from sqlalchemy import Integer, String, Text, Float, DateTime, Boolean, func, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column
 from app.db import Base
 
@@ -64,4 +64,41 @@ class ReplaySnapshotRecord(Base):
     workflow_id: Mapped[str] = mapped_column(String(80), index=True)
     payload_json: Mapped[str] = mapped_column(Text)
     output_hash: Mapped[str] = mapped_column(String(128), index=True)
+    input_hash: Mapped[str | None] = mapped_column(String(128), nullable=True, index=True)
+    runtime_version: Mapped[str | None] = mapped_column(String(40), nullable=True)
+    created_at: Mapped[str] = mapped_column(DateTime, server_default=func.now())
+
+
+class StatePropagationRecord(Base):
+    __tablename__ = "state_propagation_log"
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    workflow_id: Mapped[str] = mapped_column(String(80), index=True)
+    source_agent: Mapped[str] = mapped_column(String(120), index=True)
+    target_agent: Mapped[str] = mapped_column(String(120), index=True)
+    state_key: Mapped[str] = mapped_column(String(240))
+    value_json: Mapped[str | None] = mapped_column(Text, nullable=True)
+    created_at: Mapped[str] = mapped_column(DateTime, server_default=func.now())
+
+
+class RetryStateRecord(Base):
+    __tablename__ = "retry_state"
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    idempotency_key: Mapped[str] = mapped_column(String(128), unique=True, index=True)
+    workflow_id: Mapped[str] = mapped_column(String(80), index=True)
+    agent_name: Mapped[str] = mapped_column(String(120))
+    attempt_count: Mapped[int] = mapped_column(Integer, default=1)
+    last_status: Mapped[str] = mapped_column(String(40), default="pending")
+    created_at: Mapped[str] = mapped_column(DateTime, server_default=func.now())
+    updated_at: Mapped[str] = mapped_column(DateTime, server_default=func.now(), onupdate=func.now())
+
+
+class DecisionLogRecord(Base):
+    __tablename__ = "decision_log"
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    decision_id: Mapped[str] = mapped_column(String(80), unique=True, index=True)
+    workflow_id: Mapped[str] = mapped_column(String(80), index=True)
+    decision_type: Mapped[str] = mapped_column(String(120), index=True)
+    outcome: Mapped[str] = mapped_column(String(40), index=True)
+    reason: Mapped[str] = mapped_column(Text)
+    metadata_json: Mapped[str | None] = mapped_column(Text, nullable=True)
     created_at: Mapped[str] = mapped_column(DateTime, server_default=func.now())

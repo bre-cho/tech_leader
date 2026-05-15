@@ -17,5 +17,9 @@ def get_db():
         db.close()
 
 def init_db():
-    from app.models.records import WorkflowRunRecord, WinnerDNARecord, ContextEntityRecord, ContextRelationRecord, AgentTrustRecord, ReplaySnapshotRecord
+    from app.models.records import (
+        WorkflowRunRecord, WinnerDNARecord, ContextEntityRecord, ContextRelationRecord,
+        AgentTrustRecord, ReplaySnapshotRecord,
+        StatePropagationRecord, RetryStateRecord, DecisionLogRecord,
+    )
     Base.metadata.create_all(bind=engine)

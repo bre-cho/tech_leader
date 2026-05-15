@@ -19,6 +19,7 @@ from app.compound_os_mvp.api import router as compound_os_mvp_router
 from app.compound_os_mvp.db import init_db as init_compound_os_db
 from app.api.v1.architecture_control_tower import router as architecture_router
 from app.api.v1.commercial_intelligence import router as commercial_intelligence_router
+from app.api.v1.audit import router as audit_router
 from app.db import init_db
 from app.security.auth import (
     cors_origins,
@@ -83,3 +84,4 @@ app.include_router(creative_infra_mvp_router, prefix="/api/v1")
 app.include_router(compound_os_mvp_router, prefix="/api/v1/compound-os")
 app.include_router(architecture_router, prefix="/api/v1")
 app.include_router(commercial_intelligence_router)
+app.include_router(audit_router, prefix="/api/v1")

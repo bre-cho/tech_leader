@@ -23,7 +23,8 @@
     "check:mock-leakage": "node scripts/check-mock-leakage.mjs",
     "test:auth-policy": "node scripts/test-auth-policy.mjs",
     "test:governance": "node scripts/test-governance.mjs",
-    "check:release-gate": "npm run build && npm run test:governance && npm run check:mock-leakage && cd backend && alembic upgrade head && cd .. && npm run test:auth-policy"
+    "check:release-gate": "npm run build && npm run test:governance && npm run check:mock-leakage && cd backend && alembic upgrade head && cd .. && npm run test:auth-policy",
+    "audit:release-gate": "node scripts/check-release-gate.mjs"
   },
   "dependencies": {
     "@google/genai": "^1.0.0",

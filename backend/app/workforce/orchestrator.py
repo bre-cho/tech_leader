@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import hashlib
+import json
 import uuid
 from sqlalchemy.orm import Session
 from app.workforce.contracts import (
@@ -16,16 +17,20 @@ from app.workforce.agents.motion import MotionThinkingAgent
 from app.workforce.agents.industry import IndustryIntelligenceAgent
 from app.workforce.agents.design_qa import DesignQAAgent
 from app.governance.operating_law import OperatingLawEnforcer
+from app.governance.decision_log import DecisionLogger
 from app.runtime.verification import VerificationEngine
+from app.runtime.state_propagation import StatePropagationTracker
 from app.memory.winner_dna import WinnerDNAEngine
 from app.context_graph.store import ContextGraphStore
 from app.runtime.trust_graph import TrustGraphStore
+from app.runtime.replay import RUNTIME_VERSION
 
 
 class MultiAgentWorkforceOrchestrator:
     def __init__(self, db: Session):
         self.db = db
-        self.law = OperatingLawEnforcer()
+        self.decision_logger = DecisionLogger(db)
+        self.law = OperatingLawEnforcer(decision_logger=self.decision_logger)
         self.verifier = VerificationEngine()
         self.memory = WinnerDNAEngine(db)
         self.graph = ContextGraphStore(db)
@@ -50,12 +55,16 @@ class MultiAgentWorkforceOrchestrator:
         trace["research"] = True
         trace["plan"] = True
         context = WorkforceContext(brief=request.brief)
+        propagation = StatePropagationTracker(self.db, run_id)
         results = []
 
+        prev_agent = "Orchestrator"
         for agent in self.agents:
             result = agent.run(context)
             results.append(result)
             self.trust_graph.update_agent_trust(result.agent_name, float(result.confidence))
+            propagation.record(prev_agent, result.agent_name, "context_handoff", None)
+            prev_agent = result.agent_name
         trace["execute"] = True
 
         final_prompt, negative_prompt = self._compile_prompt(context)
@@ -97,7 +106,7 @@ class MultiAgentWorkforceOrchestrator:
             artifact=artifact,
         )
         if request.dry_run:
-            law = self.law.validate_trace(trace)
+            law = self.law.validate_trace(trace, workflow_id=run_id)
             failed_checks = [k for k, v in verification.get("checks", {}).items() if not v]
             promotion_gate = {
                 "status": "DRY_RUN",
@@ -109,7 +118,7 @@ class MultiAgentWorkforceOrchestrator:
                 "rule": "DRY_RUN -> NO PROMOTION",
             }
         else:
-            promotion_gate = self.law.assert_can_promote(trace, verification)
+            promotion_gate = self.law.assert_can_promote(trace, verification, workflow_id=run_id)
 
         promotion_status = "PROMOTED_TO_WORKFLOW_RUNTIME" if promotion_gate.get("passed") else "BLOCKED_BY_GOVERNANCE"
 
@@ -176,10 +185,17 @@ use typography-safe regions, and prepare for poster-to-video expansion.
 
     def _build_verification_artifact(self, run_id: str, final_prompt: str):
         checksum = hashlib.sha256(final_prompt.encode("utf-8")).hexdigest()
+        input_hash = hashlib.sha256(run_id.encode("utf-8")).hexdigest()
         return {
             "artifact_id": f"artifact_{run_id}",
+            "source_task_id": run_id,
+            "agent_id": "MultiAgentWorkforceOrchestrator",
+            "input_hash": input_hash,
+            "runtime_version": RUNTIME_VERSION,
+            "parent_artifact_id": None,
             "checksum": checksum,
             "status": "ready_to_call",
+            "replayable": True,
         }
 
     def _write_context_graph(self, run_id: str, context: WorkforceContext):

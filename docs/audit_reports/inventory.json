@@ -1,0 +1,113 @@
+{
+  "generated_at": "2026-05-14T23:37:03.216449+00:00",
+  "repo_root": "/home/runner/work/tech_leader/tech_leader",
+  "topology": {
+    "backend": {
+      "detected": true,
+      "python_files": 526,
+      "has_api": true,
+      "has_runtime": true,
+      "has_governance": true,
+      "has_memory": true,
+      "has_models": true,
+      "has_workforce": true,
+      "has_agents": true,
+      "has_audit": true,
+      "has_cognition": true
+    },
+    "frontend": {
+      "detected": true,
+      "ts_files": 216,
+      "has_pages": true,
+      "has_api_client": true
+    },
+    "scripts": {
+      "detected": true,
+      "files": [
+        "test-auth-policy.mjs",
+        "audit_static_scan.py",
+        "check-release-gate.mjs",
+        "audit_inventory.py",
+        "check-mock-leakage.mjs",
+        "run_full_audit.py",
+        "test-governance.mjs",
+        "verify_backend.sh",
+        "verify_workforce.sh"
+      ]
+    },
+    "tests": {
+      "detected": true,
+      "test_files": 0,
+      "backend_tests": 10
+    },
+    "docs": {
+      "detected": true,
+      "has_audit_reports": true,
+      "files": [
+        "02_FRONTEND_PATCH_GUIDE.md",
+        "ACCOUNTS_AND_AI_ENGINE_PATCH.md",
+        "VERIFY_REPORT.md",
+        "GOOGLE_BANANA_PROVIDER_PATCH.md",
+        "00_DEV_PATCH_OVERVIEW.md",
+        "MULTI_AGENT_WORKFORCE_PATCH.md",
+        "01_BACKEND_ARCHITECTURE.md",
+        "V31_STORYBOARD_RETENTION_RHYTHM_ENGINE.md",
+        "V30_AUTO_STORYBOARD_ENGINE_V3_SALES_UPGRADE.md",
+        "V30_STORYBOARD_AGENT_LFW_RUNTIME.md",
+        "05_SMOKE_TESTS.md",
+        "03_MEMORY_WINNER_DNA.md",
+        "04_PROVIDER_INTEGRATION.md",
+        "06_PRODUCTION_HARDENING.md"
+      ]
+    },
+    "ci_cd": {
+      "detected": false,
+      "workflow_files": []
+    },
+    "context_graph": {
+      "module": true,
+      "store": true
+    },
+    "trust_graph": {
+      "module": true,
+      "policy": true,
+      "permissions": true
+    },
+    "orchestration": {
+      "runtime_orchestrator": true,
+      "workforce_orchestrator": true,
+      "state_propagation": true,
+      "retry_guard": true
+    },
+    "memory_store": {
+      "local": true,
+      "topology": true,
+      "manager": true,
+      "winner_dna": true
+    },
+    "governance": {
+      "operating_law": true,
+      "decision_log": true,
+      "agent_permissions": true
+    },
+    "observability": {
+      "has_health_endpoint": true,
+      "has_verification": true
+    },
+    "replay": {
+      "replay_runtime": true
+    },
+    "audit": {
+      "context_graph_audit": true,
+      "trust_graph_audit": true,
+      "memory_audit": true,
+      "artifact_audit": true,
+      "workforce_audit": true,
+      "replay_audit": true,
+      "org_memory_audit": true,
+      "economic_audit": true,
+      "audit_orchestrator": true,
+      "api_routes": true
+    }
+  }
+}
