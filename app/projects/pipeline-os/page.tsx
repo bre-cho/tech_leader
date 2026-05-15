@@ -28,33 +28,12 @@ export default function ProjectPipelinePage() {
     setBrief((current) => ({ ...current, [field]: value }));
   };
 
-  const handleRun = async () => {
-    setIsRunning(true);
-    setError(null);
-    setHandoffError(null);
-    setHandoffStatus(null);
-    try {
-      const response = await runDesignStudio(brief);
-      setResult(response);
-      setHandoffStatus("pipeline-ready");
-    } catch (err: unknown) {
-      const message = err instanceof Error ? err.message : "Khong the goi Design Studio API.";
-      setError(message);
-    } finally {
-      setIsRunning(false);
-    }
-  };
-
-  const handleOpenVideoStudio = async () => {
-    if (!result) {
-      setHandoffError("Can run pipeline before handoff.");
-      return;
-    }
-
+  const runHandoffAndCompile = async (pipelineResult: DesignStudioResponse) => {
     setHandoffLoading(true);
     setHandoffError(null);
+    setHandoffStatus("handoff-running");
     try {
-      const v31Request = buildV31RequestFromPipeline(brief, result);
+      const v31Request = buildV31RequestFromPipeline(brief, pipelineResult);
       const handoffResponse = await fetch("/api/storyboard/v31/provider-payloads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -93,7 +72,7 @@ export default function ProjectPipelinePage() {
           request: v31Request,
           providerPayloadResult: handoffResult,
           videoFlowCompile: compileResult,
-          workflowId: result.workflow_id,
+          workflowId: pipelineResult.workflow_id,
           createdAt: new Date().toISOString(),
         }),
       );
@@ -105,6 +84,31 @@ export default function ProjectPipelinePage() {
     } finally {
       setHandoffLoading(false);
     }
+  };
+
+  const handleRun = async () => {
+    setIsRunning(true);
+    setError(null);
+    setHandoffError(null);
+    setHandoffStatus(null);
+    try {
+      const response = await runDesignStudio(brief);
+      setResult(response);
+      await runHandoffAndCompile(response);
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "Khong the goi Design Studio API.";
+      setError(message);
+    } finally {
+      setIsRunning(false);
+    }
+  };
+
+  const handleOpenVideoStudio = async () => {
+    if (!result) {
+      setHandoffError("Can run pipeline before handoff.");
+      return;
+    }
+    await runHandoffAndCompile(result);
   };
 
   return (
