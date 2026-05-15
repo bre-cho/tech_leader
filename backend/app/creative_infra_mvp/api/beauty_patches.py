@@ -94,7 +94,7 @@ def _analyze_skin_tone(image: Image.Image) -> dict:
     # Convert to RGB if needed
     if image.mode != "RGB":
         image = image.convert("RGB")
-    
+
     # Sample center region for skin tone
     width, height = image.size
     crop_box = (
@@ -105,11 +105,11 @@ def _analyze_skin_tone(image: Image.Image) -> dict:
     )
     skin_region = image.crop(crop_box)
     stat = ImageStat.Stat(skin_region)
-    
+
     r_mean, g_mean, b_mean = stat.mean[:3]
     brightness = (r_mean + g_mean + b_mean) / 3.0
     saturation = max(stat.stddev[:3]) / 100.0 if stat.stddev else 0.5
-    
+
     # Classify undertone
     if r_mean > g_mean:
         undertone = "warm"
@@ -117,7 +117,7 @@ def _analyze_skin_tone(image: Image.Image) -> dict:
         undertone = "cool"
     else:
         undertone = "neutral"
-    
+
     # Classify tone
     if brightness > 200:
         tone = "very light"
@@ -129,7 +129,7 @@ def _analyze_skin_tone(image: Image.Image) -> dict:
         tone = "dark"
     else:
         tone = "very dark"
-    
+
     return {
         "tone": tone,
         "undertone": undertone,
@@ -168,9 +168,9 @@ def _semantic_makeup_transfer(skin_tone: dict, persona: str, preset: str) -> dic
         "clinic_trust": {"eye": "minimal bronze", "lip": "natural nude", "style": "fresh clinical"},
         "tiktok_fresh": {"eye": "glittery brown", "lip": "glossy pink", "style": "viral fresh"}
     }
-    
+
     selected = presets_map.get(preset, presets_map["soft_glam"])
-    
+
     return {
         "eye_makeup": selected["eye"],
         "lip_makeup": selected["lip"],
@@ -215,17 +215,17 @@ async def analyze_beauty(
     """Analyze face geometry and beauty parameters from uploaded image"""
     if not Image:
         raise HTTPException(status_code=500, detail="PIL not available")
-    
+
     try:
         content = await file.read()
         image = Image.open(io.BytesIO(content))
-        
+
         face_geometry = _analyze_face(image)
         skin_tone = _analyze_skin_tone(image)
         contour_highlight = _contour_highlight_analysis(skin_tone, face_geometry)
         makeup_transfer = _semantic_makeup_transfer(skin_tone, persona, preset)
         beauty_perception = _beauty_perception_scoring(skin_tone, face_geometry)
-        
+
         result = {
             "qa": {
                 "face_detected": True,
@@ -239,7 +239,7 @@ async def analyze_beauty(
             "beauty_perception": beauty_perception,
             "output_path": None
         }
-        
+
         # Store in memory
         memory_item = {
             "timestamp": _now_iso(),
@@ -248,9 +248,9 @@ async def analyze_beauty(
             "data": result
         }
         _JsonlStore_append(_BEAUTY_MEMORY_PATH, memory_item)
-        
+
         return result
-    
+
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
 
@@ -268,18 +268,18 @@ async def transfer_makeup(
     """Transfer makeup with full beauty perception pipeline"""
     if not Image:
         raise HTTPException(status_code=500, detail="PIL not available")
-    
+
     try:
         content = await file.read()
         image = Image.open(io.BytesIO(content))
-        
+
         # Full pipeline
         face_geometry = _analyze_face(image)
         skin_tone = _analyze_skin_tone(image)
         contour_highlight = _contour_highlight_analysis(skin_tone, face_geometry)
         makeup_transfer = _semantic_makeup_transfer(skin_tone, persona, preset)
         beauty_perception = _beauty_perception_scoring(skin_tone, face_geometry)
-        
+
         result = MakeupTransferResult(
             qa={
                 "transfer_confidence": 0.92,
@@ -293,7 +293,7 @@ async def transfer_makeup(
             makeup_transfer=makeup_transfer,
             beauty_perception=beauty_perception
         )
-        
+
         # Store run
         run_item = {
             "run_id": _uuid(),
@@ -303,9 +303,9 @@ async def transfer_makeup(
             "data": result.model_dump()
         }
         _JsonlStore_append(_BEAUTY_RUNS_PATH, run_item)
-        
+
         return result
-    
+
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
 
@@ -317,15 +317,15 @@ async def contour_analysis(
     """Contour analysis endpoint"""
     if not Image:
         raise HTTPException(status_code=500, detail="PIL not available")
-    
+
     try:
         content = await file.read()
         image = Image.open(io.BytesIO(content))
-        
+
         face_geometry = _analyze_face(image)
         skin_tone = _analyze_skin_tone(image)
         contour = _contour_highlight_analysis(skin_tone, face_geometry)
-        
+
         return {
             "contour_analysis": contour,
             "timestamp": _now_iso()
@@ -341,13 +341,13 @@ async def skin_tone_intelligence(
     """Skin tone intelligence endpoint"""
     if not Image:
         raise HTTPException(status_code=500, detail="PIL not available")
-    
+
     try:
         content = await file.read()
         image = Image.open(io.BytesIO(content))
-        
+
         skin_tone = _analyze_skin_tone(image)
-        
+
         return {
             "skin_tone_analysis": skin_tone,
             "color_recommendations": {
@@ -368,15 +368,15 @@ async def beauty_perception(
     """Beauty perception scoring endpoint"""
     if not Image:
         raise HTTPException(status_code=500, detail="PIL not available")
-    
+
     try:
         content = await file.read()
         image = Image.open(io.BytesIO(content))
-        
+
         face_geometry = _analyze_face(image)
         skin_tone = _analyze_skin_tone(image)
         perception = _beauty_perception_scoring(skin_tone, face_geometry)
-        
+
         return {
             "beauty_perception": perception,
             "timestamp": _now_iso()
@@ -388,7 +388,7 @@ async def beauty_perception(
 async def get_beauty_graph():
     """Get beauty perception graph"""
     items = _JsonlStore_read_all(_BEAUTY_GRAPH_PATH)
-    
+
     if not items:
         # Generate default graph
         default_graph = [
@@ -399,7 +399,7 @@ async def get_beauty_graph():
             {"source": "low_saturation_skin", "relation": "requires", "target": "high_saturation_makeup", "weight": 0.85}
         ]
         items = default_graph
-    
+
     return BeautyGraph(items=items)
 
 @router.get("/memory/{brand_name}")
@@ -407,7 +407,7 @@ async def get_beauty_memory(brand_name: str):
     """Get beauty perception memory for brand"""
     all_items = _JsonlStore_read_all(_BEAUTY_MEMORY_PATH)
     filtered = _JsonlStore_filter_by_key(all_items, "brand_name", brand_name)
-    
+
     return {
         "brand_name": brand_name,
         "memory_count": len(filtered),
@@ -430,5 +430,5 @@ async def update_beauty_metrics(
         "notes": notes
     }
     _JsonlStore_append(_BEAUTY_GRAPH_PATH, metric)
-    
+
     return {"status": "metrics updated", "timestamp": metric["timestamp"]}

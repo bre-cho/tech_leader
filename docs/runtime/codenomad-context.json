@@ -1,0 +1,593 @@
+{
+  "repo_root": "/mnt/data/work_agent16",
+  "generated_at": "2026-05-13T12:16:58.944073+00:00",
+  "files": [
+    {
+      "path": ".github/workflows/agent16-audit.yml",
+      "kind": "config",
+      "size_bytes": 1100,
+      "lines": 33,
+      "risk_flags": []
+    },
+    {
+      "path": "AGENTS.md",
+      "kind": "docs",
+      "size_bytes": 1474,
+      "lines": 32,
+      "risk_flags": [
+        "possible-secret-reference"
+      ]
+    },
+    {
+      "path": "CHANGELOG.md",
+      "kind": "docs",
+      "size_bytes": 279,
+      "lines": 6,
+      "risk_flags": []
+    },
+    {
+      "path": "CHANGELOG_BUSINESS_OS_UPGRADE.md",
+      "kind": "docs",
+      "size_bytes": 538,
+      "lines": 10,
+      "risk_flags": []
+    },
+    {
+      "path": "ai_trading_brain/codenomad_core/__init__.py",
+      "kind": "source",
+      "size_bytes": 436,
+      "lines": 16,
+      "risk_flags": []
+    },
+    {
+      "path": "ai_trading_brain/codenomad_core/context.py",
+      "kind": "source",
+      "size_bytes": 3747,
+      "lines": 98,
+      "risk_flags": [
+        "destructive-command-or-sql",
+        "possible-secret-reference"
+      ]
+    },
+    {
+      "path": "ai_trading_brain/codenomad_core/executor.py",
+      "kind": "source",
+      "size_bytes": 3110,
+      "lines": 44,
+      "risk_flags": []
+    },
+    {
+      "path": "ai_trading_brain/codenomad_core/healing.py",
+      "kind": "source",
+      "size_bytes": 1732,
+      "lines": 27,
+      "risk_flags": []
+    },
+    {
+      "path": "ai_trading_brain/codenomad_core/memory.py",
+      "kind": "source",
+      "size_bytes": 527,
+      "lines": 17,
+      "risk_flags": []
+    },
+    {
+      "path": "ai_trading_brain/codenomad_core/models.py",
+      "kind": "source",
+      "size_bytes": 5102,
+      "lines": 174,
+      "risk_flags": []
+    },
+    {
+      "path": "ai_trading_brain/codenomad_core/planner.py",
+      "kind": "source",
+      "size_bytes": 4511,
+      "lines": 92,
+      "risk_flags": []
+    },
+    {
+      "path": "ai_trading_brain/codenomad_core/runtime.py",
+      "kind": "source",
+      "size_bytes": 3406,
+      "lines": 65,
+      "risk_flags": []
+    },
+    {
+      "path": "ai_trading_brain/codenomad_core/safety.py",
+      "kind": "source",
+      "size_bytes": 1893,
+      "lines": 44,
+      "risk_flags": [
+        "destructive-command-or-sql"
+      ]
+    },
+    {
+      "path": "ai_trading_brain/engineering_os/__init__.py",
+      "kind": "source",
+      "size_bytes": 1122,
+      "lines": 42,
+      "risk_flags": []
+    },
+    {
+      "path": "ai_trading_brain/engineering_os/context_graph.py",
+      "kind": "source",
+      "size_bytes": 4863,
+      "lines": 113,
+      "risk_flags": []
+    },
+    {
+      "path": "ai_trading_brain/engineering_os/governance.py",
+      "kind": "source",
+      "size_bytes": 1573,
+      "lines": 34,
+      "risk_flags": [
+        "destructive-command-or-sql",
+        "possible-secret-reference"
+      ]
+    },
+    {
+      "path": "ai_trading_brain/engineering_os/memory.py",
+      "kind": "source",
+      "size_bytes": 1007,
+      "lines": 32,
+      "risk_flags": []
+    },
+    {
+      "path": "ai_trading_brain/engineering_os/models.py",
+      "kind": "source",
+      "size_bytes": 4727,
+      "lines": 168,
+      "risk_flags": []
+    },
+    {
+      "path": "ai_trading_brain/engineering_os/planner.py",
+      "kind": "source",
+      "size_bytes": 4638,
+      "lines": 93,
+      "risk_flags": []
+    },
+    {
+      "path": "ai_trading_brain/engineering_os/runtime.py",
+      "kind": "source",
+      "size_bytes": 3215,
+      "lines": 67,
+      "risk_flags": []
+    },
+    {
+      "path": "ai_trading_brain/engineering_os/skills.py",
+      "kind": "source",
+      "size_bytes": 2622,
+      "lines": 61,
+      "risk_flags": []
+    },
+    {
+      "path": "ai_trading_brain/engineering_os/verification.py",
+      "kind": "source",
+      "size_bytes": 1887,
+      "lines": 35,
+      "risk_flags": []
+    },
+    {
+      "path": "ai_trading_brain/finance/__init__.py",
+      "kind": "source",
+      "size_bytes": 672,
+      "lines": 15,
+      "risk_flags": []
+    },
+    {
+      "path": "ai_trading_brain/finance/budget_allocator.py",
+      "kind": "source",
+      "size_bytes": 4448,
+      "lines": 103,
+      "risk_flags": []
+    },
+    {
+      "path": "ai_trading_brain/finance/capital_efficiency.py",
+      "kind": "source",
+      "size_bytes": 2407,
+      "lines": 66,
+      "risk_flags": []
+    },
+    {
+      "path": "ai_trading_brain/finance/cashflow_diagnosis.py",
+      "kind": "source",
+      "size_bytes": 4537,
+      "lines": 86,
+      "risk_flags": []
+    },
+    {
+      "path": "ai_trading_brain/finance/finance_runtime.py",
+      "kind": "source",
+      "size_bytes": 10038,
+      "lines": 196,
+      "risk_flags": []
+    },
+    {
+      "path": "ai_trading_brain/finance/finance_signal_engine.py",
+      "kind": "source",
+      "size_bytes": 10098,
+      "lines": 248,
+      "risk_flags": []
+    },
+    {
+      "path": "ai_trading_brain/finance/financial_memory.py",
+      "kind": "source",
+      "size_bytes": 3586,
+      "lines": 96,
+      "risk_flags": []
+    },
+    {
+      "path": "ai_trading_brain/finance/scenario_simulator.py",
+      "kind": "source",
+      "size_bytes": 3860,
+      "lines": 77,
+      "risk_flags": []
+    },
+    {
+      "path": "ai_trading_brain/techlead/__init__.py",
+      "kind": "source",
+      "size_bytes": 392,
+      "lines": 7,
+      "risk_flags": []
+    },
+    {
+      "path": "ai_trading_brain/techlead/agent16.py",
+      "kind": "source",
+      "size_bytes": 11413,
+      "lines": 198,
+      "risk_flags": []
+    },
+    {
+      "path": "ai_trading_brain/techlead/auto_fix.py",
+      "kind": "source",
+      "size_bytes": 3724,
+      "lines": 77,
+      "risk_flags": []
+    },
+    {
+      "path": "ai_trading_brain/techlead/business_operating.py",
+      "kind": "source",
+      "size_bytes": 28080,
+      "lines": 516,
+      "risk_flags": []
+    },
+    {
+      "path": "ai_trading_brain/techlead/file_inventory.py",
+      "kind": "source",
+      "size_bytes": 1615,
+      "lines": 46,
+      "risk_flags": []
+    },
+    {
+      "path": "ai_trading_brain/techlead/graph_builder.py",
+      "kind": "source",
+      "size_bytes": 5189,
+      "lines": 103,
+      "risk_flags": []
+    },
+    {
+      "path": "ai_trading_brain/techlead/models.py",
+      "kind": "source",
+      "size_bytes": 4737,
+      "lines": 128,
+      "risk_flags": [
+        "possible-secret-reference"
+      ]
+    },
+    {
+      "path": "ai_trading_brain/techlead/patch_planner.py",
+      "kind": "source",
+      "size_bytes": 1320,
+      "lines": 30,
+      "risk_flags": [
+        "possible-secret-reference"
+      ]
+    },
+    {
+      "path": "ai_trading_brain/techlead/runtime_validation.py",
+      "kind": "source",
+      "size_bytes": 2379,
+      "lines": 47,
+      "risk_flags": []
+    },
+    {
+      "path": "ai_trading_brain/techlead/static_scan.py",
+      "kind": "source",
+      "size_bytes": 5794,
+      "lines": 103,
+      "risk_flags": [
+        "possible-secret-reference"
+      ]
+    },
+    {
+      "path": "docs/BRD.md",
+      "kind": "docs",
+      "size_bytes": 101,
+      "lines": 8,
+      "risk_flags": []
+    },
+    {
+      "path": "docs/agent16_business_os/APPLY_AGENT16_BUSINESS_OS.md",
+      "kind": "docs",
+      "size_bytes": 2946,
+      "lines": 90,
+      "risk_flags": []
+    },
+    {
+      "path": "docs/agent16_business_os/SMOKE_TEST.md",
+      "kind": "test",
+      "size_bytes": 420,
+      "lines": 15,
+      "risk_flags": []
+    },
+    {
+      "path": "docs/ai_tech_lead_os/AGENT16_PRODUCTION_RUNBOOK.md",
+      "kind": "docs",
+      "size_bytes": 1104,
+      "lines": 34,
+      "risk_flags": [
+        "possible-secret-reference"
+      ]
+    },
+    {
+      "path": "docs/brief.md",
+      "kind": "docs",
+      "size_bytes": 67,
+      "lines": 4,
+      "risk_flags": []
+    },
+    {
+      "path": "docs/codenomad_core/APPLY_CODENOMAD_CORE.md",
+      "kind": "docs",
+      "size_bytes": 2006,
+      "lines": 61,
+      "risk_flags": []
+    },
+    {
+      "path": "docs/codenomad_core/CODENOMAD_TO_AGENT16_MAPPING.md",
+      "kind": "docs",
+      "size_bytes": 1018,
+      "lines": 16,
+      "risk_flags": []
+    },
+    {
+      "path": "docs/codenomad_core/LOCAL_EXECUTION_POLICY.md",
+      "kind": "docs",
+      "size_bytes": 200,
+      "lines": 7,
+      "risk_flags": []
+    },
+    {
+      "path": "docs/codenomad_core/README.md",
+      "kind": "docs",
+      "size_bytes": 179,
+      "lines": 4,
+      "risk_flags": []
+    },
+    {
+      "path": "docs/engineering_os/APPLY_ENGINEERING_OS.md",
+      "kind": "docs",
+      "size_bytes": 1172,
+      "lines": 45,
+      "risk_flags": []
+    },
+    {
+      "path": "docs/engineering_os/RUNTIME_CONTRACT.md",
+      "kind": "docs",
+      "size_bytes": 739,
+      "lines": 38,
+      "risk_flags": []
+    },
+    {
+      "path": "docs/finance_os/APPLY_FINANCE_OS.md",
+      "kind": "docs",
+      "size_bytes": 1736,
+      "lines": 40,
+      "risk_flags": []
+    },
+    {
+      "path": "docs/finance_os/FINANCE_OS_RUNTIME_CONTRACT.md",
+      "kind": "docs",
+      "size_bytes": 1061,
+      "lines": 43,
+      "risk_flags": []
+    },
+    {
+      "path": "docs/master-plan.md",
+      "kind": "docs",
+      "size_bytes": 135,
+      "lines": 7,
+      "risk_flags": []
+    },
+    {
+      "path": "docs/runtime/codenomad-smoke-output.json",
+      "kind": "config",
+      "size_bytes": 0,
+      "lines": 0,
+      "risk_flags": []
+    },
+    {
+      "path": "docs/runtime/context-graph.json",
+      "kind": "config",
+      "size_bytes": 36281,
+      "lines": 1416,
+      "risk_flags": []
+    },
+    {
+      "path": "docs/runtime/governance-decision.json",
+      "kind": "config",
+      "size_bytes": 321,
+      "lines": 15,
+      "risk_flags": [
+        "possible-secret-reference"
+      ]
+    },
+    {
+      "path": "docs/runtime/phase-plan.md",
+      "kind": "docs",
+      "size_bytes": 4416,
+      "lines": 151,
+      "risk_flags": []
+    },
+    {
+      "path": "scripts/agent16_audit.py",
+      "kind": "source",
+      "size_bytes": 1546,
+      "lines": 36,
+      "risk_flags": []
+    },
+    {
+      "path": "scripts/agent16_business_operating_mind.py",
+      "kind": "source",
+      "size_bytes": 1453,
+      "lines": 34,
+      "risk_flags": []
+    },
+    {
+      "path": "scripts/agent16_codenomad.py",
+      "kind": "source",
+      "size_bytes": 3611,
+      "lines": 93,
+      "risk_flags": []
+    },
+    {
+      "path": "scripts/agent16_finance_os.py",
+      "kind": "source",
+      "size_bytes": 1152,
+      "lines": 33,
+      "risk_flags": []
+    },
+    {
+      "path": "scripts/agent16_release_gate.py",
+      "kind": "source",
+      "size_bytes": 503,
+      "lines": 18,
+      "risk_flags": []
+    },
+    {
+      "path": "scripts/context_graph_builder.py",
+      "kind": "source",
+      "size_bytes": 692,
+      "lines": 25,
+      "risk_flags": []
+    },
+    {
+      "path": "scripts/engineering_os.py",
+      "kind": "source",
+      "size_bytes": 2398,
+      "lines": 67,
+      "risk_flags": []
+    },
+    {
+      "path": "skills/backend-api.skill.json",
+      "kind": "config",
+      "size_bytes": 370,
+      "lines": 8,
+      "risk_flags": []
+    },
+    {
+      "path": "skills/create-page.skill.json",
+      "kind": "config",
+      "size_bytes": 377,
+      "lines": 8,
+      "risk_flags": []
+    },
+    {
+      "path": "skills/production-review.skill.json",
+      "kind": "config",
+      "size_bytes": 452,
+      "lines": 8,
+      "risk_flags": []
+    },
+    {
+      "path": "tests/test_agent16_techlead.py",
+      "kind": "test",
+      "size_bytes": 2482,
+      "lines": 49,
+      "risk_flags": []
+    },
+    {
+      "path": "tests/test_codenomad_core.py",
+      "kind": "test",
+      "size_bytes": 2075,
+      "lines": 55,
+      "risk_flags": [
+        "destructive-command-or-sql"
+      ]
+    },
+    {
+      "path": "tests/test_engineering_os.py",
+      "kind": "test",
+      "size_bytes": 2104,
+      "lines": 49,
+      "risk_flags": [
+        "destructive-command-or-sql",
+        "possible-secret-reference"
+      ]
+    },
+    {
+      "path": "tests/test_finance_os.py",
+      "kind": "test",
+      "size_bytes": 2288,
+      "lines": 36,
+      "risk_flags": []
+    }
+  ],
+  "languages": {
+    ".json": 6,
+    ".md": 18,
+    ".py": 47,
+    ".yml": 1
+  },
+  "docs_present": [
+    "AGENTS.md",
+    "CHANGELOG.md",
+    "CHANGELOG_BUSINESS_OS_UPGRADE.md",
+    "docs/BRD.md",
+    "docs/agent16_business_os/APPLY_AGENT16_BUSINESS_OS.md",
+    "docs/ai_tech_lead_os/AGENT16_PRODUCTION_RUNBOOK.md",
+    "docs/brief.md",
+    "docs/codenomad_core/APPLY_CODENOMAD_CORE.md",
+    "docs/codenomad_core/CODENOMAD_TO_AGENT16_MAPPING.md",
+    "docs/codenomad_core/LOCAL_EXECUTION_POLICY.md",
+    "docs/codenomad_core/README.md",
+    "docs/engineering_os/APPLY_ENGINEERING_OS.md",
+    "docs/engineering_os/RUNTIME_CONTRACT.md",
+    "docs/finance_os/APPLY_FINANCE_OS.md",
+    "docs/finance_os/FINANCE_OS_RUNTIME_CONTRACT.md",
+    "docs/master-plan.md",
+    "docs/runtime/phase-plan.md"
+  ],
+  "tests_present": [
+    "docs/agent16_business_os/SMOKE_TEST.md",
+    "tests/test_agent16_techlead.py",
+    "tests/test_codenomad_core.py",
+    "tests/test_engineering_os.py",
+    "tests/test_finance_os.py"
+  ],
+  "scripts_present": [
+    "scripts/agent16_audit.py",
+    "scripts/agent16_business_operating_mind.py",
+    "scripts/agent16_codenomad.py",
+    "scripts/agent16_finance_os.py",
+    "scripts/agent16_release_gate.py",
+    "scripts/context_graph_builder.py",
+    "scripts/engineering_os.py"
+  ],
+  "package_managers": [],
+  "risk_summary": [
+    "AGENTS.md: possible-secret-reference",
+    "ai_trading_brain/codenomad_core/context.py: destructive-command-or-sql",
+    "ai_trading_brain/codenomad_core/context.py: possible-secret-reference",
+    "ai_trading_brain/codenomad_core/safety.py: destructive-command-or-sql",
+    "ai_trading_brain/engineering_os/governance.py: destructive-command-or-sql",
+    "ai_trading_brain/engineering_os/governance.py: possible-secret-reference",
+    "ai_trading_brain/techlead/models.py: possible-secret-reference",
+    "ai_trading_brain/techlead/patch_planner.py: possible-secret-reference",
+    "ai_trading_brain/techlead/static_scan.py: possible-secret-reference",
+    "docs/ai_tech_lead_os/AGENT16_PRODUCTION_RUNBOOK.md: possible-secret-reference",
+    "docs/runtime/governance-decision.json: possible-secret-reference",
+    "tests/test_codenomad_core.py: destructive-command-or-sql",
+    "tests/test_engineering_os.py: destructive-command-or-sql",
+    "tests/test_engineering_os.py: possible-secret-reference"
+  ]
+}

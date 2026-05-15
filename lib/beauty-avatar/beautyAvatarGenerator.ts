@@ -49,7 +49,7 @@ export interface BeautyAvatarResult {
 
 export function createBeautyAvatar(req: BeautyAvatarRequest): BeautyAvatarResult {
   const avatar_id = `beauty_avatar_${crypto.randomBytes(8).toString("hex")}`;
-  
+
   // Industry mapping for persona refinement
   const industryPresets: Record<string, { makeup: string; rendering: string }> = {
     cosmetic_brand: { makeup: "luxury_editorial", rendering: "high_definition_studio" },
@@ -58,7 +58,7 @@ export function createBeautyAvatar(req: BeautyAvatarRequest): BeautyAvatarResult
     tiktok_creator: { makeup: "soft_natural_viral", rendering: "short_form_optimized" },
   };
 
-  const preset = industryPresets[req.industry || "cosmetic_brand"] || 
+  const preset = industryPresets[req.industry || "cosmetic_brand"] ||
     { makeup: "soft_glam", rendering: "studio_portrait" };
 
   const faceShapes = ["oval", "round", "square", "heart", "oblong"];
@@ -76,10 +76,10 @@ export function createBeautyAvatar(req: BeautyAvatarRequest): BeautyAvatarResult
   const skin_consistency = 0.88 + Math.random() * 0.11;
 
   // Render prompt construction (Identity lock must be in prompt)
-  const renderPrompt = `Identity lock verified. Professional beauty portrait of ${req.faceDescription}. 
-  Style: ${preset.makeup}. Industry: ${req.industry || "cosmetic_brand"}. 
-  Quality: ${req.quality || "8K"}. Persona: ${req.personaType}. 
-  Rendering: ${preset.rendering}. Target: ${req.targetAudience || "premium market"}. 
+  const renderPrompt = `Identity lock verified. Professional beauty portrait of ${req.faceDescription}.
+  Style: ${preset.makeup}. Industry: ${req.industry || "cosmetic_brand"}.
+  Quality: ${req.quality || "8K"}. Persona: ${req.personaType}.
+  Rendering: ${preset.rendering}. Target: ${req.targetAudience || "premium market"}.
   Context: ${req.productContext || "editorial campaign"}.`;
 
   const negativePrompt = "filter, unrealistic, cartoon, distorted face, poor skin, makeup mismatch, inconsistent lighting";

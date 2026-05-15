@@ -1,0 +1,25 @@
+{
+  "revenue_intelligence": {
+    "revenue": 10000,
+    "profit": 6000,
+    "roas": 4.0,
+    "average_order_value": 125.0
+  },
+  "traffic_intelligence": {
+    "traffic": 20000,
+    "lead_rate": 0.06,
+    "customer_rate": 0.004,
+    "cost_per_visit_proxy": 0.125
+  },
+  "funnel_intelligence": {
+    "visit_to_lead": 0.06,
+    "lead_to_customer": 0.0667,
+    "primary_bottleneck": "traffic_to_lead"
+  },
+  "growth_optimization": {
+    "priority_actions": [
+      "Tối ưu trang đầu vào: hook rõ hơn, bằng chứng mạnh hơn, lời kêu gọi hành động dễ hiểu hơn."
+    ],
+    "next_experiment": "Chạy 3 biến thể hook × 2 biến thể ưu đãi trong 7 ngày."
+  }
+}

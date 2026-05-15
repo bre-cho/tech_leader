@@ -1,0 +1,32 @@
+name: Agent 16 TrustGraph Audit
+
+on:
+  pull_request:
+  push:
+    branches: [ main, master ]
+
+jobs:
+  agent16-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements-test.txt ]; then pip install -r requirements-test.txt; fi
+          if [ -f backend/requirements.txt ]; then pip install -r backend/requirements.txt; fi
+      - name: Run Agent 16 audit
+        run: python scripts/agent16_audit.py . --runtime --json-out reports/agent16_audit_report.json --out reports/agent16_audit_report.md
+      - name: Enforce release gate
+        run: python scripts/agent16_release_gate.py reports/agent16_audit_report.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: agent16-audit-report
+          path: |
+            reports/agent16_audit_report.md
+            reports/agent16_audit_report.json
+            context_graph/

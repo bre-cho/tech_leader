@@ -67,26 +67,26 @@ async def compare_architecture(req: ArchitectureCompareRequest):
         before_file = REPO_ROOT / req.before_snapshot_path
         if not before_file.exists():
             raise ValueError(f"Before snapshot not found: {before_file}")
-        
+
         # Load before snapshot
         before_data = json.loads(before_file.read_text(encoding="utf-8"))
         before_snap = CodeGraphSnapshot.model_validate(before_data)
-        
+
         # Get after snapshot
         after_snap = scan_repo(REPO_ROOT)
-        
+
         # Analyze blast radius and drift
         blast = analyze_blast_radius(before_snap, after_snap)
         drift = detect_architecture_drift(before_snap, after_snap)
         decision = promotion_gate(blast, drift)
-        
+
         # Save reports
         GOVERNANCE_DIR.mkdir(parents=True, exist_ok=True)
         (GOVERNANCE_DIR / "snapshot_after.json").write_text(after_snap.model_dump_json(indent=2), encoding="utf-8")
         (GOVERNANCE_DIR / "blast_radius_report.json").write_text(blast.model_dump_json(indent=2), encoding="utf-8")
         (GOVERNANCE_DIR / "drift_report.json").write_text(drift.model_dump_json(indent=2), encoding="utf-8")
         (GOVERNANCE_DIR / "promotion_decision.json").write_text(decision.model_dump_json(indent=2), encoding="utf-8")
-        
+
         return {
             "ok": True,
             "promotion_status": decision.status,

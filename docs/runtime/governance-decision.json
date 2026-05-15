@@ -1,0 +1,15 @@
+{
+  "status": "needs_human_approval",
+  "risk_level": "high",
+  "reasons": [
+    "High-risk area detected: schema/auth/security/deployment/worker impact"
+  ],
+  "required_approvals": [
+    "Human owner"
+  ],
+  "blocked_actions": [
+    "No production deploy",
+    "No irreversible migration",
+    "No secret changes"
+  ]
+}

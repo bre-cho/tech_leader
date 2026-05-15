@@ -16,7 +16,7 @@ export default function CommercialCreativePage(){
     <div className="max-w-6xl mx-auto space-y-6">
       <div><p className="text-sm text-amber-300">V27.1 → V27.7</p><h1 className="text-4xl font-bold">AI Commercial Creative Infrastructure</h1><p className="text-neutral-400 mt-2">Commercial visual reasoning, attention routing, typography, product hero, psychology, billboard/print readiness.</p></div>
       <button onClick={run} className="px-5 py-3 rounded-2xl bg-amber-400 text-black font-semibold">{loading?'Đang phân tích...':'Run Commercial Reasoning'}</button>
-      {result && <CommercialReasoningPanel result={result}/>} 
+      {result && <CommercialReasoningPanel result={result}/>}
     </div>
   </main>
 }

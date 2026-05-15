@@ -4,7 +4,7 @@ from app.governance.operating_law import OperatingLawEnforcer
 class VerificationEngine:
     def __init__(self):
         self.law_enforcer = OperatingLawEnforcer()
-    
+
     def verify(self, context: Dict[str, Any], reasoning: Dict[str, Any] | None = None, artifact: Dict[str, Any] | None = None) -> Dict[str, Any]:
         # Support both old and new signatures for backward compatibility
         if reasoning is None:
@@ -12,7 +12,7 @@ class VerificationEngine:
         if artifact is None:
             artifact = context.get("artifact") if isinstance(context, dict) else None
         artifact = artifact or {}
-        
+
         # Handle both old (trace with completed_steps) and new (context with trace dict) signatures
         if "completed_steps" in context and "trace" not in context:
             # Old signature: context is actually the trace with completed_steps
@@ -31,7 +31,7 @@ class VerificationEngine:
         else:
             # New signature: context has "trace" key with individual boolean keys
             trace = context.get("trace", {})
-        
+
         law = self.law_enforcer.validate_trace(trace)
         artifact_id = str(artifact.get("artifact_id") or "")
         checksum = str(artifact.get("checksum") or "")
