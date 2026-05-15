@@ -30,14 +30,15 @@ export default function StoryboardV31RhythmStudio() {
   }
 
   return (
-    <main className="min-h-screen bg-neutral-950 p-8 text-white">
-      <section className="mx-auto grid max-w-7xl gap-6">
-        <div className="rounded-3xl border border-neutral-800 bg-neutral-900 p-6">
-          <h1 className="text-3xl font-bold">V31 — Storyboard Retention + Rhythm Engine</h1>
-          <p className="mt-2 text-neutral-300">
-            Rhythm Graph → Micro Hooks → Camera Language → Runway Escalation → Social Proof → Retention Validator → Render Queue.
+    <main className="brain-route-main">
+      <section className="brain-route-wrap">
+        <div className="brain-route-head">
+          <p className="brain-route-kicker">V31 Runtime</p>
+          <h1 className="brain-route-title">Storyboard Retention and Rhythm Engine</h1>
+          <p className="brain-route-desc">
+            Rhythm graph, micro hooks, camera language, runway escalation, social proof, retention validation, and render queue.
           </p>
-          <button onClick={run} disabled={loading} className="mt-5 rounded-2xl bg-white px-5 py-3 font-semibold text-black">
+          <button onClick={run} disabled={loading} className="mt-5 brain-primary-btn">
             {loading ? "Đang tối ưu storyboard..." : "Run V31 Runtime"}
           </button>
         </div>

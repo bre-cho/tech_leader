@@ -32,13 +32,29 @@ export default function BeautyCommercePage() {
   }
 
   return (
-    <main style={{minHeight:"100vh", background:"#080808", color:"#fff", padding:32, fontFamily:"Inter, sans-serif"}}>
-      <h1>V28 — Beauty Commerce Engine</h1>
-      <p>Beauty Persona → Facial Consistency → Fashion Perception → Provider Router → Verification → Winner DNA</p>
-      <button onClick={run} disabled={loading} style={{padding:"12px 18px", borderRadius:12}}>
-        {loading ? "Đang chạy V28..." : "Run Beauty Commerce Engine"}
-      </button>
-      {result && <pre style={{whiteSpace:"pre-wrap", background:"#111", padding:16, borderRadius:16, marginTop:24}}>{JSON.stringify(result, null, 2)}</pre>}
+    <main className="brain-route-main">
+      <section className="brain-route-wrap">
+        <div className="brain-route-head">
+          <p className="brain-route-kicker">V28 Runtime</p>
+          <h1 className="brain-route-title">Beauty Commerce Engine</h1>
+          <p className="brain-route-desc">
+            Beauty Persona to Facial Consistency to Fashion Perception to Provider Router,
+            verification, and Winner DNA update in one execution flow.
+          </p>
+        </div>
+
+        <div className="brain-action-row">
+          <button onClick={run} disabled={loading} className="brain-primary-btn">
+            {loading ? "Đang chạy V28..." : "Run Beauty Commerce Engine"}
+          </button>
+        </div>
+
+        {result && (
+          <pre className="rounded-2xl border border-neutral-800 bg-neutral-900 p-4 whitespace-pre-wrap text-sm text-neutral-300">
+            {JSON.stringify(result, null, 2)}
+          </pre>
+        )}
+      </section>
     </main>
   );
 }

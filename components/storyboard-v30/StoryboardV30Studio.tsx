@@ -55,12 +55,13 @@ export default function StoryboardV30Studio() {
   const shots = result?.phases?.flatMap((p: any) => p.shots) ?? [];
 
   return (
-    <main className="min-h-screen bg-neutral-950 p-8 text-white">
-      <section className="mx-auto grid max-w-7xl gap-6">
-        <div className="rounded-3xl border border-neutral-800 bg-neutral-900 p-6">
-          <h1 className="text-3xl font-bold">V30 — Storyboard Agent: London Fashion Week Runtime</h1>
-          <p className="mt-2 text-neutral-300">Phase-aware 160-shot fashion event storyboard: Setup → Backstage → Runway → After Party.</p>
-          <button onClick={run} disabled={loading} className="mt-5 rounded-2xl bg-white px-5 py-3 font-semibold text-black">
+    <main className="brain-route-main">
+      <section className="brain-route-wrap">
+        <div className="brain-route-head">
+          <p className="brain-route-kicker">V30 Runtime</p>
+          <h1 className="brain-route-title">Storyboard Agent: London Fashion Week</h1>
+          <p className="brain-route-desc">Phase-aware 160-shot fashion event storyboard: Setup to Backstage to Runway to After Party.</p>
+          <button onClick={run} disabled={loading} className="mt-5 brain-primary-btn">
             {loading ? "Đang dựng storyboard..." : "Run Storyboard Agent V30"}
           </button>
         </div>
