@@ -50,7 +50,22 @@ export default function ColorIntelligenceDashboard() {
 
         {result && (
           <div className="rounded-3xl border border-neutral-800 bg-neutral-900 p-6">
-            <h2 className="text-xl font-semibold">Palette</h2>
+            <div className="flex items-center justify-between">
+              <h2 className="text-xl font-semibold">Palette</h2>
+              <button
+                onClick={() => {
+                  const blob = new Blob([JSON.stringify(result, null, 2)], { type: "application/json" });
+                  const a = document.createElement("a");
+                  a.href = URL.createObjectURL(blob);
+                  a.download = "color-intelligence-result.json";
+                  a.click();
+                  URL.revokeObjectURL(a.href);
+                }}
+                className="rounded-xl border border-neutral-600 px-4 py-2 text-sm hover:border-white"
+              >
+                ⬇ Tải xuống kết quả
+              </button>
+            </div>
             <div className="mt-4 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
               {result.palette?.map((c: any) => (
                 <div key={c.name} className="overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-950">

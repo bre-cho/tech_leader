@@ -44,6 +44,21 @@ export default function VirtualAvatarStudio() {
           <button onClick={createAvatar} disabled={loading} className="mt-5 rounded-2xl bg-white text-black px-5 py-3 font-semibold">
             {loading ? "Đang tạo avatar..." : "Create Beauty Avatar"}
           </button>
+          {result && (
+            <button
+              onClick={() => {
+                const blob = new Blob([JSON.stringify(result, null, 2)], { type: "application/json" });
+                const a = document.createElement("a");
+                a.href = URL.createObjectURL(blob);
+                a.download = "beauty-avatar-result.json";
+                a.click();
+                URL.revokeObjectURL(a.href);
+              }}
+              className="mt-3 rounded-2xl border border-neutral-600 px-5 py-3 font-semibold hover:border-white"
+            >
+              ⬇ Tải xuống kết quả
+            </button>
+          )}
         </div>
 
         <IndustryAvatarPresetGrid />

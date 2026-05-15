@@ -128,11 +128,33 @@ export default function HiDreamCommercialStudio() {
             <div className="rounded-3xl border border-neutral-800 bg-neutral-900 p-5 lg:col-span-2">
               <h2 className="text-xl font-semibold">Artifact</h2>
               {result.artifact?.url ? (
-                <img
-                  alt="HiDream artifact"
-                  className="mt-3 max-h-[520px] rounded-xl border border-neutral-700"
-                  src={String(result.artifact.url).startsWith("/artifacts") ? `${API_BASE}${result.artifact.url}` : result.artifact.url}
-                />
+                <>
+                  <img
+                    alt="HiDream artifact"
+                    className="mt-3 max-h-[520px] rounded-xl border border-neutral-700"
+                    src={String(result.artifact.url).startsWith("/artifacts") ? `${API_BASE}${result.artifact.url}` : result.artifact.url}
+                  />
+                  <button
+                    className="mt-3 rounded-xl border border-neutral-600 px-4 py-2 text-sm hover:border-white"
+                    onClick={() => {
+                      const imgUrl = String(result.artifact.url).startsWith("/artifacts")
+                        ? `${API_BASE}${result.artifact.url}`
+                        : result.artifact.url;
+                      fetch(imgUrl)
+                        .then((r) => r.blob())
+                        .then((blob) => {
+                          const ext = blob.type.includes("png") ? "png" : "jpg";
+                          const a = document.createElement("a");
+                          a.href = URL.createObjectURL(blob);
+                          a.download = `hidream-artifact.${ext}`;
+                          a.click();
+                          URL.revokeObjectURL(a.href);
+                        });
+                    }}
+                  >
+                    ⬇ Tải xuống ảnh
+                  </button>
+                </>
               ) : null}
               <pre className="mt-3 whitespace-pre-wrap text-sm text-neutral-300">{JSON.stringify(result.artifact, null, 2)}</pre>
             </div>

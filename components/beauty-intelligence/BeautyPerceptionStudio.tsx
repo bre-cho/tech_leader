@@ -57,6 +57,34 @@ export default function BeautyPerceptionStudio() {
           <Card title="Semantic Makeup Transfer" text={JSON.stringify(data.makeup_transfer, null, 2)} />
           <Card title="Beauty Perception" text={JSON.stringify(data.beauty_perception, null, 2)} />
           <p>Output path: {data.output_path}</p>
+          {data.output_path && (
+            <button
+              onClick={() => {
+                const imgUrl = `${API}${data.output_path}`;
+                fetch(imgUrl)
+                  .then((r) => r.blob())
+                  .then((blob) => {
+                    const ext = blob.type.includes("png") ? "png" : "jpg";
+                    const a = document.createElement("a");
+                    a.href = URL.createObjectURL(blob);
+                    a.download = `beauty-intelligence-output.${ext}`;
+                    a.click();
+                    URL.revokeObjectURL(a.href);
+                  })
+                  .catch(() => {
+                    const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+                    const a = document.createElement("a");
+                    a.href = URL.createObjectURL(blob);
+                    a.download = "beauty-intelligence-result.json";
+                    a.click();
+                    URL.revokeObjectURL(a.href);
+                  });
+              }}
+              style={{ marginTop: 12, padding: "8px 20px", borderRadius: 12, border: "1px solid #555", background: "transparent", color: "#fff", cursor: "pointer", fontSize: 14 }}
+            >
+              ⬇ Tải xuống ảnh
+            </button>
+          )}
         </section>
       )}
 
