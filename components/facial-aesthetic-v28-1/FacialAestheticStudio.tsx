@@ -35,7 +35,7 @@ export default function FacialAestheticStudio() {
         <div className="rounded-3xl border border-neutral-800 p-6 bg-neutral-900">
           <h1 className="text-3xl font-bold">V28.1 — Facial Aesthetic Perception Engine</h1>
           <p className="text-neutral-300 mt-2">AI Beauty Commerce Intelligence + AI Facial Aesthetic Reasoning.</p>
-          <button onClick={run} disabled={loading} className="mt-5 rounded-2xl bg-white text-black px-5 py-3 font-semibold">
+          <button onClick={run} disabled={loading} className="primary-button mt-5">
             {loading ? "Đang phân tích..." : "Run Facial Aesthetic Engine"}
           </button>
         </div>

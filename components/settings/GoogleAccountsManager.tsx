@@ -50,14 +50,14 @@ export default function GoogleAccountsManager() {
       <div className="mt-5 grid gap-3 md:grid-cols-3">
         <input className="rounded-xl bg-neutral-800 p-3" placeholder="Account label" value={form.label} onChange={e => setForm({...form, label: e.target.value})} />
         <input className="rounded-xl bg-neutral-800 p-3" placeholder="Gemini API key" value={form.apiKey} onChange={e => setForm({...form, apiKey: e.target.value})} />
-        <button className="rounded-xl bg-white p-3 font-semibold text-black" onClick={add}>Add Account</button>
+        <button className="btn-primary" onClick={add}>Add Account</button>
       </div>
 
       <div className="mt-5 flex flex-wrap gap-3">
-        <button className="rounded-xl bg-neutral-800 px-4 py-2" onClick={() => setRotation({...state.rotation, enabled: !state.rotation.enabled})}>
+        <button className="btn-secondary" onClick={() => setRotation({...state.rotation, enabled: !state.rotation.enabled})}>
           Rotation: {state.rotation.enabled ? "ON" : "OFF"}
         </button>
-        <button className="rounded-xl bg-neutral-800 px-4 py-2" onClick={() => setRotation({...state.rotation, perScene: !state.rotation.perScene})}>
+        <button className="btn-secondary" onClick={() => setRotation({...state.rotation, perScene: !state.rotation.perScene})}>
           Per Scene: {state.rotation.perScene ? "ON" : "OFF"}
         </button>
       </div>
@@ -71,8 +71,8 @@ export default function GoogleAccountsManager() {
                 <div className="text-sm text-neutral-400">{a.maskedApiKey} · {a.capabilities.join(", ")} · health: {a.lastHealthStatus}</div>
               </div>
               <div className="flex gap-2">
-                <button className="rounded-xl bg-neutral-800 px-3 py-2" onClick={() => refresh(a.id)}>Refresh</button>
-                <button className="rounded-xl bg-red-900 px-3 py-2" onClick={() => remove(a.id)}>Remove</button>
+                <button className="btn-secondary" onClick={() => refresh(a.id)}>Refresh</button>
+                <button className="btn-danger" onClick={() => remove(a.id)}>Remove</button>
               </div>
             </div>
           </div>

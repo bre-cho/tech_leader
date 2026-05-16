@@ -20,11 +20,11 @@ export function WinnerSelectionPanel({ bestConcept }: WinnerSelectionPanelProps)
         <p>{description}</p>
 
         <div className="winner-actions">
-          <button className="primary-button" type="button">
+          <button className="btn-primary" type="button">
             Generate Storyboard
           </button>
 
-          <button className="secondary-button" type="button">
+          <button className="btn-secondary" type="button">
             Save To Memory
           </button>
         </div>

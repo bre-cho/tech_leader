@@ -351,7 +351,7 @@ export default function DesignStudio() {
             <label>Ngôn ngữ<select value={brief.language} onChange={(e) => updateBrief("language", e.target.value)}><option value="vi">Tiếng Việt</option><option value="en">English</option></select></label>
           </div>
 
-          <button className="primary-button" onClick={handleRun} disabled={isRunning}>
+          <button className="btn-primary" onClick={handleRun} disabled={isRunning}>
             {isRunning ? "Đang chạy vòng đời sản xuất..." : "Run Mission Control"}
           </button>
           {error && <p className="error-box">{error}</p>}

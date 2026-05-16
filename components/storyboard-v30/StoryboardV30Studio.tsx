@@ -76,7 +76,7 @@ export default function StoryboardV30Studio() {
         <div className="rounded-3xl border border-neutral-800 bg-neutral-900 p-6">
           <h1 className="text-3xl font-bold">V30 — Storyboard Agent: London Fashion Week Runtime</h1>
           <p className="mt-2 text-neutral-300">Phase-aware 160-shot fashion event storyboard: Setup → Backstage → Runway → After Party.</p>
-          <button onClick={run} disabled={loading} className="mt-5 rounded-2xl bg-white px-5 py-3 font-semibold text-black">
+          <button onClick={run} disabled={loading} className="primary-button mt-5">
             {loading ? "Đang dựng storyboard..." : "Run Storyboard Agent V30"}
           </button>
         </div>

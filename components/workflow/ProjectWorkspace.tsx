@@ -57,7 +57,7 @@ export function ProjectWorkspace({
           <h1>IMAGE - STORYBOARD - VIDEO</h1>
         </div>
 
-        <button className="primary-button" type="button" onClick={onRun} disabled={isRunning}>
+        <button className="btn-primary" type="button" onClick={onRun} disabled={isRunning}>
           {isRunning ? "Running..." : "Start Pipeline"}
         </button>
       </div>
@@ -135,7 +135,7 @@ export function ProjectWorkspace({
           <div className="source-image-preview">
             <img src={brief.source_image_data_url} alt="Pipeline source" className="source-image-preview-img" />
             <button
-              className="secondary-button"
+              className="btn-danger"
               type="button"
               onClick={() => onUpdateBrief("source_image_data_url", "")}
             >

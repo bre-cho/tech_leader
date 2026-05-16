@@ -110,13 +110,13 @@ export default function BeautyCommercePage() {
         {sourceImageDataUrl ? (
           <div style={{display:"grid", gap:8}}>
             <img src={sourceImageDataUrl} alt="Uploaded source" style={{width:160, height:160, objectFit:"cover", borderRadius:12, border:"1px solid #333"}} />
-            <button onClick={() => setSourceImageDataUrl("")} style={{padding:"8px 12px", borderRadius:10, background:"#222", color:"#fff", border:"1px solid #444", width:"fit-content"}}>
+            <button className="btn-danger" onClick={() => setSourceImageDataUrl("")} style={{padding:"8px 12px", borderRadius:10, background:"#222", color:"#fff", border:"1px solid #444", width:"fit-content"}}>
               Remove uploaded image
             </button>
           </div>
         ) : null}
       </div>
-      <button onClick={run} disabled={loading} style={{padding:"12px 18px", borderRadius:12}}>
+      <button className="btn-primary" onClick={run} disabled={loading} style={{padding:"12px 18px", borderRadius:12}}>
         {loading ? "Đang chạy V28..." : "Run Beauty Commerce Engine"}
       </button>
       {downloadUrl ? (

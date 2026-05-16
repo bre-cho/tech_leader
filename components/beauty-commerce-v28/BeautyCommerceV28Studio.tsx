@@ -70,7 +70,7 @@ export default function BeautyCommerceV28Studio() {
           <p className="mt-2 text-neutral-300">
             Banana Multi-Reference + Femininity Commerce + Social Beauty Commerce Video runtime.
           </p>
-          <button onClick={run} disabled={loading} className="mt-5 rounded-2xl bg-white px-5 py-3 font-semibold text-black">
+          <button onClick={run} disabled={loading} className="primary-button mt-5">
             {loading ? "Đang chạy engine..." : "Run V28.2 / V28.3"}
           </button>
         </div>

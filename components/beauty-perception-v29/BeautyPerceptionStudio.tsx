@@ -61,7 +61,7 @@ export default function BeautyPerceptionStudio() {
           <p className="mt-2 text-neutral-300">
             Beauty DNA Graph → Femininity Signal Graph → Attention Routing → CTR Prediction → Provider Handoff → Winner DNA.
           </p>
-          <button onClick={run} disabled={loading} className="mt-5 rounded-2xl bg-white px-5 py-3 font-semibold text-black">
+          <button onClick={run} disabled={loading} className="primary-button mt-5">
             {loading ? "Đang chạy V29..." : "Run V29 Engine"}
           </button>
         </div>

@@ -52,7 +52,7 @@ export default function MemoryRestorationStudio() {
                 <option key={item}>{item}</option>
               ))}
             </select>
-            <button onClick={run} disabled={loading} className="rounded-xl bg-white px-4 py-2 font-semibold text-black">
+            <button onClick={run} disabled={loading} className="btn-primary">
               {loading ? "Running..." : "Run Restoration"}
             </button>
           </div>

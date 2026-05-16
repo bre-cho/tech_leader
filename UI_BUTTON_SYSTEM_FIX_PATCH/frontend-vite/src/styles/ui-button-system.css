@@ -1,0 +1,324 @@
+/* =========================================================
+   GLOBAL UI BUTTON + FORM SYSTEM FIX
+   For Agent16 / Tech Leader MVP dark luxury interface
+   ========================================================= */
+
+:root {
+  --ui-bg: #050505;
+  --ui-card: rgba(255, 255, 255, 0.045);
+  --ui-card-strong: rgba(255, 255, 255, 0.075);
+  --ui-border: rgba(255, 255, 255, 0.12);
+  --ui-border-soft: rgba(255, 255, 255, 0.075);
+  --ui-text: #fff6e8;
+  --ui-muted: rgba(255, 246, 232, 0.66);
+  --ui-gold: #f6d57a;
+  --ui-gold-2: #d4a73f;
+  --ui-gold-dark: #7b5b1d;
+  --ui-green: #42d77d;
+  --ui-red: #ff6464;
+  --ui-radius: 14px;
+  --ui-radius-lg: 18px;
+  --ui-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+}
+
+/* ---------- Base form reset ---------- */
+
+button:not(.unstyled),
+input:not([type="checkbox"]):not([type="radio"]),
+select,
+textarea {
+  box-sizing: border-box;
+  font: inherit;
+  max-width: 100%;
+}
+
+button:not(.unstyled) {
+  appearance: none;
+  border: 1px solid rgba(246, 213, 122, 0.28);
+  border-radius: var(--ui-radius);
+  min-height: 42px;
+  padding: 10px 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background:
+    linear-gradient(135deg, rgba(255, 240, 184, 0.98), rgba(212, 167, 63, 0.96));
+  color: #050505;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.45),
+    0 10px 28px rgba(212, 167, 63, 0.12);
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease,
+    opacity 160ms ease;
+  white-space: nowrap;
+}
+
+button:not(.unstyled):hover {
+  transform: translateY(-1px);
+  border-color: rgba(246, 213, 122, 0.55);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    0 14px 36px rgba(212, 167, 63, 0.2);
+}
+
+button:not(.unstyled):active {
+  transform: translateY(0);
+  box-shadow:
+    inset 0 1px 0 rgba(0, 0, 0, 0.16),
+    0 8px 18px rgba(212, 167, 63, 0.1);
+}
+
+button:not(.unstyled):focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid rgba(246, 213, 122, 0.72);
+  outline-offset: 2px;
+}
+
+button:not(.unstyled):disabled,
+button:not(.unstyled)[disabled] {
+  cursor: not-allowed;
+  opacity: 0.42;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ---------- Secondary / ghost button helpers ---------- */
+
+button.secondary,
+button.btn-secondary,
+button.ghost,
+button.btn-ghost,
+button[data-variant="secondary"],
+button[data-variant="ghost"] {
+  background: rgba(255, 255, 255, 0.045);
+  color: var(--ui-text);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: none;
+}
+
+button.secondary:hover,
+button.btn-secondary:hover,
+button.ghost:hover,
+button.btn-ghost:hover,
+button[data-variant="secondary"]:hover,
+button[data-variant="ghost"]:hover {
+  background: rgba(246, 213, 122, 0.1);
+  border-color: rgba(246, 213, 122, 0.28);
+  color: var(--ui-gold);
+}
+
+/* ---------- Danger button helpers ---------- */
+
+button.danger,
+button.btn-danger,
+button[data-variant="danger"] {
+  background: linear-gradient(135deg, rgba(255, 124, 124, 0.95), rgba(160, 34, 34, 0.92));
+  color: #fff;
+  border-color: rgba(255, 100, 100, 0.45);
+}
+
+/* ---------- Inputs / selects / textarea ---------- */
+
+input:not([type="checkbox"]):not([type="radio"]),
+select,
+textarea {
+  border: 1px solid var(--ui-border);
+  border-radius: var(--ui-radius);
+  min-height: 42px;
+  padding: 10px 13px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.026));
+  color: var(--ui-text);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.045),
+    0 8px 22px rgba(0, 0, 0, 0.12);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(255, 246, 232, 0.42);
+}
+
+textarea {
+  min-height: 96px;
+  line-height: 1.48;
+  resize: vertical;
+}
+
+select {
+  cursor: pointer;
+}
+
+select option {
+  background: #111;
+  color: var(--ui-text);
+}
+
+/* ---------- File input ---------- */
+
+input[type="file"] {
+  padding: 9px;
+  cursor: pointer;
+}
+
+input[type="file"]::file-selector-button {
+  border: 1px solid rgba(246, 213, 122, 0.24);
+  border-radius: 10px;
+  padding: 8px 12px;
+  margin-right: 12px;
+  background: rgba(246, 213, 122, 0.14);
+  color: var(--ui-gold);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background: rgba(246, 213, 122, 0.22);
+}
+
+/* ---------- Form layout rescue ---------- */
+
+form,
+.form,
+.control-panel,
+.input-panel,
+.settings-panel,
+.brand-form,
+.upscale-form,
+.ai-engine-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+label {
+  color: var(--ui-muted);
+  font-weight: 700;
+}
+
+label:has(input),
+label:has(select),
+label:has(textarea) {
+  display: grid;
+  gap: 7px;
+  min-width: 180px;
+}
+
+/* Fix pages where text and inputs were glued together */
+section input,
+section select,
+section textarea,
+section button {
+  margin: 4px 6px 4px 0;
+}
+
+/* ---------- Card-level button groups ---------- */
+
+.button-row,
+.action-row,
+.actions,
+.toolbar,
+.operation-actions,
+.provider-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+/* ---------- Common page-specific rescue selectors ---------- */
+
+[data-page="brand-studio"] button,
+[data-page="upscale"] button,
+[data-page="beauty-commerce"] button,
+[data-page="beauty-intelligence"] button,
+[data-page="beauty-avatar"] button,
+[data-page="storyboard"] button,
+[data-page="hidream"] button,
+[data-page="color-intelligence"] button,
+[data-page="ai-engine"] button {
+  min-width: 132px;
+}
+
+/* ---------- AI Engine account forms ---------- */
+
+.account-row,
+.provider-account-row,
+.google-account-row,
+.nanobanana-account-row {
+  display: grid;
+  grid-template-columns: minmax(160px, 220px) minmax(260px, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+}
+
+.account-row button,
+.provider-account-row button,
+.google-account-row button,
+.nanobanana-account-row button {
+  min-width: 120px;
+}
+
+.rotation-row,
+.toggle-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.rotation-row button,
+.toggle-row button {
+  min-width: 118px;
+  background: rgba(255, 255, 255, 0.045);
+  color: var(--ui-text);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: none;
+}
+
+/* ---------- Compact operation flow button ---------- */
+
+.open-video-studio,
+button[data-action="open-video-studio"] {
+  min-width: 210px;
+  min-height: 48px;
+  border-radius: 16px;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1200px) {
+  .account-row,
+  .provider-account-row,
+  .google-account-row,
+  .nanobanana-account-row {
+    grid-template-columns: 1fr;
+  }
+
+  button:not(.unstyled),
+  input:not([type="checkbox"]):not([type="radio"]),
+  select,
+  textarea {
+    width: 100%;
+  }
+
+  .button-row,
+  .action-row,
+  .actions,
+  .toolbar,
+  .operation-actions,
+  .provider-actions {
+    width: 100%;
+  }
+}

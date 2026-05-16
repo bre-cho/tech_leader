@@ -31,7 +31,7 @@ export default function GoogleBananaProviderPage() {
     <main style={{minHeight:"100vh", background:"#080808", color:"#fff", padding:32, fontFamily:"Inter, sans-serif"}}>
       <h1>Google Banana Provider</h1>
       <p>Commercial default provider for poster, TikTok creative, multi-reference and brand-consistent campaigns.</p>
-      <button onClick={run} disabled={loading} style={{padding:"12px 18px", borderRadius:12}}>
+      <button className="btn-primary" onClick={run} disabled={loading} style={{padding:"12px 18px", borderRadius:12}}>
         {loading ? "Đang generate..." : "Run Commercial Poster"}
       </button>
       {result && <pre style={{whiteSpace:"pre-wrap", background:"#111", padding:16, borderRadius:16, marginTop:24}}>{JSON.stringify(result, null, 2)}</pre>}

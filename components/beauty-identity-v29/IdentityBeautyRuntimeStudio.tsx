@@ -60,7 +60,7 @@ export default function IdentityBeautyRuntimeStudio() {
               <option value="luxury_lipstick_ad">Luxury Lipstick Ad</option>
               <option value="cinematic_car_wash">Cinematic Car Wash</option>
             </select>
-            <button onClick={run} disabled={loading} className="rounded-xl bg-white px-5 py-3 font-semibold text-black">
+            <button onClick={run} disabled={loading} className="btn-primary">
               {loading ? "Đang chạy..." : "Run Runtime"}
             </button>
           </div>

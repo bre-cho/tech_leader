@@ -43,7 +43,7 @@ export function FaceBalancePanel() {
       <textarea className="min-h-36 w-full rounded-xl border p-3 text-sm" placeholder="Dán prompt gốc..." value={prompt} onChange={(e) => setPrompt(e.target.value)} />
       <textarea className="min-h-24 w-full rounded-xl border p-3 text-sm" placeholder="Negative prompt gốc..." value={negativePrompt} onChange={(e) => setNegativePrompt(e.target.value)} />
 
-      <button onClick={enhance} disabled={loading || !prompt.trim()} className="rounded-xl bg-black px-4 py-2 text-white disabled:opacity-50">
+      <button onClick={enhance} disabled={loading || !prompt.trim()} className="btn-primary">
         {loading ? "Đang fix..." : "Fix cằm nhọn"}
       </button>
 

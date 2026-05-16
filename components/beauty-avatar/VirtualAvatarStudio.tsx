@@ -62,7 +62,7 @@ export default function VirtualAvatarStudio() {
         <div className="rounded-3xl border border-neutral-800 p-6 bg-neutral-900">
           <h1 className="text-3xl font-bold">V26.1 — AI Virtual Beauty Avatar Engine</h1>
           <p className="text-neutral-300 mt-2">Personal Beauty AI → KOL Beauty → Studio Makeup → Wedding Studio → Spa → Fashion / Cosmetic / Clinic / TikTok Creator.</p>
-          <button onClick={createAvatar} disabled={loading} className="mt-5 rounded-2xl bg-white text-black px-5 py-3 font-semibold">
+          <button onClick={createAvatar} disabled={loading} className="primary-button mt-5">
             {loading ? "Đang tạo avatar..." : "Create Beauty Avatar"}
           </button>
         </div>

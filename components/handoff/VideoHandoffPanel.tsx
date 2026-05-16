@@ -38,7 +38,7 @@ export function VideoHandoffPanel({
         <p>{handoffLabel(promotionGate)}. {previewText}</p>
       </div>
 
-      <button className="primary-button" type="button" onClick={onOpenVideoStudio} disabled={handoffLoading}>
+      <button className="btn-primary" type="button" onClick={onOpenVideoStudio} disabled={handoffLoading}>
         {handoffLoading ? "Handoff running..." : "Open Video Studio (5173)"}
       </button>
 

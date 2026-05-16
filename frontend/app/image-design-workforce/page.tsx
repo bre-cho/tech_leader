@@ -36,7 +36,7 @@ export default function ImageDesignWorkforcePage() {
     <main style={{minHeight:"100vh", background:"#080808", color:"#fff", padding:32, fontFamily:"Inter, sans-serif"}}>
       <h1>Multi-Agent Image Design Workforce</h1>
       <p>Creative Director + Visual Strategist + Composition + Typography + Brand + Conversion + Motion + Industry + QA</p>
-      <button onClick={run} disabled={loading} style={{padding:"12px 18px", borderRadius:12}}>
+      <button className="btn-primary" onClick={run} disabled={loading} style={{padding:"12px 18px", borderRadius:12}}>
         {loading ? "Đang chạy workforce..." : "Run Workforce"}
       </button>
       {data && (

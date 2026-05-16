@@ -254,7 +254,7 @@ export default function NanoBananaAccountsPanel() {
                   {account.enabled ? "Disable" : "Enable"}
                 </button>
                 <button
-                  className="rounded-xl border border-red-700 bg-red-950 px-4 py-3 text-red-200 transition hover:bg-red-900 disabled:cursor-not-allowed disabled:opacity-60"
+                  className="danger rounded-xl border border-red-700 bg-red-950 px-4 py-3 text-red-200 transition hover:bg-red-900 disabled:cursor-not-allowed disabled:opacity-60"
                   onClick={() => removeAccount(account.id)}
                   disabled={loading}
                 >
