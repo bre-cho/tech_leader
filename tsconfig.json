@@ -40,6 +40,8 @@
     "node_modules",
     "backend",
     "frontend",
+    "UIUX_V2_VISUAL_TIMELINE_RUNTIME_PATCH",
+    "UIUX_V3_CINEMATIC_DIRECTOR_SYSTEM_PATCH",
     "NEXT_PROJECT_PIPELINE_OS_PATCH",
     "packages/videoflow/src",
     "tech_leader-main",

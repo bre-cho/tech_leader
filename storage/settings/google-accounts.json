@@ -1,5 +1,37 @@
 {
-  "accounts": [],
+  "accounts": [
+    {
+      "id": "gacc_e2c516acf7b76817",
+      "label": "Gemini 01",
+      "encryptedApiKey": "KcNkVCeJ6Tgw4YE5UU/0WTRSL7gmlIMFYuQVmcT2aMsuwK65u7K1K/jHks0cJtoZ+ER2ra4gkE9BFsGEbxcxZ+5/EA==",
+      "maskedApiKey": "AIza...EXi8",
+      "enabled": true,
+      "capabilities": [
+        "nano_banana"
+      ],
+      "quotaWeight": 1,
+      "failCount": 0,
+      "lastHealthStatus": "unknown",
+      "createdAt": "2026-05-16T08:56:09.519Z",
+      "updatedAt": "2026-05-16T08:56:09.519Z"
+    },
+    {
+      "id": "gacc_0bd569cca4f064da",
+      "label": "Gemini 01",
+      "encryptedApiKey": "oxzEGFYOIyMFT/qRGJXC/fmDHA56ZUqTSQCvpe6tDSPrPOar6uh5jOzG4ZiQSgXh8oR1RgHj8105iCvl5Mztpfck6g==",
+      "maskedApiKey": "AIza...EXi8",
+      "enabled": true,
+      "capabilities": [
+        "nano_banana",
+        "veo_3_1"
+      ],
+      "quotaWeight": 1,
+      "failCount": 0,
+      "lastHealthStatus": "unknown",
+      "createdAt": "2026-05-16T08:56:11.562Z",
+      "updatedAt": "2026-05-16T08:56:11.562Z"
+    }
+  ],
   "rotation": {
     "enabled": false,
     "strategy": "round_robin",
