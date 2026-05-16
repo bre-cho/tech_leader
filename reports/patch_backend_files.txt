@@ -1,0 +1,11 @@
+backend/app/main.py
+backend/app/api/v1/creative_os.py
+backend/app/creative_os/__init__.py
+backend/app/creative_os/provider_duration_profiles.py
+backend/app/creative_os/safe_render_queue.py
+backend/app/creative_os/schemas.py
+backend/app/creative_os/scene_count_planner.py
+backend/app/knowledge_runtime/__init__.py
+backend/app/knowledge_runtime/obsidian_vault_manager.py
+backend/app/knowledge_runtime/creative_memory_graph.py
+backend/app/knowledge_runtime/wiki_compiler.py

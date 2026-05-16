@@ -1,0 +1,61 @@
+body {
+  margin: 0;
+  background: #050505;
+  color: #fff6e8;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+.studio-shell {
+  min-height: 100vh;
+  padding: 30px;
+  background: radial-gradient(circle at top left, rgba(246, 213, 122, 0.12), transparent 34%), #050505;
+}
+
+.studio-card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015));
+  border-radius: 30px;
+  padding: 26px;
+  margin-bottom: 24px;
+}
+
+.studio-card.hero h1 {
+  font-size: clamp(42px, 7vw, 82px);
+  line-height: 0.92;
+  letter-spacing: -0.06em;
+  margin: 0;
+}
+
+.studio-eyebrow {
+  color: #f6d57a;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  font-weight: 900;
+  margin-bottom: 12px;
+}
+
+.studio-grid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 24px;
+}
+
+.studio-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  margin-top: 10px;
+}
+
+.studio-row strong {
+  color: #f6d57a;
+}
+
+@media (max-width: 1000px) {
+  .studio-grid {
+    grid-template-columns: 1fr;
+  }
+}

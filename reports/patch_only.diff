@@ -1,0 +1,1292 @@
+diff --git a/backend/app/main.py b/backend/app/main.py
+index 6767a010..3f51bbeb 100644
+--- a/backend/app/main.py
++++ b/backend/app/main.py
+@@ -12,6 +12,7 @@ from app.voice.api import router as voice_router
+ from app.tts_studio.api import router as tts_studio_router
+ from app.api.v1.creative_business_os import router as creative_business_os_router
+ from app.api.v1.enterprise_memory import router as enterprise_memory_router
++from app.api.v1.creative_os import router as creative_os_router
+ from app.creative_os_mvp.api.v1.creative_os import router as creative_os_mvp_router
+ from app.creative_infra_mvp.api.routes import router as creative_infra_mvp_router
+ from app.compound_os_mvp.api import router as compound_os_mvp_router
+@@ -50,6 +51,7 @@ app.include_router(voice_router, prefix="/api/v1")
+ app.include_router(tts_studio_router, prefix="/api/v1")
+ app.include_router(creative_business_os_router, prefix="/api/v1")
+ app.include_router(enterprise_memory_router, prefix="/api/v1")
++app.include_router(creative_os_router, prefix="/api/v1")
+ app.include_router(creative_os_mvp_router, prefix="/api/v1/creative-os")
+ app.include_router(creative_infra_mvp_router, prefix="/api/v1")
+ app.include_router(compound_os_mvp_router, prefix="/api/v1/compound-os")
+--- a/backend/app/api/v1/creative_os.py	2026-05-16 00:56:24.014147368 +0000
++++ b/backend/app/api/v1/creative_os.py	2026-05-16 01:00:53.298160930 +0000
+@@ -0,0 +1,78 @@
++import asyncio
++import json
++
++from fastapi import APIRouter, HTTPException
++from fastapi.responses import StreamingResponse
++
++from app.creative_os.provider_duration_profiles import PROVIDER_DURATION_PROFILES
++from app.creative_os.safe_render_queue import safe_render_queue
++from app.creative_os.scene_count_planner import plan_storyboard
++from app.creative_os.schemas import StoryboardPlanRequest
++
++router = APIRouter(prefix="/creative-os", tags=["creative-os"])
++EVENTS: dict[str, list[dict]] = {}
++
++
++@router.get("/provider-profiles")
++def get_provider_profiles():
++    return PROVIDER_DURATION_PROFILES
++
++
++@router.post("/projects/{project_id}/plan-storyboard")
++def create_storyboard_plan(project_id: str, payload: StoryboardPlanRequest):
++    try:
++        plan = plan_storyboard(project_id, payload)
++    except ValueError as exc:
++        raise HTTPException(status_code=400, detail=str(exc)) from exc
++
++    EVENTS.setdefault(project_id, []).append(
++        {
++            "message": (
++                f"Storyboard planned: {plan.scene_count} scenes, "
++                f"{plan.total_batches} batches, concurrency=1."
++            ),
++            "payload": plan.model_dump(mode="json"),
++        }
++    )
++    return plan
++
++
++@router.get("/projects/{project_id}/render-steps")
++def get_render_steps(project_id: str, scene_count: int, planned_batch_size: int = 6):
++    del project_id
++
++    fake_plan = type("Plan", (), {})()
++    fake_plan.batches = []
++    start = 1
++    batch_index = 1
++
++    while start <= scene_count:
++        end = min(start + planned_batch_size - 1, scene_count)
++        fake_plan.batches.append(
++            type(
++                "Batch",
++                (),
++                {
++                    "batch_index": batch_index,
++                    "scene_indexes": list(range(start, end + 1)),
++                },
++            )()
++        )
++        start = end + 1
++        batch_index += 1
++
++    return safe_render_queue.build_execution_steps(fake_plan)
++
++
++@router.get("/projects/{project_id}/events")
++async def stream_project_events(project_id: str):
++    async def event_generator():
++        sent = 0
++        while sent < 60:
++            events = EVENTS.get(project_id, [])
++            for event in events[sent:]:
++                yield f"data: {json.dumps(event)}\\n\\n"
++                sent += 1
++            await asyncio.sleep(1)
++
++    return StreamingResponse(event_generator(), media_type="text/event-stream")
+--- a/backend/app/creative_os/provider_duration_profiles.py	2026-05-16 00:56:24.014147368 +0000
++++ b/backend/app/creative_os/provider_duration_profiles.py	2026-05-16 01:00:54.008160966 +0000
+@@ -0,0 +1,54 @@
++from pydantic import BaseModel
++
++
++class ProviderDurationProfile(BaseModel):
++    provider: str
++    recommended_duration_per_scene: float
++    max_duration_per_scene: float
++    default_planned_batch_size: int
++    max_concurrent_render: int = 1
++    cooldown_seconds: int
++    retry_limit: int
++
++
++PROVIDER_DURATION_PROFILES = {
++    "veo": ProviderDurationProfile(
++        provider="veo",
++        recommended_duration_per_scene=8,
++        max_duration_per_scene=10,
++        default_planned_batch_size=4,
++        cooldown_seconds=8,
++        retry_limit=2,
++    ),
++    "runway": ProviderDurationProfile(
++        provider="runway",
++        recommended_duration_per_scene=5,
++        max_duration_per_scene=10,
++        default_planned_batch_size=6,
++        cooldown_seconds=5,
++        retry_limit=2,
++    ),
++    "kling": ProviderDurationProfile(
++        provider="kling",
++        recommended_duration_per_scene=5,
++        max_duration_per_scene=10,
++        default_planned_batch_size=6,
++        cooldown_seconds=6,
++        retry_limit=2,
++    ),
++    "seedance": ProviderDurationProfile(
++        provider="seedance",
++        recommended_duration_per_scene=6,
++        max_duration_per_scene=10,
++        default_planned_batch_size=6,
++        cooldown_seconds=5,
++        retry_limit=2,
++    ),
++}
++
++
++def get_provider_profile(provider: str) -> ProviderDurationProfile:
++    key = provider.lower().strip()
++    if key not in PROVIDER_DURATION_PROFILES:
++        raise ValueError(f"Unsupported provider: {provider}")
++    return PROVIDER_DURATION_PROFILES[key]
+--- a/backend/app/creative_os/safe_render_queue.py	2026-05-16 00:56:24.014147368 +0000
++++ b/backend/app/creative_os/safe_render_queue.py	2026-05-16 01:00:54.400160986 +0000
+@@ -0,0 +1,18 @@
++class SafeSequentialRenderQueue:
++    def build_execution_steps(self, plan):
++        steps = []
++        for batch in plan.batches:
++            for scene_index in batch.scene_indexes:
++                steps.append(
++                    {
++                        "batch_index": batch.batch_index,
++                        "scene_index": scene_index,
++                        "status": "queued",
++                        "max_concurrent_render": 1,
++                        "execution_mode": "sequential",
++                    }
++                )
++        return steps
++
++
++safe_render_queue = SafeSequentialRenderQueue()
+--- a/backend/app/creative_os/schemas.py	2026-05-16 00:56:24.014147368 +0000
++++ b/backend/app/creative_os/schemas.py	2026-05-16 01:00:54.798161006 +0000
+@@ -0,0 +1,77 @@
++from typing import Any, Dict, List, Literal, Optional
++from uuid import uuid4
++
++from pydantic import BaseModel, Field, field_validator
++
++
++class ProjectCreate(BaseModel):
++    name: str = "Untitled Creative Project"
++    industry: str
++    product: str
++    audience: str
++    channel: str
++    goal: str
++    brand_name: str
++    language: str = "Vietnamese"
++
++
++class StoryboardPlanRequest(BaseModel):
++    image_source: Literal["upload", "generated"]
++    image_url: str
++    target_video_duration: float = Field(gt=0)
++    provider: str
++    planned_batch_size: Optional[int] = None
++    max_concurrent_render: int = 1
++
++    @field_validator("max_concurrent_render")
++    @classmethod
++    def force_safe_concurrency(cls, value: int) -> int:
++        del value
++        return 1
++
++
++class StoryboardScene(BaseModel):
++    id: str = Field(default_factory=lambda: str(uuid4()))
++    index: int
++    title: str
++    camera: str
++    motion: str
++    subtitle: str
++    provider: str
++    duration: float
++    continuity_key: str
++    status: str = "planned"
++
++
++class RenderBatch(BaseModel):
++    id: str = Field(default_factory=lambda: str(uuid4()))
++    batch_index: int
++    scene_indexes: List[int]
++    planned_batch_size: int
++    max_concurrent_render: int = 1
++    execution_mode: str = "sequential"
++    status: str = "queued"
++
++
++class StoryboardPlan(BaseModel):
++    project_id: str
++    image_source: Literal["upload", "generated"]
++    image_url: str
++    target_video_duration: float
++    provider: str
++    recommended_duration_per_scene: float
++    scene_count: int
++    scene_duration: float
++    planned_batch_size: int
++    max_concurrent_render: int = 1
++    total_batches: int
++    execution_mode: str = "sequential"
++    scenes: List[StoryboardScene]
++    batches: List[RenderBatch]
++
++
++class RuntimeEvent(BaseModel):
++    id: str = Field(default_factory=lambda: str(uuid4()))
++    project_id: str
++    message: str
++    payload: Dict[str, Any] = Field(default_factory=dict)
+--- a/backend/app/creative_os/scene_count_planner.py	2026-05-16 00:56:24.014147368 +0000
++++ b/backend/app/creative_os/scene_count_planner.py	2026-05-16 01:00:55.205161027 +0000
+@@ -0,0 +1,67 @@
++from math import ceil
++
++from .provider_duration_profiles import get_provider_profile
++from .schemas import RenderBatch, StoryboardPlan, StoryboardPlanRequest, StoryboardScene
++
++CAMERA_LIBRARY = [
++    ("Hook Scene", "slow push-in", "cinematic glide", "Open with attention"),
++    ("Product Focus", "macro beauty shot", "soft rotation", "Show product details"),
++    ("Desire Scene", "portrait close-up", "slow zoom", "Build desire"),
++    ("Trust Scene", "medium shot", "light drift", "Increase trust"),
++    ("Transformation", "smooth reveal", "before-after motion", "Show transformation"),
++    ("CTA Scene", "front hero shot", "logo reveal", "Call to action"),
++]
++
++
++def _scene(index: int, duration: float, provider: str) -> StoryboardScene:
++    title, camera, motion, subtitle = CAMERA_LIBRARY[(index - 1) % len(CAMERA_LIBRARY)]
++    return StoryboardScene(
++        index=index,
++        title=title,
++        camera=camera,
++        motion=motion,
++        subtitle=subtitle,
++        provider=provider,
++        duration=round(duration, 2),
++        continuity_key=f"continuity_scene_{index:02d}",
++    )
++
++
++def plan_storyboard(project_id: str, request: StoryboardPlanRequest) -> StoryboardPlan:
++    profile = get_provider_profile(request.provider)
++    scene_count = max(1, ceil(request.target_video_duration / profile.recommended_duration_per_scene))
++    scene_duration = request.target_video_duration / scene_count
++    planned_batch_size = max(1, request.planned_batch_size or profile.default_planned_batch_size)
++
++    scenes = [_scene(i, scene_duration, profile.provider) for i in range(1, scene_count + 1)]
++    all_scene_indexes = list(range(1, scene_count + 1))
++    chunks = [
++        all_scene_indexes[i : i + planned_batch_size]
++        for i in range(0, scene_count, planned_batch_size)
++    ]
++    batches = [
++        RenderBatch(
++            batch_index=i + 1,
++            scene_indexes=chunk,
++            planned_batch_size=planned_batch_size,
++            max_concurrent_render=1,
++        )
++        for i, chunk in enumerate(chunks)
++    ]
++
++    return StoryboardPlan(
++        project_id=project_id,
++        image_source=request.image_source,
++        image_url=request.image_url,
++        target_video_duration=request.target_video_duration,
++        provider=profile.provider,
++        recommended_duration_per_scene=profile.recommended_duration_per_scene,
++        scene_count=scene_count,
++        scene_duration=round(scene_duration, 2),
++        planned_batch_size=planned_batch_size,
++        max_concurrent_render=1,
++        total_batches=len(batches),
++        execution_mode="sequential",
++        scenes=scenes,
++        batches=batches,
++    )
+--- a/backend/app/knowledge_runtime/obsidian_vault_manager.py	2026-05-16 00:56:24.014147368 +0000
++++ b/backend/app/knowledge_runtime/obsidian_vault_manager.py	2026-05-16 01:00:56.025161068 +0000
+@@ -0,0 +1,38 @@
++from datetime import datetime
++from pathlib import Path
++
++
++class ObsidianVaultManager:
++    """Persistent creative memory vault."""
++
++    def __init__(self, vault_root: str):
++        self.vault_root = Path(vault_root)
++
++    def initialize(self):
++        folders = [
++            "projects",
++            "storyboards",
++            "visual_dna",
++            "runtime_logs",
++            "winner_patterns",
++            "provider_runtime",
++            "memory_graph",
++        ]
++
++        for folder in folders:
++            (self.vault_root / folder).mkdir(parents=True, exist_ok=True)
++
++    def save_storyboard(self, project_id: str, markdown: str):
++        path = self.vault_root / "storyboards" / f"{project_id}.md"
++
++        payload = f"""\
++# Storyboard
++
++Project: {project_id}
++Generated: {datetime.utcnow().isoformat()}
++
++{markdown}
++"""
++
++        path.write_text(payload, encoding="utf-8")
++        return str(path)
+--- a/backend/app/knowledge_runtime/creative_memory_graph.py	2026-05-16 00:56:24.014147368 +0000
++++ b/backend/app/knowledge_runtime/creative_memory_graph.py	2026-05-16 01:00:56.454161089 +0000
+@@ -0,0 +1,20 @@
++class CreativeMemoryGraph:
++    """Visual + cinematic knowledge graph."""
++
++    def build_visual_dna(self):
++        return {
++            "Luxury Beauty": [
++                "warm pastel",
++                "Korean softness",
++                "glow skin",
++                "emotional eye contact",
++                "soft cinematic movement",
++            ]
++        }
++
++    def link_storyboard_patterns(self):
++        return {
++            "Hook Scene": ["emotion", "camera", "motion"],
++            "Transformation Scene": ["before_after", "trust"],
++            "CTA Scene": ["brand", "conversion"],
++        }
+--- a/backend/app/knowledge_runtime/wiki_compiler.py	2026-05-16 00:56:24.014147368 +0000
++++ b/backend/app/knowledge_runtime/wiki_compiler.py	2026-05-16 01:00:56.980161116 +0000
+@@ -0,0 +1,33 @@
++from datetime import datetime
++from pathlib import Path
++
++
++class WikiCompiler:
++    """Compile knowledge once and reuse it."""
++
++    def compile_project_memory(self, project_id: str, content: str, output_dir: str):
++        root = Path(output_dir)
++        root.mkdir(parents=True, exist_ok=True)
++
++        md = root / f"{project_id}.md"
++
++        compiled = f"""\
++# Project Knowledge
++
++## Project ID
++{project_id}
++
++## Generated
++{datetime.utcnow().isoformat()}
++
++## Persistent Knowledge
++{content}
++"""
++
++        md.write_text(compiled, encoding="utf-8")
++
++        return {
++            "project_id": project_id,
++            "markdown_path": str(md),
++            "status": "compiled",
++        }
+--- a/app/workflows/page.tsx	2026-05-16 00:56:24.014147368 +0000
++++ b/app/workflows/page.tsx	2026-05-16 01:02:46.973166656 +0000
+@@ -0,0 +1,6 @@
++import { CreativeOSControlPlane } from '@/components/creative-os/CreativeOSControlPlane';
++import './creative-os.css';
++
++export default function WorkflowsPage() {
++  return <CreativeOSControlPlane />;
++}
+--- a/app/workflows/creative-os.css	2026-05-16 00:56:24.014147368 +0000
++++ b/app/workflows/creative-os.css	2026-05-16 01:02:47.341166674 +0000
+@@ -0,0 +1,242 @@
++body {
++  margin: 0;
++  background: #050505;
++  color: #fff6e8;
++  font-family: Inter, system-ui, sans-serif;
++}
++
++button,
++input,
++select {
++  font: inherit;
++}
++
++.creative-os-shell {
++  display: grid;
++  grid-template-columns: 300px minmax(0, 1fr) 360px;
++  min-height: 100vh;
++}
++
++.os-sidebar,
++.os-right-panel {
++  padding: 24px;
++  background: radial-gradient(circle at top, rgba(246, 213, 122, 0.13), rgba(7, 7, 7, 1) 44%);
++  border-right: 1px solid rgba(255, 255, 255, 0.08);
++}
++
++.os-right-panel {
++  border-left: 1px solid rgba(255, 255, 255, 0.08);
++  border-right: 0;
++}
++
++.creative-os-main {
++  padding: 28px;
++}
++
++.os-logo {
++  font-size: 24px;
++  font-weight: 900;
++}
++
++.os-muted {
++  color: rgba(255, 246, 232, 0.65);
++  line-height: 1.6;
++}
++
++.os-stage-list {
++  display: grid;
++  gap: 10px;
++  margin-top: 24px;
++}
++
++.os-stage {
++  width: 100%;
++  border: 1px solid rgba(255, 255, 255, 0.08);
++  border-radius: 18px;
++  padding: 14px;
++  display: flex;
++  gap: 14px;
++  align-items: center;
++  color: #fff6e8;
++  background: rgba(255, 255, 255, 0.035);
++  text-align: left;
++}
++
++.os-stage span {
++  color: #f6d57a;
++  font-weight: 900;
++}
++
++.os-stage.active {
++  color: #050505;
++  background: linear-gradient(135deg, #fff0b8, #d4a73f);
++}
++
++.os-hero,
++.os-card {
++  border: 1px solid rgba(255, 255, 255, 0.08);
++  background: linear-gradient(180deg, rgba(255, 255, 255, 0.048), rgba(255, 255, 255, 0.014));
++  border-radius: 30px;
++  padding: 26px;
++  margin-bottom: 24px;
++  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.26);
++}
++
++.os-hero {
++  display: flex;
++  justify-content: space-between;
++  gap: 24px;
++  align-items: center;
++}
++
++.os-hero h1 {
++  margin: 0;
++  font-size: clamp(40px, 6vw, 76px);
++  line-height: 0.92;
++  letter-spacing: -0.06em;
++}
++
++.os-eyebrow {
++  color: #f6d57a;
++  font-size: 12px;
++  letter-spacing: 0.22em;
++  font-weight: 900;
++  margin-bottom: 12px;
++}
++
++.os-primary,
++.os-secondary {
++  border: 0;
++  border-radius: 16px;
++  padding: 13px 18px;
++  font-weight: 900;
++  cursor: pointer;
++}
++
++.os-primary {
++  color: #050505;
++  background: linear-gradient(135deg, #fff0b8, #d4a73f);
++}
++
++.os-secondary {
++  color: #fff6e8;
++  background: rgba(255, 255, 255, 0.04);
++  border: 1px solid rgba(255, 255, 255, 0.12);
++}
++
++.os-grid,
++.os-form-grid,
++.os-metrics-grid {
++  display: grid;
++  grid-template-columns: repeat(2, minmax(0, 1fr));
++  gap: 18px;
++}
++
++.os-battle-grid {
++  display: grid;
++  grid-template-columns: repeat(3, minmax(0, 1fr));
++  gap: 18px;
++}
++
++.os-card-mini,
++.os-scene-card,
++.os-batch-card,
++.os-metric {
++  background: rgba(255, 255, 255, 0.035);
++  border: 1px solid rgba(255, 255, 255, 0.08);
++  border-radius: 22px;
++  padding: 18px;
++}
++
++.os-image-preview {
++  min-height: 220px;
++  display: grid;
++  place-items: center;
++  border-radius: 24px;
++  margin-top: 18px;
++  background: radial-gradient(circle at 50% 30%, rgba(246, 213, 122, 0.2), transparent 32%), rgba(255, 255, 255, 0.04);
++  color: #f6d57a;
++  font-weight: 900;
++}
++
++.os-label {
++  display: grid;
++  gap: 10px;
++  color: rgba(255, 246, 232, 0.7);
++  font-weight: 700;
++}
++
++.os-label input,
++.os-label select {
++  width: 100%;
++  border: 1px solid rgba(255, 255, 255, 0.1);
++  border-radius: 16px;
++  padding: 13px 14px;
++  color: #fff6e8;
++  background: rgba(0, 0, 0, 0.25);
++}
++
++.os-status,
++.os-metric {
++  display: flex;
++  justify-content: space-between;
++  gap: 16px;
++  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
++  padding: 12px 0;
++}
++
++.os-status strong,
++.os-metric strong {
++  color: #f6d57a;
++}
++
++.os-chain,
++.os-batch-list {
++  display: grid;
++  grid-template-columns: repeat(4, minmax(230px, 1fr));
++  gap: 16px;
++  overflow-x: auto;
++  padding-top: 18px;
++}
++
++.os-memory-tags {
++  display: flex;
++  flex-wrap: wrap;
++  gap: 10px;
++  margin-top: 18px;
++}
++
++.os-memory-tags span {
++  padding: 10px 14px;
++  border-radius: 999px;
++  color: #f6d57a;
++  background: rgba(246, 213, 122, 0.1);
++  border: 1px solid rgba(246, 213, 122, 0.18);
++}
++
++.os-runtime-log {
++  padding: 13px;
++  border-radius: 14px;
++  background: rgba(0, 0, 0, 0.28);
++  margin-top: 10px;
++  color: rgba(255, 246, 232, 0.75);
++}
++
++@media (max-width: 1200px) {
++  .creative-os-shell {
++    grid-template-columns: 1fr;
++  }
++
++  .os-sidebar,
++  .os-right-panel {
++    border-right: 0;
++    border-left: 0;
++  }
++
++  .os-grid,
++  .os-form-grid,
++  .os-metrics-grid,
++  .os-battle-grid {
++    grid-template-columns: 1fr;
++  }
++}
+--- a/components/creative-os/CreativeOSControlPlane.tsx	2026-05-16 00:56:24.014147368 +0000
++++ b/components/creative-os/CreativeOSControlPlane.tsx	2026-05-16 01:02:46.545166634 +0000
+@@ -0,0 +1,309 @@
++'use client';
++
++import { useMemo, useState } from 'react';
++
++import type { ProviderKey, StoryboardPlan } from '@/types/creative-os';
++import { ObsidianVaultPanel } from '@/components/creative-os/ObsidianVaultPanel';
++import { WikiKnowledgeGraph } from '@/components/creative-os/WikiKnowledgeGraph';
++
++const steps = [
++  'Creative Brief',
++  'Image Source',
++  'Duration Planner',
++  'Provider Selection',
++  'Image Battle',
++  'Winner Selection',
++  'Storyboard Builder',
++  'Batch Planner',
++  'Sequential Render',
++  'Video Handoff',
++  'Delivery',
++  'Memory Learning',
++];
++
++const providerDuration: Record<ProviderKey, number> = {
++  veo: 8,
++  runway: 5,
++  kling: 5,
++  seedance: 6,
++};
++
++export function CreativeOSControlPlane() {
++  const [imageSource, setImageSource] = useState<'upload' | 'generated'>('upload');
++  const [imageUrl, setImageUrl] = useState('/uploads/demo-winner-image.png');
++  const [duration, setDuration] = useState(60);
++  const [provider, setProvider] = useState<ProviderKey>('kling');
++  const [plannedBatchSize, setPlannedBatchSize] = useState(6);
++  const [plan, setPlan] = useState<StoryboardPlan | null>(null);
++
++  const estimated = useMemo(() => {
++    const recommended = providerDuration[provider];
++    const sceneCount = Math.max(1, Math.ceil(duration / recommended));
++    const sceneDuration = Number((duration / sceneCount).toFixed(2));
++    return {
++      recommended,
++      sceneCount,
++      sceneDuration,
++      totalBatches: Math.ceil(sceneCount / plannedBatchSize),
++    };
++  }, [duration, provider, plannedBatchSize]);
++
++  function generatePlan() {
++    const scenes = Array.from({ length: estimated.sceneCount }).map((_, index) => ({
++      id: `scene-${index + 1}`,
++      index: index + 1,
++      title: ['Hook Scene', 'Product Focus', 'Desire Scene', 'Trust Scene', 'Transformation', 'CTA Scene'][index % 6],
++      camera: ['slow push-in', 'macro beauty shot', 'portrait close-up', 'medium shot', 'smooth reveal', 'logo reveal'][index % 6],
++      motion: ['cinematic glide', 'soft rotation', 'slow zoom', 'light drift', 'before-after motion', 'front hero motion'][index % 6],
++      subtitle: ['Open with attention', 'Show product details', 'Build desire', 'Increase trust', 'Show transformation', 'Call to action'][index % 6],
++      provider,
++      duration: estimated.sceneDuration,
++      continuity_key: `continuity_scene_${String(index + 1).padStart(2, '0')}`,
++      status: 'planned',
++    }));
++
++    const batches = [];
++    for (let i = 0; i < scenes.length; i += plannedBatchSize) {
++      batches.push({
++        id: `batch-${batches.length + 1}`,
++        batch_index: batches.length + 1,
++        scene_indexes: scenes.slice(i, i + plannedBatchSize).map((s) => s.index),
++        planned_batch_size: plannedBatchSize,
++        max_concurrent_render: 1 as const,
++        execution_mode: 'sequential',
++        status: 'queued',
++      });
++    }
++
++    setPlan({
++      project_id: 'demo-project',
++      image_source: imageSource,
++      image_url: imageUrl,
++      target_video_duration: duration,
++      provider,
++      recommended_duration_per_scene: estimated.recommended,
++      scene_count: estimated.sceneCount,
++      scene_duration: estimated.sceneDuration,
++      planned_batch_size: plannedBatchSize,
++      max_concurrent_render: 1,
++      total_batches: estimated.totalBatches,
++      execution_mode: 'sequential',
++      scenes,
++      batches,
++    });
++  }
++
++  function openVideoStudio() {
++    if (!plan) return;
++    const payload = encodeURIComponent(
++      JSON.stringify({
++        project_id: plan.project_id,
++        winner_image_url: plan.image_url,
++        storyboard: plan.scenes,
++        provider_targets: [plan.provider],
++        render_mode: 'image_to_video',
++        planned_batch_size: plan.planned_batch_size,
++        max_concurrent_render: 1,
++        execution_mode: 'sequential',
++      })
++    );
++    const studioUrl = process.env.NEXT_PUBLIC_VIDEO_STUDIO_URL || 'http://localhost:5173';
++    window.open(`${studioUrl}?handoff=${payload}`, '_blank');
++  }
++
++  return (
++    <main className="creative-os-shell">
++      <aside className="os-sidebar">
++        <div className="os-logo">Creative OS</div>
++        <p className="os-muted">Pipeline-based sidebar, not module launcher.</p>
++        <div className="os-stage-list">
++          {steps.map((s, i) => (
++            <button className={i < 4 ? 'os-stage active' : 'os-stage'} key={s}>
++              <span>{String(i + 1).padStart(2, '0')}</span>
++              <strong>{s}</strong>
++            </button>
++          ))}
++        </div>
++      </aside>
++
++      <section className="creative-os-main">
++        <div className="os-hero">
++          <div>
++            <div className="os-eyebrow">AI CREATIVE PRODUCTION OPERATING SYSTEM</div>
++            <h1>Image to Storyboard to Video</h1>
++            <p>
++              Upload image or use generated image, set target video duration,
++              choose provider, then plan scene count and safe sequential render.
++            </p>
++          </div>
++          <button className="os-primary" onClick={generatePlan}>
++            Generate Storyboard Plan
++          </button>
++        </div>
++
++        <div className="os-grid">
++          <section className="os-card">
++            <div className="os-eyebrow">IMAGE SOURCE PANEL</div>
++            <h2>Source Image</h2>
++            <div className="os-form-grid">
++              <label className="os-label">
++                Image source
++                <select value={imageSource} onChange={(e) => setImageSource(e.target.value as 'upload' | 'generated')}>
++                  <option value="upload">Upload from device</option>
++                  <option value="generated">Generated image</option>
++                </select>
++              </label>
++              <label className="os-label">
++                Image URL
++                <input value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} />
++              </label>
++            </div>
++            <div className="os-image-preview">{imageSource === 'upload' ? 'UPLOADED IMAGE' : 'GENERATED IMAGE'}</div>
++          </section>
++
++          <section className="os-card">
++            <div className="os-eyebrow">DURATION AND PROVIDER PLANNER</div>
++            <h2>Plan scenes and batches</h2>
++            <div className="os-form-grid">
++              <label className="os-label">
++                Target duration
++                <input type="number" value={duration} onChange={(e) => setDuration(Number(e.target.value))} />
++              </label>
++              <label className="os-label">
++                Provider
++                <select value={provider} onChange={(e) => setProvider(e.target.value as ProviderKey)}>
++                  <option value="veo">Veo</option>
++                  <option value="runway">Runway</option>
++                  <option value="kling">Kling</option>
++                  <option value="seedance">Seedance</option>
++                </select>
++              </label>
++              <label className="os-label">
++                Planned scenes per batch
++                <input
++                  type="number"
++                  value={plannedBatchSize}
++                  onChange={(e) => setPlannedBatchSize(Number(e.target.value))}
++                />
++              </label>
++              <label className="os-label">
++                Concurrent render
++                <input value="1 scene" readOnly />
++              </label>
++            </div>
++            <div className="os-metrics-grid">
++              <Metric label="Scene count" value={estimated.sceneCount} />
++              <Metric label="Duration per scene" value={`${estimated.sceneDuration}s`} />
++              <Metric label="Total batches" value={estimated.totalBatches} />
++              <Metric label="Mode" value="Sequential" />
++            </div>
++          </section>
++        </div>
++
++        <section className="os-card">
++          <div className="os-eyebrow">IMAGE BATTLE VIEW</div>
++          <h2>Image A/B/C and winner selection</h2>
++          <div className="os-battle-grid">
++            {['A', 'B', 'C'].map((id, i) => (
++              <article className="os-card-mini" key={id}>
++                <div className="os-image-preview">IMAGE {id}</div>
++                <Metric label="Heat score" value={[91, 88, 95][i]} />
++                <Metric label="CTR" value={['3.1%', '2.9%', '3.6%'][i]} />
++                <button className="os-secondary">Select Winner</button>
++              </article>
++            ))}
++          </div>
++        </section>
++
++        <div className="os-grid">
++          <ObsidianVaultPanel />
++          <WikiKnowledgeGraph />
++        </div>
++
++        {plan ? (
++          <>
++            <section className="os-card">
++              <div className="os-eyebrow">STORYBOARD GRAPH</div>
++              <h2>{plan.scene_count} scenes from winner image</h2>
++              <div className="os-chain">
++                {plan.scenes.map((scene) => (
++                  <article className="os-scene-card" key={scene.id}>
++                    <strong>Scene {scene.index}</strong>
++                    <h3>{scene.title}</h3>
++                    <p>Camera: {scene.camera}</p>
++                    <p>Duration: {scene.duration}s</p>
++                    <p>Provider: {scene.provider}</p>
++                  </article>
++                ))}
++              </div>
++            </section>
++
++            <section className="os-card">
++              <div className="os-eyebrow">SAFE SEQUENTIAL RENDER QUEUE</div>
++              <h2>Planned batches with one-scene-at-a-time render</h2>
++              <div className="os-metrics-grid">
++                <Metric label="Planned batch size" value={plan.planned_batch_size} />
++                <Metric label="Max concurrent render" value="1 scene" />
++                <Metric label="Total batches" value={plan.total_batches} />
++                <Metric label="Overload risk" value="Low" />
++              </div>
++              <div className="os-batch-list">
++                {plan.batches.map((b) => (
++                  <div className="os-batch-card" key={b.id}>
++                    <strong>Batch {b.batch_index}</strong>
++                    <span>Scenes {b.scene_indexes.join(', ')}</span>
++                    <em>Render runs sequentially for each scene.</em>
++                  </div>
++                ))}
++              </div>
++            </section>
++
++            <section className="os-card">
++              <div className="os-eyebrow">VIDEO HANDOFF</div>
++              <h2>Send to Vite Video Studio</h2>
++              <button className="os-primary" onClick={openVideoStudio}>
++                Open Vite Video Studio
++              </button>
++            </section>
++          </>
++        ) : null}
++      </section>
++
++      <aside className="os-right-panel">
++        <section className="os-card">
++          <div className="os-eyebrow">LIVE RUNTIME</div>
++          <h2>Agent Runtime</h2>
++          {[
++            'Strategy Agent ready',
++            'Image Agent ready',
++            'Storyboard Agent ready',
++            'Provider Runtime locked to sequential render',
++          ].map((x) => (
++            <div className="os-runtime-log" key={x}>
++              {x}
++            </div>
++          ))}
++        </section>
++
++        {plan ? (
++          <section className="os-card">
++            <div className="os-eyebrow">PROVIDER STATUS</div>
++            <h2>{plan.provider.toUpperCase()}</h2>
++            <Metric label="Scene count" value={plan.scene_count} />
++            <Metric label="Concurrency" value="1/1" />
++            <Metric label="Mode" value="Sequential" />
++          </section>
++        ) : null}
++      </aside>
++    </main>
++  );
++}
++
++function Metric({ label, value }: { label: string; value: string | number }) {
++  return (
++    <div className="os-status">
++      <span>{label}</span>
++      <strong>{value}</strong>
++    </div>
++  );
++}
+--- a/components/creative-os/ObsidianVaultPanel.tsx	2026-05-16 00:56:24.014147368 +0000
++++ b/components/creative-os/ObsidianVaultPanel.tsx	2026-05-16 01:02:46.055166609 +0000
+@@ -0,0 +1,25 @@
++export function ObsidianVaultPanel() {
++  const folders = [
++    'projects',
++    'storyboards',
++    'visual_dna',
++    'runtime_logs',
++    'winner_patterns',
++    'provider_runtime',
++    'memory_graph',
++  ];
++
++  return (
++    <section className="os-card">
++      <div className="os-eyebrow">OBSIDIAN VAULT</div>
++      <h2>Persistent Creative Memory</h2>
++
++      {folders.map((folder) => (
++        <div className="os-status" key={folder}>
++          <span>{folder}</span>
++          <strong>ACTIVE</strong>
++        </div>
++      ))}
++    </section>
++  );
++}
+--- a/components/creative-os/WikiKnowledgeGraph.tsx	2026-05-16 00:56:24.014147368 +0000
++++ b/components/creative-os/WikiKnowledgeGraph.tsx	2026-05-16 01:02:45.643166589 +0000
+@@ -0,0 +1,16 @@
++export function WikiKnowledgeGraph() {
++  return (
++    <section className="os-card">
++      <div className="os-eyebrow">WIKI KNOWLEDGE GRAPH</div>
++
++      <div className="os-memory-tags">
++        <span>Storyboard Intelligence</span>
++        <span>Visual DNA</span>
++        <span>Provider Runtime</span>
++        <span>Sequential Render</span>
++        <span>Cinematic Memory</span>
++        <span>Winner Patterns</span>
++      </div>
++    </section>
++  );
++}
+--- a/types/creative-os.ts	2026-05-16 00:56:24.014147368 +0000
++++ b/types/creative-os.ts	2026-05-16 01:02:45.178166565 +0000
+@@ -0,0 +1,38 @@
++export type ProviderKey = 'veo' | 'runway' | 'kling' | 'seedance';
++export type ImageSource = 'upload' | 'generated';
++
++export type StoryboardPlan = {
++  project_id: string;
++  image_source: ImageSource;
++  image_url: string;
++  target_video_duration: number;
++  provider: ProviderKey;
++  recommended_duration_per_scene: number;
++  scene_count: number;
++  scene_duration: number;
++  planned_batch_size: number;
++  max_concurrent_render: 1;
++  total_batches: number;
++  execution_mode: 'sequential';
++  scenes: Array<{
++    id: string;
++    index: number;
++    title: string;
++    camera: string;
++    motion: string;
++    subtitle: string;
++    provider: string;
++    duration: number;
++    continuity_key: string;
++    status: string;
++  }>;
++  batches: Array<{
++    id: string;
++    batch_index: number;
++    scene_indexes: number[];
++    planned_batch_size: number;
++    max_concurrent_render: 1;
++    execution_mode: string;
++    status: string;
++  }>;
++};
+diff --git a/frontend/src/main.tsx b/frontend/src/main.tsx
+index ec763bce..d908cfe7 100644
+--- a/frontend/src/main.tsx
++++ b/frontend/src/main.tsx
+@@ -1,6 +1,12 @@
+ import React from 'react';
+ import { createRoot } from 'react-dom/client';
+ import DesignStudio from './pages/DesignStudio';
++import DesignStudioCreativeOS from './pages/DesignStudioCreativeOS';
+ import './styles.css';
+ 
+-createRoot(document.getElementById('root')!).render(<DesignStudio />);
++const search = new URLSearchParams(window.location.search);
++const hasCreativeHandoff = search.has('handoff');
++
++createRoot(document.getElementById('root')!).render(
++	hasCreativeHandoff ? <DesignStudioCreativeOS /> : <DesignStudio />
++);
+--- a/frontend/src/pages/DesignStudioCreativeOS.tsx	2026-05-16 00:56:24.014147368 +0000
++++ b/frontend/src/pages/DesignStudioCreativeOS.tsx	2026-05-16 01:03:17.579168197 +0000
+@@ -0,0 +1,75 @@
++import { readVideoHandoffFromUrl } from '../creative-os/runtime/videoHandoffReceiver';
++import { KnowledgeTimelineRuntime } from '../creative-os/KnowledgeTimelineRuntime';
++import '../styles/creative-os.css';
++
++type StoryboardScene = {
++  title?: string;
++};
++
++export default function DesignStudioCreativeOS() {
++  const handoff = readVideoHandoffFromUrl();
++
++  if (!handoff) {
++    return (
++      <main className="studio-shell">
++        <section className="studio-card hero">
++          <div className="studio-eyebrow">REALTIME VIDEO STUDIO</div>
++          <h1>Waiting for Storyboard Handoff</h1>
++          <p>Gui storyboard tu Next.js Control Plane de bat dau.</p>
++        </section>
++      </main>
++    );
++  }
++
++  const steps = handoff.storyboard.map((_, index) => ({
++    sceneIndex: index + 1,
++    batchIndex: Math.ceil((index + 1) / handoff.planned_batch_size),
++  }));
++
++  return (
++    <main className="studio-shell">
++      <section className="studio-card hero">
++        <div className="studio-eyebrow">VITE VIDEO STUDIO</div>
++        <h1>Storyboard to Sequential Render</h1>
++        <p>Batch la nhom ke hoach. He thong chi render 1 canh tai mot thoi diem.</p>
++      </section>
++
++      <section className="studio-grid">
++        <div className="studio-card">
++          <div className="studio-eyebrow">STORYBOARD</div>
++          <h2>{handoff.storyboard.length} scenes</h2>
++          {handoff.storyboard.map((scene, index) => {
++            const typedScene = scene as StoryboardScene;
++            return (
++              <div className="studio-row" key={index}>
++                <strong>Scene {index + 1}</strong>
++                <span>{typedScene.title || 'Scene'}</span>
++              </div>
++            );
++          })}
++        </div>
++
++        <div className="studio-card">
++          <div className="studio-eyebrow">SAFE RENDER QUEUE</div>
++          <h2>Sequential</h2>
++          <div className="studio-row">
++            <span>Planned batch size</span>
++            <strong>{handoff.planned_batch_size}</strong>
++          </div>
++          <div className="studio-row">
++            <span>Max concurrent render</span>
++            <strong>1</strong>
++          </div>
++          {steps.map((step) => (
++            <div className="studio-row" key={step.sceneIndex}>
++              <strong>Batch {step.batchIndex}</strong>
++              <span>Scene {step.sceneIndex} queued</span>
++            </div>
++          ))}
++        </div>
++      </section>
++
++      <KnowledgeTimelineRuntime />
++    </main>
++  );
++}
+--- a/frontend/src/creative-os/runtime/videoHandoffReceiver.ts	2026-05-16 00:56:24.014147368 +0000
++++ b/frontend/src/creative-os/runtime/videoHandoffReceiver.ts	2026-05-16 01:03:05.628167595 +0000
+@@ -0,0 +1,21 @@
++export type VideoHandoffPayload = {
++  project_id: string;
++  winner_image_url?: string;
++  storyboard: Array<Record<string, unknown>>;
++  provider_targets: string[];
++  render_mode: 'image_to_video';
++  planned_batch_size: number;
++  max_concurrent_render: 1;
++  execution_mode: 'sequential';
++};
++
++export function readVideoHandoffFromUrl(): VideoHandoffPayload | null {
++  const encoded = new URLSearchParams(window.location.search).get('handoff');
++  if (!encoded) return null;
++
++  try {
++    return JSON.parse(decodeURIComponent(encoded)) as VideoHandoffPayload;
++  } catch {
++    return null;
++  }
++}
+--- a/frontend/src/creative-os/KnowledgeTimelineRuntime.tsx	2026-05-16 00:56:24.014147368 +0000
++++ b/frontend/src/creative-os/KnowledgeTimelineRuntime.tsx	2026-05-16 01:03:17.579168197 +0000
+@@ -0,0 +1,22 @@
++export function KnowledgeTimelineRuntime() {
++  return (
++    <section className="studio-card">
++      <div className="studio-eyebrow">KNOWLEDGE TIMELINE RUNTIME</div>
++
++      <div className="studio-row">
++        <span>Storyboard Memory</span>
++        <strong>CONNECTED</strong>
++      </div>
++
++      <div className="studio-row">
++        <span>Visual DNA Graph</span>
++        <strong>ACTIVE</strong>
++      </div>
++
++      <div className="studio-row">
++        <span>Sequential Render Safety</span>
++        <strong>LOCKED</strong>
++      </div>
++    </section>
++  );
++}
+--- a/frontend/src/styles/creative-os.css	2026-05-16 00:56:24.014147368 +0000
++++ b/frontend/src/styles/creative-os.css	2026-05-16 01:03:05.542167591 +0000
+@@ -0,0 +1,61 @@
++body {
++  margin: 0;
++  background: #050505;
++  color: #fff6e8;
++  font-family: Inter, system-ui, sans-serif;
++}
++
++.studio-shell {
++  min-height: 100vh;
++  padding: 30px;
++  background: radial-gradient(circle at top left, rgba(246, 213, 122, 0.12), transparent 34%), #050505;
++}
++
++.studio-card {
++  border: 1px solid rgba(255, 255, 255, 0.08);
++  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015));
++  border-radius: 30px;
++  padding: 26px;
++  margin-bottom: 24px;
++}
++
++.studio-card.hero h1 {
++  font-size: clamp(42px, 7vw, 82px);
++  line-height: 0.92;
++  letter-spacing: -0.06em;
++  margin: 0;
++}
++
++.studio-eyebrow {
++  color: #f6d57a;
++  font-size: 12px;
++  letter-spacing: 0.22em;
++  font-weight: 900;
++  margin-bottom: 12px;
++}
++
++.studio-grid {
++  display: grid;
++  grid-template-columns: 1fr 420px;
++  gap: 24px;
++}
++
++.studio-row {
++  display: flex;
++  justify-content: space-between;
++  gap: 14px;
++  padding: 14px;
++  border-radius: 16px;
++  background: rgba(255, 255, 255, 0.04);
++  margin-top: 10px;
++}
++
++.studio-row strong {
++  color: #f6d57a;
++}
++
++@media (max-width: 1000px) {
++  .studio-grid {
++    grid-template-columns: 1fr;
++  }
++}

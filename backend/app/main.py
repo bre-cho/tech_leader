@@ -12,6 +12,7 @@ from app.voice.api import router as voice_router
 from app.tts_studio.api import router as tts_studio_router
 from app.api.v1.creative_business_os import router as creative_business_os_router
 from app.api.v1.enterprise_memory import router as enterprise_memory_router
+from app.api.v1.creative_os import router as creative_os_router
 from app.creative_os_mvp.api.v1.creative_os import router as creative_os_mvp_router
 from app.creative_infra_mvp.api.routes import router as creative_infra_mvp_router
 from app.compound_os_mvp.api import router as compound_os_mvp_router
@@ -50,6 +51,7 @@ app.include_router(voice_router, prefix="/api/v1")
 app.include_router(tts_studio_router, prefix="/api/v1")
 app.include_router(creative_business_os_router, prefix="/api/v1")
 app.include_router(enterprise_memory_router, prefix="/api/v1")
+app.include_router(creative_os_router, prefix="/api/v1")
 app.include_router(creative_os_mvp_router, prefix="/api/v1/creative-os")
 app.include_router(creative_infra_mvp_router, prefix="/api/v1")
 app.include_router(compound_os_mvp_router, prefix="/api/v1/compound-os")
