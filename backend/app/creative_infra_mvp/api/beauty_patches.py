@@ -7,6 +7,8 @@ V26 Beauty Perception Operating System
 - Luxury beauty rendering pipeline
 """
 
+from __future__ import annotations
+
 import io
 import json
 import uuid

@@ -13,11 +13,16 @@ import os
 # Add backend services to path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent.parent / "services"))
 
-from architecture_observer.code_graph_scanner import scan_repo
-from architecture_observer.blast_radius_analyzer import analyze_blast_radius
-from architecture_observer.architecture_drift_detector import detect_architecture_drift
-from architecture_observer.promotion_gate_guard import promotion_gate
-from architecture_observer.models import CodeGraphSnapshot
+try:
+    from architecture_observer.code_graph_scanner import scan_repo
+    from architecture_observer.blast_radius_analyzer import analyze_blast_radius
+    from architecture_observer.architecture_drift_detector import detect_architecture_drift
+    from architecture_observer.promotion_gate_guard import promotion_gate
+    from architecture_observer.models import CodeGraphSnapshot
+    _ARCH_OBSERVER_AVAILABLE = True
+except ImportError:
+    _ARCH_OBSERVER_AVAILABLE = False
+    scan_repo = analyze_blast_radius = detect_architecture_drift = promotion_gate = CodeGraphSnapshot = None
 
 router = APIRouter(tags=["architecture-control-tower"])
 REPO_ROOT = Path(__file__).parent.parent.parent.parent.parent
