@@ -1,4 +1,7 @@
 
+## Release Trace
+- Commit 46c3a5f9: added MVP Creative OS patch documentation gap files (`docs/README_PATCH.md`, `docs/RENDER_SAFETY_RULES.md`).
+
 ## Engineering OS Upgrade
 - Added production-grade AI Engineering Operating System runtime.
 - Added context graph scanner, phase planner, governance gate, verification reporter, memory JSONL, reusable skills.
