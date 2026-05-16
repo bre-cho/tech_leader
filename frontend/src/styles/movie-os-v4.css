@@ -1,1 +1,369 @@
-body{margin:0;background:#050505;color:#fff6e8;font-family:Inter,system-ui,sans-serif}.studio4-shell{min-height:100vh;padding:30px;background:radial-gradient(circle at top left,rgba(246,213,122,.12),transparent 34%),#050505}.studio4-hero,.studio4-card{border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));border-radius:30px;padding:26px;margin-bottom:24px}.studio4-hero h1{font-size:clamp(42px,7vw,86px);line-height:.9;letter-spacing:-.06em;margin:0}.studio4-eyebrow{color:#f6d57a;font-size:12px;letter-spacing:.22em;font-weight:900;margin-bottom:12px}.studio4-grid{display:grid;grid-template-columns:1fr 420px;gap:24px}.studio4-scenes{display:grid;grid-template-columns:repeat(4,minmax(180px,1fr));gap:14px}.studio4-scene{border-radius:18px;padding:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}.studio4-frame{height:120px;border-radius:14px;background:radial-gradient(circle at 50% 20%,rgba(246,213,122,.22),rgba(255,255,255,.04));display:grid;place-items:center;color:#f6d57a;font-weight:900;margin-bottom:10px}.studio4-row{display:flex;justify-content:space-between;gap:14px;padding:14px;border-radius:16px;background:rgba(255,255,255,.04);margin-top:10px}.studio4-row strong{color:#f6d57a}.studio4-button{margin-top:16px;border:0;border-radius:16px;padding:13px 18px;font-weight:900;color:#050505;background:linear-gradient(135deg,#fff0b8,#d4a73f)}.studio4-track{display:flex;gap:8px;overflow-x:auto}.studio4-clip{min-width:150px;height:78px;border-radius:16px;padding:12px;background:rgba(246,213,122,.12);border:1px solid rgba(246,213,122,.2);display:grid;align-content:space-between}.studio4-render-list{display:grid;gap:10px}.studio4-render{display:flex;justify-content:space-between;gap:14px;padding:14px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}.studio4-render.rendering{border-color:#f6d57a;box-shadow:0 0 40px rgba(246,213,122,.12)}.studio4-render.completed{border-color:rgba(78,220,128,.7);background:rgba(78,220,128,.08)}.studio4-tags{display:flex;flex-wrap:wrap;gap:10px}.studio4-tags span{padding:10px 14px;border-radius:999px;color:#f6d57a;background:rgba(246,213,122,.1);border:1px solid rgba(246,213,122,.18)}
+/* ── AUTONOMOUS MOVIE STUDIO V4 – AI DIRECTOR THEME ── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #050505;
+  color: #fff6e8;
+  font-family: Inter, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── SHELL ── */
+.studio4-shell {
+  min-height: 100vh;
+  padding: 40px 44px;
+  background:
+    radial-gradient(ellipse 55% 45% at 5% 0%, rgba(246,213,122,.11) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 30% at 95% 100%, rgba(66,215,125,.06) 0%, transparent 50%),
+    radial-gradient(ellipse 30% 20% at 50% 50%, rgba(212,167,63,.03) 0%, transparent 60%),
+    #050505;
+}
+
+/* ── HERO ── */
+.studio4-hero {
+  border: 1px solid rgba(246,213,122,.17);
+  background: linear-gradient(135deg, rgba(246,213,122,.06) 0%, rgba(66,215,125,.025) 100%);
+  border-radius: 28px;
+  padding: 44px 48px;
+  margin-bottom: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.studio4-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #f6d57a, #42d77d, transparent);
+  border-radius: 28px 28px 0 0;
+}
+
+.studio4-hero::after {
+  content: 'V4';
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 120px;
+  font-weight: 900;
+  letter-spacing: -.08em;
+  color: rgba(66,215,125,.05);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.studio4-hero h1 {
+  font-size: clamp(36px, 5.5vw, 80px);
+  line-height: .9;
+  letter-spacing: -.05em;
+  margin: 0 0 12px;
+  font-weight: 900;
+  background: linear-gradient(135deg, #fff6e8 20%, #f6d57a 60%, #42d77d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.studio4-hero p {
+  margin: 0;
+  color: rgba(255,246,232,.5);
+  font-size: 15px;
+  letter-spacing: .03em;
+}
+
+/* ── EYEBROW ── */
+.studio4-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #f6d57a;
+  font-size: 11px;
+  letter-spacing: .24em;
+  font-weight: 900;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.studio4-eyebrow::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: linear-gradient(90deg, #f6d57a, #42d77d);
+  border-radius: 2px;
+}
+
+/* ── CARDS ── */
+.studio4-card {
+  border: 1px solid rgba(255,255,255,.065);
+  background: linear-gradient(180deg, rgba(255,255,255,.04) 0%, rgba(255,255,255,.01) 100%);
+  border-radius: 24px;
+  padding: 32px;
+  margin-bottom: 24px;
+  transition: border-color .25s;
+}
+
+.studio4-card:hover {
+  border-color: rgba(246,213,122,.18);
+}
+
+.studio4-card h2 {
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0 0 20px;
+  color: #fff6e8;
+}
+
+/* ── 2-COL GRID ── */
+.studio4-grid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 24px;
+  margin-bottom: 0;
+}
+
+.studio4-grid > .studio4-card {
+  margin-bottom: 0;
+}
+
+/* ── SCENE GRID ── */
+.studio4-scenes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.studio4-scene {
+  border-radius: 18px;
+  padding: 16px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.07);
+  transition: border-color .2s, transform .2s;
+}
+
+.studio4-scene:hover {
+  border-color: rgba(246,213,122,.28);
+  transform: translateY(-2px);
+}
+
+.studio4-scene h3 {
+  font-size: 13px;
+  font-weight: 700;
+  margin: 10px 0 4px;
+  color: #fff6e8;
+}
+
+.studio4-scene p {
+  font-size: 11px;
+  margin: 2px 0;
+  color: rgba(255,246,232,.4);
+}
+
+.studio4-frame {
+  height: 110px;
+  border-radius: 14px;
+  background: radial-gradient(circle at 50% 20%, rgba(246,213,122,.28) 0%, rgba(255,255,255,.04) 100%);
+  display: grid;
+  place-items: center;
+  color: #f6d57a;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -.03em;
+}
+
+/* ── STAT ROW ── */
+.studio4-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 16px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.05);
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.studio4-row span {
+  color: rgba(255,246,232,.5);
+}
+
+.studio4-row strong {
+  color: #f6d57a;
+  font-weight: 800;
+}
+
+/* ── BUTTON ── */
+.studio4-button {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  border: none;
+  border-radius: 14px;
+  padding: 14px 20px;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #050505;
+  background: linear-gradient(135deg, #fff0b8 0%, #d4a73f 100%);
+  cursor: pointer;
+  transition: opacity .2s, transform .15s;
+}
+
+.studio4-button:hover {
+  opacity: .88;
+  transform: translateY(-1px);
+}
+
+/* ── TIMELINE TRACK ── */
+.studio4-track {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(246,213,122,.3) transparent;
+}
+
+.studio4-clip {
+  flex-shrink: 0;
+  min-width: 150px;
+  height: 90px;
+  border-radius: 16px;
+  padding: 14px;
+  background: rgba(246,213,122,.07);
+  border: 1px solid rgba(246,213,122,.16);
+  display: grid;
+  align-content: space-between;
+  transition: border-color .2s, background .2s;
+}
+
+.studio4-clip:hover {
+  border-color: rgba(246,213,122,.4);
+  background: rgba(246,213,122,.11);
+}
+
+.studio4-clip strong {
+  font-size: 13px;
+  color: #f6d57a;
+  font-weight: 800;
+}
+
+.studio4-clip span {
+  font-size: 11px;
+  color: rgba(255,246,232,.5);
+}
+
+.studio4-clip em {
+  font-style: normal;
+  font-size: 11px;
+  color: rgba(66,215,125,.7);
+}
+
+/* ── RENDER QUEUE ── */
+.studio4-render-list {
+  display: grid;
+  gap: 10px;
+}
+
+.studio4-render {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  border-radius: 16px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.065);
+  font-size: 13px;
+  transition: border-color .2s, background .2s;
+}
+
+.studio4-render strong {
+  font-weight: 800;
+  color: #fff6e8;
+  white-space: nowrap;
+}
+
+.studio4-render span {
+  color: rgba(255,246,232,.5);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.studio4-render em {
+  font-style: normal;
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.07);
+  color: rgba(255,246,232,.5);
+  white-space: nowrap;
+}
+
+.studio4-render.rendering {
+  border-color: #f6d57a;
+  background: rgba(246,213,122,.055);
+  box-shadow: 0 0 28px rgba(246,213,122,.1);
+}
+
+.studio4-render.rendering em {
+  background: rgba(246,213,122,.2);
+  color: #f6d57a;
+}
+
+.studio4-render.completed {
+  border-color: rgba(66,215,125,.3);
+  background: rgba(66,215,125,.04);
+}
+
+.studio4-render.completed em {
+  background: rgba(66,215,125,.18);
+  color: #42d77d;
+}
+
+/* ── TAGS ── */
+.studio4-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.studio4-tags span {
+  padding: 9px 16px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #f6d57a;
+  background: rgba(246,213,122,.08);
+  border: 1px solid rgba(246,213,122,.18);
+  transition: background .2s;
+}
+
+.studio4-tags span:hover {
+  background: rgba(246,213,122,.15);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .studio4-shell { padding: 24px 20px; }
+  .studio4-grid { grid-template-columns: 1fr; }
+  .studio4-scenes { grid-template-columns: repeat(2, 1fr); }
+  .studio4-hero { padding: 32px 28px; }
+  .studio4-hero::after { display: none; }
+}

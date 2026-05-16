@@ -1,1 +1,289 @@
-body{margin:0;background:#050505;color:#fff6e8;font-family:Inter,system-ui,sans-serif}.studio3-shell{min-height:100vh;padding:30px;background:radial-gradient(circle at top left,rgba(246,213,122,.12),transparent 34%),#050505}.studio3-hero,.studio3-card{border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));border-radius:30px;padding:26px;margin-bottom:24px}.studio3-hero h1{font-size:clamp(42px,7vw,82px);line-height:.92;letter-spacing:-.06em;margin:0}.studio3-eyebrow{color:#f6d57a;font-size:12px;letter-spacing:.22em;font-weight:900;margin-bottom:12px}.studio3-grid{display:grid;grid-template-columns:1fr 420px;gap:24px}.studio3-scenes{display:grid;grid-template-columns:repeat(4,minmax(180px,1fr));gap:14px}.studio3-scene{border-radius:18px;padding:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}.studio3-frame{height:120px;border-radius:14px;background:radial-gradient(circle at 50% 20%,rgba(246,213,122,.22),rgba(255,255,255,.04));display:grid;place-items:center;color:#f6d57a;font-weight:900;margin-bottom:10px}.studio3-row{display:flex;justify-content:space-between;gap:14px;padding:14px;border-radius:16px;background:rgba(255,255,255,.04);margin-top:10px}.studio3-row strong{color:#f6d57a}.studio3-button{margin-top:16px;border:0;border-radius:16px;padding:13px 18px;font-weight:900;color:#050505;background:linear-gradient(135deg,#fff0b8,#d4a73f)}.studio3-render-list{display:grid;gap:10px}.studio3-render{display:flex;justify-content:space-between;gap:14px;padding:14px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}.studio3-render.rendering{border-color:#f6d57a;box-shadow:0 0 40px rgba(246,213,122,.12)}.studio3-render.completed{border-color:rgba(78,220,128,.7);background:rgba(78,220,128,.08)}
+/* ── MOVIE STUDIO V3 – CINEMATIC DIRECTOR THEME ── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #050505;
+  color: #fff6e8;
+  font-family: Inter, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── SHELL ── */
+.studio3-shell {
+  min-height: 100vh;
+  padding: 40px 44px;
+  background:
+    radial-gradient(ellipse 70% 40% at 0% 0%, rgba(246,213,122,.1) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 35% at 100% 100%, rgba(212,167,63,.06) 0%, transparent 50%),
+    #050505;
+}
+
+/* ── HERO ── */
+.studio3-hero {
+  border: 1px solid rgba(246,213,122,.15);
+  background: linear-gradient(135deg, rgba(246,213,122,.055) 0%, rgba(255,255,255,.02) 100%);
+  border-radius: 28px;
+  padding: 44px 48px;
+  margin-bottom: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.studio3-hero::after {
+  content: 'V3';
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 120px;
+  font-weight: 900;
+  letter-spacing: -.08em;
+  color: rgba(246,213,122,.05);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.studio3-hero h1 {
+  font-size: clamp(36px, 5.5vw, 76px);
+  line-height: .9;
+  letter-spacing: -.05em;
+  margin: 0 0 12px;
+  font-weight: 900;
+  background: linear-gradient(135deg, #fff6e8 30%, #f6d57a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.studio3-hero p {
+  margin: 0;
+  color: rgba(255,246,232,.5);
+  font-size: 15px;
+  letter-spacing: .03em;
+}
+
+/* ── EYEBROW ── */
+.studio3-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #f6d57a;
+  font-size: 11px;
+  letter-spacing: .24em;
+  font-weight: 900;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.studio3-eyebrow::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: #f6d57a;
+  border-radius: 2px;
+}
+
+/* ── CARDS ── */
+.studio3-card {
+  border: 1px solid rgba(255,255,255,.065);
+  background: linear-gradient(180deg, rgba(255,255,255,.04) 0%, rgba(255,255,255,.01) 100%);
+  border-radius: 24px;
+  padding: 32px;
+  margin-bottom: 24px;
+  transition: border-color .25s;
+}
+
+.studio3-card:hover {
+  border-color: rgba(246,213,122,.2);
+}
+
+.studio3-card h2 {
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0 0 20px;
+  color: #fff6e8;
+}
+
+/* ── GRID ── */
+.studio3-grid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 24px;
+  margin-bottom: 0;
+}
+
+.studio3-grid > .studio3-card {
+  margin-bottom: 0;
+}
+
+/* ── SCENE GRID ── */
+.studio3-scenes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.studio3-scene {
+  border-radius: 18px;
+  padding: 16px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.07);
+  transition: border-color .2s, transform .2s;
+}
+
+.studio3-scene:hover {
+  border-color: rgba(246,213,122,.28);
+  transform: translateY(-2px);
+}
+
+.studio3-scene h3 {
+  font-size: 13px;
+  font-weight: 700;
+  margin: 10px 0 4px;
+  color: #fff6e8;
+}
+
+.studio3-scene p {
+  font-size: 11px;
+  margin: 2px 0;
+  color: rgba(255,246,232,.4);
+}
+
+.studio3-frame {
+  height: 110px;
+  border-radius: 14px;
+  background: radial-gradient(circle at 50% 20%, rgba(246,213,122,.28) 0%, rgba(255,255,255,.04) 100%);
+  display: grid;
+  place-items: center;
+  color: #f6d57a;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -.03em;
+}
+
+/* ── STAT ROW ── */
+.studio3-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 16px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.05);
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.studio3-row span {
+  color: rgba(255,246,232,.5);
+}
+
+.studio3-row strong {
+  color: #f6d57a;
+  font-weight: 800;
+}
+
+/* ── BUTTON ── */
+.studio3-button {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  border: none;
+  border-radius: 14px;
+  padding: 14px 20px;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #050505;
+  background: linear-gradient(135deg, #fff0b8 0%, #d4a73f 100%);
+  cursor: pointer;
+  transition: opacity .2s, transform .15s;
+}
+
+.studio3-button:hover {
+  opacity: .88;
+  transform: translateY(-1px);
+}
+
+/* ── RENDER QUEUE ── */
+.studio3-render-list {
+  display: grid;
+  gap: 10px;
+}
+
+.studio3-render {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  border-radius: 16px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.065);
+  font-size: 13px;
+  transition: border-color .2s, background .2s;
+}
+
+.studio3-render strong {
+  font-weight: 800;
+  color: #fff6e8;
+  white-space: nowrap;
+}
+
+.studio3-render span {
+  color: rgba(255,246,232,.5);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.studio3-render em {
+  font-style: normal;
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.07);
+  color: rgba(255,246,232,.5);
+  white-space: nowrap;
+}
+
+.studio3-render.rendering {
+  border-color: #f6d57a;
+  background: rgba(246,213,122,.055);
+  box-shadow: 0 0 28px rgba(246,213,122,.1);
+}
+
+.studio3-render.rendering em {
+  background: rgba(246,213,122,.2);
+  color: #f6d57a;
+}
+
+.studio3-render.completed {
+  border-color: rgba(66,215,125,.3);
+  background: rgba(66,215,125,.04);
+}
+
+.studio3-render.completed em {
+  background: rgba(66,215,125,.18);
+  color: #42d77d;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .studio3-shell { padding: 24px 20px; }
+  .studio3-grid { grid-template-columns: 1fr; }
+  .studio3-scenes { grid-template-columns: repeat(2, 1fr); }
+  .studio3-hero { padding: 32px 28px; }
+  .studio3-hero::after { display: none; }
+}

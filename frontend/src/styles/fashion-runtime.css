@@ -1,1 +1,351 @@
-body{margin:0;background:#050505;color:#fff6e8;font-family:Inter,system-ui,sans-serif}.fashion-studio-shell{min-height:100vh;padding:30px;background:radial-gradient(circle at top left,rgba(246,213,122,.12),transparent 34%),#050505}.fashion-studio-hero,.fashion-studio-card{border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));border-radius:30px;padding:26px;margin-bottom:24px}.fashion-studio-hero h1{font-size:clamp(42px,7vw,82px);line-height:.92;letter-spacing:-.06em;margin:0}.fashion-studio-eyebrow{color:#f6d57a;font-size:12px;letter-spacing:.22em;font-weight:900;margin-bottom:12px}.fashion-studio-grid{display:grid;grid-template-columns:1fr 420px;gap:24px}.fashion-studio-scenes{display:grid;grid-template-columns:repeat(4,minmax(180px,1fr));gap:14px}.fashion-studio-scene{border-radius:18px;padding:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}.fashion-studio-frame{height:120px;border-radius:14px;background:radial-gradient(circle at 50% 20%,rgba(246,213,122,.22),rgba(255,255,255,.04));display:grid;place-items:center;color:#f6d57a;font-weight:900;margin-bottom:10px}.fashion-studio-row{display:flex;justify-content:space-between;gap:14px;padding:14px;border-radius:16px;background:rgba(255,255,255,.04);margin-top:10px}.fashion-studio-row strong{color:#f6d57a}.fashion-studio-button{margin-top:16px;border:0;border-radius:16px;padding:13px 18px;font-weight:900;color:#050505;background:linear-gradient(135deg,#fff0b8,#d4a73f)}.fashion-studio-track{display:flex;gap:8px;overflow-x:auto}.fashion-studio-clip{min-width:150px;height:78px;border-radius:16px;padding:12px;background:rgba(246,213,122,.12);border:1px solid rgba(246,213,122,.2);display:grid;align-content:space-between}.fashion-studio-render-list{display:grid;gap:10px}.fashion-studio-render{display:flex;justify-content:space-between;gap:14px;padding:14px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}.fashion-studio-render.rendering{border-color:#f6d57a;box-shadow:0 0 40px rgba(246,213,122,.12)}.fashion-studio-render.completed{border-color:rgba(78,220,128,.7);background:rgba(78,220,128,.08)}.fashion-studio-tags{display:flex;flex-wrap:wrap;gap:10px}.fashion-studio-tags span{padding:10px 14px;border-radius:999px;color:#f6d57a;background:rgba(246,213,122,.1);border:1px solid rgba(246,213,122,.18)}
+/* ── FASHION MOVIE STUDIO – LUXURY DARK THEME ── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #050505;
+  color: #fff6e8;
+  font-family: Inter, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── SHELL ── */
+.fashion-studio-shell {
+  min-height: 100vh;
+  padding: 40px 44px;
+  background:
+    radial-gradient(ellipse 60% 40% at 10% 0%, rgba(246,213,122,.13) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 90% 100%, rgba(212,167,63,.07) 0%, transparent 55%),
+    #050505;
+}
+
+/* ── HERO ── */
+.fashion-studio-hero {
+  border: 1px solid rgba(246,213,122,.18);
+  background: linear-gradient(135deg, rgba(246,213,122,.06) 0%, rgba(255,255,255,.025) 100%);
+  border-radius: 28px;
+  padding: 44px 48px;
+  margin-bottom: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.fashion-studio-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(246,213,122,.05) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.fashion-studio-hero h1 {
+  font-size: clamp(38px, 6vw, 80px);
+  line-height: .9;
+  letter-spacing: -.05em;
+  margin: 0 0 12px;
+  font-weight: 900;
+  background: linear-gradient(135deg, #fff6e8 30%, #f6d57a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.fashion-studio-hero p {
+  margin: 0;
+  color: rgba(255,246,232,.5);
+  font-size: 15px;
+  letter-spacing: .04em;
+}
+
+/* ── EYEBROW LABEL ── */
+.fashion-studio-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #f6d57a;
+  font-size: 11px;
+  letter-spacing: .24em;
+  font-weight: 900;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.fashion-studio-eyebrow::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: #f6d57a;
+  border-radius: 2px;
+}
+
+/* ── CARDS ── */
+.fashion-studio-card {
+  border: 1px solid rgba(255,255,255,.07);
+  background: linear-gradient(180deg, rgba(255,255,255,.045) 0%, rgba(255,255,255,.012) 100%);
+  border-radius: 24px;
+  padding: 32px;
+  margin-bottom: 24px;
+  transition: border-color .25s;
+}
+
+.fashion-studio-card:hover {
+  border-color: rgba(246,213,122,.22);
+}
+
+.fashion-studio-card h2 {
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0 0 20px;
+  color: #fff6e8;
+}
+
+/* ── 2-COL GRID ── */
+.fashion-studio-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 24px;
+  margin-bottom: 0;
+}
+
+.fashion-studio-grid > .fashion-studio-card {
+  margin-bottom: 0;
+}
+
+/* ── SCENE GRID ── */
+.fashion-studio-scenes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.fashion-studio-scene {
+  border-radius: 18px;
+  padding: 16px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.07);
+  transition: border-color .2s, transform .2s;
+  cursor: default;
+}
+
+.fashion-studio-scene:hover {
+  border-color: rgba(246,213,122,.3);
+  transform: translateY(-2px);
+}
+
+.fashion-studio-scene h3 {
+  font-size: 13px;
+  font-weight: 700;
+  margin: 10px 0 4px;
+  color: #fff6e8;
+}
+
+.fashion-studio-scene p {
+  font-size: 11px;
+  margin: 2px 0;
+  color: rgba(255,246,232,.45);
+}
+
+.fashion-studio-frame {
+  height: 110px;
+  border-radius: 14px;
+  background: radial-gradient(circle at 50% 20%, rgba(246,213,122,.28) 0%, rgba(255,255,255,.04) 100%);
+  display: grid;
+  place-items: center;
+  color: #f6d57a;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -.03em;
+}
+
+/* ── STAT ROW ── */
+.fashion-studio-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 16px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.035);
+  border: 1px solid rgba(255,255,255,.05);
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.fashion-studio-row span {
+  color: rgba(255,246,232,.5);
+}
+
+.fashion-studio-row strong {
+  color: #f6d57a;
+  font-weight: 800;
+}
+
+/* ── BUTTON ── */
+.fashion-studio-button {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  border: none;
+  border-radius: 14px;
+  padding: 14px 20px;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #050505;
+  background: linear-gradient(135deg, #fff0b8 0%, #d4a73f 100%);
+  cursor: pointer;
+  transition: opacity .2s, transform .15s;
+}
+
+.fashion-studio-button:hover {
+  opacity: .88;
+  transform: translateY(-1px);
+}
+
+/* ── TIMELINE TRACK ── */
+.fashion-studio-track {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(246,213,122,.3) transparent;
+}
+
+.fashion-studio-clip {
+  flex-shrink: 0;
+  min-width: 140px;
+  height: 84px;
+  border-radius: 16px;
+  padding: 14px;
+  background: rgba(246,213,122,.08);
+  border: 1px solid rgba(246,213,122,.18);
+  display: grid;
+  align-content: space-between;
+  transition: border-color .2s;
+}
+
+.fashion-studio-clip:hover {
+  border-color: rgba(246,213,122,.45);
+}
+
+.fashion-studio-clip strong {
+  font-size: 13px;
+  color: #f6d57a;
+}
+
+.fashion-studio-clip span {
+  font-size: 11px;
+  color: rgba(255,246,232,.4);
+}
+
+.fashion-studio-clip em {
+  font-style: normal;
+  font-size: 11px;
+  color: rgba(255,246,232,.6);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── RENDER QUEUE ── */
+.fashion-studio-render-list {
+  display: grid;
+  gap: 10px;
+}
+
+.fashion-studio-render {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  border-radius: 16px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.07);
+  font-size: 13px;
+  transition: border-color .2s, background .2s;
+}
+
+.fashion-studio-render strong {
+  font-weight: 800;
+  color: #fff6e8;
+  white-space: nowrap;
+}
+
+.fashion-studio-render span {
+  color: rgba(255,246,232,.5);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fashion-studio-render em {
+  font-style: normal;
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.07);
+  color: rgba(255,246,232,.5);
+  white-space: nowrap;
+}
+
+.fashion-studio-render.rendering {
+  border-color: #f6d57a;
+  background: rgba(246,213,122,.06);
+  box-shadow: 0 0 32px rgba(246,213,122,.1);
+}
+
+.fashion-studio-render.rendering em {
+  background: rgba(246,213,122,.2);
+  color: #f6d57a;
+}
+
+.fashion-studio-render.completed {
+  border-color: rgba(66,215,125,.35);
+  background: rgba(66,215,125,.05);
+}
+
+.fashion-studio-render.completed em {
+  background: rgba(66,215,125,.18);
+  color: #42d77d;
+}
+
+/* ── TAGS ── */
+.fashion-studio-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.fashion-studio-tags span {
+  padding: 9px 16px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #f6d57a;
+  background: rgba(246,213,122,.09);
+  border: 1px solid rgba(246,213,122,.2);
+  transition: background .2s;
+}
+
+.fashion-studio-tags span:hover {
+  background: rgba(246,213,122,.16);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .fashion-studio-shell { padding: 24px 20px; }
+  .fashion-studio-grid { grid-template-columns: 1fr; }
+  .fashion-studio-scenes { grid-template-columns: repeat(2, 1fr); }
+  .fashion-studio-hero { padding: 32px 28px; }
+}
