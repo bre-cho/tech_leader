@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { NextRequest, NextResponse } from "next/server";
 import { bananaImageGenerate } from "@/services/provider-google-banana/bananaImageGenerate";
+import { resolveGoogleAiForCapability } from "@/services/google-ai/googleAiClientFactory";
 
 type GenerateBody = {
   prompt?: string;
@@ -56,7 +57,16 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ detail: "Prompt must be at least 3 characters." }, { status: 400 });
     }
 
-    if (!process.env.GEMINI_API_KEY && !process.env.GOOGLE_API_KEY) {
+    const hasConfiguredGoogleKey = (() => {
+      try {
+        resolveGoogleAiForCapability("nano_banana");
+        return true;
+      } catch {
+        return false;
+      }
+    })();
+
+    if (!hasConfiguredGoogleKey) {
       return NextResponse.json({
         status: "succeeded",
         prompt,
@@ -67,19 +77,39 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    const result = await bananaImageGenerate({
-      mode: "generate",
-      prompt,
-      negativePrompt: body.negativePrompt,
-      model: body.model,
-      aspectRatio: body.aspectRatio || "4:5",
-      resolution: body.resolution || "2K",
-      outputDir: "storage/google-banana/creative-os-source",
-      metadata: {
-        surface: "creative-os-control-plane",
-        workflow: "source-image-generate",
-      },
-    });
+    let result;
+    try {
+      result = await bananaImageGenerate({
+        mode: "generate",
+        prompt,
+        negativePrompt: body.negativePrompt,
+        model: body.model,
+        aspectRatio: body.aspectRatio || "4:5",
+        resolution: body.resolution || "2K",
+        outputDir: "storage/google-banana/creative-os-source",
+        metadata: {
+          surface: "creative-os-control-plane",
+          workflow: "source-image-generate",
+        },
+      });
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Source image generation failed.";
+      const isQuotaError = /429|RESOURCE_EXHAUSTED|quota exceeded/i.test(message);
+
+      if (!isQuotaError) {
+        throw error;
+      }
+
+      return NextResponse.json({
+        status: "succeeded",
+        prompt,
+        image_url: createMockPreviewDataUrl(prompt),
+        artifact_path: "mock://creative-os/source-image.svg",
+        model: "mock-local-preview",
+        is_mock: true,
+        detail: message,
+      });
+    }
 
     const imageArtifact = result.artifacts.find((artifact) => artifact.type === "image");
     if (!imageArtifact) {

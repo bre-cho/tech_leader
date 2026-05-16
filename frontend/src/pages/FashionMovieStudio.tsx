@@ -26,8 +26,38 @@ export default function FashionMovieStudio() {
       <main className="fashion-studio-shell">
         <section className="fashion-studio-hero">
           <div className="fashion-studio-eyebrow">FASHION MOVIE STUDIO</div>
-          <h1>Waiting for Fashion Runtime Handoff</h1>
-          <p>Gửi dữ liệu từ Next.js Fashion Runtime bằng query `fashion_handoff`.</p>
+          <h1>Fashion Runtime Preview Mode</h1>
+          <p>Chưa có payload handoff nên trang đang hiển thị bản xem trước có cấu trúc.</p>
+        </section>
+
+        <section className="fashion-studio-grid">
+          <div className="fashion-studio-card">
+            <div className="fashion-studio-eyebrow">STYLE BOARD</div>
+            <h2>Sample runway scenes</h2>
+            {['Silhouette reveal', 'Editorial close-up', 'Texture macro', 'Final walk'].map((scene, index) => (
+              <div className="fashion-studio-row" key={scene}>
+                <strong>Scene {index + 1}</strong>
+                <span>{scene}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="fashion-studio-card">
+            <div className="fashion-studio-eyebrow">RENDER CHECKLIST</div>
+            <h2>Ready for handoff</h2>
+            <div className="fashion-studio-row">
+              <strong>Visual DNA</strong>
+              <span>Awaiting Next.js payload</span>
+            </div>
+            <div className="fashion-studio-row">
+              <strong>Storyboard</strong>
+              <span>12-scene flow will appear here</span>
+            </div>
+            <div className="fashion-studio-row">
+              <strong>Render queue</strong>
+              <span>Sequential mode, concurrency 1</span>
+            </div>
+          </div>
         </section>
       </main>
     )

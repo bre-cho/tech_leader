@@ -8,15 +8,24 @@ import { writeBananaArtifact, writeManifest } from "./bananaArtifactStore";
 import { validateBananaSafety } from "./bananaSafety";
 import { withBananaRetry } from "./bananaRetry";
 import { bananaRateLimit } from "./bananaRateLimit";
+import { resolveGoogleAiForCapability } from "@/services/google-ai/googleAiClientFactory";
 
 export class GoogleBananaClient {
   private ai: GoogleGenAI;
 
-  constructor(apiKey = process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY) {
-    if (!apiKey) {
+  constructor(apiKey?: string) {
+    const resolvedApiKey = apiKey || (() => {
+      try {
+        return resolveGoogleAiForCapability("nano_banana").apiKey;
+      } catch {
+        return process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY;
+      }
+    })();
+
+    if (!resolvedApiKey) {
       throw new Error("Missing GEMINI_API_KEY or GOOGLE_API_KEY.");
     }
-    this.ai = new GoogleGenAI({ apiKey });
+    this.ai = new GoogleGenAI({ apiKey: resolvedApiKey });
   }
 
   async run(req: BananaRequest): Promise<BananaResponse> {

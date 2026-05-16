@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useMemo, useState } from 'react'
 import type { ChangeEvent } from 'react'
-import type { GeneratedSourceImage, ProviderDurationProfile, ProviderKey, RenderStep, StoryboardPlan } from '@/types/creative-os'
+import type { GeneratedSourceImage, ProviderDurationProfile, ProviderKey, RenderExecutionSnapshot, RenderStep, StoryboardPlan } from '@/types/creative-os'
 
 const PROJECT_ID = 'demo-project'
 const API_TIMEOUT_MS = 30000  // 30 seconds to allow for slower networks/concurrent requests
@@ -12,6 +12,15 @@ const providerDefaults: Record<ProviderKey, number> = {
     runway: 5,
     kling: 5,
     seedance: 6,
+    'seedance2-fast': 5,
+}
+
+function getProviderLabel(provider: ProviderKey): string {
+    if (provider === 'seedance2-fast') return 'Seedance Fast MVP'
+    if (provider === 'seedance') return 'Seedance'
+    if (provider === 'kling') return 'Kling'
+    if (provider === 'runway') return 'Runway'
+    return 'Veo'
 }
 
 const defaultRuntimeLogs = [
@@ -19,7 +28,7 @@ const defaultRuntimeLogs = [
     'Research Agent waiting for storyboard plan',
     'Image Agent waiting for source',
     'Storyboard Agent idle',
-    'Provider Runtime locked to sequential render',
+    'Seedance Fast MVP runtime locked to sequential render',
 ]
 
 async function fetchJsonWithTimeout<T>(url: string, init: RequestInit, actionLabel: string): Promise<T> {
@@ -54,7 +63,7 @@ export function CreativeOSControlPlane() {
     const [imageUrl, setImageUrl] = useState('/uploads/demo-winner-image.png')
     const [imagePrompt, setImagePrompt] = useState('Luxury skincare product hero shot, studio lighting, premium cosmetic bottle, clean beauty campaign')
     const [duration, setDuration] = useState(60)
-    const [provider, setProvider] = useState<ProviderKey>('kling')
+    const [provider, setProvider] = useState<ProviderKey>('seedance2-fast')
     const [plannedBatchSize, setPlannedBatchSize] = useState(6)
     const [plan, setPlan] = useState<StoryboardPlan | null>(null)
     const [renderSteps, setRenderSteps] = useState<RenderStep[]>([])
@@ -69,6 +78,9 @@ export function CreativeOSControlPlane() {
     const [sourceStatus, setSourceStatus] = useState<ApiState>('degraded')
     const [sourceError, setSourceError] = useState<string | null>(null)
     const [isGeneratingSource, setIsGeneratingSource] = useState(false)
+    const [isExecutingRender, setIsExecutingRender] = useState(false)
+    const [renderRuntimeStatus, setRenderRuntimeStatus] = useState<'idle' | 'running' | 'completed' | 'failed'>('idle')
+    const [pollRenderStatus, setPollRenderStatus] = useState(false)
 
     const overallHealth = useMemo(() => {
         const statuses: ApiState[] = [profilesStatus, storyboardStatus, queueStatus, eventsStatus]
@@ -170,6 +182,50 @@ export function CreativeOSControlPlane() {
         }
     }, [])
 
+    useEffect(() => {
+        if (!pollRenderStatus || !plan) return
+
+        let isMounted = true
+        let pollingInterval: ReturnType<typeof setInterval> | null = null
+
+        async function pollStatus() {
+            try {
+                const snapshot = await fetchJsonWithTimeout<RenderExecutionSnapshot>(
+                    `/api/v1/creative-os/projects/${PROJECT_ID}/render-status`,
+                    { method: 'GET' },
+                    'Poll render status',
+                )
+                if (!isMounted) return
+
+                setRenderSteps(snapshot.steps)
+                setRenderRuntimeStatus(snapshot.status)
+                setQueueStatus(snapshot.status === 'failed' ? 'down' : 'connected')
+
+                if (snapshot.status === 'completed' || snapshot.status === 'failed') {
+                    setPollRenderStatus(false)
+                    setIsExecutingRender(false)
+                    setRuntimeLogs((prev) => [
+                        `Sequential render ${snapshot.status}: ${snapshot.completed_scenes}/${snapshot.scene_count} scenes`,
+                        ...prev,
+                    ].slice(0, 16))
+                }
+            } catch (error) {
+                if (!isMounted) return
+                const message = error instanceof Error ? error.message : 'Poll render status failed'
+                setQueueStatus('degraded')
+                setRuntimeLogs((prev) => [`Render status poll error: ${message}`, ...prev].slice(0, 16))
+            }
+        }
+
+        pollStatus()
+        pollingInterval = setInterval(pollStatus, 1500)
+
+        return () => {
+            isMounted = false
+            if (pollingInterval) clearInterval(pollingInterval)
+        }
+    }, [plan, pollRenderStatus])
+
     const estimated = useMemo(() => {
         const recommended = providerProfiles[provider]?.recommended_duration_per_scene ?? providerDefaults[provider]
         const sceneCount = Math.max(1, Math.ceil(duration / recommended))
@@ -183,13 +239,16 @@ export function CreativeOSControlPlane() {
     }, [duration, provider, plannedBatchSize, providerProfiles])
 
     async function generatePlan() {
+        const selectedProviderLabel = getProviderLabel(provider)
         setIsPlanning(true)
         setApiError(null)
         setPlan(null)
         setRenderSteps([])
+        setRenderRuntimeStatus('idle')
+        setPollRenderStatus(false)
         setStoryboardStatus('degraded')
         setQueueStatus('degraded')
-        setRuntimeLogs((prev) => ['Planning storyboard via backend API...', ...prev])
+        setRuntimeLogs((prev) => [`Planning storyboard via backend API for ${selectedProviderLabel}...`, ...prev])
 
         try {
             const compactImageUrl = compactImageReference(imageUrl, imageSource)
@@ -218,15 +277,38 @@ export function CreativeOSControlPlane() {
                 'Load render steps',
             )
             setRenderSteps(steps)
-            setQueueStatus('connected')
+            setQueueStatus('degraded')
+
+            setIsExecutingRender(true)
+            const execution = await fetchJsonWithTimeout<RenderExecutionSnapshot>(
+                `/api/v1/creative-os/projects/${PROJECT_ID}/execute-render`,
+                {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        scene_count: planData.scene_count,
+                        planned_batch_size: planData.planned_batch_size,
+                        provider: planData.provider,
+                        image_url: compactImageUrl,
+                    }),
+                },
+                'Execute sequential render',
+            )
+            setRenderSteps(execution.steps)
+            setRenderRuntimeStatus(execution.status)
+            setQueueStatus(execution.status === 'failed' ? 'down' : 'connected')
+            setPollRenderStatus(execution.status === 'running')
             setRuntimeLogs((prev) => [
-                `Storyboard planned: ${planData.scene_count} scenes / ${planData.total_batches} batches`,
+                `Storyboard planned: ${planData.scene_count} scenes / ${planData.total_batches} batches for ${selectedProviderLabel}`,
+                `Sequential render ${execution.status}: ${execution.completed_scenes}/${execution.scene_count} scenes · ${selectedProviderLabel}`,
                 compactImageUrl !== imageUrl ? 'Using compact image reference for planning payload.' : 'Using direct image URL for planning payload.',
-                'Render steps loaded from backend queue',
+                'Render executor started and status polling enabled',
                 ...prev,
             ])
         } catch (error) {
             const message = error instanceof Error ? error.message : 'Backend planning failed.'
+            setIsExecutingRender(false)
+            setPollRenderStatus(false)
             setApiError(message)
             if (message.includes('Plan storyboard')) {
                 setStoryboardStatus('down')
@@ -321,7 +403,7 @@ export function CreativeOSControlPlane() {
             execution_mode: 'sequential',
         })
 
-        const handoffUrl = 'https://shiny-memory-gxq4x7jx7xv6fjw9-5173.app.github.dev/creative-os?handoff=1'
+        const handoffUrl = 'https://shiny-memory-gxq4x7jx7xv6fjw9-5174.app.github.dev/creative-os?handoff=1'
 
         // Open immediately in user-click sync flow to avoid popup blockers.
         const popup = window.open('about:blank', '_blank')
@@ -360,8 +442,8 @@ export function CreativeOSControlPlane() {
                         <h1>Image → Storyboard → Video</h1>
                         <p>Upload ảnh hoặc dùng ảnh AI tạo ra, nhập thời lượng video, chọn provider, tự tính số cảnh và render tuần tự từng cảnh.</p>
                     </div>
-                    <button className="os-primary" onClick={generatePlan} disabled={isPlanning}>
-                        {isPlanning ? 'Generating via Backend...' : 'Generate Storyboard Plan'}
+                    <button className="os-primary" onClick={generatePlan} disabled={isPlanning || isExecutingRender}>
+                        {isPlanning ? 'Generating via Backend...' : isExecutingRender ? 'Render Running...' : 'Generate Storyboard Plan'}
                     </button>
                 </div>
 
@@ -382,7 +464,7 @@ export function CreativeOSControlPlane() {
                             <span className="os-muted">Upload ảnh từ thiết bị hoặc tạo ảnh AI bằng code rồi dùng chung cho backend plan-storyboard.</span>
                         </div>
                         {sourceError ? <div className="os-api-error">{sourceError}</div> : null}
-                        {imageSource === 'generated' && imageUrl ? <p className="os-muted">Generated source đang dùng cho storyboard planning. Nếu thiếu API key, hệ thống tự dùng mock fallback để demo UI.</p> : null}
+                        {imageSource === 'generated' && imageUrl ? <p className="os-muted">Generated source đang dùng cho storyboard planning. Nếu thiếu API key hoặc gặp quota/rate-limit từ provider, hệ thống sẽ tự dùng mock fallback để đảm bảo UI demo luôn hoạt động.</p> : null}
                         <div className="os-image-preview">{imageUrl ? <img src={imageUrl} alt={imageSource === 'upload' ? 'Uploaded source' : 'Generated source'} className="os-preview-image" /> : imageSource === 'upload' ? 'UPLOADED IMAGE' : 'GENERATED IMAGE'}</div>
                     </section>
 
@@ -391,7 +473,7 @@ export function CreativeOSControlPlane() {
                         <h2>Tính số cảnh và batch</h2>
                         <div className="os-form-grid">
                             <label className="os-label">Thời lượng video<input type="number" value={duration} onChange={(e) => setDuration(Number(e.target.value))} /></label>
-                            <label className="os-label">Provider<select value={provider} onChange={(e) => setProvider(e.target.value as ProviderKey)}><option value="veo">Veo</option><option value="runway">Runway</option><option value="kling">Kling</option><option value="seedance">Seedance</option></select></label>
+                            <label className="os-label" title="Seedance Fast MVP chạy tuần tự, tối ưu cho test nhanh và ít fail queue hơn.">Provider<select value={provider} onChange={(e) => setProvider(e.target.value as ProviderKey)}><option value="seedance2-fast">Seedance Fast MVP</option><option value="veo">Veo</option><option value="runway">Runway</option><option value="kling">Kling</option><option value="seedance">Seedance</option></select></label>
                             <label className="os-label">Số cảnh/batch kế hoạch<input type="number" value={plannedBatchSize} onChange={(e) => setPlannedBatchSize(Number(e.target.value))} /></label>
                             <label className="os-label">Render đồng thời<input value="1 cảnh" readOnly /></label>
                         </div>
@@ -412,13 +494,13 @@ export function CreativeOSControlPlane() {
                         <div className="os-status"><span>Image source</span><strong>{imageSource}</strong></div>
                         <div className="os-status"><span>Winner image URL</span><strong>{imageUrl || '-'}</strong></div>
                         <div className="os-status"><span>Provider</span><strong>{provider}</strong></div>
-                        <p className="os-muted">Khối này map trực tiếp vào payload của endpoint plan-storyboard. Backend hiện chưa có endpoint chấm điểm A/B/C riêng.</p>
+                        <p className="os-muted">Khối này map trực tiếp vào payload của endpoint plan-storyboard. Backend hiện chưa có endpoint chấm điểm A/B/C riêng. Hiện đang mặc định chạy Seedance Fast MVP để test nhanh.</p>
                     </div>
                 </section>
 
                 <section className="os-card">
                     <div className="os-card-head"><div className="os-eyebrow">STORYBOARD DEPENDENCY GRAPH</div><ApiBadge state={storyboardStatus} label="plan-storyboard" /></div>
-                    <h2>{plan ? `${plan.scene_count} cảnh từ ảnh thắng` : 'Chưa có storyboard từ backend'}</h2>
+                        <h2>{plan ? `${plan.scene_count} cảnh từ ảnh thắng` : 'Chưa có storyboard từ backend'}</h2>
                     {plan ? (
                         <div className="os-chain">
                             {plan.scenes.map((scene) => (
@@ -428,7 +510,7 @@ export function CreativeOSControlPlane() {
                                     <p>Camera: {scene.camera}</p>
                                     <p>Motion: {scene.motion}</p>
                                     <p>Duration: {scene.duration}s</p>
-                                    <p>Provider: {scene.provider}</p>
+                                    <p>Provider: {getProviderLabel(scene.provider as ProviderKey)}</p>
                                 </article>
                             ))}
                         </div>
@@ -438,13 +520,13 @@ export function CreativeOSControlPlane() {
                 </section>
 
                 <section className="os-card">
-                    <div className="os-card-head"><div className="os-eyebrow">SAFE SEQUENTIAL RENDER QUEUE</div><ApiBadge state={queueStatus} label="render-steps" /></div>
+                    <div className="os-card-head"><div className="os-eyebrow">SAFE SEQUENTIAL RENDER QUEUE</div><ApiBadge state={queueStatus} label="render-status" /></div>
                     <h2>Batch kế hoạch — render từng cảnh một</h2>
                     <div className="os-metrics-grid">
                         <Metric label="Planned batch size" value={plan?.planned_batch_size ?? plannedBatchSize} />
                         <Metric label="Max concurrent render" value="1 cảnh" />
                         <Metric label="Total batches" value={plan?.total_batches ?? '-'} />
-                        <Metric label="Overload risk" value={renderSteps.length > 0 ? 'Low' : 'Pending'} />
+                        <Metric label="Runtime status" value={renderRuntimeStatus.toUpperCase()} />
                     </div>
                     {renderSteps.length > 0 ? (
                         <div className="os-batch-list">
@@ -452,7 +534,7 @@ export function CreativeOSControlPlane() {
                                 <div className="os-batch-card" key={`step-${step.batch_index}-${step.scene_index}`}>
                                     <strong>Batch {step.batch_index}</strong>
                                     <span>Scene {step.scene_index}</span>
-                                    <em>{step.execution_mode} / {step.status}</em>
+                                    <em>{step.execution_mode} / {step.status}{step.artifact_path ? ' / artifact ready' : ''}</em>
                                 </div>
                             ))}
                         </div>
@@ -483,7 +565,7 @@ export function CreativeOSControlPlane() {
                 {plan ? (
                     <section className="os-card">
                         <div className="os-card-head"><div className="os-eyebrow">PROVIDER STATUS</div><ApiBadge state={profilesStatus} label="provider-profiles" /></div>
-                        <h2>{plan.provider.toUpperCase()}</h2>
+                        <h2>{getProviderLabel(plan.provider as ProviderKey)}</h2>
                         <Metric label="Scene count" value={plan.scene_count} />
                         <Metric label="Batch size" value={plan.planned_batch_size} />
                         <Metric label="Concurrency" value="1/1" />

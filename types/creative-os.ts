@@ -1,4 +1,4 @@
-export type ProviderKey = 'veo' | 'runway' | 'kling' | 'seedance'
+export type ProviderKey = 'veo' | 'runway' | 'kling' | 'seedance' | 'seedance2-fast'
 export type ImageSource = 'upload' | 'generated'
 export type StoryboardPlan = {
   project_id: string
@@ -33,6 +33,26 @@ export type RenderStep = {
   status: string
   max_concurrent_render: 1
   execution_mode: 'sequential'
+  provider?: string
+  artifact_path?: string | null
+  started_at?: string | null
+  completed_at?: string | null
+  error?: string | null
+}
+
+export type RenderExecutionSnapshot = {
+  project_id: string
+  provider: string
+  status: 'idle' | 'running' | 'completed' | 'failed'
+  scene_count: number
+  planned_batch_size: number
+  execution_mode: 'sequential'
+  max_concurrent_render: 1
+  started_at: string | null
+  completed_at: string | null
+  completed_scenes: number
+  failed_scenes: number
+  steps: RenderStep[]
 }
 
 export type GeneratedSourceImage = {

@@ -27,8 +27,38 @@ export default function AutonomousMovieStudioV4() {
       <main className="studio4-shell">
         <section className="studio4-hero">
           <div className="studio4-eyebrow">AUTONOMOUS MOVIE STUDIO V4</div>
-          <h1>Waiting for Movie OS V4 Handoff</h1>
-          <p>Gửi movie plan từ Next.js Movie OS V4 để bắt đầu autonomous timeline runtime.</p>
+          <h1>Autonomous Movie Preview Mode</h1>
+          <p>Chưa có payload nên giao diện hiển thị bản xem trước với cấu trúc đầy đủ.</p>
+        </section>
+
+        <section className="studio4-grid">
+          <div className="studio4-card">
+            <div className="studio4-eyebrow">STORYBOARD PREVIEW</div>
+            <h2>Sample autonomous scenes</h2>
+            {['Memory ignition', 'Shot planning', 'Emotional turn', 'Final assembly'].map((scene, index) => (
+              <div className="studio4-row" key={scene}>
+                <strong>Scene {index + 1}</strong>
+                <span>{scene}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="studio4-card">
+            <div className="studio4-eyebrow">RUNTIME STATUS</div>
+            <h2>Awaiting handoff payload</h2>
+            <div className="studio4-row">
+              <strong>Provider</strong>
+              <span>sequential runtime ready</span>
+            </div>
+            <div className="studio4-row">
+              <strong>Memory graph</strong>
+              <span>will populate after handoff</span>
+            </div>
+            <div className="studio4-row">
+              <strong>Render mode</strong>
+              <span>Sequential</span>
+            </div>
+          </div>
         </section>
       </main>
     )

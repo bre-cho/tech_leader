@@ -27,8 +27,38 @@ export default function MovieStudioV3() {
       <main className="studio3-shell">
         <section className="studio3-hero">
           <div className="studio3-eyebrow">MOVIE STUDIO V3</div>
-          <h1>Waiting for Movie Handoff</h1>
-          <p>Open this page with `?movie_handoff=...` from Next.js.</p>
+          <h1>Movie Studio Preview Mode</h1>
+          <p>Trang đang ở chế độ preview vì chưa nhận payload handoff từ Next.js.</p>
+        </section>
+
+        <section className="studio3-grid">
+          <div className="studio3-card">
+            <div className="studio3-eyebrow">STORYBOARD PREVIEW</div>
+            <h2>Sample cinematic scenes</h2>
+            {['Establishing shot', 'Hero close-up', 'Conflict beat', 'Final reveal'].map((scene, index) => (
+              <div className="studio3-row" key={scene}>
+                <strong>Scene {index + 1}</strong>
+                <span>{scene}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="studio3-card">
+            <div className="studio3-eyebrow">RUNTIME STATUS</div>
+            <h2>Awaiting render payload</h2>
+            <div className="studio3-row">
+              <strong>Provider</strong>
+              <span>veo / runway / kling / seedance</span>
+            </div>
+            <div className="studio3-row">
+              <strong>Batch size</strong>
+              <span>configured on handoff</span>
+            </div>
+            <div className="studio3-row">
+              <strong>Mode</strong>
+              <span>Sequential</span>
+            </div>
+          </div>
         </section>
       </main>
     )

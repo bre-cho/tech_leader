@@ -25,6 +25,9 @@ class StoryboardScene(BaseModel):
     provider: str
     duration: float
     continuity_key: str
+    prompt: Optional[str] = None
+    aspect_ratio: Optional[str] = None
+    prompt_preset: Optional[str] = None
     status: str = "planned"
 
 class RenderBatch(BaseModel):
