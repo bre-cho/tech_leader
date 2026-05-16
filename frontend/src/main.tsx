@@ -4,11 +4,15 @@ import DesignStudio from './pages/DesignStudio';
 import DesignStudioCreativeOS from './pages/DesignStudioCreativeOS';
 import DesignStudioCreativeOSV2 from './pages/DesignStudioCreativeOSV2';
 import FashionMovieStudio from './pages/FashionMovieStudio';
+import MovieStudioV3 from './pages/MovieStudioV3';
+import AutonomousMovieStudioV4 from './pages/AutonomousMovieStudioV4';
 import './styles.css';
 
 const search = new URLSearchParams(window.location.search);
 const hasHandoffMarker = search.has('handoff');
 const hasFashionHandoff = search.has('fashion_handoff');
+const hasMovieHandoff = search.has('movie_handoff');
+const hasMovieV4Handoff = search.has('movie_v4_handoff');
 const hasNamedPayload = typeof window.name === 'string' && window.name.trim().length > 0;
 let effectivePath = window.location.pathname;
 
@@ -44,5 +48,5 @@ const hasCreativeHandoff = isCreativePath || hasHandoffMarker || hasNamedPayload
 const hasCreativeHandoffV2 = isCreativePathV2 || isV2Handoff;
 
 createRoot(document.getElementById('root')!).render(
-	hasFashionHandoff ? <FashionMovieStudio /> : hasCreativeHandoffV2 ? <DesignStudioCreativeOSV2 /> : hasCreativeHandoff ? <DesignStudioCreativeOS /> : <DesignStudio />
+	hasMovieV4Handoff ? <AutonomousMovieStudioV4 /> : hasMovieHandoff ? <MovieStudioV3 /> : hasFashionHandoff ? <FashionMovieStudio /> : hasCreativeHandoffV2 ? <DesignStudioCreativeOSV2 /> : hasCreativeHandoff ? <DesignStudioCreativeOS /> : <DesignStudio />
 );

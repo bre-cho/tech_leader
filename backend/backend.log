@@ -1,10 +1,25 @@
 nohup: ignoring input
-INFO:     Started server process [249314]
+INFO:     Will watch for changes in these directories: ['/workspaces/tech_leader/backend']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [264954] using WatchFiles
+INFO:     Started server process [264977]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
-INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
-INFO:     127.0.0.1:56850 - "GET /api/v1/health HTTP/1.1" 200 OK
-INFO:     127.0.0.1:38120 - "POST /api/v1/fashion-runtime/analyze HTTP/1.1" 200 OK
-INFO:     127.0.0.1:35992 - "POST /api/v1/fashion-runtime/analyze HTTP/1.1" 200 OK
-INFO:     127.0.0.1:34296 - "POST /api/v1/fashion-runtime/analyze HTTP/1.1" 200 OK
-INFO:     127.0.0.1:56888 - "POST /api/v1/fashion-runtime/analyze HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56200 - "GET /api/v1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56206 - "POST /api/v1/movie-os/direct HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:56218 - "POST /api/v1/movie-os-v4/direct HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:58534 - "POST /api/v1/movie-os/direct HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:58546 - "POST /api/v1/movie-os-v4/direct HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:52132 - "POST /api/v1/movie-os/direct HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52138 - "POST /api/v1/movie-os-v4/direct HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52148 - "POST /api/v1/movie-os/direct HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52152 - "POST /api/v1/movie-os-v4/direct HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59670 - "POST /api/v1/movie-os/direct HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59684 - "POST /api/v1/movie-os-v4/direct HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60932 - "POST /api/v1/movie-os/direct HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60938 - "POST /api/v1/movie-os-v4/direct HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39664 - "GET /api/v1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39678 - "POST /api/v1/movie-os/direct HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39682 - "POST /api/v1/movie-os-v4/direct HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39698 - "POST /api/v1/movie-os/direct HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39704 - "POST /api/v1/movie-os-v4/direct HTTP/1.1" 200 OK
