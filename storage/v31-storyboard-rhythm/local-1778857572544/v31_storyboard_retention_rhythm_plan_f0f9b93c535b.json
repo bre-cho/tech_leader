@@ -1,0 +1,571 @@
+{
+  "status": "blocked",
+  "request": {
+    "title": "TUNGNS Studio Retention Rhythm Storyboard",
+    "concept": "AI video campaign concept 1",
+    "platform": "tiktok",
+    "aspectRatio": "9:16",
+    "musicBpm": 118,
+    "targetDurationSec": 20,
+    "mainCharacter": "same female fashion model",
+    "location": "fashion commercial set",
+    "fashionDna": "luxury editorial runway, cinematic spotlight, retention-optimized energy curve, identity continuity",
+    "inputShots": [
+      {
+        "id": 1,
+        "phase": "hook",
+        "title": "Hook Scene",
+        "description": "Retention-focused cinematic shot",
+        "camera": "slow push-in",
+        "lens": "35mm",
+        "movement": "cinematic glide",
+        "durationSec": 4.2,
+        "subjectFocus": "model",
+        "emotionBeat": "confidence",
+        "continuityTags": [
+          "identity_lock",
+          "wardrobe_lock",
+          "lighting_lock"
+        ],
+        "prompt": "fashion cinematic runway shot",
+        "negativePrompt": "identity drift, bad anatomy, plastic skin, continuity break"
+      },
+      {
+        "id": 2,
+        "phase": "hook",
+        "title": "CTA Scene",
+        "description": "Retention-focused cinematic shot",
+        "camera": "front beauty shot",
+        "lens": "35mm",
+        "movement": "logo reveal",
+        "durationSec": 3.2,
+        "subjectFocus": "model",
+        "emotionBeat": "confidence",
+        "continuityTags": [
+          "identity_lock",
+          "wardrobe_lock",
+          "lighting_lock"
+        ],
+        "prompt": "fashion cinematic runway shot",
+        "negativePrompt": "identity drift, bad anatomy, plastic skin, continuity break"
+      }
+    ],
+    "autoGenerateIfEmpty": true,
+    "provider": {
+      "image": "hidream",
+      "video": "veo",
+      "motionFallback": "runway"
+    },
+    "outputDir": "storage/v31-storyboard-rhythm/local-1778857572544",
+    "saveTemplate": true
+  },
+  "shots": [
+    {
+      "id": 1,
+      "phase": "hook",
+      "title": "Hook Scene",
+      "description": "Retention-focused cinematic shot",
+      "camera": "slow push-in",
+      "lens": "35mm",
+      "movement": "cinematic glide",
+      "durationSec": 4.2,
+      "subjectFocus": "model",
+      "emotionBeat": "confidence",
+      "continuityTags": [
+        "identity_lock",
+        "wardrobe_lock",
+        "lighting_lock"
+      ],
+      "prompt": "fashion cinematic runway shot",
+      "negativePrompt": "identity drift, bad anatomy, plastic skin, continuity break"
+    },
+    {
+      "id": 2,
+      "phase": "hook",
+      "title": "CTA Scene",
+      "description": "Retention-focused cinematic shot",
+      "camera": "front beauty shot",
+      "lens": "35mm",
+      "movement": "logo reveal",
+      "durationSec": 3.2,
+      "subjectFocus": "model",
+      "emotionBeat": "confidence",
+      "continuityTags": [
+        "identity_lock",
+        "wardrobe_lock",
+        "lighting_lock"
+      ],
+      "prompt": "fashion cinematic runway shot",
+      "negativePrompt": "identity drift, bad anatomy, plastic skin, continuity break"
+    }
+  ],
+  "rhythmGraph": [
+    {
+      "shotId": 1,
+      "phase": "hook",
+      "energy": 5,
+      "intimacy": 4,
+      "motion": 8,
+      "tension": 4,
+      "payoff": 3,
+      "facePriority": 2,
+      "socialProof": 2,
+      "hookType": "motion"
+    },
+    {
+      "shotId": 2,
+      "phase": "hook",
+      "energy": 6,
+      "intimacy": 4,
+      "motion": 5,
+      "tension": 4,
+      "payoff": 3,
+      "facePriority": 10,
+      "socialProof": 2,
+      "hookType": "face_retention"
+    }
+  ],
+  "energyValidation": {
+    "name": "EnergyCurveValidator",
+    "passed": true,
+    "score": 100,
+    "avgEnergy": 5.5,
+    "spikes": [],
+    "highRuns": [],
+    "rule": "Shorts mạnh đi theo LOW → MID → HIGH → RELEASE, không HIGH liên tục gây viewer fatigue."
+  },
+  "microHooks": {
+    "name": "MicroHookPlanner",
+    "score": 100,
+    "injections": [],
+    "rules": [
+      "face close-up",
+      "eye contact",
+      "accessory macro",
+      "flash camera",
+      "crowd reaction",
+      "light change",
+      "motion beat"
+    ],
+    "passed": true
+  },
+  "cameraLanguage": {
+    "name": "CameraLanguageEngine",
+    "sequence": [
+      {
+        "shotId": 1,
+        "class": "medium"
+      },
+      {
+        "shotId": 2,
+        "class": "medium"
+      }
+    ],
+    "badRuns": [],
+    "score": 100,
+    "passed": true,
+    "rule": "Prefer wide → medium → close → macro → release wide. Never macro→macro→macro→macro."
+  },
+  "runwayEscalation": {
+    "name": "RunwayEscalationEngine",
+    "loop": [
+      "wide_walk",
+      "medium_walk",
+      "beauty_closeup",
+      "accessory_macro",
+      "audience_reaction",
+      "flash_camera",
+      "hero_pose"
+    ],
+    "sequence": [],
+    "score": 0,
+    "passed": false,
+    "rule": "walk → turn/medium → close-up → detail → crowd → flash → hero pose → applause"
+  },
+  "socialProof": {
+    "name": "SocialProofInjector",
+    "socialShots": [],
+    "injections": [],
+    "needed": 1,
+    "score": 100,
+    "passed": false
+  },
+  "shortsTimeline": {
+    "beats": [
+      {
+        "startSec": 0,
+        "endSec": 1,
+        "role": "pattern interrupt",
+        "requiredHook": "flash/light/motion",
+        "targetEnergy": 9
+      },
+      {
+        "startSec": 1,
+        "endSec": 3,
+        "role": "beauty hook",
+        "requiredHook": "face close-up / eye contact",
+        "targetEnergy": 7
+      },
+      {
+        "startSec": 3,
+        "endSec": 6,
+        "role": "motion escalation",
+        "requiredHook": "tracking / first step / hair motion",
+        "targetEnergy": 8
+      },
+      {
+        "startSec": 6,
+        "endSec": 12,
+        "role": "runway climax",
+        "requiredHook": "walk / turn / crowd / flash",
+        "targetEnergy": 9
+      },
+      {
+        "startSec": 12,
+        "endSec": 18,
+        "role": "face emotional lock",
+        "requiredHook": "micro-expression / close-up",
+        "targetEnergy": 7
+      },
+      {
+        "startSec": 18,
+        "endSec": 20,
+        "role": "spectacle",
+        "requiredHook": "hero pose / wide / audience",
+        "targetEnergy": 9
+      }
+    ],
+    "rules": [
+      "0-1s must create pattern interrupt.",
+      "1-3s must show beauty/face hook.",
+      "Every 2-3 seconds must reset attention via face, motion, light, crowd, or detail.",
+      "6-12s must escalate motion and runway rhythm.",
+      "Last beat must release emotional tension."
+    ]
+  },
+  "retentionValidation": {
+    "name": "RetentionValidator",
+    "passed": false,
+    "score": 33,
+    "beatChecks": [
+      {
+        "startSec": 0,
+        "endSec": 1,
+        "role": "pattern interrupt",
+        "requiredHook": "flash/light/motion",
+        "targetEnergy": 9,
+        "shots": [
+          1
+        ],
+        "avgEnergy": 5,
+        "hasFace": false,
+        "hasMotion": true,
+        "hasSocial": false,
+        "hasPayoff": false,
+        "ok": true
+      },
+      {
+        "startSec": 1,
+        "endSec": 3,
+        "role": "beauty hook",
+        "requiredHook": "face close-up / eye contact",
+        "targetEnergy": 7,
+        "shots": [
+          1
+        ],
+        "avgEnergy": 5,
+        "hasFace": false,
+        "hasMotion": true,
+        "hasSocial": false,
+        "hasPayoff": false,
+        "ok": false
+      },
+      {
+        "startSec": 3,
+        "endSec": 6,
+        "role": "motion escalation",
+        "requiredHook": "tracking / first step / hair motion",
+        "targetEnergy": 8,
+        "shots": [
+          1,
+          2
+        ],
+        "avgEnergy": 5.5,
+        "hasFace": true,
+        "hasMotion": true,
+        "hasSocial": false,
+        "hasPayoff": false,
+        "ok": true
+      },
+      {
+        "startSec": 6,
+        "endSec": 12,
+        "role": "runway climax",
+        "requiredHook": "walk / turn / crowd / flash",
+        "targetEnergy": 9,
+        "shots": [
+          2
+        ],
+        "avgEnergy": 6,
+        "hasFace": true,
+        "hasMotion": false,
+        "hasSocial": false,
+        "hasPayoff": false,
+        "ok": false
+      },
+      {
+        "startSec": 12,
+        "endSec": 18,
+        "role": "face emotional lock",
+        "requiredHook": "micro-expression / close-up",
+        "targetEnergy": 7,
+        "shots": [],
+        "avgEnergy": 0,
+        "hasFace": false,
+        "hasMotion": false,
+        "hasSocial": false,
+        "hasPayoff": false,
+        "ok": false
+      },
+      {
+        "startSec": 18,
+        "endSec": 20,
+        "role": "spectacle",
+        "requiredHook": "hero pose / wide / audience",
+        "targetEnergy": 9,
+        "shots": [],
+        "avgEnergy": 0,
+        "hasFace": false,
+        "hasMotion": false,
+        "hasSocial": false,
+        "hasPayoff": false,
+        "ok": false
+      }
+    ],
+    "totalDurationSec": 7.4,
+    "targetDurationSec": 20
+  },
+  "providerPayloads": {
+    "imageKeyframes": {
+      "provider": "hidream",
+      "endpoint": "/api/v1/hidream/commercial-visual/generate",
+      "items": [
+        {
+          "shotId": 1,
+          "prompt": "TUNGNS Studio Retention Rhythm Storyboard\nConcept: AI video campaign concept 1\nPlatform: tiktok\nLocation: fashion commercial set\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, cinematic spotlight, retention-optimized energy curve, identity continuity\n\nShot 1: Hook Scene\nPhase: hook\nDescription: Retention-focused cinematic shot\nCamera: slow push-in\nLens: 35mm\nMovement: cinematic glide\nEmotion beat: confidence\nSubject focus: model\n\nRhythm node:\nenergy=5, intimacy=4, motion=8, tension=4, payoff=3, facePriority=2, socialProof=2\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "aspectRatio": "9:16"
+        },
+        {
+          "shotId": 2,
+          "prompt": "TUNGNS Studio Retention Rhythm Storyboard\nConcept: AI video campaign concept 1\nPlatform: tiktok\nLocation: fashion commercial set\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, cinematic spotlight, retention-optimized energy curve, identity continuity\n\nShot 2: CTA Scene\nPhase: hook\nDescription: Retention-focused cinematic shot\nCamera: front beauty shot\nLens: 35mm\nMovement: logo reveal\nEmotion beat: confidence\nSubject focus: model\n\nRhythm node:\nenergy=6, intimacy=4, motion=5, tension=4, payoff=3, facePriority=10, socialProof=2\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "aspectRatio": "9:16"
+        }
+      ]
+    },
+    "videoShots": {
+      "provider": "veo",
+      "items": [
+        {
+          "shotId": 1,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "TUNGNS Studio Retention Rhythm Storyboard\nConcept: AI video campaign concept 1\nPlatform: tiktok\nLocation: fashion commercial set\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, cinematic spotlight, retention-optimized energy curve, identity continuity\n\nShot 1: Hook Scene\nPhase: hook\nDescription: Retention-focused cinematic shot\nCamera: slow push-in\nLens: 35mm\nMovement: cinematic glide\nEmotion beat: confidence\nSubject focus: model\n\nRhythm node:\nenergy=5, intimacy=4, motion=8, tension=4, payoff=3, facePriority=2, socialProof=2\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 4.2,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "slow push-in",
+            "lens": "35mm",
+            "movement": "cinematic glide"
+          },
+          "rhythm": {
+            "shotId": 1,
+            "phase": "hook",
+            "energy": 5,
+            "intimacy": 4,
+            "motion": 8,
+            "tension": 4,
+            "payoff": 3,
+            "facePriority": 2,
+            "socialProof": 2,
+            "hookType": "motion"
+          }
+        },
+        {
+          "shotId": 2,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "TUNGNS Studio Retention Rhythm Storyboard\nConcept: AI video campaign concept 1\nPlatform: tiktok\nLocation: fashion commercial set\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, cinematic spotlight, retention-optimized energy curve, identity continuity\n\nShot 2: CTA Scene\nPhase: hook\nDescription: Retention-focused cinematic shot\nCamera: front beauty shot\nLens: 35mm\nMovement: logo reveal\nEmotion beat: confidence\nSubject focus: model\n\nRhythm node:\nenergy=6, intimacy=4, motion=5, tension=4, payoff=3, facePriority=10, socialProof=2\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 3.2,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "front beauty shot",
+            "lens": "35mm",
+            "movement": "logo reveal"
+          },
+          "rhythm": {
+            "shotId": 2,
+            "phase": "hook",
+            "energy": 6,
+            "intimacy": 4,
+            "motion": 5,
+            "tension": 4,
+            "payoff": 3,
+            "facePriority": 10,
+            "socialProof": 2,
+            "hookType": "face_retention"
+          }
+        }
+      ]
+    },
+    "motionFallback": {
+      "provider": "runway",
+      "endpoint": "/api/providers/runway/generate",
+      "items": [
+        {
+          "shotId": 1,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "TUNGNS Studio Retention Rhythm Storyboard\nConcept: AI video campaign concept 1\nPlatform: tiktok\nLocation: fashion commercial set\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, cinematic spotlight, retention-optimized energy curve, identity continuity\n\nShot 1: Hook Scene\nPhase: hook\nDescription: Retention-focused cinematic shot\nCamera: slow push-in\nLens: 35mm\nMovement: cinematic glide\nEmotion beat: confidence\nSubject focus: model\n\nRhythm node:\nenergy=5, intimacy=4, motion=8, tension=4, payoff=3, facePriority=2, socialProof=2\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 4.2,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "slow push-in",
+            "lens": "35mm",
+            "movement": "cinematic glide"
+          },
+          "rhythm": {
+            "shotId": 1,
+            "phase": "hook",
+            "energy": 5,
+            "intimacy": 4,
+            "motion": 8,
+            "tension": 4,
+            "payoff": 3,
+            "facePriority": 2,
+            "socialProof": 2,
+            "hookType": "motion"
+          }
+        }
+      ]
+    },
+    "renderQueue": [
+      {
+        "jobType": "video_shot_render",
+        "shotId": 1,
+        "provider": "veo",
+        "endpoint": "/api/providers/google-managed/veo/generate",
+        "payload": {
+          "shotId": 1,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "TUNGNS Studio Retention Rhythm Storyboard\nConcept: AI video campaign concept 1\nPlatform: tiktok\nLocation: fashion commercial set\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, cinematic spotlight, retention-optimized energy curve, identity continuity\n\nShot 1: Hook Scene\nPhase: hook\nDescription: Retention-focused cinematic shot\nCamera: slow push-in\nLens: 35mm\nMovement: cinematic glide\nEmotion beat: confidence\nSubject focus: model\n\nRhythm node:\nenergy=5, intimacy=4, motion=8, tension=4, payoff=3, facePriority=2, socialProof=2\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 4.2,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "slow push-in",
+            "lens": "35mm",
+            "movement": "cinematic glide"
+          },
+          "rhythm": {
+            "shotId": 1,
+            "phase": "hook",
+            "energy": 5,
+            "intimacy": 4,
+            "motion": 8,
+            "tension": 4,
+            "payoff": 3,
+            "facePriority": 2,
+            "socialProof": 2,
+            "hookType": "motion"
+          }
+        },
+        "retryPolicy": {
+          "maxAttempts": 3,
+          "backoffMs": [
+            1000,
+            3000,
+            8000
+          ]
+        }
+      },
+      {
+        "jobType": "video_shot_render",
+        "shotId": 2,
+        "provider": "veo",
+        "endpoint": "/api/providers/google-managed/veo/generate",
+        "payload": {
+          "shotId": 2,
+          "provider": "veo",
+          "endpoint": "/api/providers/google-managed/veo/generate",
+          "prompt": "TUNGNS Studio Retention Rhythm Storyboard\nConcept: AI video campaign concept 1\nPlatform: tiktok\nLocation: fashion commercial set\nMain character: same female fashion model\nFashion DNA: luxury editorial runway, cinematic spotlight, retention-optimized energy curve, identity continuity\n\nShot 2: CTA Scene\nPhase: hook\nDescription: Retention-focused cinematic shot\nCamera: front beauty shot\nLens: 35mm\nMovement: logo reveal\nEmotion beat: confidence\nSubject focus: model\n\nRhythm node:\nenergy=6, intimacy=4, motion=5, tension=4, payoff=3, facePriority=10, socialProof=2\n\nCinematic instructions:\nCreate a fashion-show cinematic Shorts/Reels/TikTok-ready shot with motion continuity, micro-emotion, camera energy, visual tension escalation, and payoff cycling.\nPreserve identity continuity, wardrobe continuity, hair/makeup continuity, luxury runway atmosphere, realistic skin and correct anatomy.",
+          "negativePrompt": "identity drift, bad anatomy, deformed hands, random camera, static boring frame, plastic skin, wrong outfit continuity, crowd deformation, warped runway, low quality, watermark",
+          "durationSec": 3.2,
+          "aspectRatio": "9:16",
+          "camera": {
+            "shotType": "front beauty shot",
+            "lens": "35mm",
+            "movement": "logo reveal"
+          },
+          "rhythm": {
+            "shotId": 2,
+            "phase": "hook",
+            "energy": 6,
+            "intimacy": 4,
+            "motion": 5,
+            "tension": 4,
+            "payoff": 3,
+            "facePriority": 10,
+            "socialProof": 2,
+            "hookType": "face_retention"
+          }
+        },
+        "retryPolicy": {
+          "maxAttempts": 3,
+          "backoffMs": [
+            1000,
+            3000,
+            8000
+          ]
+        }
+      }
+    ]
+  },
+  "verification": {
+    "name": "StoryboardV31VerificationGate",
+    "passed": false,
+    "score": 67,
+    "checks": {
+      "energyCurve": true,
+      "microHooks": true,
+      "runwayEscalation": false,
+      "faceRetention": true,
+      "cameraLanguage": true,
+      "socialProof": false,
+      "retention": false,
+      "providerPayloads": true,
+      "renderQueue": true
+    },
+    "architecture": [
+      "Concept",
+      "Fashion DNA",
+      "Music BPM",
+      "Platform",
+      "Phase Planner",
+      "Rhythm Graph Engine",
+      "Micro Hook Planner",
+      "Camera Language Engine",
+      "Runway Escalation Engine",
+      "Social Proof Injector",
+      "Retention Validator",
+      "Provider Payload Compiler",
+      "Render Queue"
+    ]
+  },
+  "artifacts": []
+}

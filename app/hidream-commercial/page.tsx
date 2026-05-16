@@ -1,9 +1,11 @@
 import HiDreamCommercialStudio from "@/components/hidream-commercial/HiDreamCommercialStudio";
+import OperationFlowBridge from "@/components/workflow/OperationFlowBridge";
 
 export default function HiDreamCommercialPage() {
   return (
     <div className="bg-neutral-950 text-white">
       <section className="mx-auto max-w-7xl px-8 pt-8">
+        <OperationFlowBridge sourceKey="hidream-commercial" title="HIDREAM COMMERCIAL - OPERATION FLOW" />
         <div className="rounded-3xl border border-neutral-800 bg-neutral-900 p-6">
           <p className="text-xs uppercase tracking-[0.24em] text-amber-300">HiDream Commercial</p>
           <h1 className="mt-2 text-3xl font-bold">Premium Visual Rendering And Promotion Gate</h1>

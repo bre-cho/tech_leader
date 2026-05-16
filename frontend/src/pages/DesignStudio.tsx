@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { runDesignStudio } from "../lib/api";
 import "../styles.css";
 
@@ -30,6 +30,29 @@ type StudioResult = {
   };
   [key: string]: any;
 };
+
+type PipelineHandoffPayload = {
+  source?: string;
+  workflowId?: string;
+  createdAt?: string;
+  request?: {
+    storyboard?: Array<Record<string, any>>;
+    [key: string]: any;
+  };
+  providerPayloadResult?: Record<string, any>;
+  videoFlowCompile?: {
+    status?: string;
+    videoFlowTimeline?: {
+      shots?: Array<Record<string, any>>;
+      [key: string]: any;
+    };
+    [key: string]: any;
+  };
+  [key: string]: any;
+};
+
+const PIPELINE_HANDOFF_LATEST_KEY = "pipeline-os:v31-handoff:latest";
+const PIPELINE_HANDOFF_SESSION_KEY = "pipeline-os:v31-handoff";
 
 const lifecycleSteps = [
   { key: "target_define", label: "Xác định mục tiêu", desc: "Ngành, sản phẩm, khách hàng, kênh, mục tiêu" },
@@ -63,6 +86,50 @@ const defaultBrief: Brief = {
   language: "vi",
 };
 
+function safeParseJson(raw: string | null): PipelineHandoffPayload | null {
+  if (!raw) {
+    return null;
+  }
+  try {
+    return JSON.parse(raw) as PipelineHandoffPayload;
+  } catch {
+    return null;
+  }
+}
+
+function parseHandoffFromQuery(raw: string | null): PipelineHandoffPayload | null {
+  if (!raw) {
+    return null;
+  }
+
+  const direct = safeParseJson(raw);
+  if (direct) {
+    return direct;
+  }
+
+  try {
+    const decoded = atob(raw);
+    return safeParseJson(decoded);
+  } catch {
+    return null;
+  }
+}
+
+function readLatestHandoffFromStorage(): PipelineHandoffPayload | null {
+  const fromSession = safeParseJson(sessionStorage.getItem(PIPELINE_HANDOFF_SESSION_KEY));
+  if (fromSession) {
+    localStorage.setItem(PIPELINE_HANDOFF_LATEST_KEY, JSON.stringify(fromSession));
+    return fromSession;
+  }
+
+  const fromLocal = safeParseJson(localStorage.getItem(PIPELINE_HANDOFF_LATEST_KEY));
+  if (fromLocal) {
+    return fromLocal;
+  }
+
+  return null;
+}
+
 function getCompletion(result: StudioResult | null, key: string) {
   if (!result) return "idle";
   if (key === "target_define") return "done";
@@ -82,13 +149,144 @@ function scoreFrom(value: any, fallback = 88) {
 }
 
 export default function DesignStudio() {
+  const searchParams = useMemo(() => new URLSearchParams(window.location.search), []);
+  const source = searchParams.get("source");
+  const renderMode = searchParams.get("render");
+  const handoffQuery = searchParams.get("handoff");
+
   const [brief, setBrief] = useState<Brief>(defaultBrief);
   const [result, setResult] = useState<StudioResult | null>(null);
   const [isRunning, setIsRunning] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [handoffPayload, setHandoffPayload] = useState<PipelineHandoffPayload | null>(null);
+  const [handoffError, setHandoffError] = useState<string | null>(null);
 
   const conceptScore = useMemo(() => scoreFrom(result?.best_concept, 0), [result]);
   const verificationScore = useMemo(() => scoreFrom(result?.verification, 0), [result]);
+
+  useEffect(() => {
+    if (source !== "pipeline-os") {
+      return;
+    }
+
+    const fromQuery = parseHandoffFromQuery(handoffQuery);
+    if (fromQuery) {
+      setHandoffPayload(fromQuery);
+      setHandoffError(null);
+      localStorage.setItem(PIPELINE_HANDOFF_LATEST_KEY, JSON.stringify(fromQuery));
+      return;
+    }
+
+    const fromStorage = readLatestHandoffFromStorage();
+    if (fromStorage) {
+      setHandoffPayload(fromStorage);
+      setHandoffError(null);
+      return;
+    }
+
+    setHandoffPayload(null);
+    setHandoffError("Khong tim thay payload handoff. Hay mo lai tu trang Pipeline OS sau khi compile.");
+  }, [handoffQuery, source]);
+
+  const handoffScenes = useMemo(() => {
+    if (!handoffPayload?.request?.storyboard || !Array.isArray(handoffPayload.request.storyboard)) {
+      return [] as Array<Record<string, any>>;
+    }
+    return handoffPayload.request.storyboard;
+  }, [handoffPayload]);
+
+  const timelineShots = useMemo(() => {
+    const shots = handoffPayload?.videoFlowCompile?.videoFlowTimeline?.shots;
+    return Array.isArray(shots) ? shots : [];
+  }, [handoffPayload]);
+
+  if (source === "pipeline-os") {
+    return (
+      <main className="studio-page">
+        <section className="studio-hero">
+          <div>
+            <p className="eyebrow">Pipeline OS Handoff</p>
+            <h1>Realtime Video Render Console</h1>
+            <p className="hero-copy">
+              Che do render tu dong da kich hoat cho luong IMAGE - STORYBOARD - VIDEO.
+              Du lieu ben duoi duoc nap tu payload handoff gan nhat cua Pipeline OS.
+            </p>
+          </div>
+          <div className="hero-status-card">
+            <span>Nguon</span>
+            <strong>{source}</strong>
+            <small>
+              {renderMode === "video" ? "Render mode: video" : "Render mode: standard"}
+            </small>
+          </div>
+        </section>
+
+        <section className="delivery-grid handoff-runtime-grid">
+          <div className="panel timeline-panel">
+            <div className="panel-header horizontal">
+              <div>
+                <p className="eyebrow">Storyboard Input</p>
+                <h2>Canh tu payload handoff</h2>
+              </div>
+              <span className="pill">{handoffScenes.length} canh</span>
+            </div>
+
+            {handoffError ? <p className="error-box">{handoffError}</p> : null}
+
+            <div className="timeline-list">
+              {handoffScenes.map((scene, index) => (
+                <article className="scene-card" key={`${scene.scene_id || "scene"}-${index}`}>
+                  <span>Canh {String(index + 1).padStart(2, "0")}</span>
+                  <strong>{scene.title || scene.shot || scene.scene || "Untitled scene"}</strong>
+                  <p>{scene.description || scene.prompt || scene.copy || "Khong co mo ta."}</p>
+                </article>
+              ))}
+              {handoffScenes.length === 0 ? (
+                <p className="empty-state">Chua co storyboard trong payload handoff.</p>
+              ) : null}
+            </div>
+          </div>
+
+          <div className="panel">
+            <div className="panel-header">
+              <p className="eyebrow">Render Status</p>
+              <h2>VideoFlow compile</h2>
+            </div>
+            <div className="gate-score">
+              <strong>{handoffPayload?.videoFlowCompile?.status || "idle"}</strong>
+              <span>trang thai compile</span>
+            </div>
+            <pre>
+              {handoffPayload
+                ? JSON.stringify(
+                    {
+                      workflowId: handoffPayload.workflowId,
+                      createdAt: handoffPayload.createdAt,
+                      compile: handoffPayload.videoFlowCompile,
+                      providerPayload: handoffPayload.providerPayloadResult,
+                    },
+                    null,
+                    2,
+                  )
+                : "Chua co payload handoff."}
+            </pre>
+          </div>
+
+          <div className="panel">
+            <div className="panel-header">
+              <p className="eyebrow">Timeline Shots</p>
+              <h2>Shot map de render</h2>
+            </div>
+            <div className="provider-grid">
+              <span>Tong shot: {timelineShots.length}</span>
+              <span>Workflow: {handoffPayload?.workflowId || "unknown"}</span>
+            </div>
+            <pre>{timelineShots.length > 0 ? JSON.stringify(timelineShots, null, 2) : "Chua co shots compile."}</pre>
+          </div>
+        </section>
+      </main>
+    );
+  }
 
   const updateBrief = (field: keyof Brief, value: string) => {
     setBrief((current) => ({ ...current, [field]: value }));

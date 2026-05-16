@@ -39,7 +39,7 @@ export function VideoHandoffPanel({
       </div>
 
       <button className="primary-button" type="button" onClick={onOpenVideoStudio} disabled={handoffLoading}>
-        {handoffLoading ? "Handoff running..." : "Open Video Studio"}
+        {handoffLoading ? "Handoff running..." : "Open Video Studio (5173)"}
       </button>
 
       <div className="scene-meta">

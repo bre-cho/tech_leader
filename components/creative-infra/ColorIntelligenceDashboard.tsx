@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { persistDomainHandoff } from "@/lib/workflow/handoff-client";
 
 const API_BASE = "";
 
@@ -39,7 +40,31 @@ export default function ColorIntelligenceDashboard() {
         const failText = await graphRes.text();
         throw new Error(failText || `Graph request failed with ${graphRes.status}`);
       }
-      setGraph(await graphRes.json());
+      const graphJson = await graphRes.json();
+      setGraph(graphJson);
+
+      const paletteScenes = Array.isArray(runJson?.palette)
+        ? runJson.palette.slice(0, 8).map((item: any, index: number) => ({
+            title: item?.name || `Palette ${index + 1}`,
+            description: `${item?.role || "role"} - ${(item?.perception || []).join(", ")}`,
+          }))
+        : [];
+
+      persistDomainHandoff("color-intelligence", {
+        workflowId: runJson?.workflow_id || runJson?.id || undefined,
+        request: {
+          storyboard: paletteScenes,
+        },
+        providerPayloadResult: {
+          perception_scores: runJson?.perception_scores,
+          material_plan: runJson?.material_plan,
+          lighting_plan: runJson?.lighting_plan,
+        },
+        videoFlowCompile: {
+          status: runJson?.status || "ready",
+          graphItems: Array.isArray(graphJson?.items) ? graphJson.items.length : 0,
+        },
+      });
     } catch (err: unknown) {
       const message = err instanceof Error ? err.message : "Color Intelligence request failed.";
       setError(message);

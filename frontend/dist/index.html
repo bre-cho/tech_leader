@@ -1,3 +1,16 @@
-<script type="module" crossorigin src="/assets/index-CAlGkT4d.js"></script>
-<link rel="stylesheet" crossorigin href="/assets/index-HTU34f6H.css">
+<script type="module" crossorigin src="/assets/index-ByH-Vdvv.js"></script>
+<link rel="stylesheet" crossorigin href="/assets/index-D9Cj7B_k.css">
+<script>
+	(function () {
+		var search = new URLSearchParams(window.location.search);
+		var hasHandoff = search.has('handoff');
+		var isCreativePath = window.location.pathname === '/creative-os';
+		if (hasHandoff && !isCreativePath) {
+			var next = new URL(window.location.href);
+			next.pathname = '/creative-os';
+			next.searchParams.set('handoff', '1');
+			window.location.replace(next.toString());
+		}
+	})();
+</script>
 <div id="root"></div>

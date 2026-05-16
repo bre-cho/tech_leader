@@ -14,6 +14,8 @@ type NavItem = {
 const navItems: NavItem[] = [
   { label: "Tổng quan", href: "/", desc: "Trung tâm điều phối AI Technical Lead", badge: "Home" },
   { label: "Pipeline OS", href: "/projects/pipeline-os", desc: "Image -> Storyboard -> Video control plane", badge: "Flow" },
+  { label: "Brand Studio", href: "/brand-studio", desc: "Thiết kế bộ nhận diện thương hiệu theo workflow", badge: "Brand" },
+  { label: "Upscale", href: "/upscale", desc: "Nâng cấp ảnh AI 4K/8K và xuất artifact", badge: "4K" },
   { label: "Beauty Commerce", href: "/beauty-commerce", desc: "Luồng bán hàng hình ảnh K-beauty", badge: "V28" },
   { label: "Beauty Commerce V28", href: "/beauty-commerce-v28", desc: "Điều phối avatar, sản phẩm và kiểm định", badge: "Run" },
   { label: "Beauty Intelligence", href: "/beauty-intelligence", desc: "Phân tích nhận thức khuôn mặt và thương mại", badge: "AI" },

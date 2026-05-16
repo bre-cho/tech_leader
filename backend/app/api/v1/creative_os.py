@@ -27,13 +27,6 @@ def get_render_steps(project_id: str, scene_count: int, planned_batch_size: int 
     return safe_render_queue.build_execution_steps(scene_count, planned_batch_size)
 
 @router.get("/projects/{project_id}/events")
-async def stream_project_events(project_id: str):
-    async def event_generator():
-        sent = 0
-        while sent < 60:
-            events = EVENTS.get(project_id, [])
-            for event in events[sent:]:
-                yield f"data: {json.dumps(event)}\n\n"
-                sent += 1
-            await asyncio.sleep(1)
-    return StreamingResponse(event_generator(), media_type="text/event-stream")
+def get_project_events(project_id: str):
+    """Return all events for a project (non-streaming to avoid timeout)."""
+    return EVENTS.get(project_id, [])

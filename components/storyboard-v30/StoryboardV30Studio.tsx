@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import SalesEngineV3Panel from "@/components/storyboard-v30/SalesEngineV3Panel";
+import { persistDomainHandoff } from "@/lib/workflow/handoff-client";
 
 export default function StoryboardV30Studio() {
   const [result, setResult] = useState<any>(null);
@@ -48,7 +49,22 @@ export default function StoryboardV30Studio() {
         }
       })
     });
-    setResult(await res.json());
+    const data = await res.json();
+    setResult(data);
+
+    const shots = data?.phases?.flatMap((phase: any) => phase?.shots || []) ?? [];
+    const storyboard = shots.slice(0, 60).map((shot: any, index: number) => ({
+      title: shot?.title || `Storyboard shot ${index + 1}`,
+      description: `${shot?.phase || "runtime"} - ${shot?.camera || "cam"} - ${shot?.movement || "motion"}`,
+    }));
+
+    persistDomainHandoff("storyboard-v30", {
+      workflowId: data?.workflow_id || data?.timeline?.id || undefined,
+      request: { storyboard },
+      providerPayloadResult: data?.providerPayloads || {},
+      videoFlowCompile: data?.videoFlowCompile || { status: data?.status || "ready", timeline: data?.timeline || null },
+    });
+
     setLoading(false);
   }
 

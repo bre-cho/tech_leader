@@ -281,6 +281,25 @@ pre { white-space: pre-wrap; word-break: break-word; }
   gap: 12px;
 }
 
+.pipeline-steps {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 10px;
+  color: var(--muted);
+}
+
+.pipeline-steps li {
+  line-height: 1.5;
+}
+
+.operation-flow-actions {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .brief-field {
   display: grid;
   gap: 8px;

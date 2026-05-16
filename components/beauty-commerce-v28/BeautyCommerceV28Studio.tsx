@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { persistDomainHandoff } from "@/lib/workflow/handoff-client";
 
 export default function BeautyCommerceV28Studio() {
   const [result, setResult] = useState<any>(null);
@@ -30,7 +31,34 @@ export default function BeautyCommerceV28Studio() {
         saveWinnerDna: true
       })
     });
-    setResult(await res.json());
+    const data = await res.json();
+    setResult(data);
+
+    const videoPlanItems = Array.isArray(data?.videoPlan?.shots)
+      ? data.videoPlan.shots
+      : Array.isArray(data?.videoPlan)
+        ? data.videoPlan
+        : [];
+
+    const storyboard = videoPlanItems.length > 0
+      ? videoPlanItems.map((item: any, index: number) => ({
+          title: item?.title || item?.shot || `Shot ${index + 1}`,
+          description: item?.description || item?.prompt || "Beauty commerce sequence",
+        }))
+      : [
+          {
+            title: "Beauty Commerce V28",
+            description: data?.prompt || "Generated from V28.2/V28.3 runtime.",
+          },
+        ];
+
+    persistDomainHandoff("beauty-commerce-v28", {
+      workflowId: data?.workflow_id || data?.id || undefined,
+      request: { storyboard },
+      providerPayloadResult: data?.providerPayloads || {},
+      videoFlowCompile: data?.videoFlowCompile || { status: data?.status || "ready" },
+    });
+
     setLoading(false);
   }
 

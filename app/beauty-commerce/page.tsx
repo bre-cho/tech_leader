@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import type { ChangeEvent } from "react";
+import OperationFlowBridge from "@/components/workflow/OperationFlowBridge";
+import { persistDomainHandoff } from "@/lib/workflow/handoff-client";
 
 function resolveImageUrl(result: any): string | null {
   const candidates = [
@@ -72,6 +74,22 @@ export default function BeautyCommercePage() {
     const data = await res.json();
     setResult(data);
 
+    const storyboard = Array.isArray(data?.storyboard)
+      ? data.storyboard
+      : [
+          {
+            title: "Beauty Commerce Visual",
+            description: data?.prompt || data?.summary || "Generated from beauty-commerce domain runtime.",
+          },
+        ];
+
+    persistDomainHandoff("beauty-commerce", {
+      workflowId: data?.workflow_id || data?.id || undefined,
+      request: { storyboard },
+      providerPayloadResult: data?.providerPayload || data?.providerPayloads || {},
+      videoFlowCompile: data?.videoFlowCompile || { status: data?.status || "ready" },
+    });
+
     const generated = resolveImageUrl(data);
     if (generated) {
       setDownloadUrl(generated);
@@ -84,6 +102,7 @@ export default function BeautyCommercePage() {
 
   return (
     <main style={{minHeight:"100vh", background:"#080808", color:"#fff", padding:32, fontFamily:"Inter, sans-serif"}}>
+      <OperationFlowBridge sourceKey="beauty-commerce" title="BEAUTY COMMERCE - OPERATION FLOW" />
       <h1>V28 — Beauty Commerce Engine</h1>
       <p>Beauty Persona → Facial Consistency → Fashion Perception → Provider Router → Verification → Winner DNA</p>
       <div style={{display:"grid", gap:12, marginBottom:16, maxWidth:440}}>

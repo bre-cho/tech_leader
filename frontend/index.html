@@ -1,1 +1,14 @@
+<script>
+	(function () {
+		var search = new URLSearchParams(window.location.search);
+		var hasHandoff = search.has('handoff');
+		var isCreativePath = window.location.pathname === '/creative-os';
+		if (hasHandoff && !isCreativePath) {
+			var next = new URL(window.location.href);
+			next.pathname = '/creative-os';
+			next.searchParams.set('handoff', '1');
+			window.location.replace(next.toString());
+		}
+	})();
+</script>
 <div id="root"></div><script type="module" src="/src/main.tsx"></script>

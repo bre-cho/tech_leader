@@ -63,6 +63,17 @@ export function ProjectWorkspace({
       </div>
 
       <div className="pipeline-card">
+        <div className="section-eyebrow">OPERATION FLOW</div>
+        <ol className="pipeline-steps">
+          <li>Upload ảnh nguồn và điền Creative Brief.</li>
+          <li>Nhấn Start Pipeline để chạy IMAGE - STORYBOARD - VIDEO planning.</li>
+          <li>Xem kết quả concept thắng, storyboard và trạng thái verification.</li>
+          <li>Nhấn Open Video Studio để chạy handoff + compile VideoFlow.</li>
+          <li>Sau khi compile xong, hệ thống tự chuyển sang Video Studio tại cổng 5173 để render video.</li>
+        </ol>
+      </div>
+
+      <div className="pipeline-card">
         <div className="section-eyebrow">CREATIVE BRIEF</div>
         <div className="brief-grid">
           <label className="brief-field">

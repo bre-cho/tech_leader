@@ -1,0 +1,9 @@
+{
+  "accounts": [],
+  "rotation": {
+    "enabled": false,
+    "strategy": "round_robin",
+    "perScene": false
+  },
+  "cursor": 0
+}

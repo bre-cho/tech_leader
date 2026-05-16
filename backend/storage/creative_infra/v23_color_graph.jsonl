@@ -1,0 +1,16 @@
+{"source": "Spa Green", "relation": "supports", "target": "calm / trust", "weight": 0.865, "brand_name": "Serene Spa", "use_case": "showroom", "created_at": "2026-05-15T13:05:28.221030+00:00"}
+{"source": "Warm Ivory", "relation": "supports", "target": "clean / premium", "weight": 0.865, "brand_name": "Serene Spa", "use_case": "showroom", "created_at": "2026-05-15T13:05:28.221200+00:00"}
+{"source": "Soft Gold", "relation": "supports", "target": "luxury / attention", "weight": 0.865, "brand_name": "Serene Spa", "use_case": "showroom", "created_at": "2026-05-15T13:05:28.221294+00:00"}
+{"source": "Coral CTA", "relation": "supports", "target": "conversion / energy", "weight": 0.865, "brand_name": "Serene Spa", "use_case": "showroom", "created_at": "2026-05-15T13:05:28.221384+00:00"}
+{"source": "Runway Black", "relation": "supports", "target": "luxury / authority", "weight": 0.865, "brand_name": "Demo Brand", "use_case": "showroom", "created_at": "2026-05-15T13:05:30.973520+00:00"}
+{"source": "Champagne Gold", "relation": "supports", "target": "premium / warmth", "weight": 0.865, "brand_name": "Demo Brand", "use_case": "showroom", "created_at": "2026-05-15T13:05:30.973611+00:00"}
+{"source": "Ivory Silk", "relation": "supports", "target": "trust / editorial", "weight": 0.865, "brand_name": "Demo Brand", "use_case": "showroom", "created_at": "2026-05-15T13:05:30.973686+00:00"}
+{"source": "Rose Accent", "relation": "supports", "target": "desire / attention", "weight": 0.865, "brand_name": "Demo Brand", "use_case": "showroom", "created_at": "2026-05-15T13:05:30.973780+00:00"}
+{"source": "Memory Sepia", "relation": "supports", "target": "nostalgia / warmth", "weight": 0.865, "brand_name": "Demo Brand", "use_case": "restore_photo", "created_at": "2026-05-15T13:05:32.800436+00:00"}
+{"source": "Paper Beige", "relation": "supports", "target": "comfort / realism", "weight": 0.865, "brand_name": "Demo Brand", "use_case": "restore_photo", "created_at": "2026-05-15T13:05:32.800539+00:00"}
+{"source": "Natural Skin", "relation": "supports", "target": "identity / safety", "weight": 0.865, "brand_name": "Demo Brand", "use_case": "restore_photo", "created_at": "2026-05-15T13:05:32.800620+00:00"}
+{"source": "Ink Brown", "relation": "supports", "target": "clarity / heritage", "weight": 0.865, "brand_name": "Demo Brand", "use_case": "restore_photo", "created_at": "2026-05-15T13:05:32.800771+00:00"}
+{"source": "Spa Green", "relation": "supports", "target": "calm / trust", "weight": 0.865, "brand_name": "Serene Spa", "use_case": "showroom", "created_at": "2026-05-15T13:06:54.995000+00:00"}
+{"source": "Warm Ivory", "relation": "supports", "target": "clean / premium", "weight": 0.865, "brand_name": "Serene Spa", "use_case": "showroom", "created_at": "2026-05-15T13:06:54.995092+00:00"}
+{"source": "Soft Gold", "relation": "supports", "target": "luxury / attention", "weight": 0.865, "brand_name": "Serene Spa", "use_case": "showroom", "created_at": "2026-05-15T13:06:54.995167+00:00"}
+{"source": "Coral CTA", "relation": "supports", "target": "conversion / energy", "weight": 0.865, "brand_name": "Serene Spa", "use_case": "showroom", "created_at": "2026-05-15T13:06:54.995240+00:00"}

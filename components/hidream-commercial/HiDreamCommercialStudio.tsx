@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { persistDomainHandoff } from "@/lib/workflow/handoff-client";
 
 type HiDreamPayload = {
   business_goal: string;
@@ -79,7 +80,26 @@ export default function HiDreamCommercialStudio() {
       if (!response.ok) {
         throw new Error(await response.text());
       }
-      setResult(await response.json());
+      const data = await response.json();
+      setResult(data);
+
+      persistDomainHandoff("hidream-commercial", {
+        workflowId: data?.workflow_id || data?.id || undefined,
+        request: {
+          storyboard: [
+            {
+              title: payload.product_name,
+              description: payload.business_goal,
+            },
+            {
+              title: "Premium visual compile",
+              description: payload.copy_text || "HiDream commercial render",
+            },
+          ],
+        },
+        providerPayloadResult: data?.prompt_contract || data?.artifact || {},
+        videoFlowCompile: data?.videoFlowCompile || { status: data?.promotion_gate?.passed ? "ready" : "hold" },
+      });
     } catch (err: any) {
       setError(err?.message || "Request failed");
     } finally {

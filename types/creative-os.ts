@@ -16,3 +16,30 @@ export type StoryboardPlan = {
   scenes: Array<{ id: string; index: number; title: string; camera: string; motion: string; subtitle: string; provider: string; duration: number; continuity_key: string; status: string }>
   batches: Array<{ id: string; batch_index: number; scene_indexes: number[]; planned_batch_size: number; max_concurrent_render: 1; execution_mode: string; status: string }>
 }
+
+export type ProviderDurationProfile = {
+  provider: ProviderKey
+  recommended_duration_per_scene: number
+  max_duration_per_scene: number
+  default_planned_batch_size: number
+  max_concurrent_render: 1
+  cooldown_seconds: number
+  retry_limit: number
+}
+
+export type RenderStep = {
+  batch_index: number
+  scene_index: number
+  status: string
+  max_concurrent_render: 1
+  execution_mode: 'sequential'
+}
+
+export type GeneratedSourceImage = {
+  status: 'succeeded' | 'failed'
+  prompt: string
+  image_url: string
+  artifact_path: string
+  model: string
+  is_mock: boolean
+}

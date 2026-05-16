@@ -7,6 +7,7 @@ import MakeupAvatarPreview from "./MakeupAvatarPreview";
 import IndustryAvatarPresetGrid from "./IndustryAvatarPresetGrid";
 import AvatarConsistencyPanel from "./AvatarConsistencyPanel";
 import AvatarRender8KPanel from "./AvatarRender8KPanel";
+import { persistDomainHandoff } from "@/lib/workflow/handoff-client";
 
 export default function VirtualAvatarStudio() {
   const [result, setResult] = useState<any>(null);
@@ -31,7 +32,27 @@ export default function VirtualAvatarStudio() {
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(payload)
     });
-    setResult(await res.json());
+    const data = await res.json();
+    setResult(data);
+
+    persistDomainHandoff("beauty-avatar", {
+      workflowId: data?.workflow_id || data?.id || undefined,
+      request: {
+        storyboard: [
+          {
+            title: "Avatar identity locked",
+            description: data?.identity?.summary || "Beauty avatar identity generated.",
+          },
+          {
+            title: "Render profile",
+            description: payload.quality,
+          },
+        ],
+      },
+      providerPayloadResult: data?.providerPayload || data?.provider_payload || {},
+      videoFlowCompile: data?.videoFlowCompile || { status: data?.status || "ready" },
+    });
+
     setLoading(false);
   }
 

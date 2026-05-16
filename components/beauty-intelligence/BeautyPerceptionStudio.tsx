@@ -2,6 +2,7 @@
 import {useState} from "react";
 import { HairRealismPanel } from "./hair-realism/HairRealismPanel";
 import { FaceBalancePanel } from "./face-balance/FaceBalancePanel";
+import { persistDomainHandoff } from "@/lib/workflow/handoff-client";
 
 const API = process.env.NEXT_PUBLIC_API_BASE || "http://localhost:8000";
 
@@ -26,9 +27,36 @@ export default function BeautyPerceptionStudio() {
     form.append("identity_preservation", "true");
     form.append("export_scale", "preview");
     const res = await fetch(`${API}/api/v1/beauty/${endpoint}`, {method:"POST", body:form});
-    setData(await res.json());
+    const runData = await res.json();
+    setData(runData);
     const g = await fetch(`${API}/api/v1/beauty/graph`);
-    setGraph(await g.json());
+    const graphData = await g.json();
+    setGraph(graphData);
+
+    const storyboard = [
+      {
+        title: `Beauty ${endpoint} analysis`,
+        description: `Preset ${preset} - Persona ${persona}`,
+      },
+      {
+        title: "Skin tone and perception",
+        description: JSON.stringify(runData?.skin_tone || runData?.beauty_perception || {}),
+      },
+      {
+        title: "Graph signals",
+        description: `Edges: ${Array.isArray(graphData?.items) ? graphData.items.length : 0}`,
+      },
+    ];
+
+    persistDomainHandoff("beauty-intelligence", {
+      workflowId: runData?.workflow_id || runData?.id || undefined,
+      request: { storyboard },
+      providerPayloadResult: runData?.provider_payload || {},
+      videoFlowCompile: {
+        status: runData?.status || "ready",
+        graphItems: Array.isArray(graphData?.items) ? graphData.items.length : 0,
+      },
+    });
     setLoading(false);
   }
 

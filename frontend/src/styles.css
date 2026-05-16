@@ -46,6 +46,7 @@ textarea { min-height: 82px; resize: vertical; }
 .score-ring span { color: #b7aa98; margin-top: -36px; }
 .pill { border: 1px solid rgba(246,213,122,.25); color: #f6d57a; border-radius: 999px; padding: 8px 12px; font-size: 12px; }
 .delivery-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 24px; margin-top: 24px; }
+.handoff-runtime-grid { align-items: start; }
 .timeline-panel { grid-row: span 2; }
 .timeline-list { display: grid; gap: 12px; max-height: 620px; overflow: auto; padding-right: 6px; }
 .scene-card { border: 1px solid rgba(255,255,255,.08); background: rgba(255,255,255,.04); border-radius: 18px; padding: 14px; }
