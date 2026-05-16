@@ -3,10 +3,12 @@ import { createRoot } from 'react-dom/client';
 import DesignStudio from './pages/DesignStudio';
 import DesignStudioCreativeOS from './pages/DesignStudioCreativeOS';
 import DesignStudioCreativeOSV2 from './pages/DesignStudioCreativeOSV2';
+import FashionMovieStudio from './pages/FashionMovieStudio';
 import './styles.css';
 
 const search = new URLSearchParams(window.location.search);
 const hasHandoffMarker = search.has('handoff');
+const hasFashionHandoff = search.has('fashion_handoff');
 const hasNamedPayload = typeof window.name === 'string' && window.name.trim().length > 0;
 let effectivePath = window.location.pathname;
 
@@ -42,5 +44,5 @@ const hasCreativeHandoff = isCreativePath || hasHandoffMarker || hasNamedPayload
 const hasCreativeHandoffV2 = isCreativePathV2 || isV2Handoff;
 
 createRoot(document.getElementById('root')!).render(
-	hasCreativeHandoffV2 ? <DesignStudioCreativeOSV2 /> : hasCreativeHandoff ? <DesignStudioCreativeOS /> : <DesignStudio />
+	hasFashionHandoff ? <FashionMovieStudio /> : hasCreativeHandoffV2 ? <DesignStudioCreativeOSV2 /> : hasCreativeHandoff ? <DesignStudioCreativeOS /> : <DesignStudio />
 );

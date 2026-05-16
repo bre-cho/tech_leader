@@ -1,0 +1,10 @@
+nohup: ignoring input
+INFO:     Started server process [249314]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:56850 - "GET /api/v1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38120 - "POST /api/v1/fashion-runtime/analyze HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35992 - "POST /api/v1/fashion-runtime/analyze HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34296 - "POST /api/v1/fashion-runtime/analyze HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56888 - "POST /api/v1/fashion-runtime/analyze HTTP/1.1" 200 OK

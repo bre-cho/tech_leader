@@ -1,33 +1,118 @@
-# TECH_LEADER_CREATIVE_OS_MVP_FULL_PATCH
+# FASHION_BEAUTY_RUNTIME_V1_PATCH
 
-Nâng cấp MVP thành AI-Native Creative Production Operating System.
+## Mục tiêu
 
-## Luồng chính
+Nâng cấp `tech_leader-main` dựa trên 2 bộ ảnh người dùng đã gửi:
 
-Creative Brief → Research Runtime → Image Source → Video Duration Planner → Provider Selector → Image Battle → Winner Selection → Storyboard Extraction → Timeline Composition → Provider Dispatch → Sequential Render Runtime → Delivery → Memory Learning.
+1. **Luxury Quiet Beauty / Chanel-like Editorial DNA**
+   - trắng kem
+   - nâu chocolate
+   - ngọc trai
+   - túi xách luxury
+   - soft feminine editorial
+   - quiet luxury commercial
 
-## Luật render bắt buộc
+2. **Hyper Feminine Fashion Motion / Miu-like Pastel Runtime**
+   - peach / lavender / pastel pink
+   - tóc chuyển động mạnh
+   - fashion walk
+   - kinetic pose
+   - Gen Z luxury
+   - TikTok / Xiaohongshu commerce energy
 
-- planned_batch_size = số cảnh trong một batch kế hoạch.
-- max_concurrent_render = số cảnh được render đồng thời.
-- Mặc định planned_batch_size = 6, max_concurrent_render = 1.
-- Batch 01 có Scene 01–06 nhưng chỉ render Scene 01; Scene 01 xong mới render Scene 02.
+Patch này biến MVP thành:
 
-## Cài đặt
-
-Backend:
-```python
-from app.api.routes.creative_os import router as creative_os_router
-app.include_router(creative_os_router, prefix="/api/v1")
+```text
+AI-Native Cinematic Fashion Intelligence Infrastructure
 ```
 
-Next.js: copy `frontend-next/app`, `frontend-next/components`, `frontend-next/types`, `frontend-next/lib`.
+Không chỉ tạo ảnh/video, mà có thêm:
 
-Vite: copy `frontend-vite/src` vào frontend Vite.
+```text
+Visual DNA
+→ Emotional Perception Graph
+→ Character Continuity Runtime
+→ Fashion Motion Engine
+→ Beauty Commerce Engine
+→ Storyboard Runtime
+→ Video Handoff
+→ Winner DNA Memory
+```
+
+---
+
+## Module backend mới
+
+```text
+backend/app/visual_fashion_runtime/
+  __init__.py
+  schemas.py
+  visual_dna_extractor.py
+  emotional_perception_graph.py
+  character_continuity_runtime.py
+  fashion_motion_engine.py
+  beauty_commerce_engine.py
+  storyboard_runtime.py
+  winner_dna_memory.py
+  orchestrator.py
+
+backend/app/api/v1/fashion_beauty_runtime.py
+```
+
+---
+
+## Module Next.js mới
+
+```text
+app/fashion-runtime/page.tsx
+app/fashion-runtime/fashion-runtime.css
+app/api/v1/fashion-runtime/[...path]/route.ts
+components/fashion-runtime/FashionRuntimeStudio.tsx
+lib/fashion-runtime-api.ts
+types/fashion-runtime.ts
+```
+
+---
+
+## Module Vite mới
+
+```text
+frontend/src/pages/FashionMovieStudio.tsx
+frontend/src/fashion-runtime/runtime/fashionHandoffReceiver.ts
+frontend/src/types/fashion-runtime.ts
+frontend/src/styles/fashion-runtime.css
+```
+
+---
 
 ## API
 
-- GET /api/v1/creative-os/provider-profiles
-- POST /api/v1/creative-os/projects/{project_id}/plan-storyboard
-- GET /api/v1/creative-os/projects/{project_id}/render-steps
-- GET /api/v1/creative-os/projects/{project_id}/events
+```text
+POST /api/v1/fashion-runtime/analyze
+POST /api/v1/fashion-runtime/generate-storyboard
+GET  /api/v1/fashion-runtime/taxonomy
+```
+
+---
+
+## Kết quả chính
+
+Từ brief đơn giản:
+
+```text
+Luxury K-beauty fashion campaign with peach lavender motion energy
+```
+
+Hệ thống tự tạo:
+
+- Visual DNA
+- Color palette
+- Luxury perception score
+- Fashion archetype
+- Character continuity lock
+- Motion language
+- Beauty commerce positioning
+- 12-scene storyboard
+- sequential render policy
+- Vite handoff payload
+- Winner DNA memory payload
