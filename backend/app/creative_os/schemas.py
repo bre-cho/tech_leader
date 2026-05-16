@@ -1,19 +1,6 @@
 from typing import Any, Dict, List, Literal, Optional
 from uuid import uuid4
-
 from pydantic import BaseModel, Field, field_validator
-
-
-class ProjectCreate(BaseModel):
-    name: str = "Untitled Creative Project"
-    industry: str
-    product: str
-    audience: str
-    channel: str
-    goal: str
-    brand_name: str
-    language: str = "Vietnamese"
-
 
 class StoryboardPlanRequest(BaseModel):
     image_source: Literal["upload", "generated"]
@@ -26,9 +13,7 @@ class StoryboardPlanRequest(BaseModel):
     @field_validator("max_concurrent_render")
     @classmethod
     def force_safe_concurrency(cls, value: int) -> int:
-        del value
         return 1
-
 
 class StoryboardScene(BaseModel):
     id: str = Field(default_factory=lambda: str(uuid4()))
@@ -42,7 +27,6 @@ class StoryboardScene(BaseModel):
     continuity_key: str
     status: str = "planned"
 
-
 class RenderBatch(BaseModel):
     id: str = Field(default_factory=lambda: str(uuid4()))
     batch_index: int
@@ -51,7 +35,6 @@ class RenderBatch(BaseModel):
     max_concurrent_render: int = 1
     execution_mode: str = "sequential"
     status: str = "queued"
-
 
 class StoryboardPlan(BaseModel):
     project_id: str
@@ -68,7 +51,6 @@ class StoryboardPlan(BaseModel):
     execution_mode: str = "sequential"
     scenes: List[StoryboardScene]
     batches: List[RenderBatch]
-
 
 class RuntimeEvent(BaseModel):
     id: str = Field(default_factory=lambda: str(uuid4()))
