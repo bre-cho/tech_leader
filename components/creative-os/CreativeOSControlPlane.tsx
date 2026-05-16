@@ -23,6 +23,10 @@ function getProviderLabel(provider: ProviderKey): string {
     return 'Veo'
 }
 
+function isPromptOnlyTestMode(provider: ProviderKey): boolean {
+    return provider === 'seedance2-fast'
+}
+
 const defaultRuntimeLogs = [
     'Strategy Agent ready',
     'Research Agent waiting for storyboard plan',
@@ -61,7 +65,7 @@ function compactImageReference(url: string, source: 'upload' | 'generated'): str
 export function CreativeOSControlPlane() {
     const [imageSource, setImageSource] = useState<'upload' | 'generated'>('upload')
     const [imageUrl, setImageUrl] = useState('/uploads/demo-winner-image.png')
-    const [imagePrompt, setImagePrompt] = useState('Luxury skincare product hero shot, studio lighting, premium cosmetic bottle, clean beauty campaign')
+    const [imagePrompt, setImagePrompt] = useState('Luxury Korean fashion commercial, cinematic pastel lighting, female model walking toward camera')
     const [duration, setDuration] = useState(60)
     const [provider, setProvider] = useState<ProviderKey>('seedance2-fast')
     const [plannedBatchSize, setPlannedBatchSize] = useState(6)
@@ -240,6 +244,7 @@ export function CreativeOSControlPlane() {
 
     async function generatePlan() {
         const selectedProviderLabel = getProviderLabel(provider)
+        const usePromptOnlySeedance = isPromptOnlyTestMode(provider)
         setIsPlanning(true)
         setApiError(null)
         setPlan(null)
@@ -251,7 +256,7 @@ export function CreativeOSControlPlane() {
         setRuntimeLogs((prev) => [`Planning storyboard via backend API for ${selectedProviderLabel}...`, ...prev])
 
         try {
-            const compactImageUrl = compactImageReference(imageUrl, imageSource)
+            const compactImageUrl = usePromptOnlySeedance ? '' : compactImageReference(imageUrl, imageSource)
             const planData = await fetchJsonWithTimeout<StoryboardPlan>(
                 `/api/v1/creative-os/projects/${PROJECT_ID}/plan-storyboard`,
                 {
@@ -301,7 +306,11 @@ export function CreativeOSControlPlane() {
             setRuntimeLogs((prev) => [
                 `Storyboard planned: ${planData.scene_count} scenes / ${planData.total_batches} batches for ${selectedProviderLabel}`,
                 `Sequential render ${execution.status}: ${execution.completed_scenes}/${execution.scene_count} scenes · ${selectedProviderLabel}`,
-                compactImageUrl !== imageUrl ? 'Using compact image reference for planning payload.' : 'Using direct image URL for planning payload.',
+                usePromptOnlySeedance
+                    ? 'Seedance Fast MVP prompt-only mode: no image attached to planning/render payload.'
+                    : compactImageUrl !== imageUrl
+                        ? 'Using compact image reference for planning payload.'
+                        : 'Using direct image URL for planning payload.',
                 'Render executor started and status polling enabled',
                 ...prev,
             ])
@@ -394,7 +403,7 @@ export function CreativeOSControlPlane() {
 
         const payload = JSON.stringify({
             project_id: plan.project_id,
-            winner_image_url: plan.image_url,
+            winner_image_url: plan.provider === 'seedance2-fast' ? undefined : plan.image_url,
             storyboard: plan.scenes,
             provider_targets: [plan.provider],
             render_mode: 'image_to_video',
@@ -442,6 +451,7 @@ export function CreativeOSControlPlane() {
                         <h1>Image → Storyboard → Video</h1>
                         <p>Upload ảnh hoặc dùng ảnh AI tạo ra, nhập thời lượng video, chọn provider, tự tính số cảnh và render tuần tự từng cảnh.</p>
                     </div>
+                    {isPromptOnlyTestMode(provider) ? <div className="os-api-badge is-connected">Prompt-only test mode: Seedance Fast MVP</div> : null}
                     <button className="os-primary" onClick={generatePlan} disabled={isPlanning || isExecutingRender}>
                         {isPlanning ? 'Generating via Backend...' : isExecutingRender ? 'Render Running...' : 'Generate Storyboard Plan'}
                     </button>
@@ -453,18 +463,21 @@ export function CreativeOSControlPlane() {
                     <section className="os-card">
                         <div className="os-card-head"><div className="os-eyebrow">IMAGE SOURCE PANEL</div><ApiBadge state={sourceStatus} label="source image" /></div>
                         <h2>Ảnh nguồn</h2>
+                        {isPromptOnlyTestMode(provider) ? (
+                            <p className="os-muted">Prompt-only test mode đang bật. Ảnh sẽ không được gửi tới backend để tiết kiệm tín dụng.</p>
+                        ) : null}
                         <div className="os-form-grid">
-                            <label className="os-label">Nguồn ảnh<select value={imageSource} onChange={(e) => setImageSource(e.target.value as 'upload' | 'generated')}><option value="upload">Upload từ thiết bị</option><option value="generated">Ảnh AI/code tạo ra</option></select></label>
-                            <label className="os-label">Image URL<input value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} /></label>
-                            <label className="os-label">Upload ảnh<input type="file" accept="image/*" onChange={handleSourceImageUpload} /></label>
-                            <label className="os-label">Prompt tạo ảnh AI<textarea className="os-textarea" value={imagePrompt} onChange={(e) => setImagePrompt(e.target.value)} /></label>
+                            <label className="os-label">Nguồn ảnh<select value={imageSource} onChange={(e) => setImageSource(e.target.value as 'upload' | 'generated')} disabled={isPromptOnlyTestMode(provider)}><option value="upload">Upload từ thiết bị</option><option value="generated">Ảnh AI/code tạo ra</option></select></label>
+                            <label className="os-label">Image URL<input value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} disabled={isPromptOnlyTestMode(provider)} /></label>
+                            <label className="os-label">Upload ảnh<input type="file" accept="image/*" onChange={handleSourceImageUpload} disabled={isPromptOnlyTestMode(provider)} /></label>
+                            <label className="os-label">Prompt tạo ảnh AI<textarea className="os-textarea" value={imagePrompt} onChange={(e) => setImagePrompt(e.target.value)} disabled={isPromptOnlyTestMode(provider)} /></label>
                         </div>
                         <div className="os-source-actions">
-                            <button className="os-secondary" onClick={generateSourceImage} disabled={isGeneratingSource}>{isGeneratingSource ? 'Generating image...' : 'Generate AI Source Image'}</button>
-                            <span className="os-muted">Upload ảnh từ thiết bị hoặc tạo ảnh AI bằng code rồi dùng chung cho backend plan-storyboard.</span>
+                            <button className="os-secondary" onClick={generateSourceImage} disabled={isGeneratingSource || isPromptOnlyTestMode(provider)}>{isGeneratingSource ? 'Generating image...' : 'Generate AI Source Image'}</button>
+                            <span className="os-muted">{isPromptOnlyTestMode(provider) ? 'Ảnh đang bị khóa trong chế độ prompt-only để test nhanh và tránh tốn tín dụng.' : 'Upload ảnh từ thiết bị hoặc tạo ảnh AI bằng code rồi dùng chung cho backend plan-storyboard.'}</span>
                         </div>
                         {sourceError ? <div className="os-api-error">{sourceError}</div> : null}
-                        {imageSource === 'generated' && imageUrl ? <p className="os-muted">Generated source đang dùng cho storyboard planning. Nếu thiếu API key hoặc gặp quota/rate-limit từ provider, hệ thống sẽ tự dùng mock fallback để đảm bảo UI demo luôn hoạt động.</p> : null}
+                        {imageSource === 'generated' && imageUrl && !isPromptOnlyTestMode(provider) ? <p className="os-muted">Generated source đang dùng cho storyboard planning. Nếu thiếu API key hoặc gặp quota/rate-limit từ provider, hệ thống sẽ tự dùng mock fallback để đảm bảo UI demo luôn hoạt động.</p> : null}
                         <div className="os-image-preview">{imageUrl ? <img src={imageUrl} alt={imageSource === 'upload' ? 'Uploaded source' : 'Generated source'} className="os-preview-image" /> : imageSource === 'upload' ? 'UPLOADED IMAGE' : 'GENERATED IMAGE'}</div>
                     </section>
 
